@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebExpresso | Votre Site Vitrine Professionnel en Moins d'une Semaine</title>
+    <meta name="description"
+        content="Obtenez la vidéo de démo personnalisée de votre futur site pour seulement 5€ d'acompte. Site clé en main dès 100€ (5€ d'acompte + 95€ de solde), sans abonnement caché. Conçu par des étudiants ingénieurs.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/tokens.css?v=2.5.4">
+    <link rel="stylesheet" href="css/public.css?v=2.5.4">
+</head>
+
+<body>
+    <nav id="navbar" class="navbar">
+        <div class="navbar-inner">
+            <a href="#accueil" class="logo logo-brand" aria-label="WebExpresso - Accueil">
+                <img src="assets/logo-webexpresso-icon.png" alt="" class="nav-logo-icon" width="32" height="26">
+                <span class="logo-text">WebExpresso</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#accueil"><span class="lang-fr">Accueil</span><span class="lang-en">Home</span></a></li>
+                <li><a href="#methode"><span class="lang-fr">Méthode</span><span class="lang-en">Method</span></a></li>
+                <li><a href="#prestations"><span class="lang-fr">Offres</span><span class="lang-en">Plans</span></a>
+                </li>
+                <li><a href="#gallery"><span class="lang-fr">Portfolio</span><span class="lang-en">Portfolio</span></a>
+                </li>
+                <li><a href="#apropos"><span class="lang-fr">À propos</span><span class="lang-en">About</span></a></li>
+                <li><a href="#faq"><span class="lang-fr">FAQ</span><span class="lang-en">FAQ</span></a></li>
+            </ul>
+
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 12px;">
+                <a href="https://tally.so/r/XxAYzY" target="_blank" rel="noopener" class="btn-primary nav-cta"
+                    style="padding: 8px 18px; font-size: 0.88rem; text-decoration: none; border-radius: var(--radius-pill); font-weight: 600;">
+                    <span class="lang-fr">Lancer ma démo (5€) ↗</span>
+                    <span class="lang-en">Start my demo (5€) ↗</span>
+                </a>
+
+                <button type="button" id="langToggle" class="lang-toggle-btn"
+                    aria-label="Changer de langue / Switch language">
+                    <span class="lang-text" id="langToggleText">EN</span>
+                </button>
+            </div>
+
+            <div class="hamburger" id="hamburger" aria-label="Menu Mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-nav" class="mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="#accueil"><span class="lang-fr">Accueil</span><span class="lang-en">Home</span></a></li>
+            <li><a href="#methode"><span class="lang-fr">Méthode</span><span class="lang-en">Method</span></a></li>
+            <li><a href="#prestations"><span class="lang-fr">Offres</span><span class="lang-en">Plans</span></a></li>
+            <li><a href="#gallery"><span class="lang-fr">Portfolio</span><span class="lang-en">Portfolio</span></a></li>
+            <li><a href="#apropos"><span class="lang-fr">À propos</span><span class="lang-en">About</span></a></li>
+            <li><a href="#faq"><span class="lang-fr">FAQ</span><span class="lang-en">FAQ</span></a></li>
+            <li><a href="https://tally.so/r/XxAYzY" target="_blank" rel="noopener"
+                    style="color: var(--color-accent); font-weight: 700;">
+                    <span class="lang-fr">Obtenir ma Démo (5€) ↗</span>
+                    <span class="lang-en">Get my Demo (5€) ↗</span>
+                </a></li>
+            <li style="margin-top: 14px; text-align: center;">
+                <button type="button" id="mobileLangToggle" class="lang-toggle-btn mobile-lang-toggle"
+                    aria-label="Changer de langue / Switch language">
+                    <span class="lang-text" id="mobileLangToggleText">EN</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <header id="accueil" class="hero">
+        <div class="hero-media">
+            <img src="assets/hero-option-2-esquisse-laptop.jpg"
+                alt="Conception collaborative de site web, du croquis papier à l'écran" fetchpriority="high">
+        </div>
+        <div class="hero-shimmer"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1><span class="hero-brand-name">WebExpresso</span><span class="hero-subline"><span class="lang-fr">Site
+                        personnalisé livré en moins d'une semaine</span><span class="lang-en">Custom website delivered
+                        in under a week</span></span></h1>
+            <p class="hero-description"><span class="lang-fr">Visualisez le résultat exact avant de vous engager.
+                    Remplissez notre questionnaire en 10 minutes et recevez une vidéo interactive de votre futur site
+                    pour seulement 5 € d'acompte (déductibles du solde final).</span><span class="lang-en">See the exact
+                    result before committing. Fill out our 10-minute questionnaire and receive an interactive video demo
+                    of your future website for just a 5 € deposit (deducted from the final balance).</span></p>
+            <div class="hero-proof-bar">
+                <div class="proof-item">
+                    <span class="proof-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                        </svg></span>
+                    <span>
+                        <span class="lang-fr">Livré en moins de 7 jours</span>
+                        <span class="lang-en">Delivered in under 7 days</span>
+                    </span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg></span>
+                    <span>
+                        <span class="lang-fr">5 € d'acompte sans engagement</span>
+                        <span class="lang-en">5 € deposit with no commitment</span>
+                    </span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                        </svg></span>
+                    <span>
+                        <span class="lang-fr">Projet étudiant Grenoble INP & Commerce</span>
+                        <span class="lang-en">Student project Grenoble INP & Business</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════
+         TICKER BANNER (Bandeau Défilant)
+    ═══════════════════════════════════ -->
+    <div class="ticker-banner" id="banderole-ticker" aria-hidden="true">
+        <div class="ticker-track">
+            <div class="ticker-content" id="ticker-content-primary">
+                <span><span class="lang-fr">DÉMO VIDÉO SOUS 7 JOURS</span><span class="lang-en">VIDEO DEMO IN 7
+                        DAYS</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">ACOMPTE 5€ SANS ENGAGEMENT</span><span class="lang-en">5€ DEPOSIT NO
+                        COMMITMENT</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">ZÉRO ABONNEMENT CACHÉ</span><span class="lang-en">ZERO HIDDEN
+                        SUBSCRIPTIONS</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">100% PROPRIÉTAIRE DE VOTRE SITE</span><span class="lang-en">100% OWNER OF
+                        YOUR SITE</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">ADAPTÉ MOBILE & ORDINATEUR</span><span class="lang-en">MOBILE & DESKTOP
+                        OPTIMIZED</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">ÉQUIPE ÉTUDIANTE GRENOBLE INP</span><span class="lang-en">GRENOBLE INP
+                        STUDENT TEAM</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">LIVRAISON CLÉ EN MAIN</span><span class="lang-en">TURNKEY
+                        DELIVERY</span></span>
+                <span class="bullet">•</span>
+            </div>
+            <div class="ticker-content" id="ticker-content-secondary" aria-hidden="true">
+                <span><span class="lang-fr">DÉMO VIDÉO SOUS 7 JOURS</span><span class="lang-en">VIDEO DEMO IN 7
+                        DAYS</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">ACOMPTE 5€ SANS ENGAGEMENT</span><span class="lang-en">5€ DEPOSIT NO
+                        COMMITMENT</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">ZÉRO ABONNEMENT CACHÉ</span><span class="lang-en">ZERO HIDDEN
+                        SUBSCRIPTIONS</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">100% PROPRIÉTAIRE DE VOTRE SITE</span><span class="lang-en">100% OWNER OF
+                        YOUR SITE</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">ADAPTÉ MOBILE & ORDINATEUR</span><span class="lang-en">MOBILE & DESKTOP
+                        OPTIMIZED</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">ÉQUIPE ÉTUDIANTE GRENOBLE INP</span><span class="lang-en">GRENOBLE INP
+                        STUDENT TEAM</span></span>
+                <span class="bullet">•</span>
+                <span><span class="lang-fr">LIVRAISON CLÉ EN MAIN</span><span class="lang-en">TURNKEY
+                        DELIVERY</span></span>
+                <span class="bullet">•</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="methode" class="section section-process">
+        <div class="container">
+            <span class="eyebrow section-eyebrow" style="text-align:center;">
+                <span class="lang-fr">MÉTHODE SIMPLE & RAPIDE</span>
+                <span class="lang-en">SIMPLE & FAST METHOD</span>
+            </span>
+            <h2 class="section-title">
+                <span class="lang-fr">Comment ça marche ?</span>
+                <span class="lang-en">How Does It Work?</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="lang-fr">De votre idée à votre site en ligne en 4 étapes simples, sans jargon
+                    technique.</span>
+                <span class="lang-en">From your idea to your live site in 4 simple steps, with zero technical
+                    jargon.</span>
+            </p>
+            <div class="process-grid" id="process-grid"></div>
+        </div>
+    </section>
+    <section id="prestations" class="section">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center;">
+                <span class="lang-fr">TARIFS CLAIRS & TRANSPARENTS</span>
+                <span class="lang-en">CLEAR & TRANSPARENT PRICING</span>
+            </span>
+            <h2 class="section-title">
+                <span class="lang-fr">Deux Formules Adaptées à Vos Besoins</span>
+                <span class="lang-en">Two Plans Tailored to Your Needs</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="lang-fr">Zéro abonnement mensuel : vous payez en une seule fois et le site vous appartient
+                    pour toujours.</span>
+                <span class="lang-en">Zero monthly subscription: pay once and own your website forever.</span>
+            </p>
+            <div class="services-grid" id="services-grid"></div>
+        </div>
+    </section>
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center;">
+                <span class="lang-fr">EXEMPLES CONCRETS</span>
+                <span class="lang-en">PORTFOLIO EXAMPLES</span>
+            </span>
+            <h2 class="section-title">
+                <span class="lang-fr">Nos Derniers Sites Déployés</span>
+                <span class="lang-en">Our Latest Live Websites</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="lang-fr">Découvrez nos réalisations en ligne. Cliquez sur une carte pour tester le site en
+                    direct.</span>
+                <span class="lang-en">Explore our live showcase sites. Click any card to test the interactive
+                    preview.</span>
+            </p>
+            <div class="gallery-grid" id="gallery-grid"></div>
+        </div>
+    </section>
+    <section id="apropos" class="section">
+        <div class="container about-container">
+            <div class="about-image reveal about-image-parallax">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+                    alt="L'équipe fondatrice WebExpresso" loading="lazy" class="parallax-element"
+                    data-parallax-speed="0.08">
+            </div>
+            <div class="about-text reveal">
+                <h2>
+                    <span class="lang-fr">Qui sommes-nous</span>
+                    <span class="lang-en">About Us</span>
+                </h2>
+                <p>
+                    <span class="lang-fr">WebExpresso est un projet que nous menons en parallèle de nos études
+                        d'ingénieur (Grenoble INP) et de commerce. C'est pour nous un complément financier, mais c'est
+                        avant tout une formidable opportunité de découvrir de nouvelles choses : nous perfectionner en
+                        pratique sur la technique comme sur la commercialisation et la relation client.</span>
+                    <span class="lang-en">WebExpresso is a project we run alongside our engineering (Grenoble INP) and
+                        business degrees. While it provides supplemental income during our studies, it is above all a
+                        great opportunity to explore new horizons: honing our hands-on skills in web development,
+                        marketing, and client relationships.</span>
+                </p>
+                <p class="pull-quote">
+                    <span class="lang-fr">Notre but : aider les artisans, commerçants et indépendants à avoir un vrai
+                        site professionnel sans y laisser 1 500 €.</span>
+                    <span class="lang-en">Our goal: help local artisans, merchants, and freelancers get a genuine
+                        professional website without spending 1 500 €.</span>
+                </p>
+                <p>
+                    <span class="lang-fr">Puisque nous n'avons pas les charges fixes d'une grosse agence, nous pouvons
+                        proposer des prix directs et ultra-accessibles : 100 € au total pour la formule Essentiel (5 €
+                        d'acompte + 95 € de solde) et 150 € pour la formule Autonome (5 € d'acompte + 145 € de solde).
+                        Vous bénéficiez d'un site moderne et soigné, et vous voyez d'abord le résultat en vidéo avant de
+                        payer le solde.</span>
+                    <span class="lang-en">Because we do not have large agency overhead, we offer direct and
+                        ultra-accessible prices: 100 € total for the Essential plan (5 € deposit + 95 € balance) and 150
+                        € for the Autonomous plan (5 € deposit + 145 € balance). You get a sleek, modern website, and
+                        you review the video demo first before paying the balance.</span>
+                </p>
+                <div class="about-signature" id="about-signature">
+                    <span class="lang-fr">L'Équipe WebExpresso — Grenoble INP & École de Commerce</span>
+                    <span class="lang-en">The WebExpresso Team — Grenoble INP & Business School</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="cine-banner" id="bandeau-cine-1">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80"
+            alt="Espace de travail moderne et développement réactif" loading="lazy">
+        <div class="cine-banner-overlay"></div>
+        <div class="cine-banner-content">
+            <span class="cine-banner-eyebrow">
+                <span class="lang-fr">NOTRE ENGAGEMENT</span>
+                <span class="lang-en">OUR COMMITMENT</span>
+            </span>
+            <blockquote class="cine-banner-quote">
+                <span class="lang-fr">“Un site internet clair et professionnel ne devrait jamais être un luxe
+                    inaccessible.”</span>
+                <span class="lang-en">“A clear and professional website should never be an inaccessible luxury.”</span>
+            </blockquote>
+            <span class="cine-banner-author">
+                <span class="lang-fr">L'Équipe WebExpresso — Grenoble INP &amp; École de Commerce</span>
+                <span class="lang-en">The WebExpresso Team — Grenoble INP &amp; Business School</span>
+            </span>
+        </div>
+    </div>
+    <section id="faq" class="section faq-section">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center;">FAQ</span>
+            <h2 class="section-title">
+                <span class="lang-fr">Questions Fréquentes</span>
+                <span class="lang-en">Frequently Asked Questions</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="lang-fr">Tout ce que vous devez savoir avant de lancer votre démo.</span>
+                <span class="lang-en">Everything you need to know before launching your demo.</span>
+            </p>
+            <div class="faq-accordion" id="faq-accordion"></div>
+        </div>
+    </section>
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center;">
+                <span class="lang-fr">PASSEZ À L'ACTION</span>
+                <span class="lang-en">TAKE ACTION</span>
+            </span>
+            <h2 class="section-title" style="text-align:center;">
+                <span class="lang-fr">Prêt à Découvrir Votre Futur Site ?</span>
+                <span class="lang-en">Ready to Discover Your Future Website?</span>
+            </h2>
+            <p class="section-subtitle" style="text-align:center;">
+                <span class="lang-fr">Lancez votre démo personnalisée en 10 minutes. Acompte de 5 € déductible du solde
+                    final.</span>
+                <span class="lang-en">Launch your custom demo in 10 minutes. 5 € deposit deducted from the final
+                    balance.</span>
+            </p>
+            <div class="tally-conversion-box">
+                <div class="tally-steps-mini">
+                    <div class="mini-step">
+                        <div class="mini-step-num">1</div><span class="mini-step-text"><span
+                                class="lang-fr">Questionnaire simple (10 min)</span><span class="lang-en">Simple
+                                questionnaire (10 min)</span></span>
+                    </div>
+                    <div class="mini-step">
+                        <div class="mini-step-num">2</div><span class="mini-step-text"><span class="lang-fr">Acompte
+                                sécurisé de 5 €</span><span class="lang-en">Secure 5 € deposit</span></span>
+                    </div>
+                    <div class="mini-step">
+                        <div class="mini-step-num">3</div><span class="mini-step-text"><span class="lang-fr">Vidéo de
+                                démo sous 7 jours</span><span class="lang-en">Video demo in 7 days</span></span>
+                    </div>
+                </div>
+                <a href="https://tally.so/r/XxAYzY" target="_blank" rel="noopener" class="btn-tally-giant"
+                    id="tally-final-cta">
+                    <span>
+                        <span class="lang-fr">Remplir le questionnaire sur Tally (5 €)</span>
+                        <span class="lang-en">Fill out questionnaire on Tally (5 €)</span>
+                    </span>
+                    <span style="font-size:1.3rem;">↗</span>
+                </a>
+                <div class="tally-guarantees">
+                    <div class="tally-guarantee-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                        <span>
+                            <span class="lang-fr">Paiement sécurisé (Stripe ou PayPal)</span>
+                            <span class="lang-en">Secure payment (Stripe or PayPal)</span>
+                        </span>
+                    </div>
+                    <div class="tally-guarantee-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        <span>
+                            <span class="lang-fr">Vidéo de démo livrée sous 7 jours</span>
+                            <span class="lang-en">Video demo delivered in 7 days</span>
+                        </span>
+                    </div>
+                    <div class="tally-guarantee-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <span>
+                            <span class="lang-fr">Équipe joignable directement</span>
+                            <span class="lang-en">Direct team support</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="assets/logo-webexpresso-horizontal-white.png" alt="WebExpresso" class="footer-logo" width="180"
+                    height="45">
+                <p id="footer-site-tagline">
+                    <span class="lang-fr">Obtenez la démo personnalisée de votre futur site en moins d'une
+                        semaine.</span>
+                    <span class="lang-en">Get a custom demo of your future website in under a week.</span>
+                </p>
+            </div>
+            <div class="footer-legal-links">
+                <button type="button" class="legal-link-btn" data-legal-tab="mentions">
+                    <span class="lang-fr">Mentions Légales</span>
+                    <span class="lang-en">Legal Notice</span>
+                </button>
+                <span class="legal-sep">·</span>
+                <button type="button" class="legal-link-btn" data-legal-tab="privacy">
+                    <span class="lang-fr">Politique de Confidentialité</span>
+                    <span class="lang-en">Privacy Policy</span>
+                </button>
+                <span class="legal-sep">·</span>
+                <button type="button" class="legal-link-btn" data-legal-tab="cgu">
+                    <span class="lang-fr">CGU & Conditions de Vente</span>
+                    <span class="lang-en">Terms & Conditions</span>
+                </button>
+                <span class="legal-sep">·</span>
+                <button type="button" class="legal-link-btn" data-legal-tab="sav">
+                    <span class="lang-fr">Garanties & SAV</span>
+                    <span class="lang-en">Warranties & Support</span>
+                </button>
+                <span class="legal-sep">·</span>
+                <button type="button" class="legal-link-btn" onclick="window.openCookieSettings && window.openCookieSettings();">
+                    <span class="lang-fr">Gestion des cookies</span>
+                    <span class="lang-en">Cookie Settings</span>
+                </button>
+                <span class="legal-sep">·</span>
+                <button type="button" class="legal-link-btn" data-legal-tab="accessibility">
+                    <span class="lang-fr">Accessibilité : Partiellement conforme</span>
+                    <span class="lang-en">Accessibility : Partially compliant</span>
+                </button>
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-copyright">
+                    <span class="lang-fr">&copy; 2026 WebExpresso. Tous droits réservés.</span>
+                    <span class="lang-en">&copy; 2026 WebExpresso. All rights reserved.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content" id="lightbox-content"></div>
+    </div>
+
+    <!-- Modale Étude de Cas / Case Study (CAND-06) -->
+    <div id="case-study-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-texts">
+                    <span class="modal-tag" id="modal-cs-badge"></span>
+                    <h3 class="modal-title" id="modal-cs-title"></h3>
+                    <p class="modal-subtitle" id="modal-cs-subtitle"></p>
+                </div>
+                <button type="button" class="modal-close" id="modal-cs-close" aria-label="Fermer la modale">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-specs" id="modal-cs-specs"></div>
+                <div class="modal-description" id="modal-cs-description"></div>
+                <div class="modal-gallery" id="modal-cs-gallery"></div>
+                <div class="modal-actions" id="modal-cs-actions"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════
+         BANDEAU DE CONSENTEMENT COOKIES (RGPD / CNIL)
+    ═══════════════════════════════════ -->
+    <aside id="cookie-consent-banner" class="cookie-banner" role="dialog" aria-modal="false" aria-label="Gestion des cookies et confidentialité" aria-hidden="true">
+        <div class="cookie-banner-content">
+            <h3 class="cookie-banner-title">
+                <span class="lang-fr">Respect de votre vie privée</span>
+                <span class="lang-en">Respect for your privacy</span>
+            </h3>
+            <p class="cookie-banner-text">
+                <span class="lang-fr">Nous utilisons des traceurs techniques indispensables au bon fonctionnement du site. Avec votre accord, nous déposons également des cookies de mesure d'audience anonymes pour améliorer votre visite. Vous pouvez accepter, refuser ou paramétrer vos préférences à tout moment. Consultez notre <a href="#" data-legal-tab="privacy">Politique de Confidentialité</a>.</span>
+                <span class="lang-en">We use essential technical cookies to ensure the website runs properly. With your consent, we may also use anonymous audience measurement cookies to improve your experience. You can accept, decline or adjust your settings at any time. Read our <a href="#" data-legal-tab="privacy">Privacy Policy</a>.</span>
+            </p>
+        </div>
+        <div class="cookie-banner-actions">
+            <button type="button" class="cookie-btn cookie-btn-tertiary" id="cookie-btn-refuse">
+                <span class="lang-fr">Tout refuser</span>
+                <span class="lang-en">Reject all</span>
+            </button>
+            <button type="button" class="cookie-btn cookie-btn-secondary" id="cookie-btn-customize">
+                <span class="lang-fr">Personnaliser</span>
+                <span class="lang-en">Customize</span>
+            </button>
+            <button type="button" class="cookie-btn cookie-btn-primary" id="cookie-btn-accept">
+                <span class="lang-fr">Tout accepter</span>
+                <span class="lang-en">Accept all</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ═══════════════════════════════════
+         MODALE DE RÉGLAGE DES COOKIES
+    ═══════════════════════════════════ -->
+    <div id="cookie-settings-modal" class="cookie-settings-modal" role="dialog" aria-modal="true" aria-label="Préférences des cookies" aria-hidden="true">
+        <div class="cookie-settings-content">
+            <div class="cookie-settings-header">
+                <h3>
+                    <span class="lang-fr">Préférences relatives aux cookies</span>
+                    <span class="lang-en">Cookie Preferences</span>
+                </h3>
+                <button type="button" class="legal-modal-close" id="cookie-settings-close" aria-label="Fermer la fenêtre des cookies">&times;</button>
+            </div>
+            <div class="cookie-settings-body">
+                <div class="cookie-category">
+                    <div class="cookie-cat-info">
+                        <h4>
+                            <span class="lang-fr">Cookies Techniques & Essentiels</span>
+                            <span class="lang-en">Essential Technical Cookies</span>
+                        </h4>
+                        <p>
+                            <span class="lang-fr">Indispensables à la navigation, à la sécurité et à la mémorisation de vos consentements légaux. Ils ne peuvent pas être désactivés.</span>
+                            <span class="lang-en">Strictly necessary for website operation, security and consent storage. Cannot be disabled.</span>
+                        </p>
+                    </div>
+                    <label class="cookie-switch">
+                        <input type="checkbox" checked disabled aria-label="Cookies techniques toujours activés">
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+                <div class="cookie-category">
+                    <div class="cookie-cat-info">
+                        <h4>
+                            <span class="lang-fr">Mesure d'Audience & Statistiques</span>
+                            <span class="lang-en">Audience Measurement & Analytics</span>
+                        </h4>
+                        <p>
+                            <span class="lang-fr">Permettent d'analyser anonymement le volume de fréquentation pour optimiser les performances du site.</span>
+                            <span class="lang-en">Allows anonymous measurement of visits to optimize website speed and experience.</span>
+                        </p>
+                    </div>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="cookie-opt-analytics" aria-label="Autoriser la mesure d'audience">
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+                <div class="cookie-category">
+                    <div class="cookie-cat-info">
+                        <h4>
+                            <span class="lang-fr">Contenus Interactifs & Multimédia</span>
+                            <span class="lang-en">Interactive & Multimedia Content</span>
+                        </h4>
+                        <p>
+                            <span class="lang-fr">Nécessaires à l'intégration fluide de démonstrations vidéo externes et typographies web.</span>
+                            <span class="lang-en">Required for smooth embedding of external video demos and web typography.</span>
+                        </p>
+                    </div>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="cookie-opt-multimedia" aria-label="Autoriser les contenus multimédias enrichis">
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="cookie-settings-footer">
+                <button type="button" class="cookie-btn cookie-btn-primary" id="cookie-save-settings">
+                    <span class="lang-fr">Enregistrer mes choix</span>
+                    <span class="lang-en">Save my choices</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════
+         MODALE JURIDIQUE MULTI-ONGLETS (LCEN / RGPD / CGU / RGAA)
+    ═══════════════════════════════════ -->
+    <div id="legal-modal" class="legal-modal" role="dialog" aria-modal="true" aria-label="Informations Légales & Conformité" aria-hidden="true">
+        <div class="legal-modal-card">
+            <div class="legal-modal-header">
+                <div class="legal-modal-title-box">
+                    <h3>
+                        <span class="lang-fr">Informations Légales & Conformité</span>
+                        <span class="lang-en">Legal Notices & Compliance</span>
+                    </h3>
+                </div>
+                <button type="button" class="legal-modal-close" onclick="window.closeLegalModal && window.closeLegalModal();" aria-label="Fermer la fenêtre juridique">&times;</button>
+            </div>
+            <div class="legal-modal-tabs" role="tablist">
+                <button type="button" class="legal-tab-btn active" data-tab="mentions" role="tab" aria-selected="true">
+                    <span class="lang-fr">Mentions Légales</span>
+                    <span class="lang-en">Legal Notice</span>
+                </button>
+                <button type="button" class="legal-tab-btn" data-tab="privacy" role="tab" aria-selected="false">
+                    <span class="lang-fr">Confidentialité & RGPD</span>
+                    <span class="lang-en">Privacy & GDPR</span>
+                </button>
+                <button type="button" class="legal-tab-btn" data-tab="cgu" role="tab" aria-selected="false">
+                    <span class="lang-fr">CGU & Conditions de Vente</span>
+                    <span class="lang-en">Terms & Conditions</span>
+                </button>
+                <button type="button" class="legal-tab-btn" data-tab="sav" role="tab" aria-selected="false">
+                    <span class="lang-fr">Garanties & SAV</span>
+                    <span class="lang-en">Warranties & Support</span>
+                </button>
+                <button type="button" class="legal-tab-btn" data-tab="accessibility" role="tab" aria-selected="false">
+                    <span class="lang-fr">Accessibilité</span>
+                    <span class="lang-en">Accessibility</span>
+                </button>
+            </div>
+            <div class="legal-modal-body">
+                <!-- Panneau 1 : Mentions Légales LCEN -->
+                <div id="legal-panel-mentions" class="legal-panel active" role="tabpanel">
+                    <h4>1. Éditeur de la Plateforme</h4>
+                    <div id="legal-info-publisher"></div>
+                    <h4>2. Hébergement Technique Certifié</h4>
+                    <div id="legal-info-host"></div>
+                    <h4>3. Propriété Intellectuelle</h4>
+                    <p>L'ensemble des contenus, marques, maquettes et créations graphiques de WebExpresso sont protégés par le droit d'auteur. Toute reproduction totale ou partielle sans accord écrit préalable est interdite.</p>
+                    <h4>4. Règlement des Litiges & Médiation de la Consommation</h4>
+                    <div id="legal-info-mediator"></div>
+                </div>
+
+                <!-- Panneau 2 : Confidentialité & RGPD -->
+                <div id="legal-panel-privacy" class="legal-panel" role="tabpanel">
+                    <h4>Politique de Protection des Données Personnelles</h4>
+                    <div id="legal-info-privacy"></div>
+                    <h4>Gestion des Cookies et Traceurs</h4>
+                    <p>Vous pouvez réviser vos préférences de cookies à tout moment en cliquant sur le lien <a href="#" onclick="window.closeLegalModal(); window.openCookieSettings(); return false;">Gestion des cookies</a> situé dans le pied de page.</p>
+                </div>
+
+                <!-- Panneau 3 : CGU & Conditions Générales de Vente -->
+                <div id="legal-panel-cgu" class="legal-panel" role="tabpanel">
+                    <div id="legal-info-cgu"></div>
+                </div>
+
+                <!-- Panneau 4 : Accessibilité RGAA -->
+                <div id="legal-panel-accessibility" class="legal-panel" role="tabpanel">
+                    <h4>Déclaration d'Accessibilité Numérique</h4>
+                    <div id="legal-info-accessibility"></div>
+                </div>
+
+                <!-- Panneau 5 : Garanties & SAV -->
+                <div id="legal-panel-sav" class="legal-panel" role="tabpanel">
+                    <div id="legal-info-sav"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Flottante (CAND-09) -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="js/theme-config.js?v=2.5.8"></script>
+    <script src="js/site-config.js?v=2.5.8"></script>
+    <script src="js/feature-config.js?v=2.5.8"></script>
+    <script src="js/default-content.js?v=2.5.8"></script>
+    <script src="js/content-schema.js?v=2.5.8"></script>
+    <script src="js/legal-manager.js?v=2.5.8"></script>
+    <script src="js/content-adapter.js?v=2.5.8"></script>
+    <script src="js/routes.js?v=2.5.8"></script>
+    <script src="js/section-renderer.js?v=2.5.8"></script>
+    <script src="js/app.js?v=2.5.8"></script>
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+# Ce dossier contient les images optimisées pour le web (redimensionnées, compressées).
+# C'est depuis ce dossier que le site charge ses images locales.
+# Format recommandé : WebP ou JPEG, largeur max 1200px, qualité 75-85%.

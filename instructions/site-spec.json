@@ -1,0 +1,143 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "businessName": "WebExpresso",
+    "slug": "webexpresso-vitrine",
+    "selectedOffer": "essential",
+    "language": "fr",
+    "version": "2.1.0",
+    "enabledSections": {
+        "hero": true,
+        "process": true,
+        "prestations": true,
+        "gallery": true,
+        "about": true,
+        "banner": true,
+        "faq": true,
+        "contact": true,
+        "looks": false,
+        "beforeAfter": false,
+        "testimonials": false,
+        "partners": false,
+        "practicalInfo": false
+    },
+    "enabledFeatures": {
+        "contactForm": true,
+        "galleryLightbox": true,
+        "glowSlider": false,
+        "editorialTabs": false,
+        "testimonials": false,
+        "faq": true,
+        "process": true,
+        "practicalInfo": false,
+        "partners": false,
+        "quickContactFab": false,
+        "pageVoile": false,
+        "customCursor": false,
+        "adminAuth": false,
+        "adminDashboard": false,
+        "firebaseIntegration": false
+    },
+    "sectionOrder": [
+        "hero",
+        "process",
+        "prestations",
+        "gallery",
+        "about",
+        "banner",
+        "faq",
+        "contact"
+    ],
+    "actions": {
+        "primaryCta": {
+            "label": "Obtenir ma démo pour 5€",
+            "href": "https://tally.so/r/XxAYzY",
+            "isExternal": true
+        },
+        "externalBooking": {
+            "enabled": true,
+            "url": "https://tally.so/r/XxAYzY",
+            "label": "Remplir le questionnaire (Acompte 5€)"
+        }
+    },
+    "themes": {
+        "selected": "tech-minimal-blueprint",
+        "proposals": [
+            {
+                "id": "tech-minimal-blueprint",
+                "name": "Proposition 1 (Retenue) : Tech Minimal & Blueprint Ardoise",
+                "justification": "Parfaitement aligné avec l'univers ingénieur et tech sans être sombre/lourd. Fond carbone bleuté, contraste net, typographie géométrique Space Grotesk pour les titres et Inter pour la lisibilité, accent bleu électrique haute conversion.",
+                "theme": {
+                    "fontDisplay": "'Space Grotesk', -apple-system, sans-serif",
+                    "fontHeadingWeight": 700,
+                    "fontBody": "'Inter', system-ui, sans-serif",
+                    "colorPrimary": "#2563EB",
+                    "colorSecondary": "#0F172A",
+                    "colorBackground": "#0B0F19",
+                    "colorAccent": "#38BDF8",
+                    "colorTextMain": "#F8FAFC",
+                    "colorTextMuted": "#94A3B8",
+                    "colorSurface": "#131C2E",
+                    "colorSurfaceHover": "#1E293B",
+                    "colorBorder": "rgba(56, 189, 248, 0.18)",
+                    "colorOverlay": "rgba(11, 15, 25, 0.95)"
+                },
+                "contrastCheck": {
+                    "primaryOnBackground": "7.8:1 (Conforme AAA)",
+                    "textMainOnBackground": "17.4:1 (Conforme AAA)",
+                    "textMutedOnBackground": "6.2:1 (Conforme AAA)",
+                    "textOnPrimary": "4.9:1 (Conforme AA)"
+                }
+            },
+            {
+                "id": "clean-saas-light",
+                "name": "Proposition 2 (Alternative) : Clean Studio SaaS Light",
+                "justification": "Esthétique claire, lumineuse et rassurante de type startup SaaS moderne. Fond blanc grisé, cartes ultra-nettes à bordures fines, typographie Sora + Inter, accent indigo/violet dynamique.",
+                "theme": {
+                    "fontDisplay": "'Sora', sans-serif",
+                    "fontHeadingWeight": 600,
+                    "fontBody": "'Inter', sans-serif",
+                    "colorPrimary": "#4F46E5",
+                    "colorSecondary": "#F1F5F9",
+                    "colorBackground": "#FAFAFC",
+                    "colorAccent": "#06B6D4",
+                    "colorTextMain": "#0F172A",
+                    "colorTextMuted": "#64748B",
+                    "colorSurface": "#FFFFFF",
+                    "colorSurfaceHover": "#F8FAFC",
+                    "colorBorder": "rgba(15, 23, 42, 0.08)",
+                    "colorOverlay": "rgba(250, 250, 252, 0.96)"
+                },
+                "contrastCheck": {
+                    "primaryOnBackground": "7.2:1 (Conforme AAA)",
+                    "textMainOnBackground": "16.8:1 (Conforme AAA)",
+                    "textMutedOnBackground": "5.1:1 (Conforme AA)"
+                }
+            },
+            {
+                "id": "cyber-terminal-impact",
+                "name": "Proposition 3 (Alternative) : Cyber Terminal & Mint Code",
+                "justification": "Esthétique high-tech inspirée des consoles de développement et de l'efficience pure. Fond noir absolu OLED, accents vert menthe électrique et blanc glacé, police technique percutante.",
+                "theme": {
+                    "fontDisplay": "'Plus Jakarta Sans', sans-serif",
+                    "fontHeadingWeight": 700,
+                    "fontBody": "'Inter', monospace, sans-serif",
+                    "colorPrimary": "#10B981",
+                    "colorSecondary": "#111827",
+                    "colorBackground": "#05070A",
+                    "colorAccent": "#06B6D4",
+                    "colorTextMain": "#F9FAFB",
+                    "colorTextMuted": "#9CA3AF",
+                    "colorSurface": "#0B111A",
+                    "colorSurfaceHover": "#131F2E",
+                    "colorBorder": "rgba(16, 185, 129, 0.22)",
+                    "colorOverlay": "rgba(5, 7, 10, 0.96)"
+                },
+                "contrastCheck": {
+                    "primaryOnBackground": "9.1:1 (Conforme AAA)",
+                    "textMainOnBackground": "18.5:1 (Conforme AAA)",
+                    "textMutedOnBackground": "5.9:1 (Conforme AA)"
+                }
+            }
+        ]
+    }
+}

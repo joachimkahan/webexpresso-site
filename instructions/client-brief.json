@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "businessName": "WebExpresso",
+    "selectedOffer": "essential",
+    "activity": "Création de sites vitrine rapides & ultra-accessibles pour professionnels et indépendants",
+    "city": "Grenoble / France",
+    "tagline": "Obtenez la démo de votre site en moins d'une semaine",
+    "founders": "Collectif de 3 étudiants entrepreneurs (1 ingénieur développeur Grenoble INP + 2 associés commerciaux en école de commerce)",
+    "externalBookingUrl": "https://tally.so/r/XxAYzY",
+    "depositAmount": "5€ (déductible du solde final)"
+}

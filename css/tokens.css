@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* ── Palette "Bleu de Travail & Cuir Ambré" (Option B — Artisanat & Terroir) ── */
+    --color-bg: #EDF1F5;
+    --color-surface: #FFFFFF;
+    --color-surface-hover: #F8FAFC;
+    --color-surface-warm: #E2E8F0;
+    --color-primary: #1B3A57;
+    --color-accent: #C77D36;
+    --color-accent-hover: #B46B28;
+    --color-text-main: #13253A;
+    --color-text-muted: #536479;
+    --color-text-on-accent: #FFFFFF;
+    --color-border: rgba(27, 58, 87, 0.12);
+    --color-border-hover: #C77D36;
+    --color-overlay: rgba(237, 241, 245, 0.95);
+
+    /* ── Aliases sémantiques (compatibilité template) ── */
+    --fond-page: var(--color-bg);
+    --fond-carte: var(--color-surface);
+    --fond-carte-hover: var(--color-surface-hover);
+    --fond-overlay: var(--color-overlay);
+
+    --texte-principal: var(--color-text-main);
+    --texte-secondaire: var(--color-text-muted);
+    --texte-sur-or: var(--color-text-on-accent);
+
+    --bordure-carte: var(--color-border);
+    --bordure-carte-hover: var(--color-border-hover);
+    --or-discret: var(--color-primary);
+    --or-eclat: var(--color-accent);
+    --or-glow: rgba(199, 125, 54, 0.20);
+    --focus-ring: 2px solid var(--color-accent);
+
+    /* ── Typographie ── */
+    --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    --font-heading-weight: 700;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-heading: var(--font-display);
+    --police-titre: var(--font-display);
+    --police-corps: var(--font-body);
+
+    --h1-size: clamp(2.4rem, 4.8vw, 4.4rem);
+    --h2-size: clamp(1.9rem, 3.5vw, 3.0rem);
+    --h3-size: 1.4rem;
+    --body-size: 1.05rem;
+    --caption-size: 0.85rem;
+
+    /* ── Arrondis ── */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 9999px;
+
+    --rayon-doux: var(--radius-sm);
+    --rayon-carte: var(--radius-md);
+    --rayon-bouton: var(--radius-pill);
+    --rayon-pilule: var(--radius-pill);
+
+    /* ── Motion ── */
+    --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: all 0.3s var(--ease-smooth);
+    --transition-slow: all 0.5s var(--ease-smooth);
+
+    /* ── Ombres d'atelier & matières ── */
+    --shadow-card: 0 4px 20px rgba(27, 58, 87, 0.08);
+    --shadow-hover: 0 8px 30px rgba(27, 58, 87, 0.14);
+    --shadow-subtle: 0 2px 8px rgba(27, 58, 87, 0.05);
+
+    /* ── Espacement ── */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 48px;
+    --space-xl: 80px;
+    --space-2xl: 120px;
+    --section-py: clamp(70px, 8vw, 130px);
+    --container-max: 1200px;
+
+    /* ── Footer ── */
+    --color-footer-bg: #1B3A57;
+    --color-footer-text: #F8FAFC;
+    --color-footer-muted: #CBD5E1;
+}

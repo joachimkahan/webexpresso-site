@@ -1,0 +1,169 @@
+/* ============================================================
+   ADMIN.CSS — Styles du tableau de bord administration
+   Dépend de public.css pour les tokens CSS (:root)
+   [AUTONOME_ONLY] — Ce fichier est supprimé dans l'offre Essentiel
+   ============================================================ */
+
+/* ═══════════════════════════════════════════
+   ADMIN INTERFACE (inherited, minimal changes)
+   ═══════════════════════════════════════════ */
+.admin-container {
+    max-width: 920px;
+    margin: 100px auto;
+    padding: var(--space-lg);
+    background: white;
+    box-shadow: var(--shadow-card);
+}
+#login-section {
+    text-align: center;
+    max-width: 480px;
+    margin: 120px auto;
+}
+.back-link {
+    display: inline-block;
+    margin-bottom: var(--space-md);
+    font-size: 0.85rem;
+    color: var(--gris-pierre);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.25s;
+}
+.back-link:hover { color: var(--or-discret); }
+
+/* PIN UI */
+.pin-inputs {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: 20px;
+}
+.pin-box {
+    width: 60px;
+    height: 68px;
+    font-size: 1.8rem;
+    text-align: center;
+    border: 1px solid var(--champagne);
+    background: var(--blanc-art);
+    color: var(--encre);
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s var(--ease-spring);
+}
+.pin-box:focus {
+    border-color: var(--or-discret);
+    box-shadow: 0 0 0 3px var(--or-glow);
+    transform: scale(1.04);
+}
+.pin-hint {
+    font-size: 0.82rem;
+    color: var(--gris-pierre);
+    letter-spacing: 0.03em;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--champagne);
+    padding-bottom: var(--space-md);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.upload-section {
+    background: var(--blanc-art);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border: 1px dashed var(--champagne);
+    transition: border-color 0.3s;
+}
+.upload-section:hover { border-color: var(--or-discret); }
+
+.gallery-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+.admin-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    box-shadow: var(--shadow-subtle);
+    transition: var(--transition);
+}
+.admin-item:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-4px);
+}
+.admin-item img { width: 100%; height: 100%; object-fit: cover; }
+.admin-item .item-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(250, 247, 242, 0.95);
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: center;
+    backdrop-filter: blur(4px);
+}
+.admin-item .type-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--encre);
+    color: var(--blanc-art);
+    padding: 4px 10px;
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.admin-module-block {
+    transition: var(--transition);
+}
+
+.btn-delete {
+    background: rgba(180, 60, 60, 0.9);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm, 4px);
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: transform 0.2s var(--ease-spring), background 0.2s;
+}
+
+.btn-delete:hover {
+    background: #d32f2f;
+    transform: translateY(-1px);
+}
+
+.w-100 { width: 100%; }
+.bg-secondary {
+    background-color: var(--blanc-art);
+}
+
+.overline {
+    display: block;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: var(--caption-size);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gris-pierre);
+    margin-bottom: var(--space-sm);
+}
+
+@media (max-width: 480px) {
+    .admin-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .admin-container {
+        padding: var(--space-md);
+    }
+}

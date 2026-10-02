@@ -1,0 +1,497 @@
+/**
+ * DEFAULT-CONTENT.JS — Jeu de Données Élite (WebExpresso Vitrine)
+ * ============================================================
+ * Version Template : 2.5.1
+ * Contenu : Offres, Processus, Réalisations et FAQ WebExpresso
+ * ============================================================
+ */
+
+const DEFAULT_CONTENT_FR = {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "meta": {
+        "title": "WebExpresso | Votre Site Vitrine Professionnel en Moins d'une Semaine",
+        "description": "Obtenez la vidéo de démo personnalisée de votre futur site pour seulement 5€ d'acompte. Site clé en main dès 100€ (5€ d'acompte + 95€ de solde), sans abonnement caché. Conçu par des étudiants ingénieurs.",
+        "lang": "fr"
+    },
+    "identity": {
+        "name": "WebExpresso",
+        "tagline": "Obtenez la démo de votre site en moins d'une semaine",
+        "activity": "Création de Sites Vitrine Express & Clé en Main",
+        "city": "Grenoble / France"
+    },
+    "hero": {
+        "eyebrow": "",
+        "titleHtml": "<span class=\"hero-brand-name\">WebExpresso</span><span class=\"hero-subline\">Site personnalisé livré en moins d'une semaine</span>",
+        "description": "Visualisez le résultat exact avant de vous engager. Remplissez notre questionnaire en 10 minutes et recevez une vidéo interactive de votre futur site pour seulement 5 € d'acompte (déductibles du solde final).",
+        "ctaText": "Obtenir ma Démo pour 5 € ↗",
+        "ctaLink": "https://tally.so/r/XxAYzY",
+        "imageUrl": "assets/hero-option-2-esquisse-laptop.jpg"
+    },
+    "ticker": {
+        "enabled": true,
+        "items": [
+            "DÉMO VIDÉO SOUS 7 JOURS",
+            "ACOMPTE 5€ SANS ENGAGEMENT",
+            "ZÉRO ABONNEMENT CACHÉ",
+            "100% PROPRIÉTAIRE DE VOTRE SITE",
+            "ADAPTÉ MOBILE & ORDINATEUR",
+            "ÉQUIPE ÉTUDIANTE GRENOBLE INP",
+            "LIVRAISON CLÉ EN MAIN"
+        ]
+    },
+    "process": {
+        "eyebrow": "MÉTHODE SIMPLE & RAPIDE",
+        "titleHtml": "Comment ça marche ?<br><em>De votre idée à votre site en ligne en 4 étapes simples</em>",
+        "description": "Un fonctionnement 100% transparent : vous visualisez d'abord votre futur site en vidéo avant de choisir votre formule finale.",
+        "steps": [
+            {
+                "number": "01",
+                "title": "Le Questionnaire Simple (10 min)",
+                "description": "Vous nous partagez vos besoins, vos couleurs et vos textes via notre formulaire en ligne, avec un acompte sécurisé de 5€."
+            },
+            {
+                "number": "02",
+                "title": "Votre Vidéo de Démo sous 7 jours",
+                "description": "Nous réalisons une première version sur-mesure et vous envoyons une vidéo de démonstration complète de votre futur site."
+            },
+            {
+                "number": "03",
+                "title": "Choix de la Formule & Validation",
+                "description": "Vous regardez la vidéo. Si elle vous plaît, vous choisissez votre formule (Essentiel 100€ ou Autonome 150€) et réglez le solde (95€ ou 145€)."
+            },
+            {
+                "number": "04",
+                "title": "Mise en Ligne Clé en Main",
+                "description": "Nous publions votre site sur Internet avec votre nom de domaine sécurisé (en https://). Tout est prêt, vous n'avez rien à faire !"
+            }
+        ]
+    },
+    "prestations": [
+        {
+            "id": "offre-essentiel",
+            "icon": "",
+            "title": "Formule Essentiel",
+            "price": "100€ (5€ d'acompte + solde de 95€)",
+            "description": "Parfait pour les artisans, commerçants et indépendants dont les informations changent peu souvent.",
+            "ctaText": "Obtenir ma Démo pour 5 € ↗",
+            "ctaUrl": "https://tally.so/r/XxAYzY",
+            "features": [
+                "Site vitrine sur une seule page fluide et ultra-rapide",
+                "Affichage impeccable sur smartphone, tablette et ordinateur",
+                "Formulaire de contact relié directement à votre boîte e-mail",
+                "Optimisé pour être facilement trouvé sur Google",
+                "Hébergement sécurisé inclus (avec le cadenas https://)",
+                "Zéro abonnement mensuel (le site vous appartient à vie)",
+                "Garantie technique 1 an & diagnostic SAV gratuit inclus"
+            ]
+        },
+        {
+            "id": "offre-autonome",
+            "icon": "",
+            "title": "Formule Autonome",
+            "price": "150€ (5€ d'acompte + solde de 145€)",
+            "badge": "Recommandée",
+            "description": "Idéal pour garder la main totale et modifier vous-même vos contenus à tout moment.",
+            "ctaText": "Obtenir ma Démo pour 5 € ↗",
+            "ctaUrl": "https://tally.so/r/XxAYzY",
+            "features": [
+                "Tout ce qui est inclus dans la Formule Essentiel",
+                "Espace privé et très simple pour modifier vos textes et tarifs",
+                "Ajoutez facilement de nouvelles photos et réalisations en 1 clic",
+                "Actualisez vos avis clients et coordonnées sans toucher au code",
+                "Tutoriel vidéo pas-à-pas et assistance incluse pour démarrer sereinement",
+                "Garantie technique 1 an & diagnostic SAV gratuit inclus"
+            ]
+        }
+    ],
+    "gallery": [
+        {
+            "id": "projet-leana",
+            "title": "Léana — Maquillage & Beauté",
+            "description": "Site vitrine élégant avec galerie de réalisations, présentation des tarifs et prise de rendez-vous en ligne.",
+            "badge": "Site en ligne",
+            "displayUrl": "leana-makeup.fr",
+            "targetUrl": "https://joachimkahan.github.io/leana_github.github.io/",
+            "type": "image",
+            "url": "assets/portfolio/leana_makeup_preview.png",
+            "tags": [
+                "Artisanat & Beauté",
+                "Galerie Photos",
+                "Prise de RDV"
+            ]
+        },
+        {
+            "id": "projet-joachim",
+            "title": "Joachim Kahan — Ingénieur SEM & Master MAE",
+            "description": "Portfolio d'ingénierie et recherche : modélisation de systèmes énergétiques, data science, IA et projets industriels.",
+            "badge": "Site en ligne",
+            "displayUrl": "joachimkahan.dev",
+            "targetUrl": "https://joachimkahan.github.io/portefolio_github.github.io/",
+            "type": "image",
+            "url": "assets/portfolio/joachim_portfolio_preview.png",
+            "tags": [
+                "Systèmes Énergétiques",
+                "Double Diplôme",
+                "Data Science & IA"
+            ]
+        },
+        {
+            "id": "projet-elodie",
+            "title": "L'Atelier d'Élodie — Salon de Coiffure",
+            "description": "Site vitrine chaleureux pour salon de coiffure : carte des soins, photos avant/après et réservation directe.",
+            "badge": "Site en ligne",
+            "displayUrl": "latelier-delodie.fr",
+            "targetUrl": "https://joachimkahan.github.io/leana_github.github.io/",
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80",
+            "tags": [
+                "Salon & Coiffure",
+                "Galerie Avant/Après",
+                "Prise de RDV"
+            ]
+        },
+        {
+            "id": "projet-gauthier",
+            "title": "Maison Gauthier — Boulangerie Artisanale",
+            "description": "Site vitrine gourmand pour boulangerie artisanale : présentation des pains au levain, horaires et histoire familiale.",
+            "badge": "Site en ligne",
+            "displayUrl": "maison-gauthier-bordeaux.fr",
+            "targetUrl": "https://joachimkahan.github.io/leana_github.github.io/",
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
+            "tags": [
+                "Commerce de Proximité",
+                "Fournil Artisanal",
+                "Commande en Ligne"
+            ]
+        }
+    ],
+    "about": {
+        "eyebrow": "",
+        "titleHtml": "Qui sommes-nous",
+        "paragraphs": [
+            "WebExpresso est un projet que nous menons en parallèle de nos études d'ingénieur (Grenoble INP) et de commerce. C'est pour nous un complément financier, mais c'est avant tout une formidable opportunité de découvrir de nouvelles choses : nous perfectionner en pratique sur la technique comme sur la commercialisation et la relation client.",
+            "Notre démarche est simple : permettre aux artisans, commerçants de proximité et indépendants d'avoir un vrai site web professionnel, rapide et soigné, sans devoir débourser les 1 500 € réclamés par les agences traditionnelles.",
+            "Puisque nous n'avons pas de lourdes charges d'agence, nous proposons des tarifs directs et justes : 100 € au total pour la formule Essentiel (5 € d'acompte + 95 € de solde) et 150 € pour la formule Autonome (5 € d'acompte + 145 € de solde). Vous bénéficiez d'un accompagnement direct, sans intermédiaire, et vous validez votre démo en vidéo avant tout engagement."
+        ],
+        "quote": "Pratiquer sur des projets réels tout en offrant une solution web enfin accessible aux indépendants.",
+        "signature": "L'Équipe WebExpresso — Grenoble INP & École de Commerce",
+        "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+    },
+    "banner": {
+        "imageUrl": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80",
+        "alt": "Espace de travail moderne et création de site internet",
+        "eyebrow": "NOTRE ENGAGEMENT",
+        "quote": "Un site internet clair et professionnel ne devrait jamais être un luxe inaccessible.",
+        "signature": "L'Équipe WebExpresso — Grenoble INP & École de Commerce"
+    },
+    "looks": [],
+    "beforeAfter": [],
+    "faq": [
+        {
+            "question": "Pourquoi vos prix sont-ils si bas par rapport à une agence classique ?",
+            "answer": "Nous menons ce projet en parallèle de nos études (Grenoble INP et école de commerce). C'est pour nous un complément financier, mais c'est avant tout un terrain d'apprentissage concret pour maîtriser la technique, le développement et la commercialisation auprès de vrais clients. N'ayant pas de frais d'agence superflus, nous faisons profiter de ces tarifs directs (100 € et 150 € au total) aux artisans et indépendants qui ont besoin d'une solution simple et économique."
+        },
+        {
+            "question": "Que se passe-t-il si la vidéo de démo ne me plaît pas ?",
+            "answer": "Vous ne payez absolument rien de plus. L'acompte de 5 € couvre le travail initial de préparation de votre démo. Si le résultat ne correspond pas à vos attentes, vous êtes totalement libre de ne pas commander le site final, sans aucun engagement."
+        },
+        {
+            "question": "Le site m'appartient-il vraiment une fois livré ?",
+            "answer": "Oui, à 100 %. Une fois le solde réglé, vous êtes l'unique propriétaire de tous les textes, photos et fichiers de votre site. Vous n'avez aucun contrat mensuel qui vous bloque."
+        },
+        {
+            "question": "Y a-t-il des frais mensuels ou des coûts cachés ?",
+            "answer": "Non, aucun abonnement mensuel caché. Nous installons votre site sur des serveurs sécurisés et gratuits. Le seul frais annuel classique est votre nom de domaine (votre-site.fr, qui coûte environ 10 € par an)."
+        },
+        {
+            "question": "Quelle est la différence concrète entre Essentiel (100 €) et Autonome (150 €) ?",
+            "answer": "La formule Essentiel (100 € au total) est idéale si les informations de votre activité changent rarement. La formule Autonome (150 € au total) vous donne en plus un accès privé très simple pour modifier vous-même vos textes, tarifs ou photos en quelques clics, comme sur un traitement de texte."
+        },
+        {
+            "question": "Combien de temps faut-il pour avoir mon site final en ligne ?",
+            "answer": "Vous recevez d'abord votre vidéo de démo sous 7 jours. Dès que vous la validez et réglez le solde de la formule choisie (95 € ou 145 €), nous mettons votre site définitif en ligne en 3 à 5 jours ouvrés."
+        },
+        {
+            "question": "Dois-je choisir ma formule tout de suite ?",
+            "answer": "Non ! Vous ne payez que les 5 € d'acompte au départ. Le choix entre la formule Essentiel (100 €) et la formule Autonome (150 €) se fait uniquement après avoir visionné la vidéo de votre futur site."
+        },
+        {
+            "question": "Que se passe-t-il si mon site rencontre un bug ou un problème après sa mise en ligne ?",
+            "answer": "Le diagnostic est systématiquement 100 % gratuit, quel que soit le cas. Votre site bénéficie d'une garantie technique d'un an couvrant toute correction de template, et nous garantissons à vie nos configurations techniques. De plus, tout ajustement initial de contenu mal appliqué est corrigé gratuitement pendant les 30 jours suivant la livraison. Pour plus d'informations, <a href=\"#\" data-legal-tab=\"sav\">consultez notre politique de Garanties & SAV</a>."
+        },
+        {
+            "question": "Si je souhaite modifier un texte, mes horaires ou ajouter des photos plus tard, comment ça se passe ?",
+            "answer": "Avec la formule Autonome, vous effectuez vous-même ces modifications en toute liberté et sans frais depuis votre espace d'administration. Avec la formule Essentiel ou si vous préférez nous confier la mise à jour, nous appliquons une grille tarifaire claire et sans mauvaise surprise : forfait fixe de 20 € pour une retouche texte ou photo, et 35 € pour l'ajout d'une présentation graphique simple. Pour plus d'informations, <a href=\"#\" data-legal-tab=\"sav\">consultez notre grille tarifaire et politique SAV</a>."
+        }
+    ],
+    "contact": {
+        "eyebrow": "PASSEZ À L'ACTION",
+        "title": "Prêt à Découvrir Votre Futur Site ?",
+        "subtitle": "Remplissez le questionnaire en 10 minutes pour recevoir votre vidéo de démo personnalisée en moins d'une semaine.",
+        "ctaText": "Remplir le questionnaire sur Tally (5€) ↗",
+        "ctaLink": "https://tally.so/r/XxAYzY"
+    },
+    "footer": {
+        "siteName": "WebExpresso",
+        "tagline": "Obtenez la démo de votre site en moins d'une semaine",
+        "copyright": "© 2026 WebExpresso. Tous droits réservés."
+    }
+};
+
+const DEFAULT_CONTENT_EN = {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "meta": {
+        "title": "WebExpresso | Your Custom Showcase Website in Under a Week",
+        "description": "Get an interactive video demo of your future website for just a 5 € deposit. Turnkey site from 100 € (5 € deposit + 95 € balance), zero hidden fees. Built by Grenoble INP engineering students.",
+        "lang": "en"
+    },
+    "identity": {
+        "name": "WebExpresso",
+        "tagline": "Get your website demo in under a week",
+        "activity": "Express & Turnkey Showcase Websites",
+        "city": "Grenoble / France"
+    },
+    "hero": {
+        "eyebrow": "",
+        "titleHtml": "<span class=\"hero-brand-name\">WebExpresso</span><span class=\"hero-subline\">Custom website delivered in under a week</span>",
+        "description": "See the exact result before committing. Fill out our 10-minute questionnaire and receive an interactive video demo of your future website for just a 5 € deposit (deducted from the final balance).",
+        "ctaText": "Get my Demo for 5 € ↗",
+        "ctaLink": "https://tally.so/r/XxAYzY",
+        "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80"
+    },
+    "ticker": {
+        "enabled": true,
+        "items": [
+            "VIDEO DEMO IN 7 DAYS",
+            "5€ DEPOSIT NO COMMITMENT",
+            "ZERO HIDDEN SUBSCRIPTIONS",
+            "100% OWNER OF YOUR SITE",
+            "MOBILE & DESKTOP OPTIMIZED",
+            "GRENOBLE INP STUDENT TEAM",
+            "TURNKEY DELIVERY"
+        ]
+    },
+    "process": {
+        "eyebrow": "SIMPLE & FAST METHOD",
+        "titleHtml": "How does it work?<br><em>From your idea to your live site in 4 simple steps</em>",
+        "description": "100% transparent: you preview your future website in a video walkthrough before choosing your final plan.",
+        "steps": [
+            {
+                "number": "01",
+                "title": "The Simple Questionnaire (10 min)",
+                "description": "Share your needs, brand style, and content via our online form, with a secure 5 € deposit."
+            },
+            {
+                "number": "02",
+                "title": "Your Video Demo in 7 Days",
+                "description": "We build a tailored first draft and send you a complete interactive video walkthrough of your site."
+            },
+            {
+                "number": "03",
+                "title": "Plan Selection & Approval",
+                "description": "Watch the video. If you love it, choose your plan (Essential 100 € or Autonomous 150 €) and pay the balance (95 € or 145 €)."
+            },
+            {
+                "number": "04",
+                "title": "Turnkey Online Launch",
+                "description": "We publish your website online with your secure custom domain (https://). Everything is ready, zero hassle!"
+            }
+        ]
+    },
+    "prestations": [
+        {
+            "id": "offre-essentiel",
+            "icon": "",
+            "title": "Essential Plan",
+            "price": "100€ (5€ deposit + balance of 95€)",
+            "description": "Perfect for local artisans, shops, and freelancers whose information stays consistent.",
+            "ctaText": "Get my Demo for 5 € ↗",
+            "ctaUrl": "https://tally.so/r/XxAYzY",
+            "features": [
+                "Single-page sleek and ultra-fast showcase website",
+                "Flawless display on smartphone, tablet, and desktop",
+                "Direct contact form connected to your inbox",
+                "Optimized to be easily found on Google",
+                "Secure hosting included (with https:// padlock)",
+                "Zero monthly subscription (you own your website for life)",
+                "1-year technical warranty & free after-sales diagnostic included"
+            ]
+        },
+        {
+            "id": "offre-autonome",
+            "icon": "",
+            "title": "Autonomous Plan",
+            "price": "150€ (5€ deposit + balance of 145€)",
+            "badge": "Recommended",
+            "description": "Ideal for full independence to update your content and photos yourself anytime.",
+            "ctaText": "Get my Demo for 5 € ↗",
+            "ctaUrl": "https://tally.so/r/XxAYzY",
+            "features": [
+                "Everything included in the Essential Plan",
+                "Private and simple admin panel to edit texts and rates",
+                "Easily upload new photos and portfolio projects in 1 click",
+                "Update reviews and contact details without touching code",
+                "Step-by-step video guide and support included",
+                "1-year technical warranty & free after-sales diagnostic included"
+            ]
+        }
+    ],
+    "gallery": [
+        {
+            "id": "projet-leana",
+            "title": "Léana — Makeup & Beauty",
+            "description": "Elegant showcase website with portfolio gallery, service pricing, and online appointment booking.",
+            "badge": "Live Website",
+            "displayUrl": "leana-makeup.fr",
+            "targetUrl": "https://joachimkahan.github.io/leana_github.github.io/",
+            "type": "image",
+            "url": "assets/portfolio/leana_makeup_preview.png",
+            "tags": [
+                "Beauty & Craft",
+                "Photo Gallery",
+                "Online Booking"
+            ]
+        },
+        {
+            "id": "projet-joachim",
+            "title": "Joachim Kahan — Energy Engineer & Master in Management",
+            "description": "High-precision engineering portfolio: energy systems modelling, applied AI, data science, and industrial case studies.",
+            "badge": "Live Website",
+            "displayUrl": "joachimkahan.dev",
+            "targetUrl": "https://joachimkahan.github.io/portefolio_github.github.io/",
+            "type": "image",
+            "url": "assets/portfolio/joachim_portfolio_preview.png",
+            "tags": [
+                "Energy Systems",
+                "Dual Degree",
+                "Applied AI"
+            ]
+        },
+        {
+            "id": "projet-elodie",
+            "title": "L'Atelier d'Élodie — Hair Salon",
+            "description": "Warm and inviting hair salon website: treatment menu, before/after gallery, and direct bookings.",
+            "badge": "Live Website",
+            "displayUrl": "latelier-delodie.fr",
+            "targetUrl": "https://joachimkahan.github.io/leana_github.github.io/",
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80",
+            "tags": [
+                "Hair Salon",
+                "Before/After Gallery",
+                "Direct Booking"
+            ]
+        },
+        {
+            "id": "projet-gauthier",
+            "title": "Maison Gauthier — Artisan Bakery",
+            "description": "Artisanal bakery showcase: sourdough bread selection, opening hours, and family heritage.",
+            "badge": "Live Website",
+            "displayUrl": "maison-gauthier-bordeaux.fr",
+            "targetUrl": "https://joachimkahan.github.io/leana_github.github.io/",
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
+            "tags": [
+                "Local Bakery",
+                "Artisanal Breads",
+                "Online Orders"
+            ]
+        }
+    ],
+    "about": {
+        "eyebrow": "",
+        "titleHtml": "About Us",
+        "paragraphs": [
+            "WebExpresso is a project we run alongside our engineering (Grenoble INP) and business degrees. While it provides supplemental income during our studies, it is above all a great opportunity to explore new horizons: honing our hands-on skills in web development, marketing, and client relationships.",
+            "Our approach is simple: help local craftspeople, neighborhood merchants, and freelancers get a genuine professional website without spending the 1 500 € charged by traditional agencies.",
+            "Because we do not have agency overhead, we offer direct and fair prices: 100 € total for the Essential formula (5 € deposit + 95 € balance) and 150 € for the Autonomous formula (5 € deposit + 145 € balance). You benefit from direct support without intermediaries, and you review your video demo first before paying the balance."
+        ],
+        "quote": "Real-world practice while providing an affordable web solution for independent businesses.",
+        "signature": "The WebExpresso Team — Grenoble INP & Business School",
+        "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+    },
+    "banner": {
+        "imageUrl": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80",
+        "alt": "Modern workspace and web development",
+        "eyebrow": "OUR COMMITMENT",
+        "quote": "A clear and professional website should never be an inaccessible luxury.",
+        "signature": "The WebExpresso Team — Grenoble INP & Business School"
+    },
+    "looks": [],
+    "beforeAfter": [],
+    "faq": [
+        {
+            "question": "Why do you ask for a 5 € deposit for the video demo?",
+            "answer": "This symbolic 5 € deposit allows us to filter genuine requests and dedicate the necessary care to create your tailored demo within 7 days. It is 100% deducted from your final plan balance."
+        },
+        {
+            "question": "Why are your prices so low compared to a classic agency?",
+            "answer": "We run this project alongside our engineering and business studies (Grenoble INP). It is a supplemental income, but above all a practical learning ground to master web engineering, design, and commercial relations with real clients. Without unnecessary agency rent or overhead, we pass these direct rates (100 € and 150 € total) on to independent businesses."
+        },
+        {
+            "question": "How long does the initial questionnaire take?",
+            "answer": "The online questionnaire takes about 10 minutes. You share your business activity, contact info, preferred colors, and what you'd like to display. The more details you share, the closer the demo fits your vision!"
+        },
+        {
+            "question": "What happens if the video demo does not suit me?",
+            "answer": "You pay absolutely nothing more. The 5 € deposit covers our initial demo creation. If the result does not meet your expectations, you are completely free to walk away with zero further commitment."
+        },
+        {
+            "question": "Are there any monthly fees or hidden costs?",
+            "answer": "No, zero hidden monthly subscriptions. We set up your website on secure, high-performance servers. The only standard annual cost is your custom domain name (your-site.com, which costs around 10 € per year)."
+        },
+        {
+            "question": "What is the concrete difference between Essential (100 €) and Autonomous (150 €)?",
+            "answer": "The Essential plan (100 € total) is ideal if your business details rarely change. The Autonomous plan (150 € total) also gives you private, intuitive access to update your texts, prices, or photos yourself in a few clicks, just like using a text editor."
+        },
+        {
+            "question": "How long does it take to get my final site online?",
+            "answer": "You first receive your custom video demo in 7 days. As soon as you approve it and settle the balance for your chosen formula (95 € or 145 €), we launch your live website in 3 to 5 business days."
+        },
+        {
+            "question": "Do I have to pick my formula right away?",
+            "answer": "No! You only pay the 5 € deposit upfront. You choose between Essential (100 €) and Autonomous (150 €) only after watching the video walkthrough of your future site."
+        },
+        {
+            "question": "What happens if my website experiences a bug or issue after going live?",
+            "answer": "Diagnosis is always 100% free, whatever the case. Your website includes a 1-year technical warranty covering any template fixes, and our technical setups are guaranteed for life. Furthermore, any initial content misalignments are fixed free of charge within 30 days after launch. For more information, <a href=\"#\" data-legal-tab=\"sav\">view our Warranties & Support policy</a>."
+        },
+        {
+            "question": "Can I have my texts or photos updated later on?",
+            "answer": "With the Autonomous plan, you can edit texts, schedules, or photos yourself at any time for free via your private dashboard. With the Essential plan or if you prefer us to handle it, we provide transparent fixed rates: 20 € for text or image updates, and 35 € for adding a simple graphic section. For more information, <a href=\"#\" data-legal-tab=\"sav\">check our full support rates & policy</a>."
+        }
+    ],
+    "contact": {
+        "eyebrow": "TAKE ACTION",
+        "title": "Ready to Discover Your Future Website?",
+        "subtitle": "Fill out the questionnaire in 10 minutes to receive your custom video demo in under a week.",
+        "ctaText": "Fill out questionnaire on Tally (5€) ↗",
+        "ctaLink": "https://tally.so/r/XxAYzY"
+    },
+    "footer": {
+        "siteName": "WebExpresso",
+        "tagline": "Get your website demo in under a week",
+        "copyright": "© 2026 WebExpresso. All rights reserved."
+    }
+};
+
+// Instance réactive mutable de DEFAULT_CONTENT
+const initialLang = (typeof localStorage !== 'undefined' && localStorage.getItem('site_lang')) || 'fr';
+const DEFAULT_CONTENT = Object.assign({}, (initialLang === 'en') ? DEFAULT_CONTENT_EN : DEFAULT_CONTENT_FR);
+
+// Écouteur global pour commuter DEFAULT_CONTENT lors de la bascule de langue
+if (typeof window !== 'undefined') {
+    window.DEFAULT_CONTENT = DEFAULT_CONTENT;
+    window.DEFAULT_CONTENT_FR = DEFAULT_CONTENT_FR;
+    window.DEFAULT_CONTENT_EN = DEFAULT_CONTENT_EN;
+
+    window.addEventListener('app:lang-change', (e) => {
+        const lang = (e && e.detail && e.detail.lang) || 'fr';
+        const target = (lang === 'en') ? DEFAULT_CONTENT_EN : DEFAULT_CONTENT_FR;
+        for (const key of Object.keys(DEFAULT_CONTENT)) {
+            delete DEFAULT_CONTENT[key];
+        }
+        Object.assign(DEFAULT_CONTENT, target);
+    });
+}
