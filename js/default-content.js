@@ -24,7 +24,7 @@ const DEFAULT_CONTENT_FR = {
         "titleHtml": "<span class=\"hero-brand-name\">WebExpresso</span><span class=\"hero-subline\">Site personnalisé livré en moins d'une semaine</span>",
         "description": "Visualisez le résultat exact avant de vous engager. Remplissez notre questionnaire en 10 minutes et recevez une vidéo interactive de votre futur site pour seulement 5 € d'acompte (déductibles du solde final).",
         "ctaText": "Obtenir ma Démo pour 5 € ↗",
-        "ctaLink": "https://tally.so/r/XxAYzY",
+        "ctaLink": "questionnaire/",
         "imageUrl": "assets/hero-option-2-esquisse-laptop.jpg"
     },
     "ticker": {
@@ -74,7 +74,7 @@ const DEFAULT_CONTENT_FR = {
             "price": "100€ (5€ d'acompte + solde de 95€)",
             "description": "Parfait pour les artisans, commerçants et indépendants dont les informations changent peu souvent.",
             "ctaText": "Obtenir ma Démo pour 5 € ↗",
-            "ctaUrl": "https://tally.so/r/XxAYzY",
+            "ctaUrl": "questionnaire/",
             "features": [
                 "Site vitrine sur une seule page fluide et ultra-rapide",
                 "Affichage impeccable sur smartphone, tablette et ordinateur",
@@ -93,7 +93,7 @@ const DEFAULT_CONTENT_FR = {
             "badge": "Recommandée",
             "description": "Idéal pour garder la main totale et modifier vous-même vos contenus à tout moment.",
             "ctaText": "Obtenir ma Démo pour 5 € ↗",
-            "ctaUrl": "https://tally.so/r/XxAYzY",
+            "ctaUrl": "questionnaire/",
             "features": [
                 "Tout ce qui est inclus dans la Formule Essentiel",
                 "Espace privé et très simple pour modifier vos textes et tarifs",
@@ -229,8 +229,8 @@ const DEFAULT_CONTENT_FR = {
         "eyebrow": "PASSEZ À L'ACTION",
         "title": "Prêt à Découvrir Votre Futur Site ?",
         "subtitle": "Remplissez le questionnaire en 10 minutes pour recevoir votre vidéo de démo personnalisée en moins d'une semaine.",
-        "ctaText": "Remplir le questionnaire sur Tally (5€) ↗",
-        "ctaLink": "https://tally.so/r/XxAYzY"
+        "ctaText": "Démarrer mon projet ↗",
+        "ctaLink": "questionnaire/"
     },
     "footer": {
         "siteName": "WebExpresso",
@@ -257,7 +257,7 @@ const DEFAULT_CONTENT_EN = {
         "titleHtml": "<span class=\"hero-brand-name\">WebExpresso</span><span class=\"hero-subline\">Custom website delivered in under a week</span>",
         "description": "See the exact result before committing. Fill out our 10-minute questionnaire and receive an interactive video demo of your future website for just a 5 € deposit (deducted from the final balance).",
         "ctaText": "Get my Demo for 5 € ↗",
-        "ctaLink": "https://tally.so/r/XxAYzY",
+        "ctaLink": "questionnaire/en/",
         "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80"
     },
     "ticker": {
@@ -307,7 +307,7 @@ const DEFAULT_CONTENT_EN = {
             "price": "100€ (5€ deposit + balance of 95€)",
             "description": "Perfect for local artisans, shops, and freelancers whose information stays consistent.",
             "ctaText": "Get my Demo for 5 € ↗",
-            "ctaUrl": "https://tally.so/r/XxAYzY",
+            "ctaUrl": "questionnaire/en/",
             "features": [
                 "Single-page sleek and ultra-fast showcase website",
                 "Flawless display on smartphone, tablet, and desktop",
@@ -326,7 +326,7 @@ const DEFAULT_CONTENT_EN = {
             "badge": "Recommended",
             "description": "Ideal for full independence to update your content and photos yourself anytime.",
             "ctaText": "Get my Demo for 5 € ↗",
-            "ctaUrl": "https://tally.so/r/XxAYzY",
+            "ctaUrl": "questionnaire/en/",
             "features": [
                 "Everything included in the Essential Plan",
                 "Private and simple admin panel to edit texts and rates",
@@ -466,8 +466,8 @@ const DEFAULT_CONTENT_EN = {
         "eyebrow": "TAKE ACTION",
         "title": "Ready to Discover Your Future Website?",
         "subtitle": "Fill out the questionnaire in 10 minutes to receive your custom video demo in under a week.",
-        "ctaText": "Fill out questionnaire on Tally (5€) ↗",
-        "ctaLink": "https://tally.so/r/XxAYzY"
+        "ctaText": "Start my project ↗",
+        "ctaLink": "questionnaire/en/"
     },
     "footer": {
         "siteName": "WebExpresso",

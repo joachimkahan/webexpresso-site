@@ -66,8 +66,7 @@ const SITE_CONFIG = {
     // ── Actions & Boutons Principaux ──
     actions: {
         primaryCta: {
-            label: "Obtenir ma démo pour 5€",
-            href: "https://tally.so/r/XxAYzY"
+            href: "questionnaire/"
         },
         phoneButton: {
             enabled: false,
@@ -80,7 +79,7 @@ const SITE_CONFIG = {
         },
         externalBooking: {
             enabled: true,
-            url: "https://tally.so/r/XxAYzY"
+            url: "questionnaire/"
         }
     },
 
@@ -91,10 +90,10 @@ const SITE_CONFIG = {
         scrollReveal: true
     },
 
-    // ── Formulaire de Contact / Tunnel Tally ──
+    // ── Formulaire de Contact (le parcours de commande passe par questionnaire/) ──
     contactForm: {
         email: "contact@webexpresso.fr",
-        redirectUrl: "https://tally.so/r/XxAYzY",
+        redirectUrl: "questionnaire/",
         fields: ["name", "email", "service", "message"],
         services: [
             { value: "demo-5e", label: "Démo Personnalisée (5€ d'acompte)" },

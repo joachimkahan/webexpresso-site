@@ -24,7 +24,7 @@ const DEFAULT_CONTENT_EN = {
         "titleHtml": "<span class=\"hero-brand-name\">WebExpresso</span><span class=\"hero-subline\">Custom website delivered in under a week</span>",
         "description": "See the exact result before committing. Fill out our 10-minute questionnaire and receive an interactive video demo of your future site for just a €5 deposit (deducted from your final balance).",
         "ctaText": "Get My Demo for €5 ↗",
-        "ctaLink": "https://tally.so/r/XxAYzY",
+        "ctaLink": "questionnaire/en/",
         "imageUrl": "assets/hero-option-2-esquisse-laptop.jpg"
     },
     "ticker": {
@@ -215,8 +215,8 @@ const DEFAULT_CONTENT_EN = {
         "eyebrow": "TAKE ACTION",
         "title": "Ready to Discover Your Future Website?",
         "subtitle": "Fill out the questionnaire in 10 minutes to receive your custom video demo in under a week.",
-        "ctaText": "Fill out the questionnaire on Tally (€5) ↗",
-        "ctaLink": "https://tally.so/r/XxAYzY"
+        "ctaText": "Start my project ↗",
+        "ctaLink": "questionnaire/en/"
     },
     "footer": {
         "siteName": "WebExpresso",

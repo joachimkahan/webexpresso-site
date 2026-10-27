@@ -14,13 +14,18 @@ def run_tests():
             print(f'  [FAIL] {f} introuvable')
             exit(1)
 
-    print('\n=== TEST 2: Redirection Directe vers Tally (Sans modale) ===')
+    print('\n=== TEST 2: Redirection Directe vers le Questionnaire du Site (Sans modale) ===')
     with open('index.html', 'r', encoding='utf-8') as fp:
         html = fp.read()
 
     assert 'id="payment-modal"' not in html, "La modale payment-modal ne doit plus etre dans index.html"
-    assert 'https://tally.so/r/XxAYzY' in html, "Le lien Tally doit etre present"
-    print('  [PASS] index.html: Aucun payment-modal, tous les liens redirigent directement vers Tally.')
+    assert 'href="questionnaire/"' in html, "Le lien vers le questionnaire du site doit etre present"
+    assert 'tally.so' not in html, "Plus aucun lien Tally"
+    for js in ('js/site-config.js', 'js/default-content.js', 'js/default-content-en.js', 'js/legal-manager.js'):
+        with open(js, 'r', encoding='utf-8') as fp:
+            assert 'tally.so' not in fp.read(), f"Lien Tally restant dans {js}"
+    assert os.path.exists('questionnaire/index.html'), "Page questionnaire/ absente"
+    print('  [PASS] index.html: Aucun payment-modal, tous les liens menent au questionnaire du site (questionnaire/).')
 
     with open('js/app.js', 'r', encoding='utf-8') as fp:
         app_js = fp.read()

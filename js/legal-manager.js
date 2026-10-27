@@ -200,7 +200,7 @@
                 <p><strong>TVA Intracommunautaire :</strong> ${legal.vatNumber}</p>
                 <p><strong>Direction de la Publication :</strong> ${legal.publishingDirector}</p>
                 <p><strong>Contact Électronique :</strong> <a href="mailto:${legal.contactEmail}">${legal.contactEmail}</a></p>
-                <p><strong>Tunnel de Commande Sécurisé :</strong> Formulaire vérifié hébergé sur <a href="https://tally.so" target="_blank" rel="noopener noreferrer">Tally.so</a> avec passerelle bancaire chiffrée SSL/TLS (Stripe).</p>
+                <p><strong>Commande :</strong> questionnaire « Démarrer mon projet » de ce site, transmis par FormSubmit ; acompte réglé en ligne par Stripe.</p>
             `;
         }
 
@@ -230,11 +230,11 @@
             elPrivacy.innerHTML = `
                 <p><strong>Responsable du Traitement :</strong> L'Équipe WebExpresso (représentée par la direction éditoriale).</p>
                 <p><strong>Contact Référent Données Personnelles :</strong> <a href="mailto:${legal.dpoEmail}">${legal.dpoEmail}</a>.</p>
-                <p><strong>Données Collectées :</strong> Nom, prénom, adresse électronique, numéro de téléphone éventuel, description de votre activité professionnelle, choix des couleurs, photographies et textes transmis volontairement lors du remplissage du questionnaire Tally ou par échange email.</p>
+                <p><strong>Données Collectées :</strong> Nom, prénom, adresse électronique, numéro de téléphone éventuel, description de votre activité professionnelle, choix des couleurs, photographies et textes transmis volontairement lors du remplissage du questionnaire « Démarrer mon projet » ou par échange email.</p>
                 <p><strong>Finalités du Traitement :</strong> Traitement de votre demande d'acompte de 5 €, réalisation et transmission de la vidéo de démonstration sous 7 jours, personnalisation du site web commandé, et suivi de la facturation.</p>
                 <p><strong>Bases Légales :</strong> Exécution de mesures précontractuelles et contractuelles (art. 6.1.b du RGPD) ainsi que votre consentement explicite donné lors de la soumission du formulaire.</p>
                 <p><strong>Durée de Conservation :</strong> Les données des demandes n'aboutissant pas à une commande finale sont supprimées ou archivées sous 3 ans à compter du dernier échange. Les données de facturation et dossiers de livraison sont conservés 10 ans conformément aux obligations du Code de commerce.</p>
-                <p><strong>Sécurité & Destinataires :</strong> Vos données sont traitées de manière strictement confidentielle et sécurisée (chiffrement TLS). Elles ne sont jamais revendues ni cédées à des tiers. Les prestataires techniques intervenants (Tally pour le questionnaire, Stripe pour le paiement sécurisé, Netlify pour l'hébergement) sont rigoureusement conformes aux exigences du RGPD.</p>
+                <p><strong>Sécurité & Destinataires :</strong> Vos données sont traitées de manière strictement confidentielle et sécurisée (chiffrement TLS). Elles ne sont jamais revendues ni cédées à des tiers. Prestataires techniques : FormSubmit (transmission du questionnaire), Google (messagerie Gmail), Stripe (paiement de l'acompte), GitHub (hébergement du site). Certains peuvent traiter les données hors de l'Union européenne ; le détail figure dans la partie « Vos données » du questionnaire.</p>
                 <p><strong>Vos Droits :</strong> Vous bénéficiez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données personnelles. Vous pouvez faire valoir ces droits à tout moment en écrivant à <a href="mailto:${legal.dpoEmail}">${legal.dpoEmail}</a>.</p>
                 <p>En cas de réclamation non résolue, vous disposez du droit légal d'introduire une plainte auprès de l'autorité compétente : la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés — <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>).</p>
             `;

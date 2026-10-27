@@ -98,6 +98,10 @@
                     if (mobileLangToggleText) mobileLangToggleText.textContent = nextLabel;
                     if (langToggleBtn) langToggleBtn.setAttribute('aria-label', ariaLabel);
                     if (mobileLangToggleBtn) mobileLangToggleBtn.setAttribute('aria-label', ariaLabel);
+                    // Boutons « Démarrer mon projet » écrits dans la page : questionnaire dans la langue affichée
+                    document.querySelectorAll('a[data-questionnaire]').forEach((lien) => {
+                        lien.setAttribute('href', lang === 'en' ? 'questionnaire/en/' : 'questionnaire/');
+                    });
                 };
 
                 updateLangUI(currentLang);
