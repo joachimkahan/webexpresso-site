@@ -15,7 +15,7 @@
 </head>
 <body>
 <header class="bandeau">
-<a class="marque" href="https://joachimkahan.github.io/webexpresso-site/">WebExpresso</a>
+<a class="marque" href="https://joachimkahan.github.io/webexpresso-site/"><img src="img/logo-icone.png" alt="" width="47" height="26">WebExpresso</a>
 <a class="langue langue-lien" href="en/" hreflang="en" lang="en">English</a>
 <button type="button" class="langue langue-bouton" lang="en" data-t="langue_autre">English</button>
 </header>
@@ -43,7 +43,7 @@
 <section class="etape est-active" id="etape-activite" aria-labelledby="etape-activite-titre" data-rang="1">
 <header class="etape-entete">
 <p class="etape-numero" data-t-etape="1">Étape 1 sur 6</p>
-<div class="etape-barre" aria-hidden="true"><span class="faite"></span><span></span><span></span><span></span><span></span><span></span></div>
+<div class="etape-barre" aria-hidden="true"><span class="courante"></span><span></span><span></span><span></span><span></span><span></span></div>
 <h2 id="etape-activite-titre" tabindex="-1"><span data-t="etape-activite.titre">Vous et votre activité</span></h2>
 <p class="etape-intro" data-t="etape-activite.intro">Qui vous êtes et où vous travaillez.</p>
 </header>
@@ -118,7 +118,7 @@
 </div>
 </section>
 <section class="question" id="q-option-5" aria-labelledby="q-option-5-titre">
-<h3 id="q-option-5-titre"><span class="question-option"><span data-t="option">En option</span></span> <span data-t="q-option-5.titre">Slogan et langue du site</span></h3>
+<h3 id="q-option-5-titre"><span data-t="q-option-5.titre">Slogan et langue du site</span> <span class="question-option"><span data-t="option">En option</span></span></h3>
 <div class="champ">
 <label for="slogan"><span data-t="slogan.label">Une phrase qui vous résume, si vous en avez une</span></label>
 
@@ -128,7 +128,7 @@
 <fieldset class="champ groupe" id="langue_site" data-groupe="langue_site" data-type="choix" aria-describedby="langue_site-aide langue_site-erreur">
 <legend><span data-t="langue_site.label">Langue du site</span></legend>
 <p class="aide" id="langue_site-aide" data-t="langue_site.aide">Le site est en français si vous ne choisissez rien.</p>
-<div class="options">
+<div class="options options-courtes">
 <label class="option" for="langue_site-francais"><input type="radio" id="langue_site-francais" name="langue_site" value="francais"> <span data-t="langue_site.francais">Français</span></label>
 <label class="option" for="langue_site-anglais"><input type="radio" id="langue_site-anglais" name="langue_site" value="anglais"> <span data-t="langue_site.anglais">Anglais</span></label>
 <label class="option" for="langue_site-les_deux"><input type="radio" id="langue_site-les_deux" name="langue_site" value="les_deux"> <span data-t="langue_site.les_deux">Français et anglais</span></label>
@@ -141,7 +141,7 @@
 <section class="etape" id="etape-clients" aria-labelledby="etape-clients-titre" data-rang="2">
 <header class="etape-entete">
 <p class="etape-numero" data-t-etape="2">Étape 2 sur 6</p>
-<div class="etape-barre" aria-hidden="true"><span class="faite"></span><span class="faite"></span><span></span><span></span><span></span><span></span></div>
+<div class="etape-barre" aria-hidden="true"><span class="faite"></span><span class="courante"></span><span></span><span></span><span></span><span></span></div>
 <h2 id="etape-clients-titre" tabindex="-1"><span data-t="etape-clients.titre">Vos clients et le résultat attendu</span></h2>
 <p class="etape-intro" data-t="etape-clients.intro">Pour qui est le site, et ce qu&#x27;il doit leur faire faire.</p>
 </header>
@@ -192,7 +192,7 @@
 <section class="etape" id="etape-offre" aria-labelledby="etape-offre-titre" data-rang="3">
 <header class="etape-entete">
 <p class="etape-numero" data-t-etape="3">Étape 3 sur 6</p>
-<div class="etape-barre" aria-hidden="true"><span class="faite"></span><span class="faite"></span><span class="faite"></span><span></span><span></span><span></span></div>
+<div class="etape-barre" aria-hidden="true"><span class="faite"></span><span class="faite"></span><span class="courante"></span><span></span><span></span><span></span></div>
 <h2 id="etape-offre-titre" tabindex="-1"><span data-t="etape-offre.titre">Votre offre</span></h2>
 <p class="etape-intro" data-t="etape-offre.intro">Ce que vous vendez, à quel prix, et pourquoi vous plutôt qu&#x27;un autre.</p>
 </header>
@@ -272,7 +272,7 @@
 <section class="etape" id="etape-site" aria-labelledby="etape-site-titre" data-rang="4">
 <header class="etape-entete">
 <p class="etape-numero" data-t-etape="4">Étape 4 sur 6</p>
-<div class="etape-barre" aria-hidden="true"><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="faite"></span><span></span><span></span></div>
+<div class="etape-barre" aria-hidden="true"><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="courante"></span><span></span><span></span></div>
 <h2 id="etape-site-titre" tabindex="-1"><span data-t="etape-site.titre">Ce que le site affiche et permet</span></h2>
 <p class="etape-intro" data-t="etape-site.intro">Les parties du site viennent de ce que vous pouvez nous donner : nous n&#x27;inventons ni avis, ni chiffres, ni photos.</p>
 </header>
@@ -382,7 +382,7 @@
 <fieldset class="champ groupe" id="gestion_rythme" data-si="gestion" data-si-valeurs="moi conseil" data-groupe="gestion_rythme" data-type="choix" aria-describedby="gestion_rythme-erreur">
 <legend><span data-t="gestion_rythme.label">À quel rythme</span></legend>
 
-<div class="options">
+<div class="options options-courtes">
 <label class="option" for="gestion_rythme-semaine"><input type="radio" id="gestion_rythme-semaine" name="gestion_rythme" value="semaine"> <span data-t="gestion_rythme.semaine">Chaque semaine</span></label>
 <label class="option" for="gestion_rythme-mois"><input type="radio" id="gestion_rythme-mois" name="gestion_rythme" value="mois"> <span data-t="gestion_rythme.mois">Chaque mois</span></label>
 <label class="option" for="gestion_rythme-quelques_fois"><input type="radio" id="gestion_rythme-quelques_fois" name="gestion_rythme" value="quelques_fois"> <span data-t="gestion_rythme.quelques_fois">Quelques fois par an</span></label>
@@ -402,7 +402,7 @@
 <section class="etape" id="etape-ambiance" aria-labelledby="etape-ambiance-titre" data-rang="5">
 <header class="etape-entete">
 <p class="etape-numero" data-t-etape="5">Étape 5 sur 6</p>
-<div class="etape-barre" aria-hidden="true"><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="faite"></span><span></span></div>
+<div class="etape-barre" aria-hidden="true"><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="courante"></span><span></span></div>
 <h2 id="etape-ambiance-titre" tabindex="-1"><span data-t="etape-ambiance.titre">Ambiance visuelle</span></h2>
 <p class="etape-intro" data-t="etape-ambiance.intro">Pas besoin de vocabulaire de graphiste : dites ce que vous ressentez.</p>
 </header>
@@ -411,7 +411,7 @@
 <fieldset class="champ groupe" id="groupe-ambiance" data-groupe="ambiance" data-type="cases" data-max="3" aria-describedby="groupe-ambiance-erreur">
 <legend><span data-t="groupe-ambiance.label">Trois au plus</span></legend>
 
-<div class="options">
+<div class="options options-courtes">
 <label class="option" for="ambiance_serieux"><input type="checkbox" id="ambiance_serieux" name="ambiance_serieux" value="oui"> <span data-t="ambiance_serieux.label">Sérieux et fiable</span></label>
 <label class="option" for="ambiance_chaleur"><input type="checkbox" id="ambiance_chaleur" name="ambiance_chaleur" value="oui"> <span data-t="ambiance_chaleur.label">Chaleureux et proche</span></label>
 <label class="option" for="ambiance_simplicite"><input type="checkbox" id="ambiance_simplicite" name="ambiance_simplicite" value="oui"> <span data-t="ambiance_simplicite.label">Simple et clair</span></label>
@@ -431,7 +431,7 @@
 <fieldset class="champ groupe" id="mode" data-groupe="mode" data-type="choix" aria-describedby="mode-erreur">
 <legend><span data-t="mode.label">Le fond du site</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></legend>
 
-<div class="options">
+<div class="options options-courtes">
 <label class="option" for="mode-clair"><input type="radio" id="mode-clair" name="mode" value="clair" required> <span data-t="mode.clair">Plutôt clair</span></label>
 <label class="option" for="mode-sombre"><input type="radio" id="mode-sombre" name="mode" value="sombre" required> <span data-t="mode.sombre">Plutôt sombre</span></label>
 <label class="option" for="mode-conseil"><input type="radio" id="mode-conseil" name="mode" value="conseil" required> <span data-t="mode.conseil">Conseillez-moi</span></label>
@@ -486,7 +486,7 @@
 <section class="etape" id="etape-envoi" aria-labelledby="etape-envoi-titre" data-rang="6">
 <header class="etape-entete">
 <p class="etape-numero" data-t-etape="6">Étape 6 sur 6</p>
-<div class="etape-barre" aria-hidden="true"><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="faite"></span></div>
+<div class="etape-barre" aria-hidden="true"><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="faite"></span><span class="courante"></span></div>
 <h2 id="etape-envoi-titre" tabindex="-1"><span data-t="etape-envoi.titre">Fichiers, coordonnées, mentions légales</span></h2>
 <p class="etape-intro" data-t="etape-envoi.intro">Dernière étape : ce que la loi demande sur tout site professionnel, et vos fichiers.</p>
 </header>
@@ -501,7 +501,7 @@
 <fieldset class="champ groupe" id="groupe-fichiers_contenu" data-groupe="fichiers_contenu" data-type="cases" aria-describedby="groupe-fichiers_contenu-erreur">
 <legend><span data-t="groupe-fichiers_contenu.label">Le dossier contient</span></legend>
 
-<div class="options">
+<div class="options options-courtes">
 <label class="option" for="fichiers_contenu_realisations"><input type="checkbox" id="fichiers_contenu_realisations" name="fichiers_contenu_realisations" value="oui"> <span data-t="fichiers_contenu_realisations.label">Des photos de réalisations</span></label>
 <label class="option" for="fichiers_contenu_portrait"><input type="checkbox" id="fichiers_contenu_portrait" name="fichiers_contenu_portrait" value="oui"> <span data-t="fichiers_contenu_portrait.label">Votre portrait</span></label>
 <label class="option" for="fichiers_contenu_lieu"><input type="checkbox" id="fichiers_contenu_lieu" name="fichiers_contenu_lieu" value="oui"> <span data-t="fichiers_contenu_lieu.label">L&#x27;atelier ou la boutique</span></label>

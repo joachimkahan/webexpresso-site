@@ -166,10 +166,22 @@ function rafraichir(c) {
 
 function afficherEtape(i, { focus = true } = {}) {
   courante = Math.max(0, Math.min(etapes.length - 1, Number(i) || 0));
-  etapes.forEach((e, k) => e.classList.toggle('est-active', k === courante));
-  for (const a of document.querySelectorAll('.sommaire a')) {
+  etapes.forEach((e, k) => {
+    e.classList.toggle('est-active', k === courante);
+    if (k !== courante) e.classList.remove('entree');
+  });
+  document.querySelectorAll('.sommaire a').forEach((a, k) => {
+    a.classList.toggle('fait', k < courante);
     if (a.getAttribute('href') === `#${etapes[courante].id}`) a.setAttribute('aria-current', 'step');
     else a.removeAttribute('aria-current');
+  });
+  // L'entrée animée ne joue que sur un changement d'étape voulu (focus), jamais au chargement ni à la reprise d'un brouillon
+  if (focus && !mouvementReduit()) {
+    const etape = etapes[courante];
+    etape.classList.remove('entree');
+    void etape.offsetWidth; // relance l'animation si la même étape revient
+    etape.classList.add('entree');
+    etape.addEventListener('animationend', () => etape.classList.remove('entree'), { once: true });
   }
   if (focus) {
     etapes[courante].querySelector('h2').focus({ preventScroll: true });
