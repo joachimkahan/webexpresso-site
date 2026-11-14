@@ -591,20 +591,24 @@
                 featuresHtml = `<ul class="pricing-features">${item.features.map(f => `<li><span class="check-icon">✓</span><span>${f}</span></li>`).join('')}</ul>`;
             }
 
-            // Price splitting (masqué si variante expertise)
+            // Price splitting (côte à côte prix + engagement sur la grille novembre 2026)
             let pricingBoxHtml = '';
             if (!isCardExpertise && item.price) {
-                let rawPrice = item.price;
+                const rawPrice = item.price;
                 let mainPrice = rawPrice;
-                let subPrice = '';
-                if (rawPrice.includes('(')) {
+                let subPrice = item.priceSub || '';
+                if (!subPrice && rawPrice.includes('(')) {
                     const parts = rawPrice.split('(');
                     mainPrice = parts[0].trim();
-                    subPrice = parts[1].replace(')', '').trim();
+                    subPrice = parts[1].replace(/\)$/, '').trim();
                 }
+                const commitmentHtml = item.commitment ? `<span class="price-commitment">${item.commitment}</span>` : '';
                 pricingBoxHtml = `
                     <div class="pricing-box">
-                        <div class="price-main">${mainPrice}</div>
+                        <div class="price-main-row">
+                            <span class="price-main">${mainPrice}</span>
+                            ${commitmentHtml}
+                        </div>
                         ${subPrice ? `<div class="price-sub">${subPrice}</div>` : ''}
                     </div>
                 `;

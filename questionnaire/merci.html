@@ -22,8 +22,23 @@
 <h1 data-t="merci.titre">Merci, votre questionnaire est envoyé</h1>
 <p data-t="merci.p0">Nous lisons vos réponses et revenons vers vous par e-mail, à l&#x27;adresse que vous nous avez donnée.</p>
 <p data-t="merci.p1">Si vous avez envoyé un lien WeTransfer, gardez vos fichiers de côté : ce lien expire au bout de quelques jours.</p>
-<div class="paiement"><p data-t="paiement.texte">Dernière étape : réglez l&#x27;acompte de 5 €. Il lance la préparation de votre démonstration et sera déduit du prix final.</p>
-<p><a class="bouton" href="https://buy.stripe.com/LIEN_PAIEMENT_STRIPE"><span data-t="paiement.bouton">Régler l&#x27;acompte de 5 €</span></a></p></div>
+<div class="paiement"><p data-t="paiement.texte">Dernière étape avant paiement : le questionnaire et l&#x27;aperçu préalable sont gratuits (sans aucun acompte préalable). Vérifiez ci-dessous le récapitulatif et le total de l&#x27;engagement minimum de la formule retenue. Vous gardez toujours votre site si vous arrêtez.</p>
+<div class="recap-engagement" id="recap-engagement">
+<h2 class="recap-engagement-titre">Récapitulatif avant paiement</h2>
+<p class="recap-engagement-choisie" id="recap-engagement-choisie">Vérifiez le total minimum selon la formule choisie :</p>
+<ul>
+<li data-offre="webexpresso"><strong>Essentiel :</strong> 200 €, paiement unique (site fixe, sans abonnement).</li>
+<li data-offre="moi"><strong>Autonome + évolutions :</strong> 200 € + 30 €/mois, engagement de 3 mois minimum — total minimum : <strong>290 €</strong> (200 + 3 × 30 €). Inclut l'espace pro + 2 petites demandes/mois (&lt; 30 min) + 1 évolution/trimestre sous 5 à 10 j ouvrés ; mensualités restantes dues si arrêt avant 3 mois ; 0 € frais d'annulation après 3 mois ; espace pro acquis à vie après 12 mois cumulés.</li>
+<li data-offre="accompagnement"><strong>Autonome + accompagnement commercial/marketing :</strong> 250 € + 50 €/mois, engagement de 3 mois minimum — total minimum : <strong>400 €</strong> (250 + 3 × 50 €). Accompagnement par le conseiller dédié (1 point mensuel + 2 contenus/publications/mois + mise à jour du site, zéro promesse de résultat) ; mêmes règles d'engagement, de cumul et d'espace pro à vie après 12 mois.</li>
+<li data-offre="autonome_vie"><strong>Sur demande (hors vitrine) :</strong> Autonome avec espace pro à vie, <strong>500 €</strong>, paiement unique (hors hébergement GitHub Pages et domaine ~10–15 €/an à votre charge).</li>
+</ul>
+<p class="recap-engagement-garantie"><strong>Vous gardez toujours votre site si vous arrêtez.</strong> Questionnaire et aperçu personnalisés gratuits (sans aucun acompte préalable) ; hébergement GitHub Pages et nom de domaine restent au nom et à la charge du client. Clauses d'engagement et de résiliation à faire valider par un professionnel dans des CGV écrites.</p>
+</div>
+<div class="champ champ-case">
+<label class="option" for="accept-engagement"><input type="checkbox" id="accept-engagement" name="accept_engagement" value="oui" data-type="case"> <span>J'ai pris connaissance du total de l'engagement minimum de ma formule et de la règle « Vous gardez toujours votre site si vous arrêtez ».</span></label>
+<p class="erreur" id="accept-engagement-erreur" hidden>Veuillez cocher cette case pour poursuivre vers le paiement.</p>
+</div>
+<p><a class="bouton" id="bouton-paiement" href="https://buy.stripe.com/LIEN_PAIEMENT_STRIPE"><span data-t="paiement.bouton">Poursuivre vers le paiement</span></a></p></div>
 <p class="note" id="brouillon-efface" hidden data-t="merci.brouillon_efface">Les réponses gardées dans ce navigateur viennent d&#x27;être effacées.</p>
 </div>
 </main>

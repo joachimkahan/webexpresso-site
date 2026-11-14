@@ -10,30 +10,30 @@ const DEFAULT_CONTENT_EN = {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "meta": {
         "title": "WebExpresso | Your Professional Showcase Website in Under a Week",
-        "description": "Get a personalized video demo of your future website for just a €5 deposit. Turnkey site from €100 (€5 deposit + €95 balance), no hidden subscriptions. Built by student engineers.",
+        "description": "WebExpresso: showcase websites from €200 (Essential one-time payment, Autonomous + updates €200 + €30/month, or Autonomous + business/marketing support €250 + €50/month). You always keep your website.",
         "lang": "en"
     },
     "identity": {
         "name": "WebExpresso",
-        "tagline": "Get a demo of your website in under a week",
+        "tagline": "Your custom website from €200 — you always keep your site",
         "activity": "Express & Turnkey Showcase Website Creation",
         "city": "Grenoble / France"
     },
     "hero": {
         "eyebrow": "",
         "titleHtml": "<span class=\"hero-brand-name\">WebExpresso</span><span class=\"hero-subline\">Custom website delivered in under a week</span>",
-        "description": "See the exact result before committing. Fill out our 10-minute questionnaire and receive an interactive video demo of your future site for just a €5 deposit (deducted from your final balance).",
-        "ctaText": "Get My Demo for €5 ↗",
+        "description": "Free online questionnaire and custom preview before you commit — you only pay when ordering. Three transparent plans starting at €200, and you always keep your website if you stop.",
+        "ctaText": "Start my project ↗",
         "ctaLink": "questionnaire/en/",
         "imageUrl": "assets/hero-option-2-esquisse-laptop.jpg"
     },
     "ticker": {
         "enabled": true,
         "items": [
-            "VIDEO DEMO WITHIN 7 DAYS",
-            "€5 DEPOSIT NO COMMITMENT",
-            "ZERO HIDDEN SUBSCRIPTIONS",
-            "100% OWNER OF YOUR SITE",
+            "YOU ALWAYS KEEP YOUR WEBSITE",
+            "ESSENTIAL €200 ONE-TIME PAYMENT",
+            "AUTONOMOUS + UPDATES €200 + €30/MO",
+            "3-MONTH MIN. COMMITMENT · ZERO CANCELLATION FEES",
             "PERFECT ON MOBILE & DESKTOP",
             "GRENOBLE INP STUDENT TEAM",
             "TURNKEY DELIVERY"
@@ -41,28 +41,28 @@ const DEFAULT_CONTENT_EN = {
     },
     "process": {
         "eyebrow": "SIMPLE & FAST METHOD",
-        "titleHtml": "How does it work?<br><em>From your idea to your live site in 4 simple steps</em>",
-        "description": "100% transparent process: you preview your future website on video before choosing your final plan.",
+        "titleHtml": "How does it work?<br><em>From your needs to your live site in 4 simple steps</em>",
+        "description": "Transparent process: free preview before ordering, you always keep your website if you stop, and zero cancellation fees after the 3-month minimum.",
         "steps": [
             {
                 "number": "01",
-                "title": "The Simple Questionnaire (10 min)",
-                "description": "Share your needs, colors, and content through our online form, with a secure €5 deposit."
+                "title": "Free Online Questionnaire (10 min)",
+                "description": "Share your activity, style preferences, and needs via our free online form — no upfront deposit required."
             },
             {
                 "number": "02",
-                "title": "Your Video Demo within 7 Days",
-                "description": "We craft a tailor-made first version and send you a complete walkthrough video of your future site."
+                "title": "Free Custom Preview (< 7 days)",
+                "description": "We prepare a custom website preview based on your brief within 7 days. You only pay if you decide to order."
             },
             {
                 "number": "03",
-                "title": "Plan Choice & Validation",
-                "description": "You watch the video. If you love it, you choose your plan (Essential €100 or Autonomous €150) and settle the balance (€95 or €145)."
+                "title": "Plan Selection & Pre-Payment Summary",
+                "description": "Confirm your chosen plan (Essential €200, Autonomous + updates €200 + €30/month, or Autonomous + support €250 + €50/month) with total minimum commitment displayed before Stripe payment."
             },
             {
                 "number": "04",
-                "title": "Turnkey Launch",
-                "description": "We publish your website on the Internet with your secure domain name (in https://). Everything is ready, you have nothing to configure!"
+                "title": "Turnkey Launch (GitHub Pages)",
+                "description": "We publish your website with https:// (GitHub Pages and domain name in your name and at your expense). You always keep your website even if you stop a subscription after the minimum period."
             }
         ]
     },
@@ -70,31 +70,57 @@ const DEFAULT_CONTENT_EN = {
         {
             "id": "offre-essentiel",
             "icon": "",
-            "title": "Essential Plan",
-            "price": "€100 (€5 deposit + €95 balance)",
-            "description": "Perfect for artisans, local shops, and independent workers whose information rarely changes.",
+            "title": "Essential",
+            "price": "€200",
+            "commitment": "one-time payment",
+            "priceSub": "Static website · No private dashboard",
+            "description": "The honest, straightforward option for businesses whose information rarely changes.",
+            "ctaText": "Choose Essential ↗",
+            "ctaUrl": "questionnaire/en/",
             "features": [
-                "Fast and fluid single-page showcase website",
-                "Flawless display on smartphone, tablet, and computer",
-                "Contact form connected directly to your email inbox",
-                "Optimized to be easily found on Google",
-                "Secure hosting included (with https:// padlock)",
-                "Zero monthly subscription (you own the site for life)"
+                "Complete, mobile-ready professional showcase website",
+                "€200 one-time payment with zero monthly subscription",
+                "Static website: no private self-editing dashboard",
+                "Direct contact form connected to your inbox",
+                "You always keep your website",
+                "After-sales rates: €20 minor update / €35 simple block (hosting & domain in your name)"
             ]
         },
         {
             "id": "offre-autonome",
             "icon": "",
-            "title": "Autonomous Plan",
-            "price": "€150 (€5 deposit + €145 balance)",
+            "title": "Autonomous + updates",
+            "price": "€200 + €30/mo",
+            "commitment": "3-month minimum commitment",
+            "priceSub": "€290 minimum total (€200 + 3 × €30) · Zero cancellation fees",
             "badge": "Recommended",
-            "description": "Ideal to maintain complete control and update your content yourself at any time.",
+            "description": "Stay independent with your pro dashboard and request new features from the developer.",
+            "ctaText": "Choose Autonomous + updates ↗",
+            "ctaUrl": "questionnaire/en/",
             "features": [
-                "Everything included in the Essential Plan",
-                "Simple private dashboard to edit your text and prices",
-                "Easily upload new photos and work in 1 click",
-                "Update your customer reviews and contact info without touching code",
-                "Step-by-step video tutorial and support included"
+                "Private pro dashboard to update your content yourself",
+                "2 small feature requests/month (< 30 min) + 1 major quarterly evolution (5–10 business days)",
+                "3-month min. commitment (€290 min.; remaining months due if stopped earlier), €0 exit fee afterwards",
+                "You always keep your website if you stop (prior paid months count if you resume later)",
+                "After 12 cumulative months: pro dashboard acquired for life (GitHub Pages hosting & domain at client expense)"
+            ]
+        },
+        {
+            "id": "offre-accompagnement",
+            "icon": "",
+            "title": "Autonomous + business/marketing support",
+            "price": "€250 + €50/mo",
+            "commitment": "3-month minimum commitment",
+            "priceSub": "€400 minimum total (€250 + 3 × €50) · Zero cancellation fees",
+            "description": "Your website with a pro dashboard plus dedicated business and marketing support.",
+            "ctaText": "Choose Autonomous + support ↗",
+            "ctaUrl": "questionnaire/en/",
+            "features": [
+                "Full private pro dashboard included from launch",
+                "Monthly check-in + 2 prepared posts/contents/mo + site updates by your advisor (zero result promises)",
+                "3-month min. commitment (€400 min.; remaining months due if stopped earlier), €0 exit fee afterwards",
+                "You always keep your website if you stop (prior paid months count if you resume later)",
+                "After 12 cumulative months: pro dashboard acquired for life (GitHub Pages hosting & domain at client expense)"
             ]
         }
     ],
@@ -166,7 +192,7 @@ const DEFAULT_CONTENT_EN = {
         "paragraphs": [
             "WebExpresso is a project we lead alongside our engineering studies (Grenoble INP) and business school. It is a financial complement for us, but above all a great opportunity to explore new horizons: perfecting our skills in technical development as well as sales, client relations, and project management.",
             "Our goal is straightforward: help artisans, local shopkeepers, and independent workers get a genuinely professional, fast, and reassuring website without spending €1,500 at traditional web agencies.",
-            "Because we have no agency overhead, we offer direct and transparent rates: €100 total for the Essential Plan (€5 deposit + €95 balance) and €150 for the Autonomous Plan (€5 deposit + €145 balance). You enjoy a direct contact person, and you preview your website on video before paying the balance."
+            "Because we have no agency overhead, we offer three clear plans starting at €200 one-time (Essential), or with a pro dashboard and monthly support (Autonomous + updates at €200 + €30/month, or Autonomous + business/marketing support at €250 + €50/month, 3-month minimum commitment). You always keep your website if you stop."
         ],
         "quote": "Practicing on real client projects while offering a truly accessible web solution for independent businesses.",
         "signature": "The WebExpresso Team — Grenoble INP & Business School",
@@ -183,44 +209,44 @@ const DEFAULT_CONTENT_EN = {
     "beforeAfter": [],
     "faq": [
         {
-            "question": "Why are your prices so low compared to a traditional agency?",
-            "answer": "We lead this project alongside our engineering and business studies (Grenoble INP & Business School). It is a financial complement for us, but above all a practical ground to master technical development and commercial relations with real clients. Having no costly agency overhead, we pass on these direct prices (€100 and €150 total) to artisans and freelancers who need an effective, affordable solution."
+            "question": "Why are your prices lower than a traditional agency?",
+            "answer": "We lead this project alongside our engineering and business studies (Grenoble INP & Business School). Without agency overhead, we pass on direct pricing: €200 one-time for Essential, €200 + €30/month for Autonomous + updates, and €250 + €50/month for Autonomous + business/marketing support (3-month minimum commitment)."
         },
         {
-            "question": "What happens if I don't like the video demo?",
-            "answer": "You pay absolutely nothing more. The €5 deposit covers the initial preparation of your demo. If the result does not match your expectations, you are completely free not to order the final site, with zero commitment."
+            "question": "What happens to my website if I cancel the subscription?",
+            "answer": "You always keep your website if you stop. After the 3-month minimum commitment (€290 minimum for Autonomous + updates, €400 minimum for Autonomous + support), there are zero cancellation fees. If you cancel before 3 months, remaining monthly installments for the 3-month period remain due. Stopping before 12 cumulative months only removes access to the pro dashboard; if you resume later, your previously paid months count toward the 12 months required for lifetime pro dashboard access."
         },
         {
-            "question": "Do I truly own the website once delivered?",
-            "answer": "Yes, 100%. Once the final balance is settled, you are the sole owner of all texts, photos, and files of your website. You have no locking monthly contract."
+            "question": "Do I truly own the website?",
+            "answer": "Yes. You always keep your website if you stop a subscription, and with Essential (€200 one-time) there is no subscription at all. Hosting (via GitHub Pages) and your domain name (~€10–15/year) are set up in your name and remain at your expense. Once out of subscription, developer edits follow standard after-sales rates (€20 text/photo update, €35 simple block, or custom quote)."
         },
         {
-            "question": "Are there any monthly fees or hidden costs?",
-            "answer": "No hidden monthly subscriptions. We set up your website on secure, free servers. The only standard annual expense is your domain name (your-site.com, which costs around €10 per year)."
+            "question": "Can I get the pro dashboard without a subscription?",
+            "answer": "Prefer the pro space from the start, with no subscription? Available on request: €500 one-time payment for lifetime access to the pro dashboard (hosting on GitHub Pages and domain name remain at the client's expense; future developer feature additions billed at standard SAV rates)."
         },
         {
-            "question": "What is the practical difference between Essential (€100) and Autonomous (€150)?",
-            "answer": "The Essential Plan (€100 total) is ideal if your business information rarely changes. The Autonomous Plan (€150 total) also gives you simple private access to update your text, rates, or photos yourself in a few clicks, just like a word processor."
+            "question": "What is the practical difference between the three plans?",
+            "answer": "Essential (€200 one-time) provides a static showcase site with no private dashboard. Autonomous + updates (€200 + €30/month, 3-month min. i.e. €290) adds the private pro dashboard plus 2 small feature requests/month (< 30 min, non-rollover) and 1 major quarterly evolution within 5 to 10 business days. Autonomous + business/marketing support (€250 + €50/month, 3-month min. i.e. €400) includes a monthly check-in, 2 prepared posts/contents/month, and site offer updates by your commercial advisor, with zero quantified result promises."
         },
         {
-            "question": "How long does it take to have my final website online?",
-            "answer": "You first receive your personalized video demo within 7 days. Once you approve it and settle the chosen plan's balance (€95 or €145), we publish your definitive website online within 3 to 5 business days."
+            "question": "How do the 3-month commitment and cancellation work?",
+            "answer": "The total minimum commitment (€290 or €400) is displayed in the pre-payment summary with an acceptance checkbox. Cancelling before the end of the 3-month period leaves the remaining installments of those 3 months due. After 3 months, you can stop anytime with zero cancellation fees. All commitment and termination terms are formalised by a legal professional in written T&Cs."
         },
         {
-            "question": "Do I have to choose my plan right away?",
-            "answer": "No! You only pay the €5 deposit at the start. The choice between the Essential Plan (€100) and Autonomous Plan (€150) is made only after watching the video walkthrough of your future site."
+            "question": "How much do the questionnaire and initial preview cost?",
+            "answer": "They are 100% free: you fill out the online questionnaire (10 min), receive your custom website preview under 7 days with no upfront deposit, and only pay once you validate your chosen plan in the pre-payment summary."
         }
     ],
     "contact": {
         "eyebrow": "TAKE ACTION",
-        "title": "Ready to Discover Your Future Website?",
-        "subtitle": "Fill out the questionnaire in 10 minutes to receive your custom video demo in under a week.",
+        "title": "Ready to Launch Your Website?",
+        "subtitle": "Fill out the 10-minute questionnaire to pick the plan that fits your business. You always keep your website if you stop.",
         "ctaText": "Start my project ↗",
         "ctaLink": "questionnaire/en/"
     },
     "footer": {
         "siteName": "WebExpresso",
-        "tagline": "Get a demo of your website in under a week",
+        "tagline": "Your custom website from €200 — you always keep your site",
         "copyright": "© 2026 WebExpresso. All rights reserved."
     }
 };

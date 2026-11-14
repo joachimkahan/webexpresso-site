@@ -16,7 +16,7 @@
 ## 2. Reformulations Commerciales Soumises à Validation
 
 > [!IMPORTANT]
-> **Points soumis à l'arbitrage de Joachim :**
-> 1. **Accroche Hero** : `"Votre Site Vitrine Professionnel — Livré en Moins d'une Semaine"` avec sous-titre sur l'acompte de 5€.
-> 2. **Libellé CTA Principal** : `"Obtenir ma démo pour 5€"` redirigeant vers `https://tally.so/r/XxAYzY`.
-> 3. **Présentation Pricing** : Formule Essentiel (95€) et Formule Autonome (145€), avec mention explicite `"Solde réglé après visionnage de la démo (5€ d'acompte déduits)"`.
+> **Règles validées par Joachim (Grille novembre 2026) :**
+> 1. **Accroche Hero** : `"Votre Site Vitrine Professionnel — Livré en Moins d'une Semaine"` (questionnaire et aperçu gratuits avant commande, sans acompte de 5 € ni offre Démo).
+> 2. **Libellé CTA Principal** : `"Démarrer mon projet ↗"` vers `questionnaire/`.
+> 3. **Présentation Pricing** : 3 offres affichées (`Essentiel 200 €`, `Autonome + évolutions 200 € + 30 €/mois` eng. 3 mois min. soit `290 €`, `Autonome + accompagnement commercial/marketing 250 € + 50 €/mois` eng. 3 mois min. soit `400 €`) + ligne discrète sur demande (`500 €` paiement unique) ; hébergement GitHub Pages et nom de domaine (~10-15 €/an) au nom et à la charge du client ; clauses d'engagement, de résiliation et d'acquisition à vie à faire valider par un professionnel dans des CGV écrites.

@@ -2,30 +2,30 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "meta": {
         "title": "WebExpresso | Votre Site Vitrine Professionnel en Moins d'une Semaine",
-        "description": "Obtenez la vidéo de démo personnalisée de votre futur site pour seulement 5€ d'acompte. Site clé en main dès 100€ (5€ d'acompte + 95€ de solde), sans abonnement caché. Conçu par des étudiants ingénieurs.",
+        "description": "WebExpresso : sites vitrine professionnels dès 200 € (Essentiel paiement unique, Autonome + évolutions à 200 € + 30 €/mois ou Autonome + accompagnement à 250 € + 50 €/mois). Vous gardez toujours votre site.",
         "lang": "fr"
     },
     "identity": {
         "name": "WebExpresso",
-        "tagline": "Obtenez la démo de votre site en moins d'une semaine",
+        "tagline": "Votre site dès 200 € — vous gardez toujours votre site",
         "activity": "Création de Sites Vitrine Express & Clé en Main",
         "city": "Grenoble / France"
     },
     "hero": {
-        "eyebrow": "DÉMO VIDÉO PERSONNALISÉE SOUS 7 JOURS",
+        "eyebrow": "GRILLE TARIFAIRE NOVEMBRE 2026",
         "titleHtml": "Votre Site Vitrine Professionnel.<br><em>Livré en Moins d'une Semaine.</em>",
-        "description": "Visualisez le résultat exact avant de vous engager. Remplissez notre questionnaire en 10 minutes et recevez une vidéo interactive de votre futur site pour seulement 5 € d'acompte (déductibles du solde final).",
-        "ctaText": "Obtenir ma Démo pour 5 € ↗",
-        "ctaLink": "https://tally.so/r/XxAYzY",
+        "description": "Questionnaire et aperçu personnalisé gratuits avant commande — vous ne réglez qu'au lancement. Trois formules claires dès 200 €, et vous gardez toujours votre site si vous arrêtez.",
+        "ctaText": "Démarrer mon projet ↗",
+        "ctaLink": "questionnaire/",
         "imageUrl": "assets/hero-option-2-esquisse-laptop.jpg"
     },
     "ticker": {
         "enabled": true,
         "items": [
-            "DÉMO VIDÉO SOUS 7 JOURS",
-            "ACOMPTE 5€ SANS ENGAGEMENT",
-            "ZÉRO ABONNEMENT CACHÉ",
-            "100% PROPRIÉTAIRE DE VOTRE SITE",
+            "VOUS GARDEZ TOUJOURS VOTRE SITE",
+            "ESSENTIEL 200 € PAIEMENT UNIQUE",
+            "AUTONOME + ÉVOLUTIONS 200 € + 30 €/MOIS",
+            "ENGAGEMENT MIN. 3 MOIS · ZÉRO FRAIS D'ANNULATION",
             "ADAPTÉ MOBILE & ORDINATEUR",
             "ÉQUIPE ÉTUDIANTE GRENOBLE INP",
             "LIVRAISON CLÉ EN MAIN"
@@ -33,28 +33,28 @@
     },
     "process": {
         "eyebrow": "MÉTHODE SIMPLE & RAPIDE",
-        "titleHtml": "Comment ça marche ?<br><em>De votre idée à votre site en ligne en 4 étapes simples</em>",
-        "description": "Un fonctionnement 100% transparent : vous visualisez d'abord votre futur site en vidéo avant de choisir votre formule finale.",
+        "titleHtml": "Comment ça marche ?<br><em>De votre besoin à votre site en ligne en 4 étapes simples</em>",
+        "description": "Un fonctionnement transparent : aperçu gratuit avant commande, vous gardez toujours votre site si vous arrêtez, et zéro frais d'annulation après le minimum de 3 mois.",
         "steps": [
             {
                 "number": "01",
-                "title": "Le Questionnaire Simple (10 min)",
-                "description": "Vous nous partagez vos besoins, vos couleurs et vos textes via notre formulaire en ligne, avec un acompte sécurisé de 5€."
+                "title": "Le Questionnaire Gratuit (10 min)",
+                "description": "Vous partagez votre activité, vos couleurs et vos besoins via notre formulaire en ligne gratuit — sans aucun acompte préalable."
             },
             {
                 "number": "02",
-                "title": "Votre Vidéo de Démo sous 7 jours",
-                "description": "Nous réalisons une première version sur-mesure et vous envoyons une vidéo de démonstration complète de votre futur site."
+                "title": "Aperçu Personnalisé Gratuit (< 7 jours)",
+                "description": "Nous préparons gratuitement un premier aperçu sur-mesure sous 7 jours. Vous ne payez que si vous décidez de commander."
             },
             {
                 "number": "03",
-                "title": "Choix de la Formule & Validation",
-                "description": "Vous regardez la vidéo. Si elle vous plaît, vous choisissez votre formule (Essentiel 100€ ou Autonome 150€) et réglez le solde (95€ ou 145€)."
+                "title": "Choix de la Formule & Récapitulatif",
+                "description": "Vous validez la formule choisie (Essentiel 200 €, Autonome + évolutions 200 € + 30 €/mois ou Autonome + accompagnement 250 € + 50 €/mois) avec affichage du total minimum avant paiement."
             },
             {
                 "number": "04",
-                "title": "Mise en Ligne Clé en Main",
-                "description": "Nous publions votre site sur Internet avec votre nom de domaine sécurisé (en https://). Tout est prêt, vous n'avez rien à faire !"
+                "title": "Mise en Ligne Clé en Main (GitHub Pages)",
+                "description": "Nous publions votre site en https:// via GitHub Pages (hébergement GitHub et nom de domaine ~10–15 €/an à votre nom et à votre charge). Vous gardez toujours votre site si vous arrêtez."
             }
         ]
     },
@@ -62,34 +62,49 @@
         {
             "id": "offre-essentiel",
             "icon": "",
-            "title": "Formule Essentiel",
-            "price": "100€ (5€ d'acompte + solde de 95€)",
-            "description": "Parfait pour les artisans, commerçants et indépendants dont les informations changent peu souvent.",
+            "title": "Essentiel",
+            "price": "200 €",
+            "commitment": "paiement unique",
+            "description": "L'alternative simple et honnête pour les artisans, commerçants et indépendants : site fixe, pas d'espace privé.",
             "features": [
-                "Site vitrine sur une seule page fluide et ultra-rapide",
-                "Affichage impeccable sur smartphone, tablette et ordinateur",
+                "Site vitrine professionnel complet et adapté mobile",
+                "Paiement unique de 200 €, sans abonnement",
+                "Site fixe : pas d'espace privé d'administration",
                 "Formulaire de contact relié directement à votre boîte e-mail",
-                "Optimisé pour être facilement trouvé sur Google",
-                "Hébergement sécurisé inclus (avec le cadenas https://)",
-                "Zéro abonnement mensuel (le site vous appartient à vie)"
+                "Vous gardez toujours votre site (hébergement GitHub Pages et domaine à votre nom)"
             ]
         },
         {
             "id": "offre-autonome",
             "icon": "",
-            "title": "Formule Autonome",
-            "price": "150€ (5€ d'acompte + solde de 145€)",
+            "title": "Autonome + évolutions",
+            "price": "200 € + 30 €/mois",
+            "commitment": "engagement de 3 mois minimum",
             "badge": "Recommandée",
-            "description": "Idéal pour garder la main totale et modifier vous-même vos contenus à tout moment.",
+            "description": "Soit 290 € au minimum (200 + 3 × 30 €). Espace pro et 2 petites demandes/mois (< 30 min) + 1 évolution/trimestre par le développeur sous 5 à 10 j ouvrés.",
             "features": [
-                "Tout ce qui est inclus dans la Formule Essentiel",
-                "Espace privé et très simple pour modifier vos textes et tarifs",
-                "Ajoutez facilement de nouvelles photos et réalisations en 1 clic",
-                "Actualisez vos avis clients et coordonnées sans toucher au code",
-                "Tutoriel vidéo pas-à-pas et assistance incluse pour démarrer sereinement"
+                "Espace pro privé pour modifier vos contenus vous-même",
+                "2 petites demandes/mois (< 30 min, non reportables) + 1 évolution/trimestre sous 5 à 10 j ouvrés",
+                "Après 3 mois : arrêt possible sans frais d'annulation (mensualités restantes dues si arrêt avant 3 mois), vous gardez votre site",
+                "Après 12 mois cumulés d'abonnement : espace pro acquis à vie sans mensualité (hébergement GitHub Pages et domaine à votre nom et charge)"
+            ]
+        },
+        {
+            "id": "offre-accompagnement",
+            "icon": "",
+            "title": "Autonome + accompagnement commercial/marketing",
+            "price": "250 € + 50 €/mois",
+            "commitment": "engagement de 3 mois minimum",
+            "description": "Soit 400 € au minimum (250 + 3 × 50 €). Site + espace pro + accompagnement par votre conseiller dédié (1 point mensuel + 2 publications/mois + mise à jour du site ; zéro promesse de résultat).",
+            "features": [
+                "Espace pro privé inclus dès le départ",
+                "Accompagnement par le conseiller commercial : 1 point mensuel + 2 contenus/publications par mois + mise à jour du site (aucune promesse de résultat)",
+                "Après 3 mois : arrêt possible sans frais (mensualités restantes dues si arrêt avant 3 mois), vous gardez votre site",
+                "Après 12 mois cumulés d'abonnement : espace pro acquis à vie sans mensualité (hébergement GitHub Pages et domaine à votre nom et charge)"
             ]
         }
     ],
+    "prestationsNote": "Vous préférez l'espace pro dès le départ, sans abonnement ? Possible, sur demande : 500 € (espace pro à vie sans mensualité ; hébergement GitHub Pages et nom de domaine ~10–15 €/an au nom et à la charge du client).",
     "gallery": [
         {
             "id": "projet-leana",
@@ -128,7 +143,7 @@
         "paragraphs": [
             "WebExpresso est un projet que nous menons en parallèle de nos études d'ingénieur (Grenoble INP) et de commerce. C'est pour nous un complément financier, mais c'est avant tout une formidable opportunité de découvrir de nouvelles choses : nous perfectionner en pratique sur la technique comme sur la commercialisation et la relation client.",
             "Notre démarche est simple : permettre aux artisans, commerçants de proximité et indépendants d'avoir un vrai site web professionnel, rapide et soigné, sans devoir débourser les 1 500 € réclamés par les agences traditionnelles.",
-            "Puisque nous n'avons pas de lourdes charges d'agence, nous proposons des tarifs directs et justes : 100 € au total pour la formule Essentiel (5 € d'acompte + 95 € de solde) et 150 € pour la formule Autonome (5 € d'acompte + 145 € de solde). Vous bénéficiez d'un accompagnement direct, sans intermédiaire, et vous validez votre démo en vidéo avant tout engagement."
+            "Puisque nous n'avons pas de lourdes charges d'agence, nous proposons trois formules transparentes dès 200 € en paiement unique (Essentiel), ou avec espace pro et suivi mensuel (Autonome + évolutions à 200 € + 30 €/mois ou Autonome + accompagnement commercial/marketing à 250 € + 50 €/mois, engagement minimum de 3 mois). Et dans tous les cas, vous gardez toujours votre site si vous arrêtez."
         ],
         "quote": "Pratiquer sur des projets réels tout en offrant une solution web enfin accessible aux indépendants.",
         "signature": "L'Équipe WebExpresso — Grenoble INP & École de Commerce",
@@ -142,52 +157,44 @@
     "beforeAfter": [],
     "faq": [
         {
-            "question": "Pourquoi vos prix sont-ils si bas par rapport à une agence classique ?",
-            "answer": "Nous menons ce projet en parallèle de nos études (Grenoble INP et école de commerce). C'est pour nous un complément financier, mais c'est avant tout un terrain d'apprentissage concret pour maîtriser la technique, le développement et la commercialisation auprès de vrais clients. N'ayant pas de frais d'agence superflus, nous faisons profiter de ces tarifs directs (100 € et 150 € au total) aux artisans et indépendants qui ont besoin d'une solution simple et économique."
+            "question": "Pourquoi vos prix sont-ils plus accessibles qu'une agence classique ?",
+            "answer": "Nous menons ce projet en parallèle de nos études (Grenoble INP et école de commerce). N'ayant pas de frais d'agence superflus, nous proposons des tarifs directs : 200 € en paiement unique pour Essentiel, 200 € + 30 €/mois pour Autonome + évolutions, et 250 € + 50 €/mois pour Autonome + accompagnement commercial/marketing (engagement de 3 mois minimum)."
         },
         {
-            "question": "Que se passe-t-il si la vidéo de démo ne me plaît pas ?",
-            "answer": "Vous ne payez absolument rien de plus. L'acompte de 5 € couvre le travail initial de préparation de votre démo. Si le résultat ne correspond pas à vos attentes, vous êtes totalement libre de ne pas commander le site final, sans aucun engagement."
+            "question": "Que devient mon site si j'arrête l'abonnement ?",
+            "answer": "Vous gardez toujours votre site si vous arrêtez. Aucun frais d'annulation après le minimum de 3 mois (290 € minimum en Autonome + évolutions, 400 € minimum en Autonome + accompagnement ; en cas d'arrêt avant 3 mois, les mensualités restantes du minimum restent dues). Si vous arrêtez avant 12 mois, vous recevez une copie figée et perdez l'espace pro ; en cas de reprise ultérieure, les mois déjà réglés comptent dans le cumul des 12 mois. Après 12 mois cumulés, l'espace pro est acquis à vie sans mensualité (hébergement GitHub Pages et domaine à votre nom et charge ; clauses à faire valider par un professionnel dans des CGV écrites)."
         },
         {
-            "question": "Le site m'appartient-il vraiment une fois livré ?",
-            "answer": "Oui, à 100 %. Une fois le solde réglé, vous êtes l'unique propriétaire de tous les textes, photos et fichiers de votre site. Vous n'avez aucun contrat mensuel qui vous bloque."
+            "question": "Le site m'appartient-il vraiment ?",
+            "answer": "Oui. Vous gardez toujours votre site si vous arrêtez un abonnement, et avec la formule Essentiel (200 € en paiement unique) vous n'avez aucun abonnement dès le départ. Votre site est déployé sur GitHub Pages avec nom de domaine (~10–15 €/an) au nom et à la charge du client."
         },
         {
-            "question": "Y a-t-il des frais mensuels ou des coûts cachés ?",
-            "answer": "Non, aucun abonnement mensuel caché. Nous installons votre site sur des serveurs sécurisés et gratuits. Le seul frais annuel classique est votre nom de domaine (votre-site.fr, qui coûte environ 10 € par an)."
+            "question": "Puis-je obtenir l'espace pro sans abonnement ?",
+            "answer": "Vous préférez l'espace pro dès le départ, sans abonnement ? Possible, sur demande : 500 € en paiement unique (espace pro à vie sans mensualité ; hébergement GitHub Pages et nom de domaine ~10–15 €/an au nom et à la charge du client ; évolutions hors formule facturées selon le SAV à la carte)."
         },
         {
-            "question": "Quelle est la différence concrète entre Essentiel (100 €) et Autonome (150 €) ?",
-            "answer": "La formule Essentiel (100 € au total) est idéale si les informations de votre activité changent rarement. La formule Autonome (150 € au total) vous donne en plus un accès privé très simple pour modifier vous-même vos textes, tarifs ou photos en quelques clics, comme sur un traitement de texte."
+            "question": "Quelle est la différence concrète entre les formules ?",
+            "answer": "Essentiel (200 € en paiement unique) offre un site fixe sans espace privé. Autonome + évolutions (200 € + 30 €/mois, engagement 3 mois min. soit 290 €) ajoute l'espace pro et l'ajout de fonctionnalités par le développeur (2 petites demandes < 30 min par mois + 1 évolution par trimestre sous 5 à 10 j ouvrés). Autonome + accompagnement commercial/marketing (250 € + 50 €/mois, engagement 3 mois min. soit 400 €) ajoute un conseiller commercial dédié (1 point mensuel + 2 publications/mois + mise à jour du site), sans aucune promesse de résultat."
         },
         {
-            "question": "Combien de temps faut-il pour avoir mon site final en ligne ?",
-            "answer": "Vous recevez d'abord votre vidéo de démo sous 7 jours. Dès que vous la validez et réglez le solde de la formule choisie (95 € ou 145 €), nous mettons votre site définitif en ligne en 3 à 5 jours ouvrés."
-        },
-        {
-            "question": "Dois-je choisir ma formule tout de suite ?",
-            "answer": "Non ! Vous ne payez que les 5 € d'acompte au départ. Le choix entre la formule Essentiel (100 €) et la formule Autonome (150 €) se fait uniquement après avoir visionné la vidéo de votre futur site."
-        },
-        {
-            "question": "Que se passe-t-il si mon site rencontre un bug ou un problème après sa mise en ligne ?",
-            "answer": "Le diagnostic est systématiquement 100 % gratuit, quel que soit le cas. Votre site bénéficie d'une garantie technique d'un an couvrant toute correction de template, et nous garantissons à vie nos configurations techniques. De plus, tout ajustement initial de contenu mal appliqué est corrigé gratuitement pendant les 30 jours suivant la livraison. Pour plus d'informations, <a href=\"#\" data-legal-tab=\"sav\">consultez notre politique de Garanties & SAV</a>."
+            "question": "Combien coûtent le questionnaire et le premier aperçu ?",
+            "answer": "Ils sont 100 % gratuits : vous répondez au questionnaire en ligne, découvrez votre premier aperçu personnalisé sans aucun acompte préalable, et ne réglez qu'au moment de commander la formule choisie."
         },
         {
             "question": "Si je souhaite modifier un texte, mes horaires ou ajouter des photos plus tard, comment ça se passe ?",
-            "answer": "Avec la formule Autonome, vous effectuez vous-même ces modifications en toute liberté et sans frais depuis votre espace d'administration. Avec la formule Essentiel ou si vous préférez nous confier la mise à jour, nous appliquons une grille tarifaire claire et sans mauvaise surprise : forfait fixe de 20 € pour une retouche texte ou photo, et 35 € pour l'ajout d'une présentation graphique simple. Pour plus d'informations, <a href=\"#\" data-legal-tab=\"sav\">consultez notre grille tarifaire et politique SAV</a>."
+            "answer": "Avec les formules incluant l'espace pro (Autonome + évolutions, Autonome + accompagnement, ou sur demande à 500 €), vous modifiez vos contenus librement. Avec Essentiel ou pour une retouche hors formule, le diagnostic SAV reste gratuit et nos forfaits ponctuels s'appliquent : 20 € pour une retouche texte/photo et 35 € pour un bloc graphique simple. Pour plus d'informations, <a href=\"#\" data-legal-tab=\"sav\">consultez notre grille tarifaire et politique SAV</a>."
         }
     ],
     "contact": {
         "eyebrow": "PASSEZ À L'ACTION",
-        "title": "Prêt à Découvrir Votre Futur Site ?",
-        "subtitle": "Remplissez le questionnaire en 10 minutes pour recevoir votre vidéo de démo personnalisée en moins d'une semaine.",
-        "ctaText": "Remplir le questionnaire sur Tally (5€) ↗",
-        "ctaLink": "https://tally.so/r/XxAYzY"
+        "title": "Prêt à Lancer Votre Projet ?",
+        "subtitle": "Remplissez le questionnaire gratuit en 10 minutes pour découvrir votre aperçu et choisir votre formule. Vous gardez toujours votre site si vous arrêtez.",
+        "ctaText": "Démarrer mon projet ↗",
+        "ctaLink": "questionnaire/"
     },
     "footer": {
         "siteName": "WebExpresso",
-        "tagline": "Obtenez la démo de votre site en moins d'une semaine",
+        "tagline": "Votre site vitrine professionnel dès 200 € — vous gardez toujours votre site",
         "copyright": "© 2026 WebExpresso. Tous droits réservés."
     }
 }

@@ -561,6 +561,57 @@ textarea[aria-invalid="true"] { border-color: var(--erreur); box-shadow: inset 0
     background: var(--surface);
 }
 
+.recap-engagement {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--ligne);
+    border-radius: var(--rayon);
+    background: var(--fond);
+    display: grid;
+    gap: 0.5rem;
+}
+
+.recap-engagement-titre {
+    margin: 0;
+    font-size: 1.0625rem;
+    font-family: var(--police-titre);
+    color: var(--bleu);
+}
+
+.recap-engagement-choisie {
+    margin: 0;
+    font-weight: 600;
+    color: var(--texte);
+}
+
+.recap-engagement ul {
+    margin: 0.25rem 0;
+    padding-left: 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+    font-size: 0.9375rem;
+}
+
+.recap-engagement li.est-retenue {
+    padding: 0.35rem 0.6rem;
+    border-radius: var(--rayon);
+    background: var(--surface-choisie);
+    border-left: 3px solid var(--ambre-trait);
+}
+
+.recap-engagement-garantie {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    color: var(--texte-doux);
+}
+
+.paiement .erreur {
+    margin: 0.35rem 0 0;
+    color: var(--erreur);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { transition-duration: 0s !important; animation: none !important; }

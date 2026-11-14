@@ -49,14 +49,14 @@
     ],
     "actions": {
         "primaryCta": {
-            "label": "Obtenir ma démo pour 5€",
-            "href": "https://tally.so/r/XxAYzY",
-            "isExternal": true
+            "label": "Démarrer mon projet ↗",
+            "href": "questionnaire/",
+            "isExternal": false
         },
         "externalBooking": {
             "enabled": true,
-            "url": "https://tally.so/r/XxAYzY",
-            "label": "Remplir le questionnaire (Acompte 5€)"
+            "url": "questionnaire/",
+            "label": "Remplir le questionnaire"
         }
     },
     "themes": {

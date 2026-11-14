@@ -10,7 +10,7 @@ const SITE_CONFIG = {
     projectId: "webexpresso-vitrine",
     offer: "essential",
     siteName: "WebExpresso",
-    siteTagline: "Obtenez la démo de votre site en moins d'une semaine",
+    siteTagline: "Votre site vitrine professionnel dès 200 € — vous gardez toujours votre site si vous arrêtez",
     templateVersion: "2.5.1",
     language: "fr",
     locale: "fr-FR",
@@ -96,9 +96,10 @@ const SITE_CONFIG = {
         redirectUrl: "questionnaire/",
         fields: ["name", "email", "service", "message"],
         services: [
-            { value: "demo-5e", label: "Démo Personnalisée (5€ d'acompte)" },
-            { value: "offre-essentiel", label: "Formule Essentiel (100€ — solde de 95€)" },
-            { value: "offre-autonome", label: "Formule Autonome (150€ — solde de 145€)" }
+            { value: "offre-essentiel", label: "Essentiel — 200 €, paiement unique" },
+            { value: "offre-autonome", label: "Autonome + évolutions — 200 € + 30 €/mois (eng. 3 mois min. : 290 €)" },
+            { value: "offre-accompagnement", label: "Autonome + accompagnement commercial/marketing — 250 € + 50 €/mois (eng. 3 mois min. : 400 €)" },
+            { value: "offre-autonome-vie", label: "Sur demande : Autonome espace pro à vie — 500 €, paiement unique" }
         ]
     },
 

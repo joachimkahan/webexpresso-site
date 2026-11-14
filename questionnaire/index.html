@@ -31,13 +31,13 @@
 <p class="note" data-t="note">Vos réponses restent dans ce navigateur, sur cet appareil, jusqu&#x27;à l&#x27;envoi : vous pouvez fermer la page et reprendre plus tard.</p>
 <div class="brouillon" id="brouillon" role="status" hidden><p id="brouillon-message"></p><button type="button" class="bouton bouton-second" id="effacer"><span data-t="effacer">Effacer mes réponses</span></button></div>
 </div>
-<form class="formulaire" id="formulaire" action="https://formsubmit.co/02cde0b065028fcc476b4f84d0980032" method="post" accept-charset="UTF-8" data-version="2026-11-13" data-base="https://joachimkahan.github.io/webexpresso-site/questionnaire/">
+<form class="formulaire" id="formulaire" action="https://formsubmit.co/02cde0b065028fcc476b4f84d0980032" method="post" accept-charset="UTF-8" data-version="2026-11-14" data-base="https://joachimkahan.github.io/webexpresso-site/questionnaire/">
 <input type="hidden" name="_subject" value="Questionnaire WebExpresso">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_next" value="https://joachimkahan.github.io/webexpresso-site/questionnaire/merci.html">
 <input type="hidden" name="langue_formulaire" value="fr">
-<input type="hidden" name="version_questionnaire" value="2026-11-13">
+<input type="hidden" name="version_questionnaire" value="2026-11-14">
 <div class="piege" aria-hidden="true"><label for="_honey">Ne pas remplir</label><input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off"></div>
 <div class="erreurs" id="erreurs" role="alert" tabindex="-1" hidden><p class="erreurs-titre" data-t="erreurs_titre">Il manque des réponses ou une réponse est à vérifier :</p><ul></ul></div>
 <section class="etape est-active" id="etape-activite" aria-labelledby="etape-activite-titre" data-rang="1">
@@ -78,30 +78,12 @@
 </div>
 </section>
 <section class="question" id="q3" aria-labelledby="q3-titre">
-<h3 id="q3-titre"><span class="question-numero">3</span> <span data-t="q3.titre">Depuis quand, et votre histoire</span></h3>
+<h3 id="q3-titre"><span class="question-numero">3</span> <span data-t="q3.titre">Depuis quand</span></h3>
 <div class="champ">
 <label for="activite_debut"><span data-t="activite_debut.label">Année où vous avez commencé</span></label>
 <p class="aide" id="activite_debut-aide" data-t="activite_debut.aide">Quatre chiffres, par exemple 2014. Laissez vide si vous démarrez.</p>
 <input id="activite_debut" name="activite_debut" aria-describedby="activite_debut-aide activite_debut-erreur" type="text" inputmode="numeric" pattern="(19|20)[0-9]{2}" maxlength="4" data-type="annee">
 <p class="erreur" id="activite_debut-erreur"></p>
-</div>
-<fieldset class="champ groupe" id="groupe-histoire" data-groupe="histoire" data-type="cases" aria-describedby="groupe-histoire-erreur">
-<legend><span data-t="groupe-histoire.label">Comment êtes-vous venu à ce métier ?</span></legend>
-
-<div class="options">
-<label class="option" for="histoire_famille"><input type="checkbox" id="histoire_famille" name="histoire_famille" value="oui"> <span data-t="histoire_famille.label">Métier de famille</span></label>
-<label class="option" for="histoire_reconversion"><input type="checkbox" id="histoire_reconversion" name="histoire_reconversion" value="oui"> <span data-t="histoire_reconversion.label">Reconversion</span></label>
-<label class="option" for="histoire_passion"><input type="checkbox" id="histoire_passion" name="histoire_passion" value="oui"> <span data-t="histoire_passion.label">Passion de toujours</span></label>
-<label class="option" for="histoire_formation"><input type="checkbox" id="histoire_formation" name="histoire_formation" value="oui"> <span data-t="histoire_formation.label">Formation ou compagnonnage</span></label>
-<label class="option" for="histoire_reprise"><input type="checkbox" id="histoire_reprise" name="histoire_reprise" value="oui"> <span data-t="histoire_reprise.label">Reprise d&#x27;une entreprise</span></label>
-</div>
-<p class="erreur" id="groupe-histoire-erreur"></p>
-</fieldset>
-<div class="champ">
-<label for="histoire_detail"><span data-t="histoire_detail.label">En une ou deux phrases, si vous le souhaitez</span></label>
-<p class="aide" id="histoire_detail-aide" data-t="histoire_detail.aide">Laissez vide si vous ne savez pas : nous vous proposerons.</p>
-<textarea id="histoire_detail" name="histoire_detail" aria-describedby="histoire_detail-aide histoire_detail-erreur" data-type="texte_long" rows="4"></textarea>
-<p class="erreur" id="histoire_detail-erreur"></p>
 </div>
 </section>
 <section class="question" id="q4" aria-labelledby="q4-titre">
@@ -127,12 +109,6 @@
 <p class="exemple" id="site_actuel_garder-exemple" data-t="site_actuel_garder.exemple">Ex. : les textes de présentation, les photos de la galerie</p>
 <textarea id="site_actuel_garder" name="site_actuel_garder" aria-describedby="site_actuel_garder-exemple site_actuel_garder-erreur" data-type="texte_long" rows="4"></textarea>
 <p class="erreur" id="site_actuel_garder-erreur"></p>
-</div>
-<div class="champ" data-si="site_actuel" data-si-valeurs="garder changer">
-<label for="site_actuel_a_changer"><span data-t="site_actuel_a_changer.label">Ce qui ne vous convient plus sur ce site</span></label>
-<p class="exemple" id="site_actuel_a_changer-exemple" data-t="site_actuel_a_changer.exemple">Ex. : difficile à lire sur téléphone, photos datées, peu de demandes</p>
-<textarea id="site_actuel_a_changer" name="site_actuel_a_changer" aria-describedby="site_actuel_a_changer-exemple site_actuel_a_changer-erreur" data-type="texte_long" rows="4"></textarea>
-<p class="erreur" id="site_actuel_a_changer-erreur"></p>
 </div>
 <div class="champ">
 <label for="domaine"><span data-t="domaine.label">Nom de domaine que vous possédez déjà, s&#x27;il y en a un</span></label>
@@ -183,23 +159,10 @@
 </section>
 <section class="question" id="q6" aria-labelledby="q6-titre">
 <h3 id="q6-titre"><span class="question-numero">6</span> <span data-t="q6.titre">Pourquoi un site maintenant</span></h3>
-<fieldset class="champ groupe" id="groupe-objectif" data-groupe="objectif" data-type="cases" data-requis-groupe aria-describedby="groupe-objectif-erreur">
-<legend><span data-t="groupe-objectif.label">Ce que vous attendez de ce site</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></legend>
-
-<div class="options">
-<label class="option" for="objectif_trouver"><input type="checkbox" id="objectif_trouver" name="objectif_trouver" value="oui"> <span data-t="objectif_trouver.label">Être trouvé par de nouveaux clients</span></label>
-<label class="option" for="objectif_rassurer"><input type="checkbox" id="objectif_rassurer" name="objectif_rassurer" value="oui"> <span data-t="objectif_rassurer.label">Rassurer ceux à qui on m&#x27;a recommandé</span></label>
-<label class="option" for="objectif_montrer"><input type="checkbox" id="objectif_montrer" name="objectif_montrer" value="oui"> <span data-t="objectif_montrer.label">Montrer mes réalisations</span></label>
-<label class="option" for="objectif_filtrer"><input type="checkbox" id="objectif_filtrer" name="objectif_filtrer" value="oui"> <span data-t="objectif_filtrer.label">Recevoir moins de demandes hors sujet</span></label>
-<label class="option" for="objectif_remplacer"><input type="checkbox" id="objectif_remplacer" name="objectif_remplacer" value="oui"> <span data-t="objectif_remplacer.label">Remplacer un site vieillissant</span></label>
-</div>
-<p class="erreur" id="groupe-objectif-erreur"></p>
-</fieldset>
 <div class="champ">
-<label for="besoin"><span data-t="besoin.label">Quelque chose à ajouter ?</span></label>
-<p class="aide" id="besoin-aide" data-t="besoin.aide">Laissez vide si vous ne savez pas : nous vous proposerons.</p>
+<label for="besoin"><span data-t="besoin.label">Ce qui vous amène, en quelques phrases</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></label>
 <p class="exemple" id="besoin-exemple" data-t="besoin.exemple">Ex. : mes clients me trouvent par le bouche-à-oreille et je veux qu&#x27;ils voient mes réalisations avant d&#x27;appeler.</p>
-<textarea id="besoin" name="besoin" aria-describedby="besoin-aide besoin-exemple besoin-erreur" data-type="texte_long" rows="4"></textarea>
+<textarea id="besoin" name="besoin" aria-describedby="besoin-exemple besoin-erreur" required data-type="texte_long" rows="4"></textarea>
 <p class="erreur" id="besoin-erreur"></p>
 </div>
 </section>
@@ -207,15 +170,13 @@
 <h3 id="q7-titre"><span class="question-numero">7</span> <span data-t="q7.titre">Ce que le visiteur doit faire en priorité</span></h3>
 <fieldset class="champ groupe" id="action_principale" data-groupe="action_principale" data-type="choix" aria-describedby="action_principale-aide action_principale-erreur">
 <legend><span data-t="action_principale.label">L&#x27;action principale</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></legend>
-<p class="aide" id="action_principale-aide" data-t="action_principale.aide">Ce choix devient le bouton principal du site. Si vous hésitez : comment vos meilleurs clients vous contactent-ils aujourd&#x27;hui ?</p>
+<p class="aide" id="action_principale-aide" data-t="action_principale.aide">Ce choix devient le bouton principal du site.</p>
 <div class="options">
 <label class="option" for="action_principale-appeler"><input type="radio" id="action_principale-appeler" name="action_principale" value="appeler" required> <span data-t="action_principale.appeler">M&#x27;appeler</span></label>
 <label class="option" for="action_principale-devis"><input type="radio" id="action_principale-devis" name="action_principale" value="devis" required> <span data-t="action_principale.devis">Me demander un devis</span></label>
-<label class="option" for="action_principale-whatsapp"><input type="radio" id="action_principale-whatsapp" name="action_principale" value="whatsapp" required> <span data-t="action_principale.whatsapp">M&#x27;écrire sur WhatsApp</span></label>
 <label class="option" for="action_principale-reserver"><input type="radio" id="action_principale-reserver" name="action_principale" value="reserver" required> <span data-t="action_principale.reserver">Réserver un créneau en ligne</span></label>
 <label class="option" for="action_principale-venir"><input type="radio" id="action_principale-venir" name="action_principale" value="venir" required> <span data-t="action_principale.venir">Venir à l&#x27;atelier ou à la boutique</span></label>
 <label class="option" for="action_principale-acheter_ailleurs"><input type="radio" id="action_principale-acheter_ailleurs" name="action_principale" value="acheter_ailleurs" required> <span data-t="action_principale.acheter_ailleurs">Acheter sur une autre boutique en ligne</span></label>
-<label class="option" for="action_principale-conseil"><input type="radio" id="action_principale-conseil" name="action_principale" value="conseil" required> <span data-t="action_principale.conseil">Je ne sais pas, conseillez-moi</span></label>
 </div>
 <p class="erreur" id="action_principale-erreur"></p>
 </fieldset>
@@ -224,21 +185,6 @@
 <p class="exemple" id="action_lien-exemple" data-t="action_lien.exemple">Ex. : votre page Planity, Calendly ou Etsy</p>
 <input id="action_lien" name="action_lien" aria-describedby="action_lien-exemple action_lien-erreur" data-requis type="url" data-type="url">
 <p class="erreur" id="action_lien-erreur"></p>
-</div>
-</section>
-<section class="question" id="q8" aria-labelledby="q8-titre">
-<h3 id="q8-titre"><span class="question-numero">8</span> <span data-t="q8.titre">Une date à tenir ?</span></h3>
-<div class="champ">
-<label for="delai_date"><span data-t="delai_date.label">Date</span></label>
-
-<input id="delai_date" name="delai_date" aria-describedby="delai_date-erreur" type="date" data-type="date">
-<p class="erreur" id="delai_date-erreur"></p>
-</div>
-<div class="champ">
-<label for="delai_detail"><span data-t="delai_detail.label">Pourquoi cette date, ou une autre contrainte</span></label>
-<p class="exemple" id="delai_detail-exemple" data-t="delai_detail.exemple">Ex. : ouverture de la boutique début mars</p>
-<textarea id="delai_detail" name="delai_detail" aria-describedby="delai_detail-exemple delai_detail-erreur" data-type="texte_long" rows="4"></textarea>
-<p class="erreur" id="delai_detail-erreur"></p>
 </div>
 </section>
 <div class="etape-actions"><button type="button" class="bouton bouton-second" data-action="precedent"><span data-t="precedent">Étape précédente</span></button><button type="button" class="bouton" data-action="suivant"><span data-t="suivant">Étape suivante</span></button></div>
@@ -250,8 +196,8 @@
 <h2 id="etape-offre-titre" tabindex="-1"><span data-t="etape-offre.titre">Votre offre</span></h2>
 <p class="etape-intro" data-t="etape-offre.intro">Ce que vous vendez, à quel prix, et pourquoi vous plutôt qu&#x27;un autre.</p>
 </header>
-<section class="question" id="q9" aria-labelledby="q9-titre">
-<h3 id="q9-titre"><span class="question-numero">9</span> <span data-t="q9.titre">Votre prestation phare</span></h3>
+<section class="question" id="q8" aria-labelledby="q8-titre">
+<h3 id="q8-titre"><span class="question-numero">8</span> <span data-t="q8.titre">Votre prestation phare</span></h3>
 <div class="champ">
 <label for="offre_phare"><span data-t="offre_phare.label">Son nom</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></label>
 <p class="exemple" id="offre_phare-exemple" data-t="offre_phare.exemple">Ex. : restauration de fauteuils anciens</p>
@@ -265,8 +211,8 @@
 <p class="erreur" id="offre_phare_detail-erreur"></p>
 </div>
 </section>
-<section class="question" id="q10" aria-labelledby="q10-titre">
-<h3 id="q10-titre"><span class="question-numero">10</span> <span data-t="q10.titre">Vos autres prestations</span></h3>
+<section class="question" id="q9" aria-labelledby="q9-titre">
+<h3 id="q9-titre"><span class="question-numero">9</span> <span data-t="q9.titre">Vos autres prestations</span></h3>
 <div class="champ">
 <label for="offre_autres"><span data-t="offre_autres.label">Une par ligne, avec une courte précision si elle aide</span></label>
 <p class="exemple" id="offre_autres-exemple" data-t="offre_autres.exemple">Ex. : réfection d&#x27;assises de chaises ; vente de tissus d&#x27;ameublement</p>
@@ -274,27 +220,16 @@
 <p class="erreur" id="offre_autres-erreur"></p>
 </div>
 </section>
-<section class="question" id="q11" aria-labelledby="q11-titre">
-<h3 id="q11-titre"><span class="question-numero">11</span> <span data-t="q11.titre">La prestation à mettre en avant</span></h3>
-<div class="champ">
-<label for="offre_a_pousser"><span data-t="offre_a_pousser.label">Parmi vos prestations, laquelle aimeriez-vous vendre davantage ?</span></label>
-<p class="aide" id="offre_a_pousser-aide" data-t="offre_a_pousser.aide">Laissez vide si vous ne savez pas : nous vous proposerons.</p>
-<p class="exemple" id="offre_a_pousser-exemple" data-t="offre_a_pousser.exemple">Ex. : restauration de fauteuils anciens, cuisines sur mesure</p>
-<input id="offre_a_pousser" name="offre_a_pousser" aria-describedby="offre_a_pousser-aide offre_a_pousser-exemple offre_a_pousser-erreur" type="text" data-type="texte">
-<p class="erreur" id="offre_a_pousser-erreur"></p>
-</div>
-</section>
-<section class="question" id="q12" aria-labelledby="q12-titre">
-<h3 id="q12-titre"><span class="question-numero">12</span> <span data-t="q12.titre">Vos prix</span></h3>
-<fieldset class="champ groupe" id="prix_affichage" data-groupe="prix_affichage" data-type="choix" aria-describedby="prix_affichage-aide prix_affichage-erreur">
+<section class="question" id="q10" aria-labelledby="q10-titre">
+<h3 id="q10-titre"><span class="question-numero">10</span> <span data-t="q10.titre">Vos prix</span></h3>
+<fieldset class="champ groupe" id="prix_affichage" data-groupe="prix_affichage" data-type="choix" aria-describedby="prix_affichage-erreur">
 <legend><span data-t="prix_affichage.label">Sur le site, je préfère</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></legend>
-<p class="aide" id="prix_affichage-aide" data-t="prix_affichage.aide">Afficher ses prix écarte les curieux. « À partir de » rassure sans engager. « Sur devis » convient au sur-mesure.</p>
+
 <div class="options">
 <label class="option" for="prix_affichage-affiches"><input type="radio" id="prix_affichage-affiches" name="prix_affichage" value="affiches" required> <span data-t="prix_affichage.affiches">Afficher mes prix</span></label>
 <label class="option" for="prix_affichage-a_partir_de"><input type="radio" id="prix_affichage-a_partir_de" name="prix_affichage" value="a_partir_de" required> <span data-t="prix_affichage.a_partir_de">Afficher des prix « à partir de »</span></label>
 <label class="option" for="prix_affichage-sur_devis"><input type="radio" id="prix_affichage-sur_devis" name="prix_affichage" value="sur_devis" required> <span data-t="prix_affichage.sur_devis">Indiquer « sur devis »</span></label>
 <label class="option" for="prix_affichage-non_affiches"><input type="radio" id="prix_affichage-non_affiches" name="prix_affichage" value="non_affiches" required> <span data-t="prix_affichage.non_affiches">Ne pas parler de prix</span></label>
-<label class="option" for="prix_affichage-conseil"><input type="radio" id="prix_affichage-conseil" name="prix_affichage" value="conseil" required> <span data-t="prix_affichage.conseil">Je ne sais pas, conseillez-moi</span></label>
 </div>
 <p class="erreur" id="prix_affichage-erreur"></p>
 </fieldset>
@@ -305,8 +240,8 @@
 <p class="erreur" id="prix_detail-erreur"></p>
 </div>
 </section>
-<section class="question" id="q13" aria-labelledby="q13-titre">
-<h3 id="q13-titre"><span class="question-numero">13</span> <span data-t="q13.titre">Pourquoi on vous choisit</span></h3>
+<section class="question" id="q11" aria-labelledby="q11-titre">
+<h3 id="q11-titre"><span class="question-numero">11</span> <span data-t="q11.titre">Pourquoi on vous choisit</span></h3>
 <fieldset class="champ groupe" id="groupe-atouts" data-groupe="atouts" data-type="cases" aria-describedby="groupe-atouts-erreur">
 <legend><span data-t="groupe-atouts.label">Ce qui fait la différence</span></legend>
 
@@ -314,62 +249,16 @@
 <label class="option" for="atout_savoir_faire"><input type="checkbox" id="atout_savoir_faire" name="atout_savoir_faire" value="oui"> <span data-t="atout_savoir_faire.label">Un savoir-faire ou une technique précise</span></label>
 <label class="option" for="atout_experience"><input type="checkbox" id="atout_experience" name="atout_experience" value="oui"> <span data-t="atout_experience.label">Mon expérience</span></label>
 <label class="option" for="atout_proximite"><input type="checkbox" id="atout_proximite" name="atout_proximite" value="oui"> <span data-t="atout_proximite.label">Ma présence locale</span></label>
+<label class="option" for="atout_reactivite"><input type="checkbox" id="atout_reactivite" name="atout_reactivite" value="oui"> <span data-t="atout_reactivite.label">Ma réactivité</span></label>
 <label class="option" for="atout_specialite"><input type="checkbox" id="atout_specialite" name="atout_specialite" value="oui"> <span data-t="atout_specialite.label">Ma spécialité</span></label>
 <label class="option" for="atout_materiaux"><input type="checkbox" id="atout_materiaux" name="atout_materiaux" value="oui"> <span data-t="atout_materiaux.label">Mes matériaux ou mes fournisseurs</span></label>
 <label class="option" for="atout_suivi"><input type="checkbox" id="atout_suivi" name="atout_suivi" value="oui"> <span data-t="atout_suivi.label">Mon suivi, du devis à la fin du travail</span></label>
 <label class="option" for="atout_label"><input type="checkbox" id="atout_label" name="atout_label" value="oui"> <span data-t="atout_label.label">Un label ou une certification</span></label>
 <label class="option" for="atout_engagement"><input type="checkbox" id="atout_engagement" name="atout_engagement" value="oui"> <span data-t="atout_engagement.label">Un engagement écologique ou social</span></label>
+<label class="option" for="atout_prix"><input type="checkbox" id="atout_prix" name="atout_prix" value="oui"> <span data-t="atout_prix.label">Mes prix</span></label>
 </div>
 <p class="erreur" id="groupe-atouts-erreur"></p>
 </fieldset>
-<div class="champ" data-si="atout_savoir_faire">
-<label for="atout_savoir_faire_detail"><span data-t="atout_savoir_faire_detail.label">Savoir-faire : lequel ?</span></label>
-<p class="exemple" id="atout_savoir_faire_detail-exemple" data-t="atout_savoir_faire_detail.exemple">Ex. : garniture au crin, dorure à la feuille, taille manuelle</p>
-<input id="atout_savoir_faire_detail" name="atout_savoir_faire_detail" aria-describedby="atout_savoir_faire_detail-exemple atout_savoir_faire_detail-erreur" type="text" data-type="texte">
-<p class="erreur" id="atout_savoir_faire_detail-erreur"></p>
-</div>
-<div class="champ" data-si="atout_experience">
-<label for="atout_experience_detail"><span data-t="atout_experience_detail.label">Expérience : quel type de chantiers ?</span></label>
-<p class="exemple" id="atout_experience_detail-exemple" data-t="atout_experience_detail.exemple">Ex. : monuments historiques, maisons anciennes, commerces de centre-ville</p>
-<input id="atout_experience_detail" name="atout_experience_detail" aria-describedby="atout_experience_detail-exemple atout_experience_detail-erreur" type="text" data-type="texte">
-<p class="erreur" id="atout_experience_detail-erreur"></p>
-</div>
-<div class="champ" data-si="atout_proximite">
-<label for="atout_proximite_detail"><span data-t="atout_proximite_detail.label">Présence locale : où êtes-vous implanté et depuis quand ?</span></label>
-<p class="exemple" id="atout_proximite_detail-exemple" data-t="atout_proximite_detail.exemple">Ex. : atelier en centre-ville à Grenoble, tournées dans la vallée</p>
-<input id="atout_proximite_detail" name="atout_proximite_detail" aria-describedby="atout_proximite_detail-exemple atout_proximite_detail-erreur" type="text" data-type="texte">
-<p class="erreur" id="atout_proximite_detail-erreur"></p>
-</div>
-<div class="champ" data-si="atout_specialite">
-<label for="atout_specialite_detail"><span data-t="atout_specialite_detail.label">Spécialité : laquelle ?</span></label>
-<p class="exemple" id="atout_specialite_detail-exemple" data-t="atout_specialite_detail.exemple">Ex. : fauteuils XVIIIe, reliure de livres anciens, pierre de taille</p>
-<input id="atout_specialite_detail" name="atout_specialite_detail" aria-describedby="atout_specialite_detail-exemple atout_specialite_detail-erreur" type="text" data-type="texte">
-<p class="erreur" id="atout_specialite_detail-erreur"></p>
-</div>
-<div class="champ" data-si="atout_materiaux">
-<label for="atout_materiaux_detail"><span data-t="atout_materiaux_detail.label">Matériaux ou fournisseurs : lesquels, d&#x27;où viennent-ils ?</span></label>
-<p class="exemple" id="atout_materiaux_detail-exemple" data-t="atout_materiaux_detail.exemple">Ex. : farines d&#x27;un moulin de la Drôme, lin de Normandie, bois du Jura</p>
-<input id="atout_materiaux_detail" name="atout_materiaux_detail" aria-describedby="atout_materiaux_detail-exemple atout_materiaux_detail-erreur" type="text" data-type="texte">
-<p class="erreur" id="atout_materiaux_detail-erreur"></p>
-</div>
-<div class="champ" data-si="atout_suivi">
-<label for="atout_suivi_detail"><span data-t="atout_suivi_detail.label">Suivi : comment cela se passe-t-il concrètement ?</span></label>
-<p class="exemple" id="atout_suivi_detail-exemple" data-t="atout_suivi_detail.exemple">Ex. : un seul interlocuteur, photos d&#x27;avancement chaque semaine</p>
-<input id="atout_suivi_detail" name="atout_suivi_detail" aria-describedby="atout_suivi_detail-exemple atout_suivi_detail-erreur" type="text" data-type="texte">
-<p class="erreur" id="atout_suivi_detail-erreur"></p>
-</div>
-<div class="champ" data-si="atout_label">
-<label for="atout_label_detail"><span data-t="atout_label_detail.label">Label ou certification : lequel ?</span></label>
-<p class="exemple" id="atout_label_detail-exemple" data-t="atout_label_detail.exemple">Ex. : Maître Artisan, RGE Qualibat, Agriculture Biologique</p>
-<input id="atout_label_detail" name="atout_label_detail" aria-describedby="atout_label_detail-exemple atout_label_detail-erreur" type="text" data-type="texte">
-<p class="erreur" id="atout_label_detail-erreur"></p>
-</div>
-<div class="champ" data-si="atout_engagement">
-<label for="atout_engagement_detail"><span data-t="atout_engagement_detail.label">Engagement écologique ou social : lequel concrètement ?</span></label>
-<p class="exemple" id="atout_engagement_detail-exemple" data-t="atout_engagement_detail.exemple">Ex. : produits sans solvant, réemploi de pièces, accueil d&#x27;apprentis</p>
-<input id="atout_engagement_detail" name="atout_engagement_detail" aria-describedby="atout_engagement_detail-exemple atout_engagement_detail-erreur" type="text" data-type="texte">
-<p class="erreur" id="atout_engagement_detail-erreur"></p>
-</div>
 <div class="champ">
 <label for="atout_fait"><span data-t="atout_fait.label">Un fait concret qui le prouve</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></label>
 <p class="aide" id="atout_fait-aide" data-t="atout_fait.aide">Un fait vérifiable vaut mieux qu&#x27;un adjectif : le nom exact d&#x27;un label, une technique, un lieu, une date.</p>
@@ -387,8 +276,8 @@
 <h2 id="etape-site-titre" tabindex="-1"><span data-t="etape-site.titre">Ce que le site affiche et permet</span></h2>
 <p class="etape-intro" data-t="etape-site.intro">Les parties du site viennent de ce que vous pouvez nous donner : nous n&#x27;inventons ni avis, ni chiffres, ni photos.</p>
 </header>
-<section class="question" id="q14" aria-labelledby="q14-titre">
-<h3 id="q14-titre"><span class="question-numero">14</span> <span data-t="q14.titre">Ce que vous pouvez nous fournir</span></h3>
+<section class="question" id="q12" aria-labelledby="q12-titre">
+<h3 id="q12-titre"><span class="question-numero">12</span> <span data-t="q12.titre">Ce que vous pouvez nous fournir</span></h3>
 <fieldset class="champ groupe" id="groupe-contenus" data-groupe="contenus" data-type="cases" aria-describedby="groupe-contenus-erreur">
 <legend><span data-t="groupe-contenus.label">Ce que vous avez déjà, ou pouvez réunir</span></legend>
 
@@ -404,24 +293,6 @@
 </div>
 <p class="erreur" id="groupe-contenus-erreur"></p>
 </fieldset>
-<div class="champ" data-si="contenu_realisations">
-<label for="realisation_1"><span data-t="realisation_1.label">Une réalisation dont vous êtes fier (1)</span></label>
-<p class="exemple" id="realisation_1-exemple" data-t="realisation_1.exemple">Ex. : Quoi, où, quelle année</p>
-<input id="realisation_1" name="realisation_1" aria-describedby="realisation_1-exemple realisation_1-erreur" type="text" data-type="texte">
-<p class="erreur" id="realisation_1-erreur"></p>
-</div>
-<div class="champ" data-si="contenu_realisations">
-<label for="realisation_2"><span data-t="realisation_2.label">Une réalisation dont vous êtes fier (2)</span></label>
-<p class="exemple" id="realisation_2-exemple" data-t="realisation_2.exemple">Ex. : Quoi, où, quelle année</p>
-<input id="realisation_2" name="realisation_2" aria-describedby="realisation_2-exemple realisation_2-erreur" type="text" data-type="texte">
-<p class="erreur" id="realisation_2-erreur"></p>
-</div>
-<div class="champ" data-si="contenu_realisations">
-<label for="realisation_3"><span data-t="realisation_3.label">Une réalisation dont vous êtes fier (3)</span></label>
-<p class="exemple" id="realisation_3-exemple" data-t="realisation_3.exemple">Ex. : Quoi, où, quelle année</p>
-<input id="realisation_3" name="realisation_3" aria-describedby="realisation_3-exemple realisation_3-erreur" type="text" data-type="texte">
-<p class="erreur" id="realisation_3-erreur"></p>
-</div>
 <div class="champ" data-si="contenu_avis">
 <label for="avis_texte"><span data-t="avis_texte.label">Deux ou trois avis, avec le nom que le client accepte de voir publié et d&#x27;où vient l&#x27;avis</span></label>
 <p class="aide" id="avis_texte-aide" data-t="avis_texte.aide">Copiez le texte exact, ou donnez le lien de votre page d&#x27;avis.</p>
@@ -446,12 +317,6 @@
 <textarea id="faq_questions" name="faq_questions" aria-describedby="faq_questions-erreur" data-type="texte_long" rows="4"></textarea>
 <p class="erreur" id="faq_questions-erreur"></p>
 </div>
-<div class="champ" data-si="contenu_etapes">
-<label for="etapes_travail"><span data-t="etapes_travail.label">Les étapes de votre façon de travailler</span></label>
-<p class="exemple" id="etapes_travail-exemple" data-t="etapes_travail.exemple">Ex. : premier contact ; visite et devis ; réalisation ; livraison</p>
-<textarea id="etapes_travail" name="etapes_travail" aria-describedby="etapes_travail-exemple etapes_travail-erreur" data-type="texte_long" rows="4"></textarea>
-<p class="erreur" id="etapes_travail-erreur"></p>
-</div>
 <div class="champ" data-si="contenu_horaires">
 <label for="horaires"><span data-t="horaires.label">Vos horaires</span></label>
 <p class="exemple" id="horaires-exemple" data-t="horaires.exemple">Ex. : du mardi au vendredi, de 9 h à 18 h ; le samedi sur rendez-vous</p>
@@ -459,17 +324,27 @@
 <p class="erreur" id="horaires-erreur"></p>
 </div>
 </section>
-<section class="question" id="q15" aria-labelledby="q15-titre">
-<h3 id="q15-titre"><span class="question-numero">15</span> <span data-t="q15.titre">Ce que le visiteur peut faire sur le site</span></h3>
+<section class="question" id="q13" aria-labelledby="q13-titre">
+<h3 id="q13-titre"><span class="question-numero">13</span> <span data-t="q13.titre">Ce que le visiteur peut faire sur le site</span></h3>
 <fieldset class="champ groupe" id="groupe-visiteur" data-groupe="visiteur" data-type="cases" aria-describedby="groupe-visiteur-aide groupe-visiteur-erreur">
 <legend><span data-t="groupe-visiteur.label">Le visiteur peut</span></legend>
-<p class="aide" id="groupe-visiteur-aide" data-t="groupe-visiteur.aide">Une vidéo venant d&#x27;un autre service ne se charge qu&#x27;avec l&#x27;accord du visiteur.</p>
+<p class="aide" id="groupe-visiteur-aide" data-t="groupe-visiteur.aide">Une vidéo ou une carte venant d&#x27;un autre service ne se charge qu&#x27;avec l&#x27;accord du visiteur.</p>
 <div class="options">
+<label class="option" for="visiteur_ecrire"><input type="checkbox" id="visiteur_ecrire" name="visiteur_ecrire" value="oui"> <span data-t="visiteur_ecrire.label">Vous écrire par un formulaire</span></label>
+<label class="option" for="visiteur_appeler"><input type="checkbox" id="visiteur_appeler" name="visiteur_appeler" value="oui"> <span data-t="visiteur_appeler.label">Vous appeler d&#x27;un geste sur son téléphone</span></label>
 <label class="option" for="visiteur_telecharger"><input type="checkbox" id="visiteur_telecharger" name="visiteur_telecharger" value="oui"> <span data-t="visiteur_telecharger.label">Télécharger un document : tarifs, plaquette</span></label>
+<label class="option" for="visiteur_reserver"><input type="checkbox" id="visiteur_reserver" name="visiteur_reserver" value="oui"> <span data-t="visiteur_reserver.label">Réserver par un service en ligne</span></label>
 <label class="option" for="visiteur_video"><input type="checkbox" id="visiteur_video" name="visiteur_video" value="oui"> <span data-t="visiteur_video.label">Regarder une vidéo</span></label>
+<label class="option" for="visiteur_carte"><input type="checkbox" id="visiteur_carte" name="visiteur_carte" value="oui"> <span data-t="visiteur_carte.label">Voir une carte pour venir</span></label>
 </div>
 <p class="erreur" id="groupe-visiteur-erreur"></p>
 </fieldset>
+<div class="champ" data-si="visiteur_reserver">
+<label for="visiteur_reserver_lien"><span data-t="visiteur_reserver_lien.label">Adresse du service de réservation</span></label>
+
+<input id="visiteur_reserver_lien" name="visiteur_reserver_lien" aria-describedby="visiteur_reserver_lien-erreur" type="url" data-type="url">
+<p class="erreur" id="visiteur_reserver_lien-erreur"></p>
+</div>
 <div class="champ">
 <label for="visiteur_autre"><span data-t="visiteur_autre.label">Un autre besoin ? Décrivez-le</span></label>
 <p class="aide" id="visiteur_autre-aide" data-t="visiteur_autre.aide">Paiement en ligne, espace client, prise de rendez-vous intégrée : ces besoins sont étudiés à part et ne sont pas compris d&#x27;office.</p>
@@ -477,19 +352,22 @@
 <p class="erreur" id="visiteur_autre-erreur"></p>
 </div>
 </section>
-<section class="question" id="q16" aria-labelledby="q16-titre">
-<h3 id="q16-titre"><span class="question-numero">16</span> <span data-t="q16.titre">Qui fera vivre le site</span></h3>
+<section class="question" id="q14" aria-labelledby="q14-titre">
+<h3 id="q14-titre"><span class="question-numero">14</span> <span data-t="q14.titre">Qui fera vivre le site</span></h3>
+<p class="aide" data-t="q14.aide">Vous gardez toujours votre site (copie figée) si vous arrêtez ; aucun frais d&#x27;annulation après 3 mois (mensualités restantes dues si arrêt avant 3 mois ; mois déjà payés cumulables en cas de reprise vers le seuil de 12 mois). Hébergement GitHub Pages et nom de domaine (~10–15 €/an) restent à votre nom et charge. Préférez l&#x27;espace pro dès le départ, sans abonnement ? Sur demande : 500 €.</p>
 <fieldset class="champ groupe" id="gestion" data-groupe="gestion" data-type="choix" aria-describedby="gestion-erreur">
-<legend><span data-t="gestion.label">Pour les mises à jour</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></legend>
+<legend><span data-t="gestion.label">Formule envisagée (grille novembre 2026)</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></legend>
 
 <div class="options">
-<label class="option" for="gestion-webexpresso"><input type="radio" id="gestion-webexpresso" name="gestion" value="webexpresso" required> <span data-t="gestion.webexpresso">Je vous envoie mes changements, vous les faites (formule Essentiel)</span></label>
-<label class="option" for="gestion-moi"><input type="radio" id="gestion-moi" name="gestion" value="moi" required> <span data-t="gestion.moi">Je veux modifier moi-même certaines listes et photos (formule Autonome)</span></label>
+<label class="option" for="gestion-webexpresso"><input type="radio" id="gestion-webexpresso" name="gestion" value="webexpresso" required> <span data-t="gestion.webexpresso">Essentiel : 200 €, paiement unique (site fixe, pas d&#x27;espace privé)</span></label>
+<label class="option" for="gestion-moi"><input type="radio" id="gestion-moi" name="gestion" value="moi" required> <span data-t="gestion.moi">Autonome + évolutions : 200 € + 30 €/mois, engagement 3 mois min. (290 € min. ; espace pro + 2 petites demandes/mois &lt; 30 min + 1 évolution/trimestre sous 5 à 10 j ouvrés)</span></label>
+<label class="option" for="gestion-accompagnement"><input type="radio" id="gestion-accompagnement" name="gestion" value="accompagnement" required> <span data-t="gestion.accompagnement">Autonome + accompagnement commercial/marketing : 250 € + 50 €/mois, engagement 3 mois min. (400 € min. ; conseiller dédié : 1 point mensuel + 2 publications/mois + mise à jour du site, zéro promesse de résultat)</span></label>
+<label class="option" for="gestion-autonome_vie"><input type="radio" id="gestion-autonome_vie" name="gestion" value="autonome_vie" required> <span data-t="gestion.autonome_vie">Sur demande (hors vitrine) : Autonome avec espace pro à vie, 500 €, paiement unique (hors hébergement GitHub Pages et domaine à votre charge)</span></label>
 <label class="option" for="gestion-conseil"><input type="radio" id="gestion-conseil" name="gestion" value="conseil" required> <span data-t="gestion.conseil">Je ne sais pas encore, conseillez-moi</span></label>
 </div>
 <p class="erreur" id="gestion-erreur"></p>
 </fieldset>
-<fieldset class="champ groupe" id="groupe-gestion_quoi" data-si="gestion" data-si-valeurs="moi conseil" data-groupe="gestion_quoi" data-type="cases" aria-describedby="groupe-gestion_quoi-aide groupe-gestion_quoi-erreur">
+<fieldset class="champ groupe" id="groupe-gestion_quoi" data-si="gestion" data-si-valeurs="moi accompagnement autonome_vie conseil" data-groupe="gestion_quoi" data-type="cases" aria-describedby="groupe-gestion_quoi-aide groupe-gestion_quoi-erreur">
 <legend><span data-t="groupe-gestion_quoi.label">Ce que vous voudriez modifier vous-même</span></legend>
 <p class="aide" id="groupe-gestion_quoi-aide" data-t="groupe-gestion_quoi.aide">Ce sont les listes que vous pourrez changer depuis votre espace. Les horaires et les textes de présentation passent par nous.</p>
 <div class="options">
@@ -504,7 +382,7 @@
 </div>
 <p class="erreur" id="groupe-gestion_quoi-erreur"></p>
 </fieldset>
-<fieldset class="champ groupe" id="gestion_rythme" data-si="gestion" data-si-valeurs="conseil" data-groupe="gestion_rythme" data-type="choix" aria-describedby="gestion_rythme-erreur">
+<fieldset class="champ groupe" id="gestion_rythme" data-si="gestion" data-si-valeurs="moi accompagnement autonome_vie conseil" data-groupe="gestion_rythme" data-type="choix" aria-describedby="gestion_rythme-erreur">
 <legend><span data-t="gestion_rythme.label">À quel rythme</span></legend>
 
 <div class="options options-courtes">
@@ -515,10 +393,10 @@
 </div>
 <p class="erreur" id="gestion_rythme-erreur"></p>
 </fieldset>
-<div class="champ" data-si="gestion" data-si-valeurs="moi">
+<div class="champ" data-si="gestion" data-si-valeurs="moi accompagnement autonome_vie">
 <label for="gestion_email"><span data-t="gestion_email.label">E-mail de la personne qui fera les mises à jour</span></label>
-<p class="aide" id="gestion_email-aide" data-t="gestion_email.aide">Seulement si elle diffère de votre e-mail personnel (demandé à l&#x27;étape 6).</p>
-<input id="gestion_email" name="gestion_email" aria-describedby="gestion_email-aide gestion_email-erreur" type="email" data-type="email">
+
+<input id="gestion_email" name="gestion_email" aria-describedby="gestion_email-erreur" type="email" data-type="email">
 <p class="erreur" id="gestion_email-erreur"></p>
 </div>
 </section>
@@ -531,27 +409,28 @@
 <h2 id="etape-ambiance-titre" tabindex="-1"><span data-t="etape-ambiance.titre">Ambiance visuelle</span></h2>
 <p class="etape-intro" data-t="etape-ambiance.intro">Pas besoin de vocabulaire de graphiste : dites ce que vous ressentez.</p>
 </header>
-<section class="question" id="q17" aria-labelledby="q17-titre">
-<h3 id="q17-titre"><span class="question-numero">17</span> <span data-t="q17.titre">L&#x27;impression que doit laisser le site</span></h3>
-<fieldset class="champ groupe" id="groupe-ambiance" data-groupe="ambiance" data-type="cases" data-max="2" aria-describedby="groupe-ambiance-erreur">
-<legend><span data-t="groupe-ambiance.label">Deux au plus</span></legend>
+<section class="question" id="q15" aria-labelledby="q15-titre">
+<h3 id="q15-titre"><span class="question-numero">15</span> <span data-t="q15.titre">L&#x27;impression que doit laisser le site</span></h3>
+<fieldset class="champ groupe" id="groupe-ambiance" data-groupe="ambiance" data-type="cases" data-max="3" aria-describedby="groupe-ambiance-erreur">
+<legend><span data-t="groupe-ambiance.label">Trois au plus</span></legend>
 
-<div class="options">
+<div class="options options-courtes">
 <label class="option" for="ambiance_serieux"><input type="checkbox" id="ambiance_serieux" name="ambiance_serieux" value="oui"> <span data-t="ambiance_serieux.label">Sérieux et fiable</span></label>
 <label class="option" for="ambiance_chaleur"><input type="checkbox" id="ambiance_chaleur" name="ambiance_chaleur" value="oui"> <span data-t="ambiance_chaleur.label">Chaleureux et proche</span></label>
+<label class="option" for="ambiance_simplicite"><input type="checkbox" id="ambiance_simplicite" name="ambiance_simplicite" value="oui"> <span data-t="ambiance_simplicite.label">Simple et clair</span></label>
+<label class="option" for="ambiance_actuel"><input type="checkbox" id="ambiance_actuel" name="ambiance_actuel" value="oui"> <span data-t="ambiance_actuel.label">Actuel</span></label>
 <label class="option" for="ambiance_energie"><input type="checkbox" id="ambiance_energie" name="ambiance_energie" value="oui"> <span data-t="ambiance_energie.label">Énergique</span></label>
 <label class="option" for="ambiance_haut_de_gamme"><input type="checkbox" id="ambiance_haut_de_gamme" name="ambiance_haut_de_gamme" value="oui"> <span data-t="ambiance_haut_de_gamme.label">Haut de gamme</span></label>
 <label class="option" for="ambiance_artisanal"><input type="checkbox" id="ambiance_artisanal" name="ambiance_artisanal" value="oui"> <span data-t="ambiance_artisanal.label">Artisanal et authentique</span></label>
 <label class="option" for="ambiance_calme"><input type="checkbox" id="ambiance_calme" name="ambiance_calme" value="oui"> <span data-t="ambiance_calme.label">Calme et apaisant</span></label>
 <label class="option" for="ambiance_creatif"><input type="checkbox" id="ambiance_creatif" name="ambiance_creatif" value="oui"> <span data-t="ambiance_creatif.label">Créatif et original</span></label>
 <label class="option" for="ambiance_precis"><input type="checkbox" id="ambiance_precis" name="ambiance_precis" value="oui"> <span data-t="ambiance_precis.label">Technique et précis</span></label>
-<label class="option" for="ambiance_conseil"><input type="checkbox" id="ambiance_conseil" name="ambiance_conseil" value="oui"> <span data-t="ambiance_conseil.label">Je ne sais pas, conseillez-moi d&#x27;après mon métier</span></label>
 </div>
 <p class="erreur" id="groupe-ambiance-erreur"></p>
 </fieldset>
 </section>
-<section class="question" id="q18" aria-labelledby="q18-titre">
-<h3 id="q18-titre"><span class="question-numero">18</span> <span data-t="q18.titre">Clair ou sombre</span></h3>
+<section class="question" id="q16" aria-labelledby="q16-titre">
+<h3 id="q16-titre"><span class="question-numero">16</span> <span data-t="q16.titre">Clair ou sombre</span></h3>
 <fieldset class="champ groupe" id="mode" data-groupe="mode" data-type="choix" aria-describedby="mode-erreur">
 <legend><span data-t="mode.label">Le fond du site</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></legend>
 
@@ -563,8 +442,8 @@
 <p class="erreur" id="mode-erreur"></p>
 </fieldset>
 </section>
-<section class="question" id="q19" aria-labelledby="q19-titre">
-<h3 id="q19-titre"><span class="question-numero">19</span> <span data-t="q19.titre">Ce qui existe déjà</span></h3>
+<section class="question" id="q17" aria-labelledby="q17-titre">
+<h3 id="q17-titre"><span class="question-numero">17</span> <span data-t="q17.titre">Ce qui existe déjà</span></h3>
 <fieldset class="champ groupe" id="groupe-identite" data-groupe="identite" data-type="cases" aria-describedby="groupe-identite-aide groupe-identite-erreur">
 <legend><span data-t="groupe-identite.label">Vous avez déjà</span></legend>
 <p class="aide" id="groupe-identite-aide" data-t="groupe-identite.aide">Les fichiers (logo, charte) se déposent dans le dossier partagé, à l&#x27;étape 6.</p>
@@ -590,42 +469,18 @@
 <p class="erreur" id="identite_polices_detail-erreur"></p>
 </div>
 </section>
-<section class="question" id="q20" aria-labelledby="q20-titre">
-<h3 id="q20-titre"><span class="question-numero">20</span> <span data-t="q20.titre">L&#x27;emblème de votre métier</span></h3>
+<section class="question" id="q18" aria-labelledby="q18-titre">
+<h3 id="q18-titre"><span class="question-numero">18</span> <span data-t="q18.titre">Ce que vous aimez, ce que vous voulez éviter</span></h3>
 <div class="champ">
-<label for="embleme_metier"><span data-t="embleme_metier.label">Si on ne devait montrer qu&#x27;une matière, un outil ou un objet de votre métier, lequel ?</span></label>
-<p class="aide" id="embleme_metier-aide" data-t="embleme_metier.aide">Laissez vide si vous ne savez pas : nous vous proposerons.</p>
-<details class="exemples"><summary><span data-t="exemples">Voir des exemples</span></summary><ul><li><span data-t="embleme_metier.exemples.0">Boulanger : le pain, la farine, le four</span></li><li><span data-t="embleme_metier.exemples.1">Ébéniste : le bois, le rabot, un assemblage</span></li><li><span data-t="embleme_metier.exemples.2">Céramiste : la terre, le tour, un bol tourné</span></li><li><span data-t="embleme_metier.exemples.3">Couvreur : l&#x27;ardoise, le marteau de couvreur, un faîtage</span></li><li><span data-t="embleme_metier.exemples.4">Fleuriste : la pivoine, le sécateur, un bouquet</span></li></ul></details>
-<input id="embleme_metier" name="embleme_metier" aria-describedby="embleme_metier-aide embleme_metier-erreur" type="text" data-type="texte">
-<p class="erreur" id="embleme_metier-erreur"></p>
-</div>
-</section>
-<section class="question" id="q21" aria-labelledby="q21-titre">
-<h3 id="q21-titre"><span class="question-numero">21</span> <span data-t="q21.titre">Ce que vous aimez, ce que vous voulez éviter</span></h3>
-<fieldset class="champ groupe" id="groupe-eviter" data-groupe="eviter" data-type="cases" aria-describedby="groupe-eviter-erreur">
-<legend><span data-t="groupe-eviter.label">À éviter absolument</span></legend>
-
-<div class="options options-courtes">
-<label class="option" for="eviter_couleurs_vives"><input type="checkbox" id="eviter_couleurs_vives" name="eviter_couleurs_vives" value="oui"> <span data-t="eviter_couleurs_vives.label">Des couleurs vives</span></label>
-<label class="option" for="eviter_fond_sombre"><input type="checkbox" id="eviter_fond_sombre" name="eviter_fond_sombre" value="oui"> <span data-t="eviter_fond_sombre.label">Un fond sombre</span></label>
-<label class="option" for="eviter_animations"><input type="checkbox" id="eviter_animations" name="eviter_animations" value="oui"> <span data-t="eviter_animations.label">Des animations nombreuses</span></label>
-<label class="option" for="eviter_texte"><input type="checkbox" id="eviter_texte" name="eviter_texte" value="oui"> <span data-t="eviter_texte.label">Beaucoup de texte</span></label>
-<label class="option" for="eviter_moderne"><input type="checkbox" id="eviter_moderne" name="eviter_moderne" value="oui"> <span data-t="eviter_moderne.label">Un style trop moderne</span></label>
-<label class="option" for="eviter_traditionnel"><input type="checkbox" id="eviter_traditionnel" name="eviter_traditionnel" value="oui"> <span data-t="eviter_traditionnel.label">Un style trop traditionnel</span></label>
-</div>
-<p class="erreur" id="groupe-eviter-erreur"></p>
-</fieldset>
-<div class="champ">
-<label for="a_eviter"><span data-t="a_eviter.label">Autre chose à éviter</span></label>
+<label for="a_eviter"><span data-t="a_eviter.label">À éviter absolument</span></label>
 <p class="exemple" id="a_eviter-exemple" data-t="a_eviter.exemple">Ex. : le rouge, les photos de banque d&#x27;images, les animations partout</p>
 <textarea id="a_eviter" name="a_eviter" aria-describedby="a_eviter-exemple a_eviter-erreur" data-type="texte_long" rows="4"></textarea>
 <p class="erreur" id="a_eviter-erreur"></p>
 </div>
 <div class="champ">
-<label for="sites_aimes"><span data-t="sites_aimes.label">Des sites que vous connaissez, et ce que vous en pensez</span></label>
-<p class="aide" id="sites_aimes-aide" data-t="sites_aimes.aide">Vous pouvez citer le site d&#x27;un confrère ou d&#x27;un concurrent, même s&#x27;il ne vous plaît pas, et dire ce qui vous plaît ou vous gêne.</p>
-<p class="exemple" id="sites_aimes-exemple" data-t="sites_aimes.exemple">Ex. : l&#x27;adresse d&#x27;un site, ce que vous aimez (grandes photos d&#x27;atelier) ou ce qui vous gêne (trop de texte)</p>
-<textarea id="sites_aimes" name="sites_aimes" aria-describedby="sites_aimes-aide sites_aimes-exemple sites_aimes-erreur" data-type="texte_long" rows="4"></textarea>
+<label for="sites_aimes"><span data-t="sites_aimes.label">Des sites que vous aimez, et pourquoi</span></label>
+<p class="exemple" id="sites_aimes-exemple" data-t="sites_aimes.exemple">Ex. : l&#x27;adresse d&#x27;un site, pour ses grandes photos d&#x27;atelier</p>
+<textarea id="sites_aimes" name="sites_aimes" aria-describedby="sites_aimes-exemple sites_aimes-erreur" data-type="texte_long" rows="4"></textarea>
 <p class="erreur" id="sites_aimes-erreur"></p>
 </div>
 </section>
@@ -638,14 +493,26 @@
 <h2 id="etape-envoi-titre" tabindex="-1"><span data-t="etape-envoi.titre">Fichiers, coordonnées, mentions légales</span></h2>
 <p class="etape-intro" data-t="etape-envoi.intro">Dernière étape : ce que la loi demande sur tout site professionnel, et vos fichiers.</p>
 </header>
-<section class="question" id="q22" aria-labelledby="q22-titre">
-<h3 id="q22-titre"><span class="question-numero">22</span> <span data-t="q22.titre">Vos photos et documents</span></h3>
+<section class="question" id="q19" aria-labelledby="q19-titre">
+<h3 id="q19-titre"><span class="question-numero">19</span> <span data-t="q19.titre">Vos photos et documents</span></h3>
 <div class="champ">
 <label for="fichiers_lien"><span data-t="fichiers_lien.label">Lien du dossier partagé</span></label>
 <p class="aide" id="fichiers_lien-aide" data-t="fichiers_lien.aide">Le plus simple : un dossier Google Drive partagé avec « Tous les utilisateurs disposant du lien ». WeTransfer marche aussi, mais son lien expire au bout de quelques jours : envoyez-le seulement quand le dossier est complet.</p>
 <input id="fichiers_lien" name="fichiers_lien" aria-describedby="fichiers_lien-aide fichiers_lien-erreur" type="url" data-type="url">
 <p class="erreur" id="fichiers_lien-erreur"></p>
 </div>
+<fieldset class="champ groupe" id="groupe-fichiers_contenu" data-groupe="fichiers_contenu" data-type="cases" aria-describedby="groupe-fichiers_contenu-erreur">
+<legend><span data-t="groupe-fichiers_contenu.label">Le dossier contient</span></legend>
+
+<div class="options options-courtes">
+<label class="option" for="fichiers_contenu_realisations"><input type="checkbox" id="fichiers_contenu_realisations" name="fichiers_contenu_realisations" value="oui"> <span data-t="fichiers_contenu_realisations.label">Des photos de réalisations</span></label>
+<label class="option" for="fichiers_contenu_portrait"><input type="checkbox" id="fichiers_contenu_portrait" name="fichiers_contenu_portrait" value="oui"> <span data-t="fichiers_contenu_portrait.label">Votre portrait</span></label>
+<label class="option" for="fichiers_contenu_lieu"><input type="checkbox" id="fichiers_contenu_lieu" name="fichiers_contenu_lieu" value="oui"> <span data-t="fichiers_contenu_lieu.label">L&#x27;atelier ou la boutique</span></label>
+<label class="option" for="fichiers_contenu_logo"><input type="checkbox" id="fichiers_contenu_logo" name="fichiers_contenu_logo" value="oui"> <span data-t="fichiers_contenu_logo.label">Le logo</span></label>
+<label class="option" for="fichiers_contenu_document"><input type="checkbox" id="fichiers_contenu_document" name="fichiers_contenu_document" value="oui"> <span data-t="fichiers_contenu_document.label">Un document à télécharger</span></label>
+</div>
+<p class="erreur" id="groupe-fichiers_contenu-erreur"></p>
+</fieldset>
 <div class="champ">
 <label for="fichiers_a_ne_pas_publier"><span data-t="fichiers_a_ne_pas_publier.label">Un fichier à ne pas publier ? Indiquez lequel</span></label>
 
@@ -653,9 +520,9 @@
 <p class="erreur" id="fichiers_a_ne_pas_publier-erreur"></p>
 </div>
 </section>
-<section class="question" id="q23" aria-labelledby="q23-titre">
-<h3 id="q23-titre"><span class="question-numero">23</span> <span data-t="q23.titre">Vos coordonnées</span></h3>
-<p class="aide" data-t="q23.aide">Elles seront visibles de tous sur le site, sauf votre e-mail pour nous répondre.</p>
+<section class="question" id="q20" aria-labelledby="q20-titre">
+<h3 id="q20-titre"><span class="question-numero">20</span> <span data-t="q20.titre">Vos coordonnées</span></h3>
+<p class="aide" data-t="q20.aide">Elles seront visibles de tous sur le site, sauf votre e-mail pour nous répondre.</p>
 <div class="champ">
 <label for="public_telephone"><span data-t="public_telephone.label">Téléphone</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></label>
 <p class="aide" id="public_telephone-aide" data-t="public_telephone.aide">La loi impose un numéro dans les mentions légales.</p>
@@ -663,15 +530,9 @@
 <p class="erreur" id="public_telephone-erreur"></p>
 </div>
 <div class="champ">
-<label for="email"><span data-t="email.label">Votre e-mail, pour que nous vous répondions</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></label>
-<p class="aide" id="email-aide" data-t="email.aide">Il n&#x27;est pas affiché sur le site.</p>
-<input id="email" name="email" aria-describedby="email-aide email-erreur" required autocomplete="email" type="email" data-type="email">
-<p class="erreur" id="email-erreur"></p>
-</div>
-<div class="champ">
 <label for="public_email"><span data-t="public_email.label">E-mail affiché sur le site</span></label>
-<p class="aide" id="public_email-aide" data-t="public_email.aide">Seulement si elle diffère de votre e-mail ci-dessus. Laissez vide si vous ne souhaitez afficher aucun e-mail sur le site.</p>
-<input id="public_email" name="public_email" aria-describedby="public_email-aide public_email-erreur" type="email" data-type="email">
+
+<input id="public_email" name="public_email" aria-describedby="public_email-erreur" type="email" data-type="email">
 <p class="erreur" id="public_email-erreur"></p>
 </div>
 <div class="champ">
@@ -692,19 +553,25 @@
 <textarea id="public_reseaux" name="public_reseaux" aria-describedby="public_reseaux-erreur" data-type="texte_long" rows="4"></textarea>
 <p class="erreur" id="public_reseaux-erreur"></p>
 </div>
-</section>
-<section class="question" id="q24" aria-labelledby="q24-titre">
-<h3 id="q24-titre"><span class="question-numero">24</span> <span data-t="q24.titre">Où arrivent les demandes de vos clients</span></h3>
 <div class="champ">
-<label for="email_reception"><span data-t="email_reception.label">Adresse qui recevra les messages envoyés depuis le site</span></label>
-<p class="aide" id="email_reception-aide" data-t="email_reception.aide">Seulement si elle diffère de votre e-mail ci-dessus. Elle n&#x27;est pas affichée sur le site.</p>
-<input id="email_reception" name="email_reception" aria-describedby="email_reception-aide email_reception-erreur" type="email" data-type="email">
+<label for="email"><span data-t="email.label">Votre e-mail, pour que nous vous répondions</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></label>
+<p class="aide" id="email-aide" data-t="email.aide">Il n&#x27;est pas affiché sur le site.</p>
+<input id="email" name="email" aria-describedby="email-aide email-erreur" required autocomplete="email" type="email" data-type="email">
+<p class="erreur" id="email-erreur"></p>
+</div>
+</section>
+<section class="question" id="q21" aria-labelledby="q21-titre">
+<h3 id="q21-titre"><span class="question-numero">21</span> <span data-t="q21.titre">Où arrivent les demandes de vos clients</span></h3>
+<div class="champ">
+<label for="email_reception"><span data-t="email_reception.label">Adresse qui recevra les messages envoyés depuis le site</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></label>
+<p class="aide" id="email_reception-aide" data-t="email_reception.aide">Elle peut être la même que l&#x27;une des précédentes ; elle n&#x27;est pas affichée.</p>
+<input id="email_reception" name="email_reception" aria-describedby="email_reception-aide email_reception-erreur" required type="email" data-type="email">
 <p class="erreur" id="email_reception-erreur"></p>
 </div>
 </section>
-<section class="question" id="q25" aria-labelledby="q25-titre">
-<h3 id="q25-titre"><span class="question-numero">25</span> <span data-t="q25.titre">Informations légales</span></h3>
-<p class="aide" data-t="q25.aide">Elles figurent dans les mentions légales, obligatoires sur tout site professionnel. Vous les trouvez sur votre avis de situation ou sur annuaire-entreprises.data.gouv.fr.</p>
+<section class="question" id="q22" aria-labelledby="q22-titre">
+<h3 id="q22-titre"><span class="question-numero">22</span> <span data-t="q22.titre">Informations légales</span></h3>
+<p class="aide" data-t="q22.aide">Elles figurent dans les mentions légales, obligatoires sur tout site professionnel. Vous les trouvez sur votre avis de situation ou sur annuaire-entreprises.data.gouv.fr.</p>
 <fieldset class="champ groupe" id="legal_forme" data-groupe="legal_forme" data-type="choix" aria-describedby="legal_forme-aide legal_forme-erreur">
 <legend><span data-t="legal_forme.label">Forme de l&#x27;entreprise</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></legend>
 <p class="aide" id="legal_forme-aide" data-t="legal_forme.aide">Si vous ne savez pas, nous regarderons avec vous à partir de votre numéro SIRET.</p>
@@ -753,12 +620,28 @@
 <p class="erreur" id="legal_mediateur_inconnu-erreur"></p>
 </div>
 </section>
-<section class="question" id="q26" aria-labelledby="q26-titre">
-<h3 id="q26-titre"><span class="question-numero">26</span> <span data-t="q26.titre">Avant d&#x27;envoyer</span></h3>
+<section class="question" id="q23" aria-labelledby="q23-titre">
+<h3 id="q23-titre"><span class="question-numero">23</span> <span data-t="q23.titre">Une date à tenir ?</span></h3>
+<div class="champ">
+<label for="delai_date"><span data-t="delai_date.label">Date</span></label>
+
+<input id="delai_date" name="delai_date" aria-describedby="delai_date-erreur" type="date" data-type="date">
+<p class="erreur" id="delai_date-erreur"></p>
+</div>
+<div class="champ">
+<label for="delai_detail"><span data-t="delai_detail.label">Pourquoi cette date, ou une autre contrainte</span></label>
+<p class="exemple" id="delai_detail-exemple" data-t="delai_detail.exemple">Ex. : ouverture de la boutique début mars</p>
+<textarea id="delai_detail" name="delai_detail" aria-describedby="delai_detail-exemple delai_detail-erreur" data-type="texte_long" rows="4"></textarea>
+<p class="erreur" id="delai_detail-erreur"></p>
+</div>
+</section>
+<section class="question" id="q24" aria-labelledby="q24-titre">
+<h3 id="q24-titre"><span class="question-numero">24</span> <span data-t="q24.titre">Avant d&#x27;envoyer</span></h3>
 <div class="donnees-court">
 <p data-t="donnees.court">WebExpresso utilise vos réponses pour étudier votre projet et préparer votre site. Elles sont transmises par FormSubmit, prestataire technique qui peut les traiter hors de l&#x27;Union européenne. Vous pouvez y accéder, les faire rectifier ou effacer en écrivant à webexpresso.info@gmail.com.</p>
 <p><a href="#vos-donnees"><span data-t="lien_donnees">Lire « Vos données »</span></a></p>
 </div>
+<p class="aide" data-t="q24.aide">Récapitulatif des totaux minimum : Essentiel 200 € paiement unique ; Autonome + évolutions 290 € minimum (200 € + 3 × 30 €/mois) ; Autonome + accompagnement commercial/marketing 400 € minimum (250 € + 3 × 50 €/mois) ; Sur demande 500 € paiement unique. Questionnaire et aperçu personnalisés gratuits (sans aucun acompte préalable). Vous gardez toujours votre site si vous arrêtez (hébergement GitHub Pages et domaine ~10–15 €/an à votre nom et charge). Clauses d&#x27;engagement et de résiliation à faire valider par un professionnel dans des CGV écrites.</p>
 <div class="champ champ-case">
 <label class="option" for="confirm_exactitude"><input type="checkbox" id="confirm_exactitude" name="confirm_exactitude" value="oui" required aria-describedby="confirm_exactitude-erreur" data-type="case"> <span data-t="confirm_exactitude.label">Les informations données sont exactes, à ma connaissance.</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></label>
 <p class="erreur" id="confirm_exactitude-erreur"></p>

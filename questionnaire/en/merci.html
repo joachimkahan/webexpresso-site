@@ -22,8 +22,23 @@
 <h1 data-t="merci.titre">Thank you, your questionnaire has been sent</h1>
 <p data-t="merci.p0">We will read your answers and get back to you by email, at the address you gave us.</p>
 <p data-t="merci.p1">If you sent a WeTransfer link, keep your files to hand: the link expires after a few days.</p>
-<div class="paiement"><p data-t="paiement.texte">Last step: pay the €5 deposit. It starts the preparation of your demo and is deducted from the final price.</p>
-<p><a class="bouton" href="https://buy.stripe.com/LIEN_PAIEMENT_STRIPE"><span data-t="paiement.bouton">Pay the €5 deposit</span></a></p></div>
+<div class="paiement"><p data-t="paiement.texte">Final step before payment: the questionnaire and initial preview are free (no upfront deposit required). Review the summary and minimum commitment total for your selected plan below. You always keep your website if you stop.</p>
+<div class="recap-engagement" id="recap-engagement">
+<h2 class="recap-engagement-titre">Pre-payment summary</h2>
+<p class="recap-engagement-choisie" id="recap-engagement-choisie">Review the minimum commitment total according to your selected plan:</p>
+<ul>
+<li data-offre="webexpresso"><strong>Essential:</strong> €200, one-time payment (static website, no subscription).</li>
+<li data-offre="moi"><strong>Autonomous + updates:</strong> €200 + €30/month, 3-month minimum commitment — minimum total: <strong>€290</strong> (€200 + 3 × €30). Includes pro dashboard + 2 small requests/mo (&lt; 30 min) + 1 quarterly upgrade in 5–10 business days; remaining minimum installments due if stopped before 3 months; €0 cancellation fee afterwards; lifetime pro dashboard after 12 cumulative months.</li>
+<li data-offre="accompagnement"><strong>Autonomous + business/marketing support:</strong> €250 + €50/month, 3-month minimum commitment — minimum total: <strong>€400</strong> (€250 + 3 × €50). Delivered by your dedicated advisor (1 monthly check-in + 2 posts/month + site updates, zero result promises); same commitment, resumption, and 12-month rules.</li>
+<li data-offre="autonome_vie"><strong>On request (off-showcase):</strong> Autonomous with lifetime pro dashboard, <strong>€500</strong>, one-time payment (GitHub Pages hosting &amp; domain ~€10–15/yr in client's name &amp; expense).</li>
+</ul>
+<p class="recap-engagement-garantie"><strong>You always keep your website if you stop.</strong> Free questionnaire &amp; preview (no upfront deposit required); GitHub Pages hosting and domain stay in the client's name and expense. Commitment and termination clauses must be validated by a legal professional in written T&amp;Cs.</p>
+</div>
+<div class="champ champ-case">
+<label class="option" for="accept-engagement"><input type="checkbox" id="accept-engagement" name="accept_engagement" value="oui" data-type="case"> <span>I acknowledge the minimum commitment total for my chosen plan and the rule "You always keep your website if you stop".</span></label>
+<p class="erreur" id="accept-engagement-erreur" hidden>Please tick this box before continuing to payment.</p>
+</div>
+<p><a class="bouton" id="bouton-paiement" href="https://buy.stripe.com/LIEN_PAIEMENT_STRIPE"><span data-t="paiement.bouton">Continue to payment</span></a></p></div>
 <p class="note" id="brouillon-efface" hidden data-t="merci.brouillon_efface">The answers kept in this browser have just been cleared.</p>
 </div>
 </main>

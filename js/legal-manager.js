@@ -200,7 +200,7 @@
                 <p><strong>TVA Intracommunautaire :</strong> ${legal.vatNumber}</p>
                 <p><strong>Direction de la Publication :</strong> ${legal.publishingDirector}</p>
                 <p><strong>Contact Électronique :</strong> <a href="mailto:${legal.contactEmail}">${legal.contactEmail}</a></p>
-                <p><strong>Commande :</strong> questionnaire « Démarrer mon projet » de ce site, transmis par FormSubmit ; acompte réglé en ligne par Stripe.</p>
+                <p><strong>Commande :</strong> questionnaire « Démarrer mon projet » gratuit sur ce site (transmis par FormSubmit) ; règlement de la formule retenue en ligne par Stripe après validation du récapitulatif.</p>
             `;
         }
 
@@ -231,34 +231,41 @@
                 <p><strong>Responsable du Traitement :</strong> L'Équipe WebExpresso (représentée par la direction éditoriale).</p>
                 <p><strong>Contact Référent Données Personnelles :</strong> <a href="mailto:${legal.dpoEmail}">${legal.dpoEmail}</a>.</p>
                 <p><strong>Données Collectées :</strong> Nom, prénom, adresse électronique, numéro de téléphone éventuel, description de votre activité professionnelle, choix des couleurs, photographies et textes transmis volontairement lors du remplissage du questionnaire « Démarrer mon projet » ou par échange email.</p>
-                <p><strong>Finalités du Traitement :</strong> Traitement de votre demande d'acompte de 5 €, réalisation et transmission de la vidéo de démonstration sous 7 jours, personnalisation du site web commandé, et suivi de la facturation.</p>
+                <p><strong>Finalités du Traitement :</strong> Traitement de votre demande gratuite de création de site et des choix de formule (Essentiel 200 €, Autonome + évolutions 200 € + 30 €/mois, Autonome + accompagnement 250 € + 50 €/mois, ou offre sur demande à 500 €), gestion du questionnaire en ligne, conception du site et suivi de la facturation.</p>
                 <p><strong>Bases Légales :</strong> Exécution de mesures précontractuelles et contractuelles (art. 6.1.b du RGPD) ainsi que votre consentement explicite donné lors de la soumission du formulaire.</p>
                 <p><strong>Durée de Conservation :</strong> Les données des demandes n'aboutissant pas à une commande finale sont supprimées ou archivées sous 3 ans à compter du dernier échange. Les données de facturation et dossiers de livraison sont conservés 10 ans conformément aux obligations du Code de commerce.</p>
-                <p><strong>Sécurité & Destinataires :</strong> Vos données sont traitées de manière strictement confidentielle et sécurisée (chiffrement TLS). Elles ne sont jamais revendues ni cédées à des tiers. Prestataires techniques : FormSubmit (transmission du questionnaire), Google (messagerie Gmail), Stripe (paiement de l'acompte), GitHub (hébergement du site). Certains peuvent traiter les données hors de l'Union européenne ; le détail figure dans la partie « Vos données » du questionnaire.</p>
+                <p><strong>Sécurité & Destinataires :</strong> Vos données sont traitées de manière strictement confidentielle et sécurisée (chiffrement TLS). Elles ne sont jamais revendues ni cédées à des tiers. Prestataires techniques : FormSubmit (transmission du questionnaire), Google (messagerie Gmail), Stripe (paiement sécurisé en ligne), GitHub / GitHub Pages et Firebase (hébergement et espace pro). Certains peuvent traiter les données hors de l'Union européenne ; le détail figure dans la partie « Vos données » du questionnaire.</p>
                 <p><strong>Vos Droits :</strong> Vous bénéficiez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données personnelles. Vous pouvez faire valoir ces droits à tout moment en écrivant à <a href="mailto:${legal.dpoEmail}">${legal.dpoEmail}</a>.</p>
                 <p>En cas de réclamation non résolue, vous disposez du droit légal d'introduire une plainte auprès de l'autorité compétente : la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés — <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>).</p>
             `;
         }
 
-        // 3. CGU & Conditions Générales de Vente (Spécifique Démo 5€ & Sites WebExpresso)
+        // 3. CGU & Conditions Générales de Vente (Grille Tarifaire Novembre 2026 WebExpresso)
         const elCgu = document.getElementById('legal-info-cgu');
         if (elCgu) {
             elCgu.innerHTML = `
-                <h4>1. Présentation de l'Offre & Formules</h4>
-                <p>WebExpresso propose un service de conception de sites internet vitrines professionnels clé en main articulé en deux temps :</p>
-                <p>• <strong>Phase 1 (Démo Vidéo) :</strong> Remplissage du questionnaire de 10 minutes avec versement d'un acompte forfaitaire de <strong>5 € TTC</strong>. L'équipe WebExpresso conçoit une maquette interactive sur mesure et livre au client une vidéo de présentation complète sous 7 jours ouvrés.</p>
-                <p>• <strong>Phase 2 (Mise en Ligne Optionnelle) :</strong> Le client visionne la vidéo sans engagement de commander le site final. S'il est conquis, il choisit sa formule : Formule <em>Essentiel</em> (solde de 95 € TTC, soit 100 € au total) ou Formule <em>Autonome</em> (solde de 145 € TTC, soit 150 € au total). WebExpresso finalise alors la mise en ligne sous 3 à 5 jours ouvrés.</p>
-                <p>• <strong>Absence d'engagement :</strong> Si la vidéo de démonstration ne convient pas au client, aucun solde n'est exigé, aucun prélèvement additionnel n'est opéré et le client est libéré de tout engagement.</p>
+                <div class="sav-notice-box">
+                    <p><strong>Validation juridique :</strong> Les clauses d'engagement minimum, de résiliation anticipée et d'acquisition de droits ci-dessous doivent être validées par un professionnel du droit dans des CGV écrites avant leur signature.</p>
+                </div>
 
-                <h4>2. Propriété du Site & Hébergement Sans Abonnement</h4>
-                <p>Dès l'encaissement du solde final, le client devient <strong>pleinement et exclusivement propriétaire</strong> de l'ensemble des contenus, fichiers sources et droits d'utilisation de son site internet. Aucun abonnement mensuel captif n'est facturé par WebExpresso. L'hébergement sécurisé haute performance (HTTPS / certificat SSL) est inclus sans frais récurrents. Seul le renouvellement annuel du nom de domaine (environ 10 € / an auprès du registrar accrédité) reste à la charge du client.</p>
+                <h4>1. Présentation de l'Offre & Tarifs (Novembre 2026)</h4>
+                <p>Le questionnaire et l'aperçu personnalisé sont gratuits (aucun acompte préalable demandé avant commande). WebExpresso propose trois offres affichées et une offre sur demande :</p>
+                <p>• <strong>Essentiel — 200 €, paiement unique :</strong> site vitrine fixe, sans espace privé d'administration.</p>
+                <p>• <strong>Autonome + évolutions — 200 € + 30 €/mois, engagement de 3 mois minimum (soit 290 € au minimum : 200 + 3 × 30 €) :</strong> inclut l'espace pro privé et l'ajout de fonctionnalités à la demande par le développeur (2 petites demandes de moins de 30 min par mois, non reportables + 1 évolution plus importante par trimestre, délai cible de 5 à 10 jours ouvrés).</p>
+                <p>• <strong>Autonome + accompagnement commercial/marketing — 250 € + 50 €/mois, engagement de 3 mois minimum (soit 400 € au minimum : 250 + 3 × 50 €) :</strong> inclut l'espace pro privé et un accompagnement réalisé par le commercial apporteur (1 point mensuel + 2 contenus/publications préparés par mois + mise à jour des offres sur le site ; aucune promesse de résultat commercial, de visibilité ou de classement).</p>
+                <p>• <strong>Offre sur demande (hors vitrine) — Autonome avec espace pro à vie : 500 €, paiement unique, sans abonnement :</strong> inclut l'espace pro à vie ; l'hébergement (via GitHub Pages) et le nom de domaine restent au nom et à la charge du client.</p>
 
-                <h4>3. Droit de Rétractation & Prestations Personnalisées</h4>
-                <p>Conformément aux dispositions de l'<strong>article L.221-28 3° du Code de la consommation</strong>, le droit légal de rétractation de quatorze (14) jours ne peut être exercé pour les contrats de fourniture de biens confectionnés selon les spécifications précises du consommateur ou nettement personnalisés.</p>
-                <p>Par conséquent, dès lors que l'élaboration de la démo vidéo personnalisée ou le développement du site sur mesure a débuté à la demande expresse du client via la soumission du questionnaire, l'acompte de 5 € couvrant ces frais techniques initiaux de conception n'est pas remboursable.</p>
+                <h4>2. Engagement Minimum, Résiliation & Reprise d'Abonnement</h4>
+                <p>Le total de l'engagement minimum (<strong>290 €</strong> pour Autonome + évolutions, <strong>400 €</strong> pour Autonome + accompagnement) est affiché dans le récapitulatif avant paiement avec case à cocher d'acceptation.</p>
+                <p>• <strong>Résiliation avant la fin des 3 mois minimum :</strong> les mensualités restantes de la période d'engagement initial de 3 mois restent dues.</p>
+                <p>• <strong>Vous gardez toujours votre site si vous arrêtez :</strong> après la période minimale de 3 mois, le client peut arrêter l'abonnement à tout moment avec <strong>aucun frais d'annulation</strong>. Il conserve son site vitrine statique mais perd l'accès à l'espace pro (sauf acquisition à vie après 12 mois).</p>
+                <p>• <strong>Acquisition de l'espace pro après 12 mois & reprise :</strong> après 12 mois cumulés d'abonnement, l'espace pro est acquis à vie, même si le client arrête l'abonnement. En cas de reprise d'abonnement après un arrêt, les mois déjà payés comptent pour atteindre ce seuil de 12 mois.</p>
 
-                <h4>4. Engagements de Qualité & Assistance</h4>
-                <p>WebExpresso garantit la conformité technique du site (affichage responsive mobile, tablette, ordinateur, vitesse de chargement optimale, balisage SEO pour le référencement naturel). Dans le cadre de la formule Autonome, un tutoriel pas-à-pas et un support d'accompagnement sont inclus pour permettre une prise en main immédiate.</p>
+                <h4>3. Propriété du Site & Périmètre Technique (« À vie »)</h4>
+                <p>Le client conserve son site en toute circonstance en cas d'arrêt. Lorsque l'espace pro est acquis à vie (après 12 mois cumulés d'abonnement ou via la formule sur demande à 500 €), l'espace pro reste accessible sans abonnement mensuel ; l'hébergement du site (via GitHub Pages / GitHub) et le nom de domaine (~10–15 €/an) demeurent au nom et à la charge du client, et les évolutions techniques hors espace pro relèvent du SAV à la carte.</p>
+
+                <h4>4. Droit de Rétractation & Prestations Personnalisées</h4>
+                <p>Conformément à l'<strong>article L.221-28 3° du Code de la consommation</strong>, les prestations confectionnées selon les spécifications du client ou nettement personnalisées obéissent au régime légal applicable, sous réserve de validation des CGV définitives par un conseiller juridique.</p>
             `;
         }
 
@@ -286,7 +293,7 @@
             elSav.innerHTML = `
                 <div class="lang-fr">
                     <h4>1. Objet & Périmètre du Service Après-Vente</h4>
-                    <p>Ce document de référence définit les garanties et interventions applicables une fois le site internet livré et mis en ligne à 100 % (après validation de la démonstration vidéo, règlement du solde et publication finale). WebExpresso s'engage à assurer un accompagnement technique réactif, pérenne et transparent, sans mauvaise surprise ni abonnement captif.</p>
+                    <p>Ce document de référence définit les garanties et interventions applicables une fois le site internet livré et mis en ligne. WebExpresso s'engage à assurer un accompagnement technique réactif, pérenne et transparent : vous gardez toujours votre site si vous arrêtez un abonnement, sans frais d'annulation après l'engagement minimum de 3 mois.</p>
 
                     <div class="sav-notice-box">
                         <p><strong>Règle d'or WebExpresso — Le Diagnostic est TOUJOURS gratuit (0 €) :</strong> Avant toute qualification, chiffrage ou intervention, un diagnostic technique complet est réalisé sans aucun frais, quel que soit le verdict final.</p>
@@ -306,17 +313,22 @@
                                 <tr>
                                     <td><strong>Bug technique de template (dans l'année)</strong></td>
                                     <td><span class="sav-badge-free">Gratuit (0 €)</span></td>
-                                    <td>Garantie incluse dans le prix de base de nos formules (Essentiel 100 € / Autonome 150 €). Présomption par défaut en cas de doute technique.</td>
+                                    <td>Garantie incluse dans nos formules (Essentiel 200 €, Autonome + évolutions 200 € + 30 €/mois, Autonome + accompagnement 250 € + 50 €/mois, Sur demande 500 €). Présomption par défaut en cas de doute technique.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ajout de fonctionnalités (Autonome + évolutions)</strong></td>
+                                    <td><span class="sav-badge-free">Inclus dans l'abonnement</span></td>
+                                    <td>2 petites demandes par mois (&lt; 30 min, non reportables) + 1 évolution plus importante par trimestre ; délai cible de 5 à 10 jours ouvrés (devis remisé abonné au-delà).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Bug technique de template (après 1 an)</strong></td>
                                     <td><span class="sav-badge-paid">20 € (petite retouche) / 20 €/h</span></td>
-                                    <td>Tarif accessible calculé au temps réel passé, non dissuasif, pour assurer la pérennité de votre site dans la durée.</td>
+                                    <td>Tarif accessible calculé au temps réel passé pour assurer la pérennité de votre site dans la durée.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Faute technique WebExpresso (config Firebase, domaine, routage)</strong></td>
-                                    <td><span class="sav-badge-free">Gratuit à vie (0 €)</span></td>
-                                    <td>Responsabilité pleine et entière WebExpresso, sans aucune limite dans le temps, dès lors qu'une cause traçable est identifiée.</td>
+                                    <td><strong>Faute technique WebExpresso (config GitHub, espace pro, routage)</strong></td>
+                                    <td><span class="sav-badge-free">Gratuit (cause traçable)</span></td>
+                                    <td>Responsabilité WebExpresso dès lors qu'une cause traçable imputable à WebExpresso est identifiée au diagnostic (hébergement GitHub Pages et nom de domaine restent au nom et à la charge du client).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Diagnostic préalable (tous cas confondus)</strong></td>
@@ -329,14 +341,14 @@
                                     <td>Continuité du tour de révision post-livraison pour caler parfaitement vos textes, logos et photos initiaux.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Modification de texte / ajout d'image</strong></td>
+                                    <td><strong>Modification de texte / ajout d'image (hors espace pro actif)</strong></td>
                                     <td><span class="sav-badge-paid">Forfait 20 €</span></td>
-                                    <td>Forfait simple et rapide. <em>(Totalement gratuit et autonome si vous bénéficiez de la Formule Autonome).</em></td>
+                                    <td>Forfait simple et rapide pour un site Essentiel ou après arrêt de l'abonnement avant 12 mois. <em>(Autonome avec espace pro actif ou acquis après 12 mois).</em></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Ajout d'un bloc de présentation graphique simple</strong></td>
                                     <td><span class="sav-badge-paid">Forfait 35 €</span></td>
-                                    <td>Intégration d'une nouvelle section, composant visuel ou présentation harmonisée.</td>
+                                    <td>Intégration d'une nouvelle section, composant visuel ou présentation harmonisée hors formule évolutions active.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Évolutions complexes / Hors grille</strong></td>
@@ -349,13 +361,13 @@
 
                     <h4>3. Principes d'Application & Engagements Éthiques</h4>
                     <p>• <strong>Présomption favorable par défaut :</strong> En cas d'hésitation ou de doute technique à la suite du diagnostic, le problème est qualifié en bug de template couvert par la garantie d'un an, et traité sans frais.</p>
-                    <p>• <strong>Transparence contractuelle :</strong> Aucune prestation payante n'est engagée sans l'accord préalable, formel et explicite du client. Vous gardez la maîtrise totale de vos dépenses.</p>
-                    <p>• <strong>Accompagnement direct :</strong> Vous êtes en relation directe avec les concepteurs de votre site (étudiants Grenoble INP et école de commerce), sans intermédiaire commercial ni plateforme automatisée déshumanisée.</p>
+                    <p>• <strong>Transparence contractuelle :</strong> Aucune prestation payante n'est engagée sans l'accord préalable, formel et explicite du client. Les modalités d'engagement (3 mois min., 12 mois pour espace pro à vie) relèvent des CGV écrites à valider par un professionnel juridique.</p>
+                    <p>• <strong>Accompagnement direct :</strong> Vous êtes en relation directe avec les concepteurs de votre site (étudiants Grenoble INP et école de commerce), sans intermédiaire automatisé.</p>
                 </div>
 
                 <div class="lang-en">
                     <h4>1. Scope & Purpose of After-Sales Service (SAV)</h4>
-                    <p>This reference policy defines warranties and support procedures applicable once the website is 100% completed and published online (following video demo approval, balance settlement, and live launch). WebExpresso is committed to providing responsive, long-term, and transparent support with zero hidden fees or locked contracts.</p>
+                    <p>This reference policy defines warranties and support procedures applicable once the website is completed and published online. WebExpresso is committed to responsive, long-term, and transparent support: you always keep your website if you stop a subscription, with zero cancellation fees after the 3-month minimum commitment.</p>
 
                     <div class="sav-notice-box">
                         <p><strong>WebExpresso Golden Rule — Diagnostic is ALWAYS Free (0 €):</strong> Before any qualification, pricing, or technical task, a full diagnostic is performed free of charge, regardless of the final verdict.</p>
@@ -375,7 +387,12 @@
                                 <tr>
                                     <td><strong>Template technical bug (within 1 year)</strong></td>
                                     <td><span class="sav-badge-free">Free (0 €)</span></td>
-                                    <td>Warranty included in the base plan price (Essential 100 € / Autonomous 150 €). Default assumption in case of technical doubt.</td>
+                                    <td>Warranty included in our plans (Essential €200, Autonomous + updates €200 + €30/mo, Autonomous + support €250 + €50/mo, On request €500). Default assumption in case of technical doubt.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Feature additions (Autonomous + updates)</strong></td>
+                                    <td><span class="sav-badge-free">Included in subscription</span></td>
+                                    <td>2 small requests per month (&lt; 30 min, non-rollover) + 1 larger quarterly evolution; target turnaround 5 to 10 business days (discounted subscriber quote beyond quota).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Template technical bug (after 1 year)</strong></td>
@@ -383,9 +400,9 @@
                                     <td>Affordable rate covering actual time spent, designed to ensure your website's long-term sustainability.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>WebExpresso technical fault (Firebase, domain, routing)</strong></td>
-                                    <td><span class="sav-badge-free">Lifetime Free (0 €)</span></td>
-                                    <td>Full WebExpresso responsibility with no time limit whenever a traceable setup cause is identified.</td>
+                                    <td><strong>WebExpresso technical fault (GitHub setup, pro dashboard, routing)</strong></td>
+                                    <td><span class="sav-badge-free">Free (traceable fault)</span></td>
+                                    <td>WebExpresso responsibility whenever a traceable setup cause is identified at diagnostic (GitHub Pages hosting and domain name remain in the client's name and expense).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Preliminary diagnostic (all cases)</strong></td>
@@ -398,14 +415,14 @@
                                     <td>Extension of the initial revision round to perfectly align your launch texts and photos.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Text modification / image addition</strong></td>
+                                    <td><strong>Text modification / image addition (without active pro dashboard)</strong></td>
                                     <td><span class="sav-badge-paid">20 € flat fee</span></td>
-                                    <td>Simple and prompt update. <em>(100% free and autonomous via the Autonomous Plan CMS).</em></td>
+                                    <td>Simple and prompt update for Essential websites or after stopping before 12 months. <em>(Autonomous with active or lifetime pro dashboard).</em></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Simple graphic presentation / new block</strong></td>
                                     <td><span class="sav-badge-paid">35 € flat fee</span></td>
-                                    <td>Adding a new visual section or structured layout component.</td>
+                                    <td>Adding a new visual section or structured layout component outside active feature subscription.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Complex features / Custom work</strong></td>
@@ -418,7 +435,7 @@
 
                     <h4>3. Application Principles & Commitments</h4>
                     <p>• <strong>Default client-first assumption:</strong> If any doubt remains after diagnostic investigation, the issue is categorized as a covered template bug under the 1-year warranty and resolved free of charge.</p>
-                    <p>• <strong>Strict pricing transparency:</strong> No billable intervention is ever undertaken without prior, explicit written client consent.</p>
+                    <p>• <strong>Strict pricing transparency:</strong> No billable intervention is ever undertaken without prior, explicit written client consent. Commitment and termination rules must be validated by a legal professional in written T&Cs.</p>
                     <p>• <strong>Direct team support:</strong> You communicate directly with the students who built your site (Grenoble INP & Business School), without call centers or automated barriers.</p>
                 </div>
             `;
