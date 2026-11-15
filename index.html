@@ -1,671 +1,379 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="light">
+<!-- Page produite par _source/construire.py : modifier _source/, puis reconstruire. -->
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebExpresso | Votre Site Vitrine Professionnel en Moins d'une Semaine</title>
-    <meta name="description"
-        content="WebExpresso : sites vitrine professionnels dès 200 € (Essentiel paiement unique, Autonome + évolutions à 200 € + 30 €/mois ou Autonome + accompagnement à 250 € + 50 €/mois). Vous gardez toujours votre site.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebExpresso : votre site internet en une semaine, dès 200 €</title>
+    <meta name="description" content="WebExpresso crée le site internet des artisans, commerçants et indépendants. Aperçu gratuit avant de payer, trois formules dès 200 €, et vous gardez toujours votre site.">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f8f3e6">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WebExpresso">
+    <meta property="og:title" content="WebExpresso : votre site internet en une semaine, dès 200 €">
+    <meta property="og:description" content="WebExpresso crée le site internet des artisans, commerçants et indépendants. Aperçu gratuit avant de payer, trois formules dès 200 €, et vous gardez toujours votre site.">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/tokens.css?v=2.5.4">
-    <link rel="stylesheet" href="css/public.css?v=2.5.4">
+    <link rel="preload" href="fonts/andika-normal-400-latin-2a5ba053.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/besley-normal-400-900-latin-ed397097.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/fonts.css?v=4db2fa32">
+    <link rel="stylesheet" href="css/site.css?v=4db2fa32">
 </head>
 
-<body>
-    <nav id="navbar" class="navbar">
-        <div class="navbar-inner">
-            <a href="#accueil" class="logo logo-brand" aria-label="WebExpresso - Accueil">
-                <img src="assets/logo-webexpresso-icon.png" alt="" class="nav-logo-icon" width="32" height="26">
-                <span class="logo-text">WebExpresso</span>
+<body class="page-accueil">
+    <a class="evitement" href="#contenu">Aller directement au contenu</a>
+
+    <header class="entete">
+        <div class="cadre entete__dans">
+            <a class="logo" href="index.html" aria-label="WebExpresso, retour à l'accueil">
+                <img src="assets/logo-webexpresso.webp" alt="WebExpresso" width="186" height="30">
             </a>
 
-            <ul class="nav-links">
-                <li><a href="#accueil"><span class="lang-fr">Accueil</span><span class="lang-en">Home</span></a></li>
-                <li><a href="#methode"><span class="lang-fr">Méthode</span><span class="lang-en">Method</span></a></li>
-                <li><a href="#prestations"><span class="lang-fr">Offres</span><span class="lang-en">Plans</span></a>
-                </li>
-                <li><a href="#gallery"><span class="lang-fr">Portfolio</span><span class="lang-en">Portfolio</span></a>
-                </li>
-                <li><a href="#apropos"><span class="lang-fr">À propos</span><span class="lang-en">About</span></a></li>
-                <li><a href="#faq"><span class="lang-fr">FAQ</span><span class="lang-en">FAQ</span></a></li>
-            </ul>
+            <nav class="menu" aria-label="Menu principal">
+                <ul>
+                    <li><a href="formules.html">Formules et prix</a></li>
+                    <li><a href="exemples.html">Exemples</a></li>
+                    <li><a href="comment-ca-se-passe.html">Comment ça se passe</a></li>
+                    <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+                    <li><a href="questions.html">Questions</a></li>
+                </ul>
+            </nav>
 
-            <div class="nav-actions" style="display: flex; align-items: center; gap: 12px;">
-                <a href="questionnaire/" data-questionnaire target="_blank" rel="noopener" class="btn-primary nav-cta"
-                    style="padding: 8px 18px; font-size: 0.88rem; text-decoration: none; border-radius: var(--radius-pill); font-weight: 600;">
-                    <span class="lang-fr">Démarrer mon projet ↗</span>
-                    <span class="lang-en">Start my project ↗</span>
-                </a>
+            <a class="bouton bouton--petit entete__action" href="questionnaire/index.html">Commencer</a>
 
-                <button type="button" id="langToggle" class="lang-toggle-btn"
-                    aria-label="Changer de langue / Switch language">
-                    <span class="lang-text" id="langToggleText">EN</span>
-                </button>
-            </div>
-
-            <div class="hamburger" id="hamburger" aria-label="Menu Mobile">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-    <div id="mobile-nav" class="mobile-nav">
-        <ul class="mobile-nav-links">
-            <li><a href="#accueil"><span class="lang-fr">Accueil</span><span class="lang-en">Home</span></a></li>
-            <li><a href="#methode"><span class="lang-fr">Méthode</span><span class="lang-en">Method</span></a></li>
-            <li><a href="#prestations"><span class="lang-fr">Offres</span><span class="lang-en">Plans</span></a></li>
-            <li><a href="#gallery"><span class="lang-fr">Portfolio</span><span class="lang-en">Portfolio</span></a></li>
-            <li><a href="#apropos"><span class="lang-fr">À propos</span><span class="lang-en">About</span></a></li>
-            <li><a href="#faq"><span class="lang-fr">FAQ</span><span class="lang-en">FAQ</span></a></li>
-            <li><a href="questionnaire/" data-questionnaire target="_blank" rel="noopener"
-                    style="color: var(--color-accent); font-weight: 700;">
-                    <span class="lang-fr">Démarrer mon projet ↗</span>
-                    <span class="lang-en">Start my project ↗</span>
-                </a></li>
-            <li style="margin-top: 14px; text-align: center;">
-                <button type="button" id="mobileLangToggle" class="lang-toggle-btn mobile-lang-toggle"
-                    aria-label="Changer de langue / Switch language">
-                    <span class="lang-text" id="mobileLangToggleText">EN</span>
-                </button>
-            </li>
-        </ul>
-    </div>
-    <header id="accueil" class="hero">
-        <div class="hero-media">
-            <img src="assets/hero-option-2-esquisse-laptop.jpg"
-                alt="Conception collaborative de site web, du croquis papier à l'écran" fetchpriority="high">
-        </div>
-        <div class="hero-shimmer"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1><span class="hero-brand-name">WebExpresso</span><span class="hero-subline"><span class="lang-fr">Site
-                        personnalisé livré en moins d'une semaine</span><span class="lang-en">Custom website delivered
-                        in under a week</span></span></h1>
-            <p class="hero-description"><span class="lang-fr">Questionnaire et aperçu personnalisé gratuits avant de vous lancer : paiement uniquement à la commande. Trois formules claires dès 200 €, et vous gardez toujours votre site si vous arrêtez.</span><span class="lang-en">Free questionnaire and custom preview before you commit: you only pay when ordering. Three transparent plans starting at €200, and you always keep your website if you stop.</span></p>
-            <div class="hero-proof-bar">
-                <div class="proof-item">
-                    <span class="proof-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                        </svg></span>
-                    <span>
-                        <span class="lang-fr">Livré en moins de 7 jours</span>
-                        <span class="lang-en">Delivered in under 7 days</span>
-                    </span>
-                </div>
-                <div class="proof-item">
-                    <span class="proof-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        </svg></span>
-                    <span>
-                        <span class="lang-fr">Vous gardez toujours votre site</span>
-                        <span class="lang-en">You always keep your website</span>
-                    </span>
-                </div>
-                <div class="proof-item">
-                    <span class="proof-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                        </svg></span>
-                    <span>
-                        <span class="lang-fr">Projet étudiant Grenoble INP & Commerce</span>
-                        <span class="lang-en">Student project Grenoble INP & Business</span>
-                    </span>
-                </div>
-            </div>
+            <details class="menu-mobile">
+                <summary>
+                    <svg class="menu-mobile__icone" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                    <span>Menu</span>
+                </summary>
+                <nav class="menu-mobile__panneau" aria-label="Menu principal">
+                    <ul>
+                        <li><a href="index.html" aria-current="page">Accueil</a></li>
+                        <li><a href="formules.html">Formules et prix</a></li>
+                        <li><a href="exemples.html">Exemples</a></li>
+                        <li><a href="comment-ca-se-passe.html">Comment ça se passe</a></li>
+                        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+                        <li><a href="questions.html">Questions fréquentes</a></li>
+                        <li><a href="contact.html">Nous écrire</a></li>
+                    </ul>
+                    <a class="bouton" href="questionnaire/index.html">Commencer gratuitement</a>
+                </nav>
+            </details>
         </div>
     </header>
 
-    <!-- ═══════════════════════════════════
-         TICKER BANNER (Bandeau Défilant)
-    ═══════════════════════════════════ -->
-    <div class="ticker-banner" id="banderole-ticker" aria-hidden="true">
-        <div class="ticker-track">
-            <div class="ticker-content" id="ticker-content-primary">
-                <span><span class="lang-fr">VOUS GARDEZ TOUJOURS VOTRE SITE</span><span class="lang-en">YOU ALWAYS KEEP
-                        YOUR WEBSITE</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">ESSENTIEL 200 € PAIEMENT UNIQUE</span><span class="lang-en">ESSENTIAL €200
-                        ONE-TIME PAYMENT</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">AUTONOME + ÉVOLUTIONS 200 € + 30 €/MOIS</span><span
-                        class="lang-en">AUTONOMOUS + UPDATES €200 + €30/MO</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">ENGAGEMENT MIN. 3 MOIS · ZÉRO FRAIS D'ANNULATION</span><span
-                        class="lang-en">3-MONTH MIN. COMMITMENT · ZERO CANCELLATION FEES</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">ADAPTÉ MOBILE & ORDINATEUR</span><span class="lang-en">MOBILE & DESKTOP
-                        OPTIMIZED</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">ÉQUIPE ÉTUDIANTE GRENOBLE INP</span><span class="lang-en">GRENOBLE INP
-                        STUDENT TEAM</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">LIVRAISON CLÉ EN MAIN</span><span class="lang-en">TURNKEY
-                        DELIVERY</span></span>
-                <span class="bullet">•</span>
+    <main id="contenu">
+<section class="accueil-haut">
+    <div class="cadre accueil-haut__grille">
+        <div>
+            <h1>Voyez votre site avant de le payer.</h1>
+            <p class="accroche">Vous répondez à quelques questions sur votre activité. En moins d'une semaine, nous vous montrons votre site, gratuitement. S'il vous plaît, il est à vous à partir de 200&nbsp;€.</p>
+            <div class="actions">
+                <a class="bouton" href="questionnaire/index.html">Commencer gratuitement</a>
+                <a class="bouton bouton--clair" href="formules.html">Voir les formules et les prix</a>
             </div>
-            <div class="ticker-content" id="ticker-content-secondary" aria-hidden="true">
-                <span><span class="lang-fr">VOUS GARDEZ TOUJOURS VOTRE SITE</span><span class="lang-en">YOU ALWAYS KEEP
-                        YOUR WEBSITE</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">ESSENTIEL 200 € PAIEMENT UNIQUE</span><span class="lang-en">ESSENTIAL €200
-                        ONE-TIME PAYMENT</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">AUTONOME + ÉVOLUTIONS 200 € + 30 €/MOIS</span><span
-                        class="lang-en">AUTONOMOUS + UPDATES €200 + €30/MO</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">ENGAGEMENT MIN. 3 MOIS · ZÉRO FRAIS D'ANNULATION</span><span
-                        class="lang-en">3-MONTH MIN. COMMITMENT · ZERO CANCELLATION FEES</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">ADAPTÉ MOBILE & ORDINATEUR</span><span class="lang-en">MOBILE & DESKTOP
-                        OPTIMIZED</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">ÉQUIPE ÉTUDIANTE GRENOBLE INP</span><span class="lang-en">GRENOBLE INP
-                        STUDENT TEAM</span></span>
-                <span class="bullet">•</span>
-                <span><span class="lang-fr">LIVRAISON CLÉ EN MAIN</span><span class="lang-en">TURNKEY
-                        DELIVERY</span></span>
-                <span class="bullet">•</span>
-            </div>
+            <ul class="assurances">
+                <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.500 12.800 9.700 18 19.500 6.500"/></svg>Aperçu gratuit</li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.500 12.800 9.700 18 19.500 6.500"/></svg>Dès 200&nbsp;€</li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.500 12.800 9.700 18 19.500 6.500"/></svg>Le site reste à vous</li>
+            </ul>
         </div>
-    </div>
 
-    <section id="methode" class="section section-process">
-        <div class="container">
-            <span class="eyebrow section-eyebrow" style="text-align:center;">
-                <span class="lang-fr">MÉTHODE SIMPLE & RAPIDE</span>
-                <span class="lang-en">SIMPLE & FAST METHOD</span>
-            </span>
-            <h2 class="section-title">
-                <span class="lang-fr">Comment ça marche ?</span>
-                <span class="lang-en">How Does It Work?</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="lang-fr">De votre idée à votre site en ligne en 4 étapes simples, sans jargon
-                    technique.</span>
-                <span class="lang-en">From your idea to your live site in 4 simple steps, with zero technical
-                    jargon.</span>
-            </p>
-            <div class="process-grid" id="process-grid"></div>
-        </div>
-    </section>
-    <section id="prestations" class="section">
-        <div class="container">
-            <span class="eyebrow" style="text-align:center;">
-                <span class="lang-fr">TARIFS CLAIRS & TRANSPARENTS</span>
-                <span class="lang-en">CLEAR & TRANSPARENT PRICING</span>
-            </span>
-            <h2 class="section-title">
-                <span class="lang-fr">Trois Formules Adaptées à Vos Besoins</span>
-                <span class="lang-en">Three Plans Tailored to Your Needs</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="lang-fr">Vous gardez toujours votre site si vous arrêtez. Aucun frais d'annulation après l'engagement minimum de 3 mois.</span>
-                <span class="lang-en">You always keep your website if you stop. Zero cancellation fees after the 3-month minimum commitment.</span>
-            </p>
-            <div class="services-grid" id="services-grid"></div>
-            <p id="services-discreet-note" class="services-discreet-note">
-                <span class="lang-fr">Vous préférez l'espace pro dès le départ, sans abonnement ? Possible, sur demande : 500 € (espace pro à vie ; hébergement GitHub Pages et nom de domaine à la charge du client).</span>
-                <span class="lang-en">Prefer the pro space from the start, with no subscription? Available on request: €500 (pro dashboard for life; GitHub Pages hosting and domain name at the client's expense).</span>
-            </p>
-        </div>
-    </section>
-    <section id="gallery" class="section gallery-section">
-        <div class="container">
-            <span class="eyebrow" style="text-align:center;">
-                <span class="lang-fr">EXEMPLES CONCRETS</span>
-                <span class="lang-en">PORTFOLIO EXAMPLES</span>
-            </span>
-            <h2 class="section-title">
-                <span class="lang-fr">Nos Derniers Sites Déployés</span>
-                <span class="lang-en">Our Latest Live Websites</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="lang-fr">Découvrez nos réalisations en ligne. Cliquez sur une carte pour tester le site en
-                    direct.</span>
-                <span class="lang-en">Explore our live showcase sites. Click any card to test the interactive
-                    preview.</span>
-            </p>
-            <div class="gallery-grid" id="gallery-grid"></div>
-        </div>
-    </section>
-    <section id="apropos" class="section">
-        <div class="container about-container">
-            <div class="about-image reveal about-image-parallax">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
-                    alt="L'équipe fondatrice WebExpresso" loading="lazy" class="parallax-element"
-                    data-parallax-speed="0.08">
-            </div>
-            <div class="about-text reveal">
-                <h2>
-                    <span class="lang-fr">Qui sommes-nous</span>
-                    <span class="lang-en">About Us</span>
-                </h2>
-                <p>
-                    <span class="lang-fr">WebExpresso est un projet que nous menons en parallèle de nos études
-                        d'ingénieur (Grenoble INP) et de commerce. C'est pour nous un complément financier, mais c'est
-                        avant tout une formidable opportunité de découvrir de nouvelles choses : nous perfectionner en
-                        pratique sur la technique comme sur la commercialisation et la relation client.</span>
-                    <span class="lang-en">WebExpresso is a project we run alongside our engineering (Grenoble INP) and
-                        business degrees. While it provides supplemental income during our studies, it is above all a
-                        great opportunity to explore new horizons: honing our hands-on skills in web development,
-                        marketing, and client relationships.</span>
-                </p>
-                <p class="pull-quote">
-                    <span class="lang-fr">Notre but : aider les artisans, commerçants et indépendants à avoir un vrai
-                        site professionnel sans y laisser 1 500 €.</span>
-                    <span class="lang-en">Our goal: help local artisans, merchants, and freelancers get a genuine
-                        professional website without spending 1 500 €.</span>
-                </p>
-                <p>
-                    <span class="lang-fr">Puisque nous n'avons pas les charges fixes d'une grosse agence, nous pouvons
-                        proposer trois formules claires dès 200 € en paiement unique (Essentiel), ou avec espace pro et
-                        suivi mensuel (Autonome + évolutions à 200 € + 30 €/mois ou Autonome + accompagnement
-                        commercial/marketing à 250 € + 50 €/mois, engagement minimum de 3 mois). Et dans tous les cas,
-                        vous gardez toujours votre site si vous arrêtez.</span>
-                    <span class="lang-en">Because we do not have large agency overhead, we offer three clear plans
-                        starting at €200 one-time (Essential), or with a pro dashboard and monthly support (Autonomous +
-                        updates at €200 + €30/month, or Autonomous + business/marketing support at €250 + €50/month,
-                        3-month minimum commitment). And either way, you always keep your website if you stop.</span>
-                </p>
-                <div class="about-signature" id="about-signature">
-                    <span class="lang-fr">L'Équipe WebExpresso — Grenoble INP & École de Commerce</span>
-                    <span class="lang-en">The WebExpresso Team — Grenoble INP & Business School</span>
+        <div>
+            <div class="scene">
+                <div class="scene__fond"></div>
+                <img class="scene__ecran" src="assets/exemples/relieur-ordinateur.webp" width="1200" height="750" alt="Site d'un atelier de reliure, vu sur un ordinateur : une pile de livres anciens et le titre « Un livre se démonte cahier par cahier »." fetchpriority="high">
+                <div class="telephone">
+                    <img src="assets/exemples/verrier-telephone.webp" width="390" height="823" alt="Site d'un atelier de vitrail, vu sur un téléphone : un vitrail coloré et le bouton « Demander un devis ».">
+                </div>
+                <div class="ticket-pose">
+                    <aside class="ticket" aria-label="Ce que vous payez">
+                        <p class="ticket__tete">WebExpresso</p>
+                        <p class="ticket__sous">Ce que vous payez</p>
+                        <dl class="ticket__lignes">
+                            <div><dt>Questionnaire</dt><span class="points"></span><dd>0&nbsp;€</dd></div>
+                            <div><dt>Aperçu de votre site</dt><span class="points"></span><dd>0&nbsp;€</dd></div>
+                        </dl>
+                        <p class="ticket__inter">Si le site vous plaît</p>
+                        <dl class="ticket__lignes">
+                            <div><dt>Votre site</dt><span class="points"></span><dd>dès 200&nbsp;€</dd></div>
+                        </dl>
+                        <p class="ticket__pied">Le site reste à vous.</p>
+                    </aside>
                 </div>
             </div>
-        </div>
-    </section>
-    <div class="cine-banner" id="bandeau-cine-1">
-        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80"
-            alt="Espace de travail moderne et développement réactif" loading="lazy">
-        <div class="cine-banner-overlay"></div>
-        <div class="cine-banner-content">
-            <span class="cine-banner-eyebrow">
-                <span class="lang-fr">NOTRE ENGAGEMENT</span>
-                <span class="lang-en">OUR COMMITMENT</span>
-            </span>
-            <blockquote class="cine-banner-quote">
-                <span class="lang-fr">“Un site internet clair et professionnel ne devrait jamais être un luxe
-                    inaccessible.”</span>
-                <span class="lang-en">“A clear and professional website should never be an inaccessible luxury.”</span>
-            </blockquote>
-            <span class="cine-banner-author">
-                <span class="lang-fr">L'Équipe WebExpresso — Grenoble INP &amp; École de Commerce</span>
-                <span class="lang-en">The WebExpresso Team — Grenoble INP &amp; Business School</span>
-            </span>
+            <p class="scene__legende">À l'écran : deux sites de démonstration (reliure et vitrail).</p>
         </div>
     </div>
-    <section id="faq" class="section faq-section">
-        <div class="container">
-            <span class="eyebrow" style="text-align:center;">FAQ</span>
-            <h2 class="section-title">
-                <span class="lang-fr">Questions Fréquentes</span>
-                <span class="lang-en">Frequently Asked Questions</span>
-            </h2>
-            <p class="section-subtitle">
-                <span class="lang-fr">Tout ce que vous devez savoir avant de démarrer votre projet.</span>
-                <span class="lang-en">Everything you need to know before starting your project.</span>
-            </p>
-            <div class="faq-accordion" id="faq-accordion"></div>
+</section>
+
+<section class="section section--serree" id="etapes">
+    <div class="cadre">
+        <div class="ouverture ouverture--deux">
+            <h2>Comment ça se passe</h2>
+            <p>Vous répondez, nous construisons. Vous ne payez qu'à la troisième étape, et seulement si le site vous plaît.</p>
         </div>
-    </section>
-    <section id="contact" class="section contact-section">
-        <div class="container">
-            <span class="eyebrow" style="text-align:center;">
-                <span class="lang-fr">PASSEZ À L'ACTION</span>
-                <span class="lang-en">TAKE ACTION</span>
-            </span>
-            <h2 class="section-title" style="text-align:center;">
-                <span class="lang-fr">Prêt à Découvrir Votre Futur Site ?</span>
-                <span class="lang-en">Ready to Discover Your Future Website?</span>
-            </h2>
-            <p class="section-subtitle" style="text-align:center;">
-                <span class="lang-fr">Remplissez le questionnaire en 10 minutes pour choisir la formule adaptée. Vous
-                    gardez toujours votre site si vous arrêtez.</span>
-                <span class="lang-en">Fill out the 10-minute questionnaire to pick the plan that fits your business. You
-                    always keep your website if you stop.</span>
-            </p>
-            <div class="tally-conversion-box">
-                <div class="tally-steps-mini">
-                    <div class="mini-step">
-                        <div class="mini-step-num">1</div><span class="mini-step-text"><span
-                                class="lang-fr">Questionnaire simple (10 min)</span><span class="lang-en">Simple
-                                questionnaire (10 min)</span></span>
+        <ol class="etapes">
+            <li class="etape">
+                <div class="etape__dessin"><svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 27.5h31.5v9.2c0 8.9-7 15.8-15.8 15.8S13 45.600 13 36.700z" fill="var(--crema)"/><path d="M44.500 31h4.300a5.700 5.700 0 0 1 0 11.400h-5.500"/><path d="M8.500 57h40.500"/><path d="M22.500 20.500c-2.600-3.200 2.600-5.300 0-8.500M31.500 20.500c-2.600-3.200 2.600-5.300 0-8.500"/></svg></div>
+                <h3>Vous répondez au questionnaire</h3>
+                <p>Dix minutes de questions simples : votre métier, vos couleurs, ce que vous voulez montrer.</p>
+                <span class="etiquette">Gratuit</span>
+            </li>
+            <li class="etape">
+                <div class="etape__dessin"><svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16.500c0-1.900 1.500-3.500 3.500-3.500h37c2 0 3.500 1.600 3.500 3.500v35c0 1.900-1.500 3.500-3.500 3.500h-37c-2 0-3.500-1.600-3.500-3.500z" fill="var(--papier-blanc)"/><path d="M10 16.500c0-1.900 1.500-3.500 3.500-3.500h37c2 0 3.500 1.600 3.500 3.500V24H10z" fill="var(--crema)"/><path d="M21 8.500v9M43 8.500v9"/><path d="M25.500 32.500h13.500l-8.500 16.500"/></svg></div>
+                <h3>Nous préparons votre site</h3>
+                <p>En moins de sept jours, vous recevez un premier aperçu, fait pour votre activité.</p>
+                <span class="etiquette">Gratuit</span>
+            </li>
+            <li class="etape">
+                <div class="etape__dessin"><svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8.500h32v46.500l-5.300-4-5.400 4-5.300-4-5.300 4-5.400-4-5.300 4z" fill="var(--papier-blanc)"/><path d="M23 19.500h18M23 28h10M38.500 28h2.500M23 36.500h10M38.500 36.500h2.500"/></svg></div>
+                <h3>Vous choisissez votre formule</h3>
+                <p>Le site vous plaît ? Vous choisissez une formule. Le total à payer est écrit avant le paiement.</p>
+                <span class="etiquette etiquette--trait">À partir de 200&nbsp;€</span>
+            </li>
+            <li class="etape">
+                <div class="etape__dessin"><svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="21.500" cy="42.500" r="11.500" fill="var(--crema)"/><circle cx="18.500" cy="45.500" r="2.600"/><path d="M29.800 34.200 53 11M45 19l6.500 6.500M38.500 25.500l5 5"/></svg></div>
+                <h3>Nous mettons votre site en ligne</h3>
+                <p>Nous nous occupons de tout. Vos clients trouvent votre site, sur téléphone comme sur ordinateur.</p>
+                <span class="etiquette etiquette--trait">Clé en main</span>
+            </li>
+        </ol>
+        <p class="suite"><a class="lien-suite" href="comment-ca-se-passe.html">Voir le déroulé en détail</a></p>
+    </div>
+</section>
+
+<section class="section section--lait" id="formules">
+    <div class="cadre carte-zone">
+        <div class="carte">
+            <div class="carte__titre">
+                <h2>Les formules</h2>
+                <p>Trois façons d'avoir votre site.</p>
+            </div>
+            <div class="carte__liste">
+                <div class="formule-ligne">
+                    <div class="formule-ligne__tete">
+                        <a class="formule-ligne__nom" href="formules.html#essentiel">Essentiel</a>
+                        <span class="points"></span>
+                        <span class="formule-ligne__prix">200&nbsp;€</span>
                     </div>
-                    <div class="mini-step">
-                        <div class="mini-step-num">2</div><span class="mini-step-text"><span class="lang-fr">Formule &
-                                récapitulatif avant paiement</span><span class="lang-en">Plan & pre-payment
-                                summary</span></span>
-                    </div>
-                    <div class="mini-step">
-                        <div class="mini-step-num">3</div><span class="mini-step-text"><span class="lang-fr">Lancement
-                                clé en main</span><span class="lang-en">Turnkey online launch</span></span>
+                    <div class="formule-ligne__detail">
+                        <p>Votre site complet, payé en une fois. Pas d'abonnement.</p>
+                        <p>paiement unique</p>
                     </div>
                 </div>
-                <a href="questionnaire/" data-questionnaire target="_blank" rel="noopener" class="btn-tally-giant"
-                    id="tally-final-cta">
-                    <span>
-                        <span class="lang-fr">Démarrer mon projet (10 min)</span>
-                        <span class="lang-en">Start my project (10 min)</span>
-                    </span>
-                    <span style="font-size:1.3rem;">↗</span>
+                <div class="formule-ligne">
+                    <div class="formule-ligne__tete">
+                        <a class="formule-ligne__nom" href="formules.html#evolutions">Autonome + évolutions</a>
+                        <span class="tampon">Recommandée</span>
+                        <span class="points"></span>
+                        <span class="formule-ligne__prix">200&nbsp;€ + 30&nbsp;€ par mois</span>
+                    </div>
+                    <div class="formule-ligne__detail">
+                        <p>Vous changez vous-même vos textes et vos photos, et nous ajoutons ce que vous demandez.</p>
+                        <p>engagement de 3 mois minimum</p>
+                    </div>
+                </div>
+                <div class="formule-ligne">
+                    <div class="formule-ligne__tete">
+                        <a class="formule-ligne__nom" href="formules.html#accompagnement">Autonome + accompagnement</a>
+                        <span class="points"></span>
+                        <span class="formule-ligne__prix">250&nbsp;€ + 50&nbsp;€ par mois</span>
+                    </div>
+                    <div class="formule-ligne__detail">
+                        <p>La même chose, avec en plus un conseiller qui vous aide à vous faire connaître.</p>
+                        <p>engagement de 3 mois minimum</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carte__pied">
+                <p class="carte__promesse">Vous gardez toujours votre site si vous arrêtez.</p>
+                <p><a class="lien-suite" href="formules.html">Comparer les trois formules en détail</a></p>
+                <p class="petit doux">Vous préférez l'espace pro dès le départ, sans abonnement ? Possible, sur demande : 500&nbsp;€.</p>
+            </div>
+        </div>
+
+        <div class="carte-zone__note">
+            <h3>Ce qui reste à votre charge</h3>
+            <p>L'adresse de votre site, par exemple <em>www.votre-nom.fr</em>, coûte 10 à 15&nbsp;€ par an.</p>
+            <p>Elle est à votre nom, comme l'hébergement du site : ils vous appartiennent.</p>
+            <h3>Le paiement</h3>
+            <p>Par carte bancaire, sur une page sécurisée. Le total est écrit avant de payer.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="exemples">
+    <div class="cadre">
+        <div class="ouverture ouverture--lien">
+            <div>
+                <h2>Des sites que nous avons faits</h2>
+                <p>Des sites de clients, et des démonstrations pour d'autres métiers. Une démonstration montre un commerce imaginaire : elle est toujours étiquetée.</p>
+            </div>
+            <a class="lien-suite" href="exemples.html">Voir tous les exemples</a>
+        </div>
+        <div class="exemples exemples--trois">
+            <article class="exemple">
+                <a class="exemple__vue" href="https://joachimkahan.github.io/leana_github.github.io/">
+                    <img class="exemple__grand" src="assets/exemples/leana-ordinateur.webp" width="1200" height="750" loading="lazy" alt="Site de Léana, maquilleuse : un fond clair et le titre « Révélez votre lumière naturelle ».">
+                    <span class="exemple__petit"><img src="assets/exemples/leana-telephone.webp" width="780" height="1647" loading="lazy" alt=""></span>
                 </a>
-                <div class="tally-guarantees">
-                    <div class="tally-guarantee-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                        </svg>
-                        <span>
-                            <span class="lang-fr">Questionnaire & aperçu gratuits · Paiement sécurisé Stripe</span>
-                            <span class="lang-en">Free form & preview · Secure Stripe checkout</span>
-                        </span>
-                    </div>
-                    <div class="tally-guarantee-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10" />
-                            <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        <span>
-                            <span class="lang-fr">Aperçu personnalisé sous 7 jours</span>
-                            <span class="lang-en">Custom preview delivered in under 7 days</span>
-                        </span>
-                    </div>
-                    <div class="tally-guarantee-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                        </svg>
-                        <span>
-                            <span class="lang-fr">Équipe joignable directement</span>
-                            <span class="lang-en">Direct team support</span>
-                        </span>
-                    </div>
+                <div class="exemple__texte">
+                    <span class="etiquette etiquette--bleu">Site d'une cliente</span>
+                    <h3>Léana, maquilleuse à Paris</h3>
+                    <p>Ses réalisations en photos, ses tarifs et la prise de rendez-vous.</p>
+                    <a class="lien-suite" href="https://joachimkahan.github.io/leana_github.github.io/">Visiter le site de Léana</a>
                 </div>
+            </article>
+            <article class="exemple">
+                <div class="exemple__vue">
+                    <img class="exemple__grand" src="assets/exemples/coutelier-ordinateur.webp" width="1200" height="750" loading="lazy" alt="Site de démonstration d'un coutelier : le nom de l'atelier en grandes lettres et des mains qui affûtent une lame.">
+                    <span class="exemple__petit"><img src="assets/exemples/coutelier-telephone.webp" width="390" height="823" loading="lazy" alt=""></span>
+                </div>
+                <div class="exemple__texte">
+                    <span class="etiquette etiquette--trait">Démonstration</span>
+                    <h3>Un coutelier</h3>
+                    <p>Ses couteaux de poche, leurs prix et l'histoire de l'atelier.</p>
+                </div>
+            </article>
+            <article class="exemple">
+                <div class="exemple__vue">
+                    <img class="exemple__grand" src="assets/exemples/torrefacteur-ordinateur.webp" width="1200" height="750" loading="lazy" alt="Site de démonstration d'un torréfacteur : un fond sombre, des grains de café et le titre « On torréfie au fond de la boutique ».">
+                    <span class="exemple__petit"><img src="assets/exemples/torrefacteur-telephone.webp" width="390" height="823" loading="lazy" alt=""></span>
+                </div>
+                <div class="exemple__texte">
+                    <span class="etiquette etiquette--trait">Démonstration</span>
+                    <h3>Un torréfacteur</h3>
+                    <p>Les cafés du moment, leurs prix et les horaires de la boutique.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section section--bleu" id="equipe">
+    <div class="cadre equipe">
+        <div class="equipe__texte">
+            <h2>Derrière WebExpresso, des étudiants.</h2>
+            <p class="accroche">Nous étudions en école d'ingénieurs, à Grenoble INP, et en école de commerce. WebExpresso est le projet que nous menons à côté de nos études.</p>
+            <p>Nous n'avons ni bureaux ni salariés à payer : c'est pour cela que nos prix restent bas. Ce projet nous sert aussi à apprendre notre futur métier, une raison de plus de soigner chaque site.</p>
+            <div class="actions">
+                <a class="bouton" href="qui-sommes-nous.html">Faire connaissance</a>
             </div>
         </div>
-    </section>
-    <footer>
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <img src="assets/logo-webexpresso-horizontal-white.png" alt="WebExpresso" class="footer-logo" width="180"
-                    height="45">
-                <p id="footer-site-tagline">
-                    <span class="lang-fr">Votre site vitrine professionnel dès 200 € — vous gardez toujours votre site si vous arrêtez.</span>
-                    <span class="lang-en">Your professional showcase site from €200 — you always keep your website if you stop.</span>
-                </p>
+        <!-- Portraits des fondateurs. À FOURNIR par l'opérateur : prénoms, rôles et photos (remplacer chaque .portrait__attente par une <img>). -->
+<div class="portraits" data-a-fournir="prénoms et photos des fondateurs">
+    <figure class="portrait">
+        <div class="portrait__attente">Photo à venir</div>
+        <figcaption>
+            <p class="portrait__prenom">Prénom</p>
+            <p class="portrait__role">Construit les sites.<br>Élève ingénieur à Grenoble INP.</p>
+        </figcaption>
+    </figure>
+    <figure class="portrait">
+        <div class="portrait__attente">Photo à venir</div>
+        <figcaption>
+            <p class="portrait__prenom">Prénom</p>
+            <p class="portrait__role">Vous accompagne.<br>Étudiant en école de commerce.</p>
+        </figcaption>
+    </figure>
+</div>
+    </div>
+</section>
+
+<section class="section" id="questions">
+    <div class="cadre questions-zone">
+        <div class="questions-zone__tete">
+            <h2>Ce qu'on nous demande le plus souvent</h2>
+            <p>Les réponses courtes sont ici. Les autres ont leur page.</p>
+            <a class="lien-suite" href="questions.html">Lire toutes les questions</a>
+        </div>
+        <div class="questions">
+            <details class="question">
+                <summary>Et si le site ne me plaît pas ?</summary>
+                <div class="question__reponse">
+                    <p>Vous ne payez rien. Le questionnaire et l'aperçu sont gratuits : vous ne réglez que si vous décidez de commander.</p>
+                </div>
+            </details>
+            <details class="question">
+                <summary>Combien ça coûte, au total ?</summary>
+                <div class="question__reponse">
+                    <p>Avec la formule Essentiel : 200&nbsp;€, une seule fois. Avec un abonnement : 200&nbsp;€ puis 30&nbsp;€ par mois, ou 250&nbsp;€ puis 50&nbsp;€ par mois, pendant 3 mois au minimum. Le total minimum est écrit avant le paiement.</p>
+                    <p>À côté de cela, il reste l'adresse de votre site : 10 à 15&nbsp;€ par an, à votre nom.</p>
+                </div>
+            </details>
+            <details class="question">
+                <summary>Le site est-il vraiment à moi ?</summary>
+                <div class="question__reponse">
+                    <p>Oui. Vous gardez toujours votre site si vous arrêtez. L'adresse du site et son hébergement sont à votre nom.</p>
+                </div>
+            </details>
+            <details class="question">
+                <summary>Je n'y connais rien en informatique. C'est gênant ?</summary>
+                <div class="question__reponse">
+                    <p>Non. Vous répondez à des questions simples, et nous nous occupons du reste, jusqu'à la mise en ligne. Si une question vous arrête, <a href="contact.html">écrivez-nous</a>.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<section class="section section--lait fin">
+    <div class="cadre fin__dans">
+        <div class="fin__dessin"><svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 27.5h31.5v9.2c0 8.9-7 15.8-15.8 15.8S13 45.600 13 36.700z" fill="var(--crema)"/><path d="M44.500 31h4.300a5.700 5.700 0 0 1 0 11.400h-5.500"/><path d="M8.500 57h40.500"/><path d="M22.500 20.500c-2.600-3.200 2.600-5.300 0-8.500M31.500 20.500c-2.600-3.200 2.600-5.300 0-8.500"/></svg></div>
+        <h2>On commence ? C'est gratuit, et ça ne vous engage à rien.</h2>
+        <p>Dix minutes de questions simples sur votre activité. Nous préparons ensuite votre site et vous le montrons. Vous décidez après l'avoir vu.</p>
+        <a class="bouton" href="questionnaire/index.html">Commencer gratuitement</a>
+        <p class="fin__mot">le temps d'un café</p>
+    </div>
+</section>
+    </main>
+
+    <footer class="pied">
+        <div class="cadre pied__dans">
+            <div class="pied__marque">
+                <img src="assets/logo-webexpresso-blanc.webp" alt="WebExpresso" width="186" height="30" loading="lazy">
+                <p>Des sites internet pour les artisans, les commerçants et les indépendants. Faits par des étudiants, à Grenoble.</p>
+                <p class="pied__promesse">Vous gardez toujours votre site si vous arrêtez.</p>
             </div>
-            <div class="footer-legal-links">
-                <button type="button" class="legal-link-btn" data-legal-tab="mentions">
-                    <span class="lang-fr">Mentions Légales</span>
-                    <span class="lang-en">Legal Notice</span>
-                </button>
-                <span class="legal-sep">·</span>
-                <button type="button" class="legal-link-btn" data-legal-tab="privacy">
-                    <span class="lang-fr">Politique de Confidentialité</span>
-                    <span class="lang-en">Privacy Policy</span>
-                </button>
-                <span class="legal-sep">·</span>
-                <button type="button" class="legal-link-btn" data-legal-tab="cgu">
-                    <span class="lang-fr">CGU & Conditions de Vente</span>
-                    <span class="lang-en">Terms & Conditions</span>
-                </button>
-                <span class="legal-sep">·</span>
-                <button type="button" class="legal-link-btn" data-legal-tab="sav">
-                    <span class="lang-fr">Garanties & SAV</span>
-                    <span class="lang-en">Warranties & Support</span>
-                </button>
-                <span class="legal-sep">·</span>
-                <button type="button" class="legal-link-btn" onclick="window.openCookieSettings && window.openCookieSettings();">
-                    <span class="lang-fr">Gestion des cookies</span>
-                    <span class="lang-en">Cookie Settings</span>
-                </button>
-                <span class="legal-sep">·</span>
-                <button type="button" class="legal-link-btn" data-legal-tab="accessibility">
-                    <span class="lang-fr">Accessibilité : Partiellement conforme</span>
-                    <span class="lang-en">Accessibility : Partially compliant</span>
-                </button>
+
+            <nav class="pied__liens" aria-label="Pages du site">
+                <p class="pied__titre">Le site</p>
+                <ul>
+                    <li><a href="formules.html">Formules et prix</a></li>
+                    <li><a href="exemples.html">Exemples</a></li>
+                    <li><a href="comment-ca-se-passe.html">Comment ça se passe</a></li>
+                    <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+                    <li><a href="questions.html">Questions fréquentes</a></li>
+                </ul>
+            </nav>
+
+            <div class="pied__liens">
+                <p class="pied__titre">Nous écrire</p>
+                <ul>
+                    <li><a href="mailto:webexpresso.info@gmail.com">webexpresso.info@gmail.com</a></li>
+                    <li><a href="contact.html">Toutes les façons de nous joindre</a></li>
+                </ul>
             </div>
-            <div class="footer-bottom">
-                <p id="footer-copyright">
-                    <span class="lang-fr">&copy; 2026 WebExpresso. Tous droits réservés.</span>
-                    <span class="lang-en">&copy; 2026 WebExpresso. All rights reserved.</span>
-                </p>
-            </div>
+
+            <nav class="pied__liens" aria-label="Informations légales">
+                <p class="pied__titre">Informations légales</p>
+                <ul>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="conditions.html">Conditions de vente</a></li>
+                    <li><a href="garanties.html">Garanties et dépannage</a></li>
+                    <li><a href="confidentialite.html">Vos données personnelles</a></li>
+                    <li><a href="accessibilite.html">Accessibilité</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="cadre pied__bas">
+            <p>© 2026 WebExpresso</p>
+            <p>Ce site ne dépose aucun cookie de suivi ni de publicité.</p>
         </div>
     </footer>
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <div class="lightbox-content" id="lightbox-content"></div>
-    </div>
 
-    <!-- Modale Étude de Cas / Case Study (CAND-06) -->
-    <div id="case-study-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-header-texts">
-                    <span class="modal-tag" id="modal-cs-badge"></span>
-                    <h3 class="modal-title" id="modal-cs-title"></h3>
-                    <p class="modal-subtitle" id="modal-cs-subtitle"></p>
-                </div>
-                <button type="button" class="modal-close" id="modal-cs-close" aria-label="Fermer la modale">
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-specs" id="modal-cs-specs"></div>
-                <div class="modal-description" id="modal-cs-description"></div>
-                <div class="modal-gallery" id="modal-cs-gallery"></div>
-                <div class="modal-actions" id="modal-cs-actions"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ═══════════════════════════════════
-         BANDEAU DE CONSENTEMENT COOKIES (RGPD / CNIL)
-    ═══════════════════════════════════ -->
-    <aside id="cookie-consent-banner" class="cookie-banner" role="dialog" aria-modal="false" aria-label="Gestion des cookies et confidentialité" aria-hidden="true">
-        <div class="cookie-banner-content">
-            <h3 class="cookie-banner-title">
-                <span class="lang-fr">Respect de votre vie privée</span>
-                <span class="lang-en">Respect for your privacy</span>
-            </h3>
-            <p class="cookie-banner-text">
-                <span class="lang-fr">Nous utilisons des traceurs techniques indispensables au bon fonctionnement du site. Avec votre accord, nous déposons également des cookies de mesure d'audience anonymes pour améliorer votre visite. Vous pouvez accepter, refuser ou paramétrer vos préférences à tout moment. Consultez notre <a href="#" data-legal-tab="privacy">Politique de Confidentialité</a>.</span>
-                <span class="lang-en">We use essential technical cookies to ensure the website runs properly. With your consent, we may also use anonymous audience measurement cookies to improve your experience. You can accept, decline or adjust your settings at any time. Read our <a href="#" data-legal-tab="privacy">Privacy Policy</a>.</span>
-            </p>
-        </div>
-        <div class="cookie-banner-actions">
-            <button type="button" class="cookie-btn cookie-btn-tertiary" id="cookie-btn-refuse">
-                <span class="lang-fr">Tout refuser</span>
-                <span class="lang-en">Reject all</span>
-            </button>
-            <button type="button" class="cookie-btn cookie-btn-secondary" id="cookie-btn-customize">
-                <span class="lang-fr">Personnaliser</span>
-                <span class="lang-en">Customize</span>
-            </button>
-            <button type="button" class="cookie-btn cookie-btn-primary" id="cookie-btn-accept">
-                <span class="lang-fr">Tout accepter</span>
-                <span class="lang-en">Accept all</span>
-            </button>
-        </div>
-    </aside>
-
-    <!-- ═══════════════════════════════════
-         MODALE DE RÉGLAGE DES COOKIES
-    ═══════════════════════════════════ -->
-    <div id="cookie-settings-modal" class="cookie-settings-modal" role="dialog" aria-modal="true" aria-label="Préférences des cookies" aria-hidden="true">
-        <div class="cookie-settings-content">
-            <div class="cookie-settings-header">
-                <h3>
-                    <span class="lang-fr">Préférences relatives aux cookies</span>
-                    <span class="lang-en">Cookie Preferences</span>
-                </h3>
-                <button type="button" class="legal-modal-close" id="cookie-settings-close" aria-label="Fermer la fenêtre des cookies">&times;</button>
-            </div>
-            <div class="cookie-settings-body">
-                <div class="cookie-category">
-                    <div class="cookie-cat-info">
-                        <h4>
-                            <span class="lang-fr">Cookies Techniques & Essentiels</span>
-                            <span class="lang-en">Essential Technical Cookies</span>
-                        </h4>
-                        <p>
-                            <span class="lang-fr">Indispensables à la navigation, à la sécurité et à la mémorisation de vos consentements légaux. Ils ne peuvent pas être désactivés.</span>
-                            <span class="lang-en">Strictly necessary for website operation, security and consent storage. Cannot be disabled.</span>
-                        </p>
-                    </div>
-                    <label class="cookie-switch">
-                        <input type="checkbox" checked disabled aria-label="Cookies techniques toujours activés">
-                        <span class="cookie-slider"></span>
-                    </label>
-                </div>
-                <div class="cookie-category">
-                    <div class="cookie-cat-info">
-                        <h4>
-                            <span class="lang-fr">Mesure d'Audience & Statistiques</span>
-                            <span class="lang-en">Audience Measurement & Analytics</span>
-                        </h4>
-                        <p>
-                            <span class="lang-fr">Permettent d'analyser anonymement le volume de fréquentation pour optimiser les performances du site.</span>
-                            <span class="lang-en">Allows anonymous measurement of visits to optimize website speed and experience.</span>
-                        </p>
-                    </div>
-                    <label class="cookie-switch">
-                        <input type="checkbox" id="cookie-opt-analytics" aria-label="Autoriser la mesure d'audience">
-                        <span class="cookie-slider"></span>
-                    </label>
-                </div>
-                <div class="cookie-category">
-                    <div class="cookie-cat-info">
-                        <h4>
-                            <span class="lang-fr">Contenus Interactifs & Multimédia</span>
-                            <span class="lang-en">Interactive & Multimedia Content</span>
-                        </h4>
-                        <p>
-                            <span class="lang-fr">Nécessaires à l'intégration fluide de démonstrations vidéo externes et typographies web.</span>
-                            <span class="lang-en">Required for smooth embedding of external video demos and web typography.</span>
-                        </p>
-                    </div>
-                    <label class="cookie-switch">
-                        <input type="checkbox" id="cookie-opt-multimedia" aria-label="Autoriser les contenus multimédias enrichis">
-                        <span class="cookie-slider"></span>
-                    </label>
-                </div>
-            </div>
-            <div class="cookie-settings-footer">
-                <button type="button" class="cookie-btn cookie-btn-primary" id="cookie-save-settings">
-                    <span class="lang-fr">Enregistrer mes choix</span>
-                    <span class="lang-en">Save my choices</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ═══════════════════════════════════
-         MODALE JURIDIQUE MULTI-ONGLETS (LCEN / RGPD / CGU / RGAA)
-    ═══════════════════════════════════ -->
-    <div id="legal-modal" class="legal-modal" role="dialog" aria-modal="true" aria-label="Informations Légales & Conformité" aria-hidden="true">
-        <div class="legal-modal-card">
-            <div class="legal-modal-header">
-                <div class="legal-modal-title-box">
-                    <h3>
-                        <span class="lang-fr">Informations Légales & Conformité</span>
-                        <span class="lang-en">Legal Notices & Compliance</span>
-                    </h3>
-                </div>
-                <button type="button" class="legal-modal-close" onclick="window.closeLegalModal && window.closeLegalModal();" aria-label="Fermer la fenêtre juridique">&times;</button>
-            </div>
-            <div class="legal-modal-tabs" role="tablist">
-                <button type="button" class="legal-tab-btn active" data-tab="mentions" role="tab" aria-selected="true">
-                    <span class="lang-fr">Mentions Légales</span>
-                    <span class="lang-en">Legal Notice</span>
-                </button>
-                <button type="button" class="legal-tab-btn" data-tab="privacy" role="tab" aria-selected="false">
-                    <span class="lang-fr">Confidentialité & RGPD</span>
-                    <span class="lang-en">Privacy & GDPR</span>
-                </button>
-                <button type="button" class="legal-tab-btn" data-tab="cgu" role="tab" aria-selected="false">
-                    <span class="lang-fr">CGU & Conditions de Vente</span>
-                    <span class="lang-en">Terms & Conditions</span>
-                </button>
-                <button type="button" class="legal-tab-btn" data-tab="sav" role="tab" aria-selected="false">
-                    <span class="lang-fr">Garanties & SAV</span>
-                    <span class="lang-en">Warranties & Support</span>
-                </button>
-                <button type="button" class="legal-tab-btn" data-tab="accessibility" role="tab" aria-selected="false">
-                    <span class="lang-fr">Accessibilité</span>
-                    <span class="lang-en">Accessibility</span>
-                </button>
-            </div>
-            <div class="legal-modal-body">
-                <!-- Panneau 1 : Mentions Légales LCEN -->
-                <div id="legal-panel-mentions" class="legal-panel active" role="tabpanel">
-                    <h4>1. Éditeur de la Plateforme</h4>
-                    <div id="legal-info-publisher"></div>
-                    <h4>2. Hébergement Technique Certifié</h4>
-                    <div id="legal-info-host"></div>
-                    <h4>3. Propriété Intellectuelle</h4>
-                    <p>L'ensemble des contenus, marques, maquettes et créations graphiques de WebExpresso sont protégés par le droit d'auteur. Toute reproduction totale ou partielle sans accord écrit préalable est interdite.</p>
-                    <h4>4. Règlement des Litiges & Médiation de la Consommation</h4>
-                    <div id="legal-info-mediator"></div>
-                </div>
-
-                <!-- Panneau 2 : Confidentialité & RGPD -->
-                <div id="legal-panel-privacy" class="legal-panel" role="tabpanel">
-                    <h4>Politique de Protection des Données Personnelles</h4>
-                    <div id="legal-info-privacy"></div>
-                    <h4>Gestion des Cookies et Traceurs</h4>
-                    <p>Vous pouvez réviser vos préférences de cookies à tout moment en cliquant sur le lien <a href="#" onclick="window.closeLegalModal(); window.openCookieSettings(); return false;">Gestion des cookies</a> situé dans le pied de page.</p>
-                </div>
-
-                <!-- Panneau 3 : CGU & Conditions Générales de Vente -->
-                <div id="legal-panel-cgu" class="legal-panel" role="tabpanel">
-                    <div id="legal-info-cgu"></div>
-                </div>
-
-                <!-- Panneau 4 : Accessibilité RGAA -->
-                <div id="legal-panel-accessibility" class="legal-panel" role="tabpanel">
-                    <h4>Déclaration d'Accessibilité Numérique</h4>
-                    <div id="legal-info-accessibility"></div>
-                </div>
-
-                <!-- Panneau 5 : Garanties & SAV -->
-                <div id="legal-panel-sav" class="legal-panel" role="tabpanel">
-                    <div id="legal-info-sav"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Notification Toast Flottante (CAND-09) -->
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-    <script src="js/theme-config.js?v=2.5.8"></script>
-    <script src="js/site-config.js?v=2.5.8"></script>
-    <script src="js/feature-config.js?v=2.5.8"></script>
-    <script src="js/default-content.js?v=2.5.8"></script>
-    <script src="js/content-schema.js?v=2.5.8"></script>
-    <script src="js/legal-manager.js?v=2.5.8"></script>
-    <script src="js/content-adapter.js?v=2.5.8"></script>
-    <script src="js/routes.js?v=2.5.8"></script>
-    <script src="js/section-renderer.js?v=2.5.8"></script>
-    <script src="js/app.js?v=2.5.8"></script>
+    <script src="js/site.js?v=4db2fa32" defer></script>
 </body>
 
 </html>

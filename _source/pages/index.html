@@ -1,0 +1,247 @@
+<!--
+titre: WebExpresso : votre site internet en une semaine, dès 200 €
+titre-seul: oui
+description: WebExpresso crée le site internet des artisans, commerçants et indépendants. Aperçu gratuit avant de payer, trois formules dès 200 €, et vous gardez toujours votre site.
+menu: accueil
+classe: page-accueil
+-->
+<section class="accueil-haut">
+    <div class="cadre accueil-haut__grille">
+        <div>
+            <h1>Voyez votre site avant de le payer.</h1>
+            <p class="accroche">Vous répondez à quelques questions sur votre activité. En moins d'une semaine, nous vous montrons votre site, gratuitement. S'il vous plaît, il est à vous à partir de 200&nbsp;€.</p>
+            <div class="actions">
+                <a class="bouton" href="{{racine}}questionnaire/index.html">Commencer gratuitement</a>
+                <a class="bouton bouton--clair" href="{{racine}}formules.html">Voir les formules et les prix</a>
+            </div>
+            <ul class="assurances">
+                <li>{{inclure:picto-coche}}Aperçu gratuit</li>
+                <li>{{inclure:picto-coche}}Dès 200&nbsp;€</li>
+                <li>{{inclure:picto-coche}}Le site reste à vous</li>
+            </ul>
+        </div>
+
+        <div>
+            <div class="scene">
+                <div class="scene__fond"></div>
+                <img class="scene__ecran" src="{{racine}}assets/exemples/relieur-ordinateur.webp" width="1200" height="750" alt="Site d'un atelier de reliure, vu sur un ordinateur : une pile de livres anciens et le titre « Un livre se démonte cahier par cahier »." fetchpriority="high">
+                <div class="telephone">
+                    <img src="{{racine}}assets/exemples/verrier-telephone.webp" width="390" height="823" alt="Site d'un atelier de vitrail, vu sur un téléphone : un vitrail coloré et le bouton « Demander un devis ».">
+                </div>
+                <div class="ticket-pose">
+                    <aside class="ticket" aria-label="Ce que vous payez">
+                        <p class="ticket__tete">WebExpresso</p>
+                        <p class="ticket__sous">Ce que vous payez</p>
+                        <dl class="ticket__lignes">
+                            <div><dt>Questionnaire</dt><span class="points"></span><dd>0&nbsp;€</dd></div>
+                            <div><dt>Aperçu de votre site</dt><span class="points"></span><dd>0&nbsp;€</dd></div>
+                        </dl>
+                        <p class="ticket__inter">Si le site vous plaît</p>
+                        <dl class="ticket__lignes">
+                            <div><dt>Votre site</dt><span class="points"></span><dd>dès 200&nbsp;€</dd></div>
+                        </dl>
+                        <p class="ticket__pied">Le site reste à vous.</p>
+                    </aside>
+                </div>
+            </div>
+            <p class="scene__legende">À l'écran : deux sites de démonstration (reliure et vitrail).</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section--serree" id="etapes">
+    <div class="cadre">
+        <div class="ouverture ouverture--deux">
+            <h2>Comment ça se passe</h2>
+            <p>Vous répondez, nous construisons. Vous ne payez qu'à la troisième étape, et seulement si le site vous plaît.</p>
+        </div>
+        <ol class="etapes">
+            <li class="etape">
+                <div class="etape__dessin">{{inclure:picto-tasse}}</div>
+                <h3>Vous répondez au questionnaire</h3>
+                <p>Dix minutes de questions simples : votre métier, vos couleurs, ce que vous voulez montrer.</p>
+                <span class="etiquette">Gratuit</span>
+            </li>
+            <li class="etape">
+                <div class="etape__dessin">{{inclure:picto-calendrier}}</div>
+                <h3>Nous préparons votre site</h3>
+                <p>En moins de sept jours, vous recevez un premier aperçu, fait pour votre activité.</p>
+                <span class="etiquette">Gratuit</span>
+            </li>
+            <li class="etape">
+                <div class="etape__dessin">{{inclure:picto-ticket}}</div>
+                <h3>Vous choisissez votre formule</h3>
+                <p>Le site vous plaît ? Vous choisissez une formule. Le total à payer est écrit avant le paiement.</p>
+                <span class="etiquette etiquette--trait">À partir de 200&nbsp;€</span>
+            </li>
+            <li class="etape">
+                <div class="etape__dessin">{{inclure:picto-cle}}</div>
+                <h3>Nous mettons votre site en ligne</h3>
+                <p>Nous nous occupons de tout. Vos clients trouvent votre site, sur téléphone comme sur ordinateur.</p>
+                <span class="etiquette etiquette--trait">Clé en main</span>
+            </li>
+        </ol>
+        <p class="suite"><a class="lien-suite" href="{{racine}}comment-ca-se-passe.html">Voir le déroulé en détail</a></p>
+    </div>
+</section>
+
+<section class="section section--lait" id="formules">
+    <div class="cadre carte-zone">
+        <div class="carte">
+            <div class="carte__titre">
+                <h2>Les formules</h2>
+                <p>Trois façons d'avoir votre site.</p>
+            </div>
+            <div class="carte__liste">
+                <div class="formule-ligne">
+                    <div class="formule-ligne__tete">
+                        <a class="formule-ligne__nom" href="{{racine}}formules.html#essentiel">Essentiel</a>
+                        <span class="points"></span>
+                        <span class="formule-ligne__prix">200&nbsp;€</span>
+                    </div>
+                    <div class="formule-ligne__detail">
+                        <p>Votre site complet, payé en une fois. Pas d'abonnement.</p>
+                        <p>paiement unique</p>
+                    </div>
+                </div>
+                <div class="formule-ligne">
+                    <div class="formule-ligne__tete">
+                        <a class="formule-ligne__nom" href="{{racine}}formules.html#evolutions">Autonome + évolutions</a>
+                        <span class="tampon">Recommandée</span>
+                        <span class="points"></span>
+                        <span class="formule-ligne__prix">200&nbsp;€ + 30&nbsp;€ par mois</span>
+                    </div>
+                    <div class="formule-ligne__detail">
+                        <p>Vous changez vous-même vos textes et vos photos, et nous ajoutons ce que vous demandez.</p>
+                        <p>engagement de 3 mois minimum</p>
+                    </div>
+                </div>
+                <div class="formule-ligne">
+                    <div class="formule-ligne__tete">
+                        <a class="formule-ligne__nom" href="{{racine}}formules.html#accompagnement">Autonome + accompagnement</a>
+                        <span class="points"></span>
+                        <span class="formule-ligne__prix">250&nbsp;€ + 50&nbsp;€ par mois</span>
+                    </div>
+                    <div class="formule-ligne__detail">
+                        <p>La même chose, avec en plus un conseiller qui vous aide à vous faire connaître.</p>
+                        <p>engagement de 3 mois minimum</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carte__pied">
+                <p class="carte__promesse">Vous gardez toujours votre site si vous arrêtez.</p>
+                <p><a class="lien-suite" href="{{racine}}formules.html">Comparer les trois formules en détail</a></p>
+                <p class="petit doux">Vous préférez l'espace pro dès le départ, sans abonnement ? Possible, sur demande : 500&nbsp;€.</p>
+            </div>
+        </div>
+
+        <div class="carte-zone__note">
+            <h3>Ce qui reste à votre charge</h3>
+            <p>L'adresse de votre site, par exemple <em>www.votre-nom.fr</em>, coûte 10 à 15&nbsp;€ par an.</p>
+            <p>Elle est à votre nom, comme l'hébergement du site : ils vous appartiennent.</p>
+            <h3>Le paiement</h3>
+            <p>Par carte bancaire, sur une page sécurisée. Le total est écrit avant de payer.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="exemples">
+    <div class="cadre">
+        <div class="ouverture ouverture--lien">
+            <div>
+                <h2>Des sites que nous avons faits</h2>
+                <p>Des sites de clients, et des démonstrations pour d'autres métiers. Une démonstration montre un commerce imaginaire : elle est toujours étiquetée.</p>
+            </div>
+            <a class="lien-suite" href="{{racine}}exemples.html">Voir tous les exemples</a>
+        </div>
+        <div class="exemples exemples--trois">
+            <article class="exemple">
+                <a class="exemple__vue" href="https://joachimkahan.github.io/leana_github.github.io/">
+                    <img class="exemple__grand" src="{{racine}}assets/exemples/leana-ordinateur.webp" width="1200" height="750" loading="lazy" alt="Site de Léana, maquilleuse : un fond clair et le titre « Révélez votre lumière naturelle ».">
+                    <span class="exemple__petit"><img src="{{racine}}assets/exemples/leana-telephone.webp" width="780" height="1647" loading="lazy" alt=""></span>
+                </a>
+                <div class="exemple__texte">
+                    <span class="etiquette etiquette--bleu">Site d'une cliente</span>
+                    <h3>Léana, maquilleuse à Paris</h3>
+                    <p>Ses réalisations en photos, ses tarifs et la prise de rendez-vous.</p>
+                    <a class="lien-suite" href="https://joachimkahan.github.io/leana_github.github.io/">Visiter le site de Léana</a>
+                </div>
+            </article>
+            <article class="exemple">
+                <div class="exemple__vue">
+                    <img class="exemple__grand" src="{{racine}}assets/exemples/coutelier-ordinateur.webp" width="1200" height="750" loading="lazy" alt="Site de démonstration d'un coutelier : le nom de l'atelier en grandes lettres et des mains qui affûtent une lame.">
+                    <span class="exemple__petit"><img src="{{racine}}assets/exemples/coutelier-telephone.webp" width="390" height="823" loading="lazy" alt=""></span>
+                </div>
+                <div class="exemple__texte">
+                    <span class="etiquette etiquette--trait">Démonstration</span>
+                    <h3>Un coutelier</h3>
+                    <p>Ses couteaux de poche, leurs prix et l'histoire de l'atelier.</p>
+                </div>
+            </article>
+            <article class="exemple">
+                <div class="exemple__vue">
+                    <img class="exemple__grand" src="{{racine}}assets/exemples/torrefacteur-ordinateur.webp" width="1200" height="750" loading="lazy" alt="Site de démonstration d'un torréfacteur : un fond sombre, des grains de café et le titre « On torréfie au fond de la boutique ».">
+                    <span class="exemple__petit"><img src="{{racine}}assets/exemples/torrefacteur-telephone.webp" width="390" height="823" loading="lazy" alt=""></span>
+                </div>
+                <div class="exemple__texte">
+                    <span class="etiquette etiquette--trait">Démonstration</span>
+                    <h3>Un torréfacteur</h3>
+                    <p>Les cafés du moment, leurs prix et les horaires de la boutique.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section section--bleu" id="equipe">
+    <div class="cadre equipe">
+        <div class="equipe__texte">
+            <h2>Derrière WebExpresso, des étudiants.</h2>
+            <p class="accroche">Nous étudions en école d'ingénieurs, à Grenoble INP, et en école de commerce. WebExpresso est le projet que nous menons à côté de nos études.</p>
+            <p>Nous n'avons ni bureaux ni salariés à payer : c'est pour cela que nos prix restent bas. Ce projet nous sert aussi à apprendre notre futur métier, une raison de plus de soigner chaque site.</p>
+            <div class="actions">
+                <a class="bouton" href="{{racine}}qui-sommes-nous.html">Faire connaissance</a>
+            </div>
+        </div>
+        {{inclure:portraits}}
+    </div>
+</section>
+
+<section class="section" id="questions">
+    <div class="cadre questions-zone">
+        <div class="questions-zone__tete">
+            <h2>Ce qu'on nous demande le plus souvent</h2>
+            <p>Les réponses courtes sont ici. Les autres ont leur page.</p>
+            <a class="lien-suite" href="{{racine}}questions.html">Lire toutes les questions</a>
+        </div>
+        <div class="questions">
+            <details class="question">
+                <summary>Et si le site ne me plaît pas ?</summary>
+                <div class="question__reponse">
+                    <p>Vous ne payez rien. Le questionnaire et l'aperçu sont gratuits : vous ne réglez que si vous décidez de commander.</p>
+                </div>
+            </details>
+            <details class="question">
+                <summary>Combien ça coûte, au total ?</summary>
+                <div class="question__reponse">
+                    <p>Avec la formule Essentiel : 200&nbsp;€, une seule fois. Avec un abonnement : 200&nbsp;€ puis 30&nbsp;€ par mois, ou 250&nbsp;€ puis 50&nbsp;€ par mois, pendant 3 mois au minimum. Le total minimum est écrit avant le paiement.</p>
+                    <p>À côté de cela, il reste l'adresse de votre site : 10 à 15&nbsp;€ par an, à votre nom.</p>
+                </div>
+            </details>
+            <details class="question">
+                <summary>Le site est-il vraiment à moi ?</summary>
+                <div class="question__reponse">
+                    <p>Oui. Vous gardez toujours votre site si vous arrêtez. L'adresse du site et son hébergement sont à votre nom.</p>
+                </div>
+            </details>
+            <details class="question">
+                <summary>Je n'y connais rien en informatique. C'est gênant ?</summary>
+                <div class="question__reponse">
+                    <p>Non. Vous répondez à des questions simples, et nous nous occupons du reste, jusqu'à la mise en ligne. Si une question vous arrête, <a href="{{racine}}contact.html">écrivez-nous</a>.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+{{inclure:bandeau-fin}}

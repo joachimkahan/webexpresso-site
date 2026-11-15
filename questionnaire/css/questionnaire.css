@@ -3,25 +3,23 @@
    outils/build_questionnaire.py. Couleurs du site WebExpresso converties en OKLCH ; contrastes mesurés (tests/questionnaire.py). */
 
 :root {
-    --fond: oklch(0.9563 0.0069 247.90);          /* #EDF1F5 du site */
-    --surface: oklch(1 0 0);
-    --surface-choisie: oklch(0.935 0.022 248);
-    --texte: oklch(0.2400 0.0464 253.30);         /* #13253A assombri : ΔL 0,72 avec le fond */
-    --texte-doux: oklch(0.4972 0.0396 253.91);    /* #536479 : 5,3:1 sur le fond */
-    --bleu: oklch(0.3396 0.0632 248.77);          /* #1B3A57 : boutons et liens, 10:1 */
-    --bleu-fonce: oklch(0.2800 0.0600 249);
-    --ambre: oklch(0.6553 0.1251 61.14);          /* #C77D36 : 2,9:1, trait décoratif seulement */
-    --ambre-trait: oklch(0.5972 0.1222 58.94);    /* #B46B28 : 3,6:1, repère d'interface */
-    --ambre-bouton: oklch(0.56 0.12 58);          /* fond des boutons : 4,8:1 avec le blanc (l'ambre de la vitrine n'en fait que 2,9) */
-    --ambre-bouton-fonce: oklch(0.48 0.115 57);   /* survol : 6,5:1 */
-    --ambre-pale: oklch(0.6553 0.1251 61.14 / 0.4);
-    --ligne: oklch(0.3396 0.0632 248.77 / 0.14);
-    --bordure-champ: oklch(0.58 0.035 252);       /* 3,5:1 au moins sur le fond et sur le blanc */
-    --erreur: oklch(0.50 0.15 27);                /* 5,4:1 au moins */
-    --police-titre: 'Plus Jakarta Sans', system-ui, sans-serif;
-    --police-texte: 'Inter', system-ui, sans-serif;
-    --rayon: 8px;
-    --rayon-bloc: 12px;
+    --fond: oklch(0.967 0.021 86);                /* crème du site WebExpresso */
+    --surface: oklch(0.992 0.008 88);             /* feuille */
+    --surface-choisie: oklch(0.932 0.036 80);     /* café au lait : choix coché, pastille de numéro */
+    --texte: oklch(0.245 0.022 58);               /* espresso : écart de clarté 0,72 avec le fond */
+    --texte-doux: oklch(0.43 0.026 60);           /* texte secondaire */
+    --bleu: oklch(0.40 0.095 250);                /* bleu de l'enseigne : boutons et liens */
+    --bleu-survol: oklch(0.35 0.09 251);
+    --bleu-fonce: oklch(0.29 0.075 252);
+    --ambre-trait: oklch(0.56 0.12 60);           /* caramel : repère d'interface, 3:1 au moins */
+    --ambre-pale: oklch(0.62 0.12 62 / 0.4);
+    --ligne: oklch(0.245 0.022 58 / 0.16);
+    --bordure-champ: oklch(0.55 0.03 60);         /* 3:1 au moins sur le fond et sur la feuille */
+    --erreur: oklch(0.50 0.15 27);
+    --police-titre: 'Besley', Georgia, 'Times New Roman', serif;
+    --police-texte: 'Andika', Verdana, 'Segoe UI', sans-serif;
+    --rayon: 10px;
+    --rayon-bloc: 14px;
     --rayon-pilule: 9999px;
     --gouttiere: 16px;
     --duree: 180ms;
@@ -67,19 +65,21 @@ h1, h2, h3 {
 h1 {
     font-size: clamp(2.125rem, 1.5rem + 2.6vw, 3.25rem);
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.018em;
 }
 
 h2 {
     font-size: clamp(1.5rem, 1.25rem + 1.1vw, 2rem);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
 }
 
+/* Les titres de question se lisent comme du texte : police du texte, en gras. */
 h3 {
+    font-family: var(--police-texte);
     font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    font-weight: 700;
+    letter-spacing: 0;
 }
 
 p { margin: 0; max-width: 65ch; text-wrap: pretty; }
@@ -123,7 +123,7 @@ p { margin: 0; max-width: 65ch; text-wrap: pretty; }
     border-radius: var(--rayon-pilule);
     background: var(--surface);
     color: var(--bleu);
-    font: 600 0.9375rem/1 var(--police-texte);
+    font: 700 0.9375rem/1 var(--police-texte);
     text-decoration: none;
     cursor: pointer;
     transition: border-color var(--duree) var(--ease-out), background-color var(--duree) var(--ease-out), transform 100ms var(--ease-out);
@@ -161,7 +161,7 @@ p { margin: 0; max-width: 65ch; text-wrap: pretty; }
 .sommaire-titre {
     font-family: var(--police-texte);
     font-size: 0.9375rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0;
     color: var(--texte-doux);
     margin-bottom: 0.5rem;
@@ -207,7 +207,7 @@ p { margin: 0; max-width: 65ch; text-wrap: pretty; }
 }
 
 .sommaire a:hover { color: var(--bleu); }
-.sommaire a[aria-current="step"] { border-left-color: var(--ambre-trait); font-weight: 600; color: var(--bleu); }
+.sommaire a[aria-current="step"] { border-left-color: var(--ambre-trait); font-weight: 700; color: var(--bleu); }
 .sommaire a[aria-current="step"]::before { border-color: var(--bleu); color: var(--bleu); }
 .sommaire a.fait::before { background: var(--bleu); border-color: var(--bleu); color: var(--surface); }
 
@@ -274,7 +274,7 @@ p { margin: 0; max-width: 65ch; text-wrap: pretty; }
 .etape-numero {
     color: var(--texte-doux);
     font-size: 0.9375rem;
-    font-weight: 600;
+    font-weight: 700;
     font-variant-numeric: tabular-nums;
 }
 
@@ -291,9 +291,10 @@ p { margin: 0; max-width: 65ch; text-wrap: pretty; }
     display: flex;
     gap: 0.75rem;
     align-items: flex-start;
-    font-size: 1.375rem;
+    font-size: 1.3125rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
+    line-height: 1.3;
 }
 
 .question-numero {
@@ -322,7 +323,7 @@ p { margin: 0; max-width: 65ch; text-wrap: pretty; }
     border-radius: var(--rayon-pilule);
     color: var(--texte-doux);
     font-family: var(--police-texte);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.8125rem;
     letter-spacing: 0;
     line-height: 1.4;
@@ -340,7 +341,7 @@ fieldset.champ { border: 0; padding: 0; min-width: 0; }
     display: block;
     padding: 0;
     margin-bottom: 0.375rem;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .requis { font-weight: 400; color: var(--texte-doux); font-size: 0.9375rem; }
@@ -377,7 +378,7 @@ textarea:focus-visible {
     outline: 2px solid var(--bleu);
     outline-offset: 1px;
     border-color: var(--bleu);
-    box-shadow: 0 0 0 4px oklch(0.3396 0.0632 248.77 / 0.14);
+    box-shadow: 0 0 0 4px oklch(0.40 0.095 250 / 0.16);
 }
 
 input[aria-invalid="true"]:not([type="radio"]):not([type="checkbox"]),
@@ -456,7 +457,7 @@ textarea[aria-invalid="true"] { border-color: var(--erreur); box-shadow: inset 0
     align-items: center;
     min-height: 44px;
     color: var(--bleu);
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 0.2em;
     cursor: pointer;
@@ -465,7 +466,7 @@ textarea[aria-invalid="true"] { border-color: var(--erreur); box-shadow: inset 0
 .exemples ul { margin: 0.25rem 0 0; padding-left: 1.25rem; color: var(--texte-doux); }
 .exemples li + li { margin-top: 0.375rem; }
 
-.erreur { color: var(--erreur); font-weight: 600; font-size: 0.9375rem; margin-top: 0.375rem; }
+.erreur { color: var(--erreur); font-weight: 700; font-size: 0.9375rem; margin-top: 0.375rem; }
 .erreur:empty { display: none; }
 
 .erreurs {
@@ -478,9 +479,9 @@ textarea[aria-invalid="true"] { border-color: var(--erreur); box-shadow: inset 0
 }
 
 .erreurs:focus { outline: none; }
-.erreurs-titre { font-weight: 600; }
+.erreurs-titre { font-weight: 700; }
 .erreurs ul { margin: 0.5rem 0 0; padding-left: 1.25rem; }
-.erreurs a { display: inline-flex; align-items: center; min-height: 44px; color: var(--erreur); font-weight: 600; }
+.erreurs a { display: inline-flex; align-items: center; min-height: 44px; color: var(--erreur); font-weight: 700; }
 
 .piege { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
@@ -498,27 +499,30 @@ textarea[aria-invalid="true"] { border-color: var(--erreur); box-shadow: inset 0
 
 .js-pret .etape-actions [data-action="suivant"]:only-child { margin-left: auto; }
 
+/* Même bouton que le site : une touche pleine, avec son ombre, qui s'enfonce quand on appuie. */
 .bouton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 48px;
+    min-height: 54px;
     padding: 0 1.75rem;
-    border: 1px solid var(--ambre-bouton);
-    border-radius: var(--rayon-pilule);
-    background: var(--ambre-bouton);
+    border: 2px solid var(--bleu-fonce);
+    border-radius: var(--rayon-bloc);
+    background: var(--bleu);
     color: var(--surface);
-    font: 700 1rem/1.2 var(--police-texte);
+    box-shadow: 0 4px 0 var(--bleu-fonce);
+    font: 700 1.0625rem/1.2 var(--police-texte);
     text-decoration: none;
     cursor: pointer;
-    transition: background-color var(--duree) var(--ease-out), border-color var(--duree) var(--ease-out), color var(--duree) var(--ease-out), transform 100ms var(--ease-out);
+    transition: background-color var(--duree) var(--ease-out), transform 100ms var(--ease-out);
 }
 
-.bouton:hover { background: var(--ambre-bouton-fonce); border-color: var(--ambre-bouton-fonce); color: var(--surface); }
-.bouton:active { transform: scale(0.97); }
+.bouton:hover { background: var(--bleu-survol); color: var(--surface); }
+.bouton:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--bleu-fonce); }
 
-.bouton-second { background: transparent; border-color: var(--bleu); color: var(--bleu); font-weight: 600; }
-.bouton-second:hover { background: var(--surface); border-color: var(--bleu-fonce); color: var(--bleu-fonce); }
+.bouton-second { background: var(--surface); border-color: var(--texte); color: var(--texte); box-shadow: 0 4px 0 var(--texte); }
+.bouton-second:hover { background: var(--surface-choisie); color: var(--texte); }
+.bouton-second:active { box-shadow: 0 1px 0 var(--texte); }
 
 .donnees-court {
     margin-top: 1.25rem;
@@ -580,7 +584,7 @@ textarea[aria-invalid="true"] { border-color: var(--erreur); box-shadow: inset 0
 
 .recap-engagement-choisie {
     margin: 0;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--texte);
 }
 
@@ -609,11 +613,13 @@ textarea[aria-invalid="true"] { border-color: var(--erreur); box-shadow: inset 0
     margin: 0.35rem 0 0;
     color: var(--erreur);
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { transition-duration: 0s !important; animation: none !important; }
     .bouton:active, .langue:active { transform: none; }
+    .bouton:active { box-shadow: 0 4px 0 var(--bleu-fonce); }
+    .bouton-second:active { box-shadow: 0 4px 0 var(--texte); }
 }

@@ -1,0 +1,7 @@
+/* ajouts-pages.css : styles à fusionner dans css/site.css (section 15, « Deux colonnes vous / nous »).
+   Ce fichier n'est chargé par aucune page : il attend la fusion. */
+
+/* Étape détaillée (page Comment ça se passe) : le dessin n'occupe qu'une ligne de la grille du titre.
+   Sans cette règle, il garde le « grid-row: span 3 » des étapes de l'accueil : sous 1000 px, la grille du titre
+   réserve deux lignes vides, soit 40 px de blanc sous chaque titre d'étape, et le dessin descend de 20 px. */
+.pas__titre .etape__dessin { grid-row: auto; }
