@@ -72,6 +72,7 @@ Page d'accueil construite : `_source/pages/index.html` est le modèle à suivre 
 | Section | `section`, `section--serree` (moins haute), `section--lait` (fond café au lait), `section--bleu` (fond bleu, texte crème) |
 | Haut d'une page intérieure | `<section class="page-haut"><div class="cadre">` : `h1`, puis `p.accroche`, puis `div.actions` facultatif |
 | Haut de page avec un dessin à droite | `<section class="page-haut page-haut--planche"><div class="cadre">` : `div.page-haut__texte` (h1, accroche, actions) puis `figure.page-haut__planche` (`aria-hidden="true"`, un grand dessin SVG inclus par `{{inclure:planche-…}}`) ; la planche ne s'affiche qu'à partir de 900 px |
+| Bord de comptoir entre deux sections de même fond | `section--zinc` sur la seconde : un trait caramel et un filet, de la largeur du cadre |
 | Bas de section en dents de ticket | `section--dents`, sur une section de ton suivie d'une section crème ; une fois par page au plus, jamais sur le bandeau de fin |
 | En-tête de section | `ouverture` (titre puis phrase), `ouverture ouverture--deux` (titre à gauche, phrase à droite), `ouverture ouverture--lien` (titre à gauche, lien à droite) |
 | Texte | `accroche` (phrase d'introduction), `doux` (texte secondaire), `petit`, `mesure` (65 caractères par ligne) |

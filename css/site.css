@@ -163,6 +163,22 @@ a:hover { color: var(--bleu-fonce); }
         linear-gradient(#000 0 0) top / 100% calc(100% - var(--dent)) no-repeat;
 }
 .section--serree.section--dents { padding-bottom: calc(var(--espace-section) * 0.62 + var(--dent)); }
+@media (max-width: 620px) { .section--dents { --dent: 8px; } }
+
+/* Bord de comptoir : en haut d'une section de même fond que la précédente, quand le sujet change. Largeur du cadre. */
+.section--zinc { position: relative; }
+.section--zinc::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50% 0;
+    width: min(var(--largeur), 100% - 2 * var(--gouttiere));
+    height: 4px;
+    border-top: 3px solid var(--caramel);
+    border-bottom: 1px solid var(--ligne-forte);
+}
+@media (max-width: 620px) { .section--zinc::before { border-top-width: 2px; } }
 
 .accroche {
     font-size: var(--taille-accroche);
