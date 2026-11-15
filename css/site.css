@@ -665,14 +665,14 @@ a.exemple__vue { display: block; }
 a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: translate var(--survol) var(--ease-out); }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
     a.exemple__vue:hover .exemple__grand { translate: 0 -3px; }
-    a.exemple__vue:hover .exemple__petit { translate: 0 -7px; }
+    a.exemple__vue:hover .exemple__petit { translate: 0 -5px; }
 }
 @media (hover: hover) and (pointer: fine) {
     a.exemple__vue:hover + .exemple__texte .lien-suite { text-decoration-color: currentColor; }
 }
 @media (prefers-reduced-motion: no-preference) {
     a.exemple__vue:focus-visible .exemple__grand { translate: 0 -3px; }
-    a.exemple__vue:focus-visible .exemple__petit { translate: 0 -7px; }
+    a.exemple__vue:focus-visible .exemple__petit { translate: 0 -5px; }
 }
 
 /* ───────────── 11. Qui sommes-nous ───────────── */
