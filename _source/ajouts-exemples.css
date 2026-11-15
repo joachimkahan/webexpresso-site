@@ -1,0 +1,54 @@
+/* Page « Exemples » : les sites en ligne remontent sur le haut de page, le téléphone ne cache plus la grande capture,
+   les liens « Visiter » s'alignent en bas. Tout est préfixé par .page-exemples. */
+
+/* ── 1. Débord : le groupe « Sites en ligne » chevauche le haut de page (grand écran seulement) ── */
+.page-exemples { --pris: 0px; }
+
+.page-exemples .section--debord {
+    position: relative;
+    z-index: 1;
+    padding-top: clamp(40px, 8vw, 64px);
+    /* Le café au lait ne commence qu'après le débord : le haut des captures reste sur le crème. */
+    background: linear-gradient(to bottom, transparent var(--pris), var(--papier-lait) 0);
+}
+.page-exemples .ouverture--cote { margin-bottom: clamp(24px, 4vw, 40px); }
+
+@media (min-width: 1040px) {
+    .page-exemples { --pris: 150px; }
+    .page-exemples .page-haut { padding-bottom: calc(var(--pris) + 56px); }
+    .page-exemples .section--debord {
+        margin-top: calc(-1 * var(--pris));
+        padding-top: 0;
+    }
+    /* En-tête du groupe : en marge, à gauche des deux captures, sous la limite crème / café au lait. */
+    .page-exemples .section--debord .cadre {
+        display: grid;
+        grid-template-columns: minmax(210px, 250px) minmax(0, 1fr);
+        column-gap: clamp(32px, 3.4vw, 44px);
+        align-items: start;
+    }
+    .page-exemples .ouverture--cote {
+        margin-bottom: 0;
+        padding-top: calc(var(--pris) + 36px);
+    }
+}
+
+/* ── 2. Le téléphone ne recouvre plus la grande capture : sa place est réservée à droite, il déborde vers le bas ── */
+.page-exemples .exemple__vue { padding: 0 20% 7% 0; }
+.page-exemples .exemple__petit { width: 22%; }
+.page-exemples .exemple__petit img { aspect-ratio: 390 / 823; }
+@media (min-width: 720px) {
+    .page-exemples .exemple__vue { padding-right: 17.5%; padding-bottom: 8%; }
+    .page-exemples .exemple__petit { width: 19%; }
+}
+
+/* ── 3. Liens « Visiter » alignés en bas de la rangée ── */
+.page-exemples .exemple { display: flex; flex-direction: column; }
+.page-exemples .exemple__texte {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.page-exemples .exemple__texte .lien-suite { margin-top: auto; }
+.page-exemples .exemple__texte p + .lien-suite { margin-top: auto; }

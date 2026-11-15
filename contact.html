@@ -17,9 +17,9 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="preload" href="fonts/andika-normal-400-latin-2a5ba053.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/besley-normal-400-900-latin-ed397097.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/fonts.css?v=1c84cc12">
-    <link rel="stylesheet" href="css/site.css?v=1c84cc12">
-    <link rel="stylesheet" href="css/ajouts.css?v=1c84cc12">
+    <link rel="stylesheet" href="css/fonts.css?v=c14386b2">
+    <link rel="stylesheet" href="css/site.css?v=c14386b2">
+    <link rel="stylesheet" href="css/ajouts.css?v=c14386b2">
 </head>
 
 <body class="page-contact">
@@ -67,12 +67,42 @@
     </header>
 
     <main id="contenu">
-<section class="message">
+<section class="message page-haut--planche">
     <div class="cadre">
-        <h1>Écrivez-nous</h1>
-        <p class="accroche">Une question, un doute, un souci sur votre site&nbsp;? Un message suffit, avec vos mots à vous. Voici notre adresse&nbsp;:</p>
-        <a class="adresse-ecrire" href="mailto:webexpresso.info@gmail.com">webexpresso.info@gmail.com</a>
-        <p class="petit doux">Si rien ne s'ouvre quand vous cliquez sur l'adresse, recopiez-la dans votre messagerie habituelle.</p>
+        <div class="page-haut__texte">
+            <h1>Écrivez-nous</h1>
+            <p class="accroche">Une question, un doute, un souci sur votre site&nbsp;? Un message suffit, avec vos mots à vous. Voici notre adresse&nbsp;:</p>
+            <a class="adresse-ecrire" href="mailto:webexpresso.info@gmail.com">webexpresso.info@gmail.com</a>
+            <p class="petit doux">Si rien ne s'ouvre quand vous cliquez sur l'adresse, recopiez-la dans votre messagerie habituelle.</p>
+        </div>
+        <figure class="page-haut__planche" aria-hidden="true">
+            <svg class="planche-enveloppe" viewBox="0 0 440 380" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="rotate(-4 220 200)">
+        <!-- ombre posée sous l'enveloppe -->
+        <rect x="62" y="172" width="336" height="180" rx="10" fill="var(--ligne)" stroke="none"/>
+        <!-- rabat ouvert, derrière la feuille -->
+        <path d="M52 160 220 44 388 160z" fill="var(--papier-lait)"/>
+        <!-- feuille qui dépasse, avec trois lignes d'écriture -->
+        <g transform="rotate(2.500 220 160)">
+            <rect x="108" y="62" width="224" height="200" rx="5" fill="var(--papier-blanc)"/>
+            <path d="M136 94h128M136 120h152M136 146h88"/>
+        </g>
+        <!-- devant de l'enveloppe -->
+        <rect x="52" y="160" width="336" height="180" rx="10" fill="var(--papier-blanc)"/>
+        <path d="M60 331 220 240 380 331"/>
+        <!-- traits d'oblitération -->
+        <path d="M118 196q9-6 18 0t18 0t18 0M118 214q9-6 18 0t18 0t18 0" stroke-width="2.2"/>
+        <!-- timbre à bord dentelé -->
+        <g transform="translate(316 178) rotate(5)">
+            <path d="M0 0a4 4 0 0 1 8 0a4 4 0 0 1 8 0a4 4 0 0 1 8 0a4 4 0 0 1 8 0a4 4 0 0 1 8 0a4 4 0 0 1 8 0a4 4 0 0 1 0 8a4 4 0 0 1 0 8a4 4 0 0 1 0 8a4 4 0 0 1 0 8a4 4 0 0 1 0 8a4 4 0 0 1 0 8a4 4 0 0 1 0 8a4 4 0 0 1-8 0a4 4 0 0 1-8 0a4 4 0 0 1-8 0a4 4 0 0 1-8 0a4 4 0 0 1-8 0a4 4 0 0 1-8 0a4 4 0 0 1 0-8a4 4 0 0 1 0-8a4 4 0 0 1 0-8a4 4 0 0 1 0-8a4 4 0 0 1 0-8a4 4 0 0 1 0-8a4 4 0 0 1 0-8z" fill="var(--crema)" stroke-width="2.2"/>
+            <rect x="8" y="9" width="32" height="38" rx="2" stroke-width="1.8"/>
+            <path d="M17 33h14v4.500a7 7 0 0 1-14 0z" stroke-width="1.8"/>
+            <path d="M31 35h1.500a2.500 2.500 0 0 1 0 5h-2" stroke-width="1.8"/>
+            <path d="M21 29c-1.300-1.800 1.300-2.700 0-4.500M27 29c-1.300-1.800 1.300-2.700 0-4.500" stroke-width="1.8"/>
+        </g>
+    </g>
+</svg>
+        </figure>
     </div>
 </section>
 
@@ -151,7 +181,7 @@
         </div>
     </footer>
 
-    <script src="js/site.js?v=1c84cc12" defer></script>
+    <script src="js/site.js?v=c14386b2" defer></script>
 </body>
 
 </html>

@@ -4,10 +4,13 @@ description: Four steps to get your website: a free questionnaire, a free previe
 menu: deroule
 classe: page-deroule
 -->
-<section class="page-haut">
+<section class="page-haut page-haut--planche">
     <div class="cadre">
-        <h1>How it works</h1>
-        <p class="accroche">Four steps, from your answers to your website online. The first two are free. You only pay at the third, and only if you like the site.</p>
+        <div class="page-haut__texte">
+            <h1>How it works</h1>
+            <p class="accroche">Four steps, from your answers to your website online. The first two are free. You only pay at the third, and only if you like the site.</p>
+        </div>
+        <figure class="page-haut__planche" aria-hidden="true">{{inclure:planche-carnet}}</figure>
     </div>
 </section>
 
@@ -62,7 +65,8 @@ classe: page-deroule
             </div>
         </div>
 
-        <div class="pas">
+        <div class="pas pas--decoupe">
+            <p class="pas__mot">here, you decide</p>
             <div class="pas__titre">
                 <div class="etape__dessin">{{inclure:picto-ticket}}</div>
                 <div>
@@ -118,7 +122,7 @@ classe: page-deroule
     </div>
 </section>
 
-<section class="section section--lait" id="questionnaire">
+<section class="section section--lait section--dents" id="questionnaire">
     <div class="cadre">
         <div class="ouverture ouverture--deux">
             <h2>What the questionnaire asks you</h2>

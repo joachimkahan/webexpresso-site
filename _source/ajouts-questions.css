@@ -1,0 +1,29 @@
+/* Lot « questions » : pages Questions fréquentes et Garanties et dépannage. */
+
+/* Questions fréquentes : un dessin au trait repère chaque groupe de questions.
+   En dessous de 1200 px il se place au-dessus du titre (36 px) ; dès 1200 px il sort dans la marge, à gauche du titre (44 px). */
+.questions-groupe { position: relative; }
+.questions-groupe__dessin {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
+    color: var(--encre);
+}
+.questions-groupe__dessin svg { width: 100%; height: 100%; }
+
+@media (min-width: 1200px) {
+    .questions-groupe__dessin {
+        position: absolute;
+        top: -3px; /* centre le dessin sur la première ligne du titre (32 px de corps, interligne 1,2) */
+        right: calc(100% + 28px);
+        width: 44px;
+        height: 44px;
+        margin-bottom: 0;
+    }
+}
+
+/* Garanties et dépannage : le texte du tableau s'aligne sur la colonne de lecture (titre et paragraphes),
+   et sa légende, qui répète le titre de la section, n'est plus montrée (elle reste lue par les lecteurs d'écran). */
+.page-garanties .tableau th:first-child,
+.page-garanties .tableau td:first-child { padding-left: 0; }
+.page-garanties .tableau caption.invisible { padding: 0; }
