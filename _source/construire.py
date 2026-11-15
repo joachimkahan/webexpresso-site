@@ -83,7 +83,7 @@ def lire_page(fichier: Path) -> tuple[dict, str]:
 
 def construire() -> dict[str, str]:
     """Rend les pages à publier : chemin depuis la racine du site (`formules.html`, `en/formules.html`) et contenu."""
-    version = empreinte(SITE / "css" / "site.css", SITE / "css" / "fonts.css", SITE / "js" / "site.js")
+    version = empreinte(SITE / "css" / "site.css", SITE / "css" / "fonts.css", SITE / "js" / "site.js", *sorted(SOURCE.glob("ajouts-*.css")))
     noms = {langue: {f.name for f in (SOURCE / dossier).glob("*.html")} for langue, dossier, *_ in LANGUES}
     pages = {}
     for langue, dossier, nom_gabarit, publie, racine in LANGUES:
@@ -108,6 +108,13 @@ def construire() -> dict[str, str]:
     return pages
 
 
+def ajouts() -> str:
+    """Rassemble les feuilles `_source/ajouts-*.css` (styles en cours de travail, une par chantier) en une seule."""
+    tete = "/* ajouts.css : produit par _source/construire.py depuis _source/ajouts-*.css. Ne pas modifier à la main. */\n"
+    feuilles = sorted(SOURCE.glob("ajouts-*.css"))
+    return tete + "\n".join(f"/* {f.name} */\n{f.read_text(encoding='utf-8').strip()}\n" for f in feuilles)
+
+
 def main() -> int:
     pages = construire()
     if "--verifier" in sys.argv:
@@ -118,6 +125,7 @@ def main() -> int:
             return 1
         print(f"{len(pages)} pages à jour.")
         return 0
+    (SITE / "css" / "ajouts.css").write_text(ajouts(), encoding="utf-8", newline="\n")
     for nom, html in pages.items():
         (SITE / nom).parent.mkdir(exist_ok=True)
         (SITE / nom).write_text(html, encoding="utf-8", newline="\n")
