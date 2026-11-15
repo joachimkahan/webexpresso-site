@@ -699,7 +699,8 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 @media (max-width: 620px) { .question__reponse { padding-right: 0; } }
 
 .questions-groupe + .questions-groupe { margin-top: clamp(40px, 6vw, 72px); }
-.questions-groupe h2 { margin-bottom: 22px; font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); }
+.questions-groupe h2 { margin-bottom: 22px; font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); line-height: 1.2; }
+.question summary { text-wrap: balance; }
 
 /* ───────────── 13. Bandeau de fin ───────────── */
 .fin { text-align: center; }
@@ -751,7 +752,7 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 .prose { max-width: 68ch; }
 .prose > * + * { margin-top: 1em; }
 .prose > :first-child { margin-top: 0; }
-.prose h2 { margin-top: 1.9em; font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); }
+.prose h2 { margin-top: 1.9em; font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); line-height: 1.2; }
 .prose h3 { margin-top: 1.6em; }
 .prose h2 + *, .prose h3 + * { margin-top: 0.6em; }
 .prose ul, .prose ol { padding-left: 1.25em; }
@@ -779,6 +780,13 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 .tableau .non { color: var(--encre-douce); }
 .tableau .col-choix { background: oklch(0.875 0.085 82 / 0.28); }
 .tableau td.prix, .tableau th.prix { white-space: nowrap; font-weight: 700; }
+@media (max-width: 759px) {
+    .tableau { font-size: 1rem; }
+    .tableau th, .tableau td { padding: 12px 10px 12px 0; }
+    .tableau tbody th { font-weight: 400; }
+    /* Sur téléphone, les trois fiches disent déjà tout : le tableau à quatre colonnes n'y tiendrait pas. */
+    .section--comparer { display: none; }
+}
 
 /* Fiches des formules (page Formules et prix). */
 .formules { display: grid; gap: 28px; }
@@ -795,6 +803,7 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 .formule--choix { outline: 3px solid var(--bleu); outline-offset: -3px; }
 .formule .tampon { position: absolute; top: -14px; right: 22px; background: var(--papier-blanc); }
 .formule__nom { font-family: var(--police-titre); font-size: 1.5rem; font-weight: 600; letter-spacing: -0.012em; line-height: 1.15; }
+@media (min-width: 1000px) { .formule__nom { min-height: 2.3em; } }   /* les trois prix restent sur la même ligne */
 .formule__pour { margin-top: 8px; color: var(--encre-douce); min-height: 3.2em; }
 .formule__prix {
     margin-top: 20px;
@@ -859,7 +868,7 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 /* Deux colonnes « vous / nous » (page Comment ça se passe). */
 .pas { display: grid; gap: 22px clamp(28px, 5vw, 72px); padding-block: clamp(32px, 5vw, 56px); border-top: 1px solid var(--ligne-forte); }
 .pas__titre { display: grid; grid-template-columns: 68px minmax(0, 1fr); gap: 20px; align-items: center; }
-.pas__titre h2 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.125rem); }
+.pas__titre h2 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.125rem); line-height: 1.2; }
 /* Le dessin n'occupe qu'une ligne ici (sur l'accueil, il en couvre trois). */
 .pas__titre .etape__dessin { grid-row: auto; }
 .pas__numero { color: var(--caramel-texte); }
@@ -869,7 +878,7 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 .pas__role ul { padding-left: 1.2em; list-style: disc; }
 .pas__role li + li { margin-top: 4px; }
 @media (min-width: 900px) {
-    .pas { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+    .pas { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: start; }
     .pas__roles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 }
 
@@ -878,12 +887,14 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 .message h1 { max-width: 13em; }
 .message .accroche { margin-top: 22px; }
 .message .actions { margin-top: 32px; }
+@media (max-width: 620px) { .message .actions { flex-direction: column; align-items: stretch; gap: 18px; } }
 
 .adresse-ecrire {
     display: inline-block;
     margin-top: 10px;
+    padding-block: 10px;   /* zone de toucher d'au moins 44 px */
     font-family: var(--police-titre);
-    font-size: clamp(1.375rem, 1rem + 2.4vw, 2.5rem);
+    font-size: clamp(1.0625rem, 4.6vw, 2.5rem);   /* l'adresse tient sur une ligne, même sur un petit téléphone */
     font-weight: 600;
     letter-spacing: -0.015em;
     overflow-wrap: anywhere;
