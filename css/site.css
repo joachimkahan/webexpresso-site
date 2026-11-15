@@ -272,6 +272,18 @@ a:hover { color: var(--bleu-fonce); }
 .menu a:hover { background-size: 100% 3px; color: var(--encre); }
 .menu a[aria-current="page"] { background-size: 100% 3px; }
 
+/* Lien vers l'autre langue : discret, à côté du bouton. */
+.langue {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding-inline: 4px;
+    color: var(--encre-douce);
+    font-size: var(--taille-petit);
+    font-weight: 700;
+}
+.langue:hover { color: var(--bleu); }
+
 .menu-mobile { display: none; }
 .menu-mobile summary {
     display: inline-flex;
@@ -311,7 +323,7 @@ a:hover { color: var(--bleu-fonce); }
 .menu-mobile__panneau .bouton { width: 100%; margin-top: 22px; }
 
 @media (max-width: 1099px) {
-    .menu, .entete__action { display: none; }
+    .menu, .entete__action, .langue { display: none; }
     .menu-mobile { display: block; }
     .entete__dans { min-height: 68px; }
 }
@@ -738,6 +750,7 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 /* Texte courant des pages d'information et des pages légales. */
 .prose { max-width: 68ch; }
 .prose > * + * { margin-top: 1em; }
+.prose > :first-child { margin-top: 0; }
 .prose h2 { margin-top: 1.9em; font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); }
 .prose h3 { margin-top: 1.6em; }
 .prose h2 + *, .prose h3 + * { margin-top: 0.6em; }
@@ -847,6 +860,8 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 .pas { display: grid; gap: 22px clamp(28px, 5vw, 72px); padding-block: clamp(32px, 5vw, 56px); border-top: 1px solid var(--ligne-forte); }
 .pas__titre { display: grid; grid-template-columns: 68px minmax(0, 1fr); gap: 20px; align-items: center; }
 .pas__titre h2 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.125rem); }
+/* Le dessin n'occupe qu'une ligne ici (sur l'accueil, il en couvre trois). */
+.pas__titre .etape__dessin { grid-row: auto; }
 .pas__numero { color: var(--caramel-texte); }
 .pas__roles { display: grid; gap: 20px; }
 .pas__role h3 { font-size: 1.0625rem; color: var(--caramel-texte); }

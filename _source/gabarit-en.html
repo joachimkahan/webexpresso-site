@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{titre}}</title>
+    <meta name="description" content="{{description}}">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f8f3e6">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WebExpresso">
+    <meta property="og:title" content="{{titre}}">
+    <meta property="og:description" content="{{description}}">
+    <link rel="alternate" hreflang="fr" href="{{autre}}">
+    <link rel="icon" type="image/png" href="{{racine}}assets/favicon.png">
+    <link rel="preload" href="{{racine}}fonts/andika-normal-400-latin-2a5ba053.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{racine}}fonts/besley-normal-400-900-latin-ed397097.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{racine}}css/fonts.css?v={{version}}">
+    <link rel="stylesheet" href="{{racine}}css/site.css?v={{version}}">
+</head>
+
+<body class="{{classe}}">
+    <a class="evitement" href="#contenu">Skip to content</a>
+
+    <header class="entete">
+        <div class="cadre entete__dans">
+            <a class="logo" href="index.html" aria-label="WebExpresso, back to the home page">
+                <img src="{{racine}}assets/logo-webexpresso.webp" alt="WebExpresso" width="186" height="30">
+            </a>
+
+            <nav class="menu" aria-label="Main menu">
+                <ul>
+                    <li><a href="formules.html"{{courant:formules}}>Plans and prices</a></li>
+                    <li><a href="exemples.html"{{courant:exemples}}>Examples</a></li>
+                    <li><a href="comment-ca-se-passe.html"{{courant:deroule}}>How it works</a></li>
+                    <li><a href="qui-sommes-nous.html"{{courant:equipe}}>About us</a></li>
+                    <li><a href="questions.html"{{courant:questions}}>Questions</a></li>
+                </ul>
+            </nav>
+
+            <a class="langue" href="{{autre}}" lang="fr" hreflang="fr">Français</a>
+            <a class="bouton bouton--petit entete__action" href="{{racine}}questionnaire/en/index.html">Get started</a>
+
+            <details class="menu-mobile">
+                <summary>
+                    <svg class="menu-mobile__icone" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                    <span>Menu</span>
+                </summary>
+                <nav class="menu-mobile__panneau" aria-label="Main menu">
+                    <ul>
+                        <li><a href="index.html"{{courant:accueil}}>Home</a></li>
+                        <li><a href="formules.html"{{courant:formules}}>Plans and prices</a></li>
+                        <li><a href="exemples.html"{{courant:exemples}}>Examples</a></li>
+                        <li><a href="comment-ca-se-passe.html"{{courant:deroule}}>How it works</a></li>
+                        <li><a href="qui-sommes-nous.html"{{courant:equipe}}>About us</a></li>
+                        <li><a href="questions.html"{{courant:questions}}>Frequently asked questions</a></li>
+                        <li><a href="contact.html"{{courant:contact}}>Write to us</a></li>
+                        <li><a href="{{autre}}" lang="fr" hreflang="fr">Version française</a></li>
+                    </ul>
+                    <a class="bouton" href="{{racine}}questionnaire/en/index.html">Get started for free</a>
+                </nav>
+            </details>
+        </div>
+    </header>
+
+    <main id="contenu">
+{{contenu}}
+    </main>
+
+    <footer class="pied">
+        <div class="cadre pied__dans">
+            <div class="pied__marque">
+                <img src="{{racine}}assets/logo-webexpresso-blanc.webp" alt="WebExpresso" width="186" height="30" loading="lazy">
+                <p>Websites for craftspeople, shopkeepers and the self-employed. Made by students, in Grenoble, France.</p>
+                <p class="pied__promesse">You always keep your website if you stop.</p>
+            </div>
+
+            <nav class="pied__liens" aria-label="Pages of the site">
+                <p class="pied__titre">The site</p>
+                <ul>
+                    <li><a href="formules.html">Plans and prices</a></li>
+                    <li><a href="exemples.html">Examples</a></li>
+                    <li><a href="comment-ca-se-passe.html">How it works</a></li>
+                    <li><a href="qui-sommes-nous.html">About us</a></li>
+                    <li><a href="questions.html">Frequently asked questions</a></li>
+                </ul>
+            </nav>
+
+            <div class="pied__liens">
+                <p class="pied__titre">Write to us</p>
+                <ul>
+                    <li><a href="mailto:webexpresso.info@gmail.com">webexpresso.info@gmail.com</a></li>
+                    <li><a href="contact.html">All the ways to reach us</a></li>
+                </ul>
+            </div>
+
+            <nav class="pied__liens" aria-label="Legal information">
+                <p class="pied__titre">Legal information</p>
+                <ul>
+                    <li><a href="{{racine}}mentions-legales.html" hreflang="fr">Legal notice (in French)</a></li>
+                    <li><a href="{{racine}}conditions.html" hreflang="fr">Terms of sale (in French)</a></li>
+                    <li><a href="{{racine}}garanties.html" hreflang="fr">Guarantees and repairs (in French)</a></li>
+                    <li><a href="{{racine}}confidentialite.html" hreflang="fr">Your personal data (in French)</a></li>
+                    <li><a href="{{racine}}accessibilite.html" hreflang="fr">Accessibility (in French)</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="cadre pied__bas">
+            <p>© 2026 WebExpresso</p>
+            <p>This site sets no tracking or advertising cookies.</p>
+            <p><a href="{{autre}}" lang="fr" hreflang="fr">Version française</a></p>
+        </div>
+    </footer>
+
+    <script src="{{racine}}js/site.js?v={{version}}" defer></script>
+</body>
+
+</html>

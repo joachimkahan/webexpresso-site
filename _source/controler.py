@@ -33,6 +33,9 @@ import construire  # noqa: E402  (même dossier)
 PAGES_LEGALES = {"mentions-legales.html", "confidentialite.html", "conditions.html", "garanties.html", "accessibilite.html"}
 PROMESSE = "Vous gardez toujours votre site si vous arrêtez."
 LIGNE_500 = "Vous préférez l'espace pro dès le départ, sans abonnement ? Possible, sur demande : 500 €."
+# Version anglaise (pages de `en/`) : mêmes règles, phrases obligatoires traduites.
+PROMESSE_EN = "You always keep your website if you stop."
+LIGNE_500_EN = "Prefer the pro space from the start, with no subscription? Available on request: €500."
 # Montants de la fiche des offres (.agents/rules/offres-et-tarifs.md) et leurs calculs : 3 × 30 = 90, 3 × 50 = 150.
 MONTANTS = {0, 10, 15, 20, 30, 35, 50, 90, 150, 200, 250, 290, 400, 500}
 # Mots que le visiteur ne doit lire nulle part, puis mots réservés à certaines pages.
@@ -116,7 +119,11 @@ def controler_page(nom: str, lectures: dict[str, Lecture]) -> tuple[list[str], l
     erreurs: list[str] = []
     remarques: list[str] = []
     texte = " ".join(" ".join(l.texte).split())
-    legale = nom in PAGES_LEGALES
+    anglais = nom.startswith("en/")
+    fichier_page = nom.rsplit("/", 1)[-1]
+    dossier = (SITE / nom).parent
+    racine = SITE.resolve()
+    legale = fichier_page in PAGES_LEGALES
 
     if l.h1 != 1:
         erreurs.append(f"{l.h1} titre(s) de premier niveau au lieu d'un seul")
@@ -133,8 +140,8 @@ def controler_page(nom: str, lectures: dict[str, Lecture]) -> tuple[list[str], l
         if re.match(r"(https?:|mailto:|tel:)", lien):
             continue
         chemin, _, ancre = lien.partition("#")
-        cible = nom if not chemin else chemin
-        fichier = (SITE / cible).resolve()
+        fichier = (dossier / chemin).resolve() if chemin else (SITE / nom).resolve()
+        cible = fichier.relative_to(racine).as_posix() if fichier.is_relative_to(racine) else ""
         if not fichier.is_file():
             erreurs.append(f"lien sans cible : {lien}")
         elif ancre and cible in lectures and ancre not in lectures[cible].identifiants:
@@ -142,7 +149,7 @@ def controler_page(nom: str, lectures: dict[str, Lecture]) -> tuple[list[str], l
 
     for image in l.images:
         src = image.get("src") or ""
-        if not (SITE / src).is_file():
+        if not (dossier / src).is_file():
             erreurs.append(f"image introuvable : {src}")
         if not image.get("width") or not image.get("height"):
             erreurs.append(f"image sans largeur ou hauteur : {src}")
@@ -153,7 +160,7 @@ def controler_page(nom: str, lectures: dict[str, Lecture]) -> tuple[list[str], l
         if mot.lower() in texte.lower():
             erreurs.append(f"mot ou signe à ne pas montrer : « {mot.strip()} »")
     for mot, pages_admises in RESERVES.items():
-        if re.search(rf"\b{re.escape(mot)}\b", texte) and nom not in pages_admises:
+        if re.search(rf"\b{re.escape(mot)}\b", texte) and fichier_page not in pages_admises:
             erreurs.append(f"« {mot} » n'a pas sa place sur cette page")
     if EMOJI.search(texte):
         erreurs.append("un émoji ou un symbole décoratif est présent")
@@ -161,16 +168,17 @@ def controler_page(nom: str, lectures: dict[str, Lecture]) -> tuple[list[str], l
     if capitales and not legale:
         erreurs.append("mot(s) tout en capitales : " + ", ".join(sorted(capitales)))
 
-    for brut in re.findall(r"(\d[\d   ]*)\s*€", texte):
+    for brut in (re.findall(r"€\s?(\d[\d,]*)", texte) if anglais else []) + re.findall(r"(\d[\d   ]*)\s*€", texte):
         montant = int(re.sub(r"\D", "", brut.split()[-1] if brut.split() else brut) or 0)
         if montant not in MONTANTS:
             erreurs.append(f"montant absent de la fiche des offres : {montant} €")
 
-    if PROMESSE not in texte:
-        erreurs.append(f"la phrase « {PROMESSE} » manque")
-    if "500" in texte and not legale and LIGNE_500 not in texte.replace(" ", " "):
+    promesse, ligne_500 = (PROMESSE_EN, LIGNE_500_EN) if anglais else (PROMESSE, LIGNE_500)
+    if promesse not in texte:
+        erreurs.append(f"la phrase « {promesse} » manque")
+    if "500" in texte and not legale and ligne_500 not in texte.replace(" ", " "):
         erreurs.append("l'offre à 500 € n'est pas citée mot pour mot")
-    if l.a_fournir or "Photo à venir" in texte:
+    if l.a_fournir or "Photo à venir" in texte or "Photo coming soon" in texte:
         remarques.append("emplacement(s) encore à fournir par l'opérateur (prénoms, photos)")
     return erreurs, remarques
 
