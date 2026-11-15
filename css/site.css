@@ -1093,7 +1093,385 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
     }
 }
 
-/* ───────────── 17. Impression ───────────── */
+/* ───────────── 17. Décor des pages, passages entre sections, survols ─────────────
+   Règles propres à une page ou à un objet du comptoir, écrites par chantier (15/11/2026). */
+
+/* ── accueil ── */
+/* Lot « accueil » : papier peint du comptoir (bandeau de fin, page d'erreur) et passages de l'accueil. */
+
+/* ───────────── Papier peint du comptoir ─────────────
+   Une tuile de cinq petits dessins, posée en masque sur un calque d'encre très pâle. Un second masque dégage le centre
+   (et l'écart du texte) : aucun dessin ne passe sous le titre, le texte, le bouton ni le mot manuscrit. */
+.fin,
+.page-erreur .message { position: relative; }
+
+.fin::before,
+.page-erreur .message::before {
+    --tuile: 180px;
+    --clair: radial-gradient(ellipse 52% 56% at 50% 50%, transparent 74%, #000 100%);
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--encre);
+    opacity: 0.075;
+    pointer-events: none;
+    -webkit-mask-image: url("../assets/motif-comptoir.svg"), var(--clair);
+    -webkit-mask-size: var(--tuile) var(--tuile), 100% 100%;
+    -webkit-mask-repeat: repeat, no-repeat;
+    -webkit-mask-position: center, center;
+    -webkit-mask-composite: source-in;
+    mask-image: url("../assets/motif-comptoir.svg"), var(--clair);
+    mask-size: var(--tuile) var(--tuile), 100% 100%;
+    mask-repeat: repeat, no-repeat;
+    mask-position: center, center;
+    mask-composite: intersect;
+}
+
+.fin__dans,
+.page-erreur .message > .cadre { position: relative; }
+
+/* Page d'erreur : le message est à gauche, la zone dégagée le suit. */
+.page-erreur .message::before {
+    --clair: radial-gradient(ellipse 62% 62% at 34% 50%, transparent 74%, #000 100%);
+}
+
+@media (max-width: 620px) {
+    .fin::before,
+    .page-erreur .message::before {
+        --tuile: 130px;
+        --clair: radial-gradient(ellipse 80% 42% at 50% 50%, transparent 82%, #000 112%);
+    }
+}
+
+/* ───────────── Accueil : du haut de page à « Comment ça se passe » ───────────── */
+.page-accueil .accueil-haut { padding-bottom: clamp(40px, 4vw, 60px); }
+
+/* ───────────── Accueil : la carte des formules à cheval sur la section du dessus ───────────── */
+@media (min-width: 1000px) {
+    .page-accueil #etapes,
+    .page-accueil #formules { --pris: 96px; }
+
+    .page-accueil #etapes { padding-bottom: calc(var(--espace-section) * 0.62 + var(--pris)); }
+
+    .page-accueil #formules {
+        margin-top: calc(-1 * var(--pris));
+        padding-top: 0;
+        background: linear-gradient(to bottom, transparent var(--pris), var(--papier-lait) var(--pris));
+    }
+}
+
+@media (min-width: 1100px) {
+    .page-accueil #formules .carte-zone__note { padding-top: calc(var(--pris) + clamp(24px, 4.5vw, 56px)); }
+}
+
+/* ── contact ── */
+/* Page « Nous écrire » : haut de page avec une enveloppe à droite, blanc resserré, finitions. */
+
+/* Le dessin garde la même épaisseur de trait à l'écran, quelle que soit sa taille. */
+.planche-enveloppe * { vector-effect: non-scaling-stroke; }
+
+/* Le haut de page est une section.message : même disposition que page-haut--planche (texte à gauche, dessin à droite dès 900 px).
+   La grille et l'affichage du dessin viennent de site.css ; ici, seulement ce qui est propre à cette page. */
+.page-contact .message { padding-block: clamp(48px, 7vw, 96px) clamp(32px, 4vw, 56px); }
+.page-contact .message + .section { padding-top: clamp(36px, 4vw, 56px); }
+
+/* La note sous l'adresse : plus grande, avec de l'air. */
+.page-contact .message .petit { margin-top: 20px; font-size: 1rem; max-width: 46ch; }
+
+@media (min-width: 900px) {
+    .page-contact .message .page-haut__planche { width: min(100%, 440px); }
+    /* L'adresse reste le point le plus visible, sur une seule ligne, même quand la colonne de texte se resserre. */
+    .page-contact .message .adresse-ecrire { font-size: clamp(1.5rem, 3.1vw, 2.5rem); white-space: nowrap; overflow-wrap: normal; }
+}
+
+/* Dans les deux colonnes, le titre se détache de son contenu. */
+.page-contact .deux-colonnes .prose h2 + * { margin-top: clamp(16px, 2vw, 24px); }
+
+/* ── deroule ── */
+/* Page « Comment ça se passe » (lot deroule) : grands dessins des étapes, ligne de découpe avant le paiement, planche du haut de page. */
+
+/* Le moment fort : entre l'étape 2 et l'étape 3, là où l'on commence à payer, le filet devient une ligne de découpe
+   en tirets, avec un mot manuscrit posé dessus. */
+.pas--decoupe {
+    position: relative;
+    border-top: 2px dashed var(--ligne-forte);
+}
+.pas__mot {
+    position: absolute;
+    top: 0;
+    left: -12px;
+    translate: 0 -50%;
+    rotate: -3deg;
+    margin: 0;
+    padding: 0 12px;
+    background: var(--papier);
+    color: var(--bleu);
+    font-family: var(--police-main);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+@media (min-width: 900px) {
+    /* Le dessin de l'étape devient un grand dessin au trait, sans pastille, sous le titre et sa pastille de prix. */
+    .pas__titre { grid-template-columns: minmax(0, 1fr); align-items: start; gap: 18px; }
+    .pas__titre .etape__dessin {
+        order: 2;
+        justify-self: start;
+        width: 140px;
+        height: 140px;
+        margin-top: 6px;
+        border-radius: 0;
+        background: none;
+    }
+    .pas__titre .etape__dessin svg { width: 140px; height: 140px; stroke-width: 1.2; }
+
+    .pas__mot { left: 0; font-size: 1.75rem; }
+
+    /* Haut de page : la planche garde une taille où son texte reste lisible (15 px et plus). */
+    .page-deroule .page-haut--planche .cadre { grid-template-columns: minmax(0, 1fr) auto; }
+    .page-deroule .page-haut__planche { width: clamp(380px, 36vw, 420px); }
+}
+
+/* ── equipe ── */
+/* Page « Qui sommes-nous » : section bleue « Pourquoi nos prix sont bas » et son ticket à cheval sur le bord haut. */
+
+/* Texte sur le bleu : tout reste en crème (aucun texte doux), lien et focus lisibles. */
+.prix .lien-suite { text-decoration-color: var(--crema); }
+.prix a:focus-visible { outline-color: var(--crema); }
+
+/* Petit écran : titre, ticket entier dans le bleu (environ 80 % de la largeur), puis le texte. */
+.prix .ticket-pose {
+    position: relative;
+    z-index: 2;
+    width: 80%;
+    max-width: 320px;
+    rotate: -2deg;
+}
+
+@media (min-width: 900px) {
+    .prix {
+        grid-template-areas:
+            "ticket titre"
+            "ticket texte";
+        grid-template-rows: auto 1fr;
+        column-gap: clamp(48px, 7vw, 112px);
+        row-gap: clamp(20px, 2.5vw, 32px);
+    }
+    .prix > h2 { grid-area: titre; }
+    .prix__texte { grid-area: texte; }
+    /* À cheval sur le bord haut de la section : le débord ne dépasse jamais la marge basse de la section du dessus. */
+    .prix .ticket-pose {
+        grid-area: ticket;
+        align-self: start;
+        justify-self: center;
+        width: min(100%, 340px);
+        margin-top: calc(-1 * min(64px, var(--espace-section) * 0.62 - 16px));
+    }
+}
+
+/* ── exemples ── */
+/* Page « Exemples » : les sites en ligne remontent sur le haut de page, le téléphone ne cache plus la grande capture,
+   les liens « Visiter » s'alignent en bas. Tout est préfixé par .page-exemples. */
+
+/* ── 1. Débord : le groupe « Sites en ligne » chevauche le haut de page (grand écran seulement) ── */
+.page-exemples { --pris: 0px; }
+
+.page-exemples .section--debord {
+    position: relative;
+    z-index: 1;
+    padding-top: clamp(40px, 8vw, 64px);
+    /* Le café au lait ne commence qu'après le débord : le haut des captures reste sur le crème. */
+    background: linear-gradient(to bottom, transparent var(--pris), var(--papier-lait) 0);
+}
+.page-exemples .ouverture--cote { margin-bottom: clamp(24px, 4vw, 40px); }
+
+@media (min-width: 1040px) {
+    .page-exemples { --pris: 150px; }
+    .page-exemples .page-haut { padding-bottom: calc(var(--pris) + 56px); }
+    .page-exemples .section--debord {
+        margin-top: calc(-1 * var(--pris));
+        padding-top: 0;
+    }
+    /* En-tête du groupe : en marge, à gauche des deux captures, sous la limite crème / café au lait. */
+    .page-exemples .section--debord .cadre {
+        display: grid;
+        grid-template-columns: minmax(210px, 250px) minmax(0, 1fr);
+        column-gap: clamp(32px, 3.4vw, 44px);
+        align-items: start;
+    }
+    .page-exemples .ouverture--cote {
+        margin-bottom: 0;
+        padding-top: calc(var(--pris) + 36px);
+    }
+}
+
+/* ── 2. Le téléphone ne recouvre plus la grande capture : sa place est réservée à droite, il déborde vers le bas ── */
+.page-exemples .exemple__vue { padding: 0 22% 7% 0; }
+.page-exemples .exemple__petit { width: 22%; }
+.page-exemples .exemple__petit img { aspect-ratio: 390 / 823; }
+@media (min-width: 720px) {
+    .page-exemples .exemple__vue { padding-right: 19%; padding-bottom: 8%; }
+    .page-exemples .exemple__petit { width: 19%; }
+}
+
+/* ── 3. Liens « Visiter » alignés en bas de la rangée ── */
+.page-exemples .exemple { display: flex; flex-direction: column; }
+.page-exemples .exemple__texte {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.page-exemples .exemple__texte .lien-suite { margin-top: auto; }
+
+/* ── formules ── */
+/* ajouts-formules.css : page Formules et prix (lot « formules »). */
+
+/* Haut de page : l'ardoise garde 340 px au moins entre 900 et 1100 px. */
+@media (min-width: 900px) and (max-width: 1099px) {
+    .page-formules .page-haut--planche .cadre { grid-template-columns: minmax(0, 1fr) 340px; }
+}
+.page-formules .page-haut__planche { width: min(100%, 400px); }
+
+/* Moins de blanc sous le tableau comparatif. */
+.page-formules #comparer { padding-bottom: clamp(24px, 3vw, 44px); }
+
+/* « Et si j'arrête ? » sur fond bleu : texte crème, frise crème, points crema. */
+.page-formules #arret .ouverture p,
+.page-formules #arret .frise__temps p { color: var(--papier); }
+.page-formules #arret .frise__quand { color: var(--crema); font-size: 1.0625rem; }
+.page-formules #arret .frise__temps { border-left-color: color-mix(in oklch, var(--papier) 40%, transparent); }
+.page-formules #arret .frise__temps:last-child { border-left-color: transparent; }
+.page-formules #arret .frise__temps::before { border-color: var(--bleu); background: var(--crema); }
+@media (min-width: 960px) {
+    .page-formules #arret .frise__temps,
+    .page-formules #arret .frise__temps:last-child { border-top-color: color-mix(in oklch, var(--papier) 40%, transparent); }
+}
+
+/* « Ce qui reste à votre charge » sur café au lait : les pastilles des dessins passent en feuille. */
+.page-formules #a-votre-charge .etape__dessin { background: var(--papier-blanc); box-shadow: var(--ombre-feuille); }
+@media (min-width: 900px) { .page-formules #a-votre-charge .pas__titre .etape__dessin { background: none; box-shadow: none; } }
+.page-formules #a-votre-charge .pas { border-top-color: var(--ligne-forte); }
+
+/* ── questions ── */
+/* Lot « questions » : pages Questions fréquentes et Garanties et dépannage. */
+
+/* Questions fréquentes : un dessin au trait repère chaque groupe de questions.
+   En dessous de 1200 px il se place au-dessus du titre (36 px) ; dès 1200 px il sort dans la marge, à gauche du titre (44 px). */
+.questions-groupe { position: relative; }
+.questions-groupe__dessin {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
+    color: var(--encre);
+}
+.questions-groupe__dessin svg { width: 100%; height: 100%; }
+
+@media (min-width: 1200px) {
+    .questions-groupe__dessin {
+        position: absolute;
+        top: -3px; /* centre le dessin sur la première ligne du titre (32 px de corps, interligne 1,2) */
+        right: calc(100% + 28px);
+        width: 44px;
+        height: 44px;
+        margin-bottom: 0;
+    }
+}
+
+/* Garanties et dépannage : le texte du tableau s'aligne sur la colonne de lecture (titre et paragraphes),
+   et sa légende, qui répète le titre de la section, n'est plus montrée (elle reste lue par les lecteurs d'écran). */
+.page-garanties .tableau th:first-child,
+.page-garanties .tableau td:first-child { padding-left: 0; }
+.page-garanties .tableau caption.invisible { padding: 0; }
+
+/* ── survols ── */
+/* Lot « survols » : les objets du comptoir répondent à la souris, discrètement.
+   Rien ne part seul. Déplacements : 5 px et 8° au plus, 200 ms, courbe sans rebond.
+   Déplacements sous (hover: hover) + (pointer: fine) + mouvement permis ; couleurs sous (hover: hover) + (pointer: fine) seulement ;
+   en mouvement réduit, seules les couleurs changent ; rien ne reste coincé à l'état survolé sur téléphone. */
+
+/* ───────────── S1. Fiches de formules : la fiche se soulève, son ombre se creuse, le tampon s'incline ───────────── */
+.formule { transition: translate var(--survol, 200ms) var(--ease-out); }
+/* L'ombre profonde est une couche à part qui apparaît en fondu : box-shadow lui-même n'est jamais animé. */
+.formule::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: var(--ombre-objet);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--survol, 200ms) var(--ease-out);
+}
+.formule .tampon { z-index: 1; transition: rotate var(--survol, 200ms) var(--ease-out); }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .formule:hover { translate: 0 -4px; }
+    .formule:hover .tampon { rotate: -6deg; }
+}
+@media (hover: hover) and (pointer: fine) { .formule:hover::after { opacity: 1; } }
+.formule:has(.bouton:focus-visible)::after { opacity: 1; }
+
+/* ───────────── S2. Tickets : le ticket se redresse et se soulève, comme pris sur le comptoir ───────────── */
+.ticket-pose { transition: rotate var(--survol, 200ms) var(--ease-out), translate var(--survol, 200ms) var(--ease-out); }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .tickets .ticket-pose:hover,
+    .prix .ticket-pose:hover { rotate: 0deg; translate: 0 -5px; }
+    .scene .ticket-pose:hover { rotate: -1.5deg; translate: 0 -4px; }
+}
+
+/* ───────────── S3. Dessins des étapes : chaque dessin fait son geste quand on survole son étape ───────────── */
+.picto, .picto .vapeur {
+    transition: rotate var(--survol, 200ms) var(--ease-out), translate var(--survol, 200ms) var(--ease-out), opacity var(--survol, 200ms) var(--ease-out);
+}
+.picto--cle { transform-origin: 34% 66%; }   /* centre de l'anneau : la clé tourne sur elle-même */
+.etape__dessin { transition: background-color var(--duree, 160ms) var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+    /* Seulement les étapes de l'accueil : sur les blocs .pas, le dessin n'a plus de pastille à partir de 900 px. */
+    .etape:hover .etape__dessin { background-color: var(--papier-blanc); }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    :is(.etape, .pas):hover .vapeur { translate: 0 -2.2px; opacity: 0.35; }   /* unités du dessin : 4,8 px au plus à 140 px */
+    :is(.etape, .pas):hover .picto--calendrier { rotate: -8deg; }
+    :is(.etape, .pas):hover .picto--ticket { translate: 0 -3px; }
+    :is(.etape, .pas):hover .picto--cle { rotate: 8deg; }
+}
+
+/* ───────────── S5. Bandeau de fin : la tasse fume trois fois quand la souris approche, ou au focus du bouton ───────────── */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes fumer { 50% { translate: 0 -3px; opacity: 0.3; } }
+    .fin__dans:has(.bouton:focus-visible) .vapeur { animation: fumer 1400ms ease-in-out 3; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .fin__dans:has(.bouton:hover, .fin__dessin:hover) .vapeur { animation: fumer 1400ms ease-in-out 3; }
+}
+.fin__dans .vapeur + .vapeur { animation-delay: 350ms; }
+
+/* ───────────── S6. Carte des formules de l'accueil : la ligne survolée se surligne en crème ───────────── */
+.carte { isolation: isolate; }   /* sans cela, le surlignage passerait derrière le fond blanc de la carte */
+.formule-ligne { position: relative; }
+.formule-ligne::before {
+    content: "";
+    position: absolute;
+    inset: 0 -12px;
+    z-index: -1;
+    border-radius: 10px;
+    background: oklch(0.875 0.085 82 / 0.32);
+    opacity: 0;
+    transition: opacity var(--duree, 160ms) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) { .formule-ligne:hover::before { opacity: 1; } }
+.formule-ligne:has(.formule-ligne__nom:focus-visible)::before { opacity: 1; }
+.formule-ligne__nom::after { content: ""; position: absolute; inset: 0; }   /* toute la ligne devient cliquable : une grande cible */
+
+/* ───────────── S7. Tableaux : la rangée survolée se surligne, comme une règle de lecture ───────────── */
+.tableau tbody :is(th, td) { transition: background-color var(--duree, 160ms) var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+    .tableau tbody tr:hover > * { background-color: oklch(0.875 0.085 82 / 0.22); }
+    .tableau tbody tr:hover > .col-choix { background-color: oklch(0.875 0.085 82 / 0.45); }
+}
+
+/* ───────────── 18. Impression ───────────── */
 @media print {
     .entete, .pied, .fin, .evitement { display: none; }
     body { background: #fff; font-size: 11pt; }
