@@ -16,6 +16,9 @@
         });
     }
 
+    // iPhone : un écouteur de toucher (passif) suffit à faire jouer l'enfoncement des boutons (:active).
+    document.addEventListener('touchstart', function () {}, { passive: true });
+
     // Questions : une question ouverte par un lien direct (questions.html#…) se déplie d'elle-même.
     function ouvrirCible() {
         var cible = location.hash && document.getElementById(location.hash.slice(1));

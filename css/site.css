@@ -48,7 +48,8 @@
     --rayon-grand: clamp(20px, 3vw, 32px);
 
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-    --duree: 160ms;
+    --duree: 160ms;                          /* couleurs */
+    --survol: 200ms;                         /* déplacements au survol */
 }
 
 /* ───────────── 2. Base ───────────── */
@@ -103,7 +104,7 @@ a {
     text-underline-offset: 0.2em;
     transition: color var(--duree) var(--ease-out);
 }
-a:hover { color: var(--bleu-fonce); }
+@media (hover: hover) { a:hover { color: var(--bleu-fonce); } }   /* sous la souris seulement : sinon, au toucher, un bouton bleu passerait au bleu foncé et resterait ainsi */
 
 :focus-visible {
     outline: 3px solid var(--bleu);
@@ -224,9 +225,13 @@ a:hover { color: var(--bleu-fonce); }
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color var(--duree) var(--ease-out), transform 100ms var(--ease-out);
+    transition: background-color var(--duree) var(--ease-out);   /* l'appui est instantané, comme une touche de caisse */
 }
-.bouton:hover { background: var(--bleu-survol); color: var(--papier-blanc); }
+@media (hover: hover) {
+    .bouton:hover { background: var(--bleu-survol); color: var(--papier-blanc); }
+    .bouton--clair:hover { background: var(--papier-lait); color: var(--encre); }
+    .section--bleu .bouton:hover { background: var(--crema); color: var(--bleu-nuit); }
+}
 .bouton:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--bleu-fonce); }
 
 .bouton--clair {
@@ -235,7 +240,6 @@ a:hover { color: var(--bleu-fonce); }
     border-color: var(--encre);
     box-shadow: 0 4px 0 var(--encre);
 }
-.bouton--clair:hover { background: var(--papier-lait); color: var(--encre); }
 .bouton--clair:active { box-shadow: 0 1px 0 var(--encre); }
 
 .bouton--petit { min-height: 46px; padding-inline: 1.25em; font-size: 1rem; box-shadow: 0 3px 0 var(--bleu-fonce); }
@@ -246,7 +250,6 @@ a:hover { color: var(--bleu-fonce); }
     border-color: var(--bleu-nuit);
     box-shadow: 0 4px 0 var(--bleu-nuit);
 }
-.section--bleu .bouton:hover { background: var(--crema); color: var(--bleu-nuit); }
 
 .actions {
     display: flex;
@@ -263,8 +266,9 @@ a:hover { color: var(--bleu-fonce); }
     text-decoration-thickness: 0.12em;
     text-decoration-color: var(--caramel);
     text-underline-offset: 0.3em;
+    transition: color var(--duree) var(--ease-out), text-decoration-color var(--duree) var(--ease-out);
 }
-.lien-suite:hover { text-decoration-color: currentColor; }
+@media (hover: hover) { .lien-suite:hover { text-decoration-color: currentColor; } }
 
 /* ───────────── 5. En-tête et menu ───────────── */
 .entete {
@@ -289,6 +293,7 @@ a:hover { color: var(--bleu-fonce); }
 
 .menu ul { display: flex; gap: clamp(14px, 2vw, 30px); }
 .menu a {
+    position: relative;
     display: inline-flex;
     align-items: center;
     min-height: 48px;
@@ -296,11 +301,23 @@ a:hover { color: var(--bleu-fonce); }
     font-weight: 700;
     font-size: 1.0625rem;
     text-decoration: none;
-    background: linear-gradient(var(--caramel), var(--caramel)) no-repeat 0 calc(100% - 9px) / 0 3px;
-    transition: background-size var(--duree) var(--ease-out), color var(--duree) var(--ease-out);
+    transition: color var(--duree) var(--ease-out);
 }
-.menu a:hover { background-size: 100% 3px; color: var(--encre); }
-.menu a[aria-current="page"] { background-size: 100% 3px; }
+/* Le soulignement caramel se trace de gauche à droite. */
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 9px;
+    height: 3px;
+    background: var(--caramel);
+    scale: 0 1;
+    transform-origin: left;
+    transition: scale var(--survol) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) { .menu a:hover { color: var(--encre); } .menu a:hover::after { scale: 1 1; } }
+.menu a:focus-visible::after, .menu a[aria-current="page"]::after { scale: 1 1; }
 
 /* Lien vers l'autre langue : discret, à côté du bouton. */
 .langue {
@@ -327,6 +344,7 @@ a:hover { color: var(--bleu-fonce); }
     cursor: pointer;
     list-style: none;
     user-select: none;
+    transition: background-color var(--duree) var(--ease-out), color var(--duree) var(--ease-out);
 }
 .menu-mobile summary::-webkit-details-marker { display: none; }
 .menu-mobile[open] summary { background: var(--encre); color: var(--papier); }
@@ -643,8 +661,19 @@ a.formule-ligne__nom:hover { color: var(--bleu); text-decoration: underline; tex
 .exemple__texte p { margin-top: 4px; color: var(--encre-douce); }
 .exemple__texte .lien-suite { margin-top: 2px; }
 a.exemple__vue { display: block; }
-a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-out); }
-@media (hover: hover) { a.exemple__vue:hover .exemple__grand { transform: translateY(-3px); } }
+/* Seuls les vrais sites sont des liens : les deux écrans se soulèvent (translate, pour ne pas écraser un éventuel transform de position). */
+a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: translate var(--survol) var(--ease-out); }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    a.exemple__vue:hover .exemple__grand { translate: 0 -3px; }
+    a.exemple__vue:hover .exemple__petit { translate: 0 -7px; }
+}
+@media (hover: hover) and (pointer: fine) {
+    a.exemple__vue:hover + .exemple__texte .lien-suite { text-decoration-color: currentColor; }
+}
+@media (prefers-reduced-motion: no-preference) {
+    a.exemple__vue:focus-visible .exemple__grand { translate: 0 -3px; }
+    a.exemple__vue:focus-visible .exemple__petit { translate: 0 -7px; }
+}
 
 /* ───────────── 11. Qui sommes-nous ───────────── */
 .equipe { display: grid; gap: clamp(40px, 6vw, 88px); align-items: center; }
@@ -705,23 +734,36 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
     list-style: none;
 }
 .question summary::-webkit-details-marker { display: none; }
+.question summary { position: relative; transition: color var(--duree) var(--ease-out); }
+/* Le rond : une barre horizontale (dans le fond) et, par-dessus, la barre verticale du plus (::before) qui s'efface à l'ouverture. */
 .question summary::after {
     content: "";
     flex: none;
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background:
-        linear-gradient(var(--encre), var(--encre)) center / 14px 2.5px no-repeat,
-        linear-gradient(var(--encre), var(--encre)) center / 2.5px 14px no-repeat,
-        var(--papier-lait);
-    transition: rotate var(--duree) var(--ease-out);
+    background: linear-gradient(currentColor, currentColor) center / 14px 2.5px no-repeat var(--papier-lait);
+    color: var(--encre);
+    transition: background-color var(--survol) var(--ease-out), color var(--survol) var(--ease-out);
 }
-.question[open] summary::after {
-    background: linear-gradient(var(--papier), var(--papier)) center / 14px 2.5px no-repeat, var(--encre);
-    rotate: 180deg;
+.question summary::before {
+    content: "";
+    position: absolute;
+    right: 15.75px;
+    top: 50%;
+    width: 2.5px;
+    height: 14px;
+    translate: 0 -50%;
+    background: var(--encre);
+    transition: rotate var(--survol) var(--ease-out), opacity var(--survol) var(--ease-out);
 }
-.question summary:hover { color: var(--bleu); }
+.question[open] summary::after { background-color: var(--encre); color: var(--papier); }
+.question[open] summary::before { rotate: 90deg; opacity: 0; }
+@media (hover: hover) and (pointer: fine) {
+    .question summary:hover { color: var(--bleu); }
+    .question:not([open]) summary:hover::after { background-color: var(--crema); }
+}
+.question:not([open]) summary:focus-visible::after { background-color: var(--crema); }
 .question__reponse { padding: 0 54px 24px 0; max-width: 62ch; }
 .question__reponse p + p, .question__reponse p + ul, .question__reponse ul + p { margin-top: 12px; }
 .question__reponse ul { padding-left: 1.2em; list-style: disc; }
@@ -749,8 +791,12 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 
 /* ───────────── 14. Pied de page ───────────── */
 .pied { background: var(--bleu-nuit); color: oklch(0.90 0.02 86); padding-block: clamp(48px, 7vw, 84px) 28px; }
-.pied a { color: var(--papier); text-decoration-color: oklch(0.967 0.021 86 / 0.4); }
-.pied a:hover { color: var(--crema); text-decoration-color: currentColor; }
+.pied a {
+    color: var(--papier);
+    text-decoration-color: oklch(0.967 0.021 86 / 0.4);
+    transition: color var(--duree) var(--ease-out), text-decoration-color var(--duree) var(--ease-out);
+}
+@media (hover: hover) { .pied a:hover { color: var(--crema); text-decoration-color: currentColor; } }
 .pied__dans { display: grid; gap: 40px 48px; }
 .pied__marque p { margin-top: 18px; max-width: 26em; }
 .pied__promesse { font-family: var(--police-titre); font-weight: 600; font-size: 1.1875rem; color: var(--papier); }
@@ -961,17 +1007,90 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 }
 
 /* ───────────── 16. Mouvement ───────────── */
-/* Un seul moment animé : le ticket sort de l'imprimante à l'arrivée sur l'accueil. Le reste répond au geste. */
+/* Règle : on n'anime que transform (translate, scale, rotate), opacity et clip-path ; les couleurs seulement au survol ou au focus.
+   Presque rien ne part seul : le ticket de l'accueil, deux traits qui se remplissent au défilement, et les gestes du visiteur
+   (questions, menu du téléphone, soulignement du menu, écrans des exemples). Les déplacements au survol vivent sous
+   (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference), les couleurs sous (hover: hover) seulement. */
 @media (prefers-reduced-motion: no-preference) {
-    .scene .ticket-pose { animation: imprimer 900ms var(--ease-out) 350ms both; }
+    /* Le ticket sort de l'imprimante à l'arrivée sur l'accueil : lisible dès 120 ms, fini en 920 ms. « backwards » (et non « both »)
+       laisse libre le translate une fois l'impression terminée. */
+    .scene .ticket-pose { animation: imprimer 800ms var(--ease-out) 120ms backwards; }
     @keyframes imprimer {
         from { clip-path: inset(0 -40px 100% -40px); translate: 0 -26px; }
         to { clip-path: inset(-40px -40px -60px -40px); translate: 0 0; }
     }
+
+    /* Une question qui s'ouvre : la réponse se déplie (elle se referme d'un coup ; on n'anime pas la hauteur). */
+    .question[open] .question__reponse { animation: deplier 220ms var(--ease-out); }
+    @keyframes deplier { from { opacity: 0; translate: 0 -6px; } }
+
+    /* Le menu du téléphone se déroule comme un store. */
+    .menu-mobile[open] .menu-mobile__panneau { animation: derouler 200ms var(--ease-out); }
+    @keyframes derouler { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 -40px 0); } }
 }
+
+/* Mouvement lié au défilement, en CSS seul : sans prise en charge, ou en mouvement réduit, rien n'est ajouté et la page reste telle quelle. */
+@supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+        /* Frise « et si j'arrête ? » : un trait se remplit d'un moment au suivant. Fini quand la frise est entièrement à l'écran. */
+        .frise { view-timeline: --frise block; --frise-trait: var(--caramel); }
+        .section--bleu .frise { --frise-trait: var(--crema); }      /* sur fond bleu, le trait caramel ne se verrait pas */
+        .frise__temps::before { z-index: 1; }                        /* le point passe devant le trait */
+        .frise__temps:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            left: -3px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--frise-trait);
+            transform-origin: top;
+            animation: remplir-haut linear both;
+            animation-timeline: --frise;
+        }
+        .frise__temps:nth-child(1)::after { animation-range: entry 5% entry 50%; }
+        .frise__temps:nth-child(2)::after { animation-range: entry 50% entry 100%; }
+        @keyframes remplir-haut { from { scale: 1 0; } }
+        @media (min-width: 960px) {
+            .frise__temps:not(:last-child)::after, .frise__temps:last-child::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: -3px;
+                bottom: auto;
+                width: auto;
+                height: 3px;
+                background: var(--frise-trait);
+                transform-origin: left;
+                animation: remplir-gauche linear both;
+                animation-timeline: --frise;
+            }
+            .frise__temps:nth-child(1)::after { animation-range: entry 10% entry 40%; }
+            .frise__temps:nth-child(2)::after { animation-range: entry 40% entry 70%; }
+            .frise__temps:nth-child(3)::after { animation-range: entry 70% entry 100%; }
+            @keyframes remplir-gauche { from { scale: 0 1; } }
+        }
+    }
+    /* Accueil, grand écran : le fil pointillé entre les étapes se trace (clip-path : étirer un pointillé écraserait ses tirets). */
+    @media (prefers-reduced-motion: no-preference) and (min-width: 1000px) {
+        .etapes { view-timeline: --etapes block; }
+        .etape:not(:last-child)::after { animation: tracer linear both; animation-timeline: --etapes; }
+        .etape:nth-child(1)::after { animation-range: entry 10% entry 40%; }
+        .etape:nth-child(2)::after { animation-range: entry 40% entry 70%; }
+        .etape:nth-child(3)::after { animation-range: entry 70% entry 100%; }
+        @keyframes tracer { from { clip-path: inset(0 100% 0 0); } }
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+        animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
+    }
 }
 
 /* ───────────── 17. Impression ───────────── */

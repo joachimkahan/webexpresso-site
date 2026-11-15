@@ -4,10 +4,15 @@ description: WebExpresso is a project by students of Grenoble INP and a business
 menu: equipe
 classe: page-equipe
 -->
-<section class="page-haut">
+<section class="page-haut page-haut--planche">
     <div class="cadre">
-        <h1>About us</h1>
-        <p class="accroche">Students. We study at an engineering school, Grenoble INP, and at a business school. WebExpresso is the project we run alongside our studies.</p>
+        <div class="page-haut__texte">
+            <h1>About us</h1>
+            <p class="accroche">Students. We study at an engineering school, Grenoble INP, and at a business school. WebExpresso is the project we run alongside our studies.</p>
+        </div>
+        <figure class="page-haut__planche" aria-hidden="true">
+            {{inclure:planche-grenoble}}
+        </figure>
     </div>
 </section>
 
@@ -23,10 +28,20 @@ classe: page-equipe
     </div>
 </section>
 
-<section class="section section--lait">
-    <div class="cadre deux-colonnes">
+<section class="section section--bleu">
+    <div class="cadre deux-colonnes prix">
         <h2>Why our prices are low</h2>
-        <div class="prose">
+        <div class="ticket-pose">
+            <aside class="ticket ticket--grand" aria-label="What we do not have to pay">
+                <p class="ticket__tete">WebExpresso</p>
+                <dl class="ticket__lignes">
+                    <div><dt>Office rent</dt><span class="points"></span><dd>€0</dd></div>
+                    <div><dt>Salaries</dt><span class="points"></span><dd>€0</dd></div>
+                </dl>
+                <p class="ticket__pied">No offices.</p>
+            </aside>
+        </div>
+        <div class="prose prix__texte">
             <p>We have no offices and no employees to pay.</p>
             <p>We run WebExpresso alongside our studies. This project brings us some extra income: it does not have to support us.</p>
             <p>That is why a website starts at €200, paid in one go with the Essential plan. And you do not have to take our word for it: you see your website before you pay for it.</p>

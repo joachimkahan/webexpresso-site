@@ -34,11 +34,11 @@
 }
 
 /* ── 2. Le téléphone ne recouvre plus la grande capture : sa place est réservée à droite, il déborde vers le bas ── */
-.page-exemples .exemple__vue { padding: 0 20% 7% 0; }
+.page-exemples .exemple__vue { padding: 0 22% 7% 0; }
 .page-exemples .exemple__petit { width: 22%; }
 .page-exemples .exemple__petit img { aspect-ratio: 390 / 823; }
 @media (min-width: 720px) {
-    .page-exemples .exemple__vue { padding-right: 17.5%; padding-bottom: 8%; }
+    .page-exemples .exemple__vue { padding-right: 19%; padding-bottom: 8%; }
     .page-exemples .exemple__petit { width: 19%; }
 }
 
@@ -51,4 +51,3 @@
     align-items: flex-start;
 }
 .page-exemples .exemple__texte .lien-suite { margin-top: auto; }
-.page-exemples .exemple__texte p + .lien-suite { margin-top: auto; }

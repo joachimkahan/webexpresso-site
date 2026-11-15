@@ -4,10 +4,15 @@ description: WebExpresso est un projet d'étudiants de Grenoble INP et d'école 
 menu: equipe
 classe: page-equipe
 -->
-<section class="page-haut">
+<section class="page-haut page-haut--planche">
     <div class="cadre">
-        <h1>Qui sommes-nous</h1>
-        <p class="accroche">Des étudiants. Nous étudions en école d'ingénieurs, à Grenoble INP, et en école de commerce. WebExpresso est le projet que nous menons à côté de nos études.</p>
+        <div class="page-haut__texte">
+            <h1>Qui sommes-nous</h1>
+            <p class="accroche">Des étudiants. Nous étudions en école d'ingénieurs, à Grenoble INP, et en école de commerce. WebExpresso est le projet que nous menons à côté de nos études.</p>
+        </div>
+        <figure class="page-haut__planche" aria-hidden="true">
+            {{inclure:planche-grenoble}}
+        </figure>
     </div>
 </section>
 
@@ -23,10 +28,20 @@ classe: page-equipe
     </div>
 </section>
 
-<section class="section section--lait">
-    <div class="cadre deux-colonnes">
+<section class="section section--bleu">
+    <div class="cadre deux-colonnes prix">
         <h2>Pourquoi nos prix sont bas</h2>
-        <div class="prose">
+        <div class="ticket-pose">
+            <aside class="ticket ticket--grand" aria-label="Ce que nous n'avons pas à payer">
+                <p class="ticket__tete">WebExpresso</p>
+                <dl class="ticket__lignes">
+                    <div><dt>Loyer de bureaux</dt><span class="points"></span><dd>0&nbsp;€</dd></div>
+                    <div><dt>Salaires</dt><span class="points"></span><dd>0&nbsp;€</dd></div>
+                </dl>
+                <p class="ticket__pied">Pas de bureaux.</p>
+            </aside>
+        </div>
+        <div class="prose prix__texte">
             <p>Nous n'avons ni bureaux ni salariés à payer.</p>
             <p>Nous menons WebExpresso à côté de nos études. Ce projet nous apporte un complément de revenu&nbsp;: il n'a pas à nous faire vivre.</p>
             <p>C'est pour cela qu'un site commence à 200&nbsp;€, payés en une seule fois avec la formule Essentiel. Et vous n'avez pas à nous croire sur parole&nbsp;: vous voyez votre site avant de le payer.</p>
