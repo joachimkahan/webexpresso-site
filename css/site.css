@@ -150,6 +150,20 @@ a:hover { color: var(--bleu-fonce); }
 .section--bleu { background: var(--bleu); color: var(--papier); }
 .section--bleu a { color: var(--papier); }
 
+/* Bas de section en dents de ticket : pour une section de ton suivie d'une section crème. Une fois par page au plus,
+   jamais sur le bandeau de fin. */
+.section--dents {
+    --dent: 12px;
+    padding-bottom: calc(var(--espace-section) + var(--dent));
+    -webkit-mask:
+        conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% 100% / calc(2 * var(--dent)) var(--dent) repeat-x,
+        linear-gradient(#000 0 0) top / 100% calc(100% - var(--dent)) no-repeat;
+    mask:
+        conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% 100% / calc(2 * var(--dent)) var(--dent) repeat-x,
+        linear-gradient(#000 0 0) top / 100% calc(100% - var(--dent)) no-repeat;
+}
+.section--serree.section--dents { padding-bottom: calc(var(--espace-section) * 0.62 + var(--dent)); }
+
 .accroche {
     font-size: var(--taille-accroche);
     line-height: 1.5;
@@ -744,6 +758,19 @@ a.exemple__vue .exemple__grand { transition: transform var(--duree) var(--ease-o
 .page-haut h1 { font-size: clamp(2.25rem, 1.3rem + 4vw, 3.75rem); max-width: 14em; }
 .page-haut .accroche { margin-top: clamp(16px, 2.2vw, 26px); }
 .page-haut .actions { margin-top: 28px; }
+
+/* Haut de page avec une planche au trait à droite (grand écran seulement) : un dessin par page, dans le style des pictos. */
+.page-haut__planche { display: none; margin: 0; }
+@media (min-width: 900px) {
+    .page-haut--planche .cadre {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+        gap: clamp(32px, 5vw, 72px);
+        align-items: center;
+    }
+    .page-haut__planche { display: block; justify-self: end; width: min(100%, 420px); color: var(--encre); }
+    .page-haut__planche svg { width: 100%; height: auto; }
+}
 
 .fil { margin-bottom: 18px; font-size: var(--taille-petit); color: var(--encre-douce); }
 .fil a { color: inherit; }

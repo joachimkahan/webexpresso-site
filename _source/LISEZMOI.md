@@ -71,6 +71,8 @@ Page d'accueil construite : `_source/pages/index.html` est le modèle à suivre 
 | Largeur de page, largeur de lecture | `cadre`, `cadre cadre--lecture` |
 | Section | `section`, `section--serree` (moins haute), `section--lait` (fond café au lait), `section--bleu` (fond bleu, texte crème) |
 | Haut d'une page intérieure | `<section class="page-haut"><div class="cadre">` : `h1`, puis `p.accroche`, puis `div.actions` facultatif |
+| Haut de page avec un dessin à droite | `<section class="page-haut page-haut--planche"><div class="cadre">` : `div.page-haut__texte` (h1, accroche, actions) puis `figure.page-haut__planche` (`aria-hidden="true"`, un grand dessin SVG inclus par `{{inclure:planche-…}}`) ; la planche ne s'affiche qu'à partir de 900 px |
+| Bas de section en dents de ticket | `section--dents`, sur une section de ton suivie d'une section crème ; une fois par page au plus, jamais sur le bandeau de fin |
 | En-tête de section | `ouverture` (titre puis phrase), `ouverture ouverture--deux` (titre à gauche, phrase à droite), `ouverture ouverture--lien` (titre à gauche, lien à droite) |
 | Texte | `accroche` (phrase d'introduction), `doux` (texte secondaire), `petit`, `mesure` (65 caractères par ligne) |
 | Boutons | `bouton` (principal), `bouton bouton--clair` (secondaire), groupés dans `div.actions` ; lien vers une autre page : `lien-suite` |
@@ -89,6 +91,14 @@ Page d'accueil construite : `_source/pages/index.html` est le modèle à suivre 
 | Grand message (contact, erreur) | `section.message`, grande adresse : `a.adresse-ecrire` |
 
 Images des exemples, dans `assets/exemples/` : `leana`, `joachim` (sites réels), `relieur`, `verrier`, `coutelier`, `torrefacteur` (démonstrations), chacun en `-ordinateur.webp` (1200 × 750) et `-telephone.webp` (390 × 823 ; 780 × 1647 pour `leana` et `joachim`). Toute `<img>` porte `width`, `height` et un `alt` qui décrit ce qu'on voit (`alt=""` pour la vignette téléphone qui redit la grande image).
+
+### Styles en cours de travail
+
+`_source/ajouts-‹nom›.css` : une feuille par chantier, rassemblées par la construction dans `css/ajouts.css` (chargée après `css/site.css`). Elle sert quand plusieurs personnes travaillent en même temps ; un chantier terminé se fusionne dans `css/site.css`, puis son fichier d'ajouts se supprime.
+
+### Les dessins
+
+Tous les dessins sont des SVG écrits à la main, au trait : `fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"`, épaisseur 2,6 pour une vignette de 64 (ajouter `vector-effect="non-scaling-stroke"` sur un grand dessin pour garder la même épaisseur à l'écran), remplissages limités à `var(--crema)`, `var(--papier-blanc)`, `var(--papier-lait)`, un détail `var(--caramel)` au plus. Aucun attribut `style`. Un dessin montre un objet du comptoir ou du métier (tasse, ticket, clé, calendrier, ardoise, carnet, enveloppe), jamais une forme abstraite ni rien qui évoque l'informatique.
 
 ## 5. Règles de mise en page
 
