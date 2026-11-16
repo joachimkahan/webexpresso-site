@@ -1,4 +1,8 @@
-<svg viewBox="0 0 440 400" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<svg class="planche-anime planche-grenoble" viewBox="0 0 440 400" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <defs>
+        <!-- zone où les bulles se voient : entre le mur de la gare basse (x 86) et celui de la gare haute (x 342) -->
+        <clipPath id="grenoble-zone-bulles"><rect x="86" y="0" width="256" height="400"/></clipPath>
+    </defs>
     <!-- soleil, dans le creux entre les deux massifs -->
     <circle cx="150" cy="170" r="24" stroke="var(--caramel)" vector-effect="non-scaling-stroke"/>
     <!-- plan lointain : la Chartreuse à gauche, le plateau du Vercors à droite -->
@@ -24,19 +28,21 @@
     <!-- le pylône -->
     <path d="M208 250L196 326M222 250L236 308M198 250H232M215 239V250" vector-effect="non-scaling-stroke"/>
     <path d="M205.800 264L233.600 298M225.400 264L200.400 298M205.800 264H225.400M200.400 298H233.600" stroke-width="2.200" vector-effect="non-scaling-stroke"/>
-    <!-- les bulles, suspendues sous le câble : un train de cinq, un train de quatre -->
-    <path d="M108 297V305M129 285.600V293.600M150 274.200V282.200M171 262.800V270.800M192 251.400V259.400M252 218.800V226.800M274 206.900V214.900M296 195V203M318 183V191" stroke-width="2.600" vector-effect="non-scaling-stroke"/>
-    <circle cx="108" cy="314" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/>
-    <circle cx="129" cy="302.600" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/>
-    <circle cx="150" cy="291.200" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/>
-    <circle cx="171" cy="279.800" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/>
-    <circle cx="192" cy="268.400" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/>
-    <circle cx="252" cy="235.800" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/>
-    <circle cx="274" cy="223.900" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/>
-    <circle cx="296" cy="212" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/>
-    <circle cx="318" cy="200" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/>
-    <path d="M99.200 312H116.800M120.200 300.600H137.800M141.200 289.200H158.800M162.200 277.800H179.800M183.200 266.400H200.800M243.200 233.800H260.800M265.200 221.900H282.800M287.200 210H304.800M309.200 198H326.800" stroke-width="2" vector-effect="non-scaling-stroke"/>
+    <!-- les bulles, suspendues sous le câble : un train de cinq, un train de quatre.
+         Chaque bulle est dessinée au départ du câble (x 77) ; la feuille de style la pose à sa place (immobile) ou la fait monter. -->
+    <g clip-path="url(#grenoble-zone-bulles)">
+        <g class="bulle"><path d="M0 0V8" stroke-width="2.600" vector-effect="non-scaling-stroke"/><circle cx="0" cy="17" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/><path d="M-8.800 15H8.800" stroke-width="2" vector-effect="non-scaling-stroke"/></g>
+        <g class="bulle"><path d="M0 0V8" stroke-width="2.600" vector-effect="non-scaling-stroke"/><circle cx="0" cy="17" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/><path d="M-8.800 15H8.800" stroke-width="2" vector-effect="non-scaling-stroke"/></g>
+        <g class="bulle"><path d="M0 0V8" stroke-width="2.600" vector-effect="non-scaling-stroke"/><circle cx="0" cy="17" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/><path d="M-8.800 15H8.800" stroke-width="2" vector-effect="non-scaling-stroke"/></g>
+        <g class="bulle"><path d="M0 0V8" stroke-width="2.600" vector-effect="non-scaling-stroke"/><circle cx="0" cy="17" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/><path d="M-8.800 15H8.800" stroke-width="2" vector-effect="non-scaling-stroke"/></g>
+        <g class="bulle"><path d="M0 0V8" stroke-width="2.600" vector-effect="non-scaling-stroke"/><circle cx="0" cy="17" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/><path d="M-8.800 15H8.800" stroke-width="2" vector-effect="non-scaling-stroke"/></g>
+        <g class="bulle"><path d="M0 0V8" stroke-width="2.600" vector-effect="non-scaling-stroke"/><circle cx="0" cy="17" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/><path d="M-8.800 15H8.800" stroke-width="2" vector-effect="non-scaling-stroke"/></g>
+        <g class="bulle"><path d="M0 0V8" stroke-width="2.600" vector-effect="non-scaling-stroke"/><circle cx="0" cy="17" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/><path d="M-8.800 15H8.800" stroke-width="2" vector-effect="non-scaling-stroke"/></g>
+        <g class="bulle"><path d="M0 0V8" stroke-width="2.600" vector-effect="non-scaling-stroke"/><circle cx="0" cy="17" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/><path d="M-8.800 15H8.800" stroke-width="2" vector-effect="non-scaling-stroke"/></g>
+        <g class="bulle"><path d="M0 0V8" stroke-width="2.600" vector-effect="non-scaling-stroke"/><circle cx="0" cy="17" r="9" fill="var(--crema)" vector-effect="non-scaling-stroke"/><path d="M-8.800 15H8.800" stroke-width="2" vector-effect="non-scaling-stroke"/></g>
+    </g>
     <!-- l'Isère -->
     <path d="M2 368C50 362 100 374 160 368S270 362 330 369S410 366 438 368" stroke-width="2.600" vector-effect="non-scaling-stroke"/>
-    <path d="M30 384C80 379 130 388 190 383M240 382C300 377 360 386 420 381" stroke="var(--ligne-forte)" stroke-width="2.200" vector-effect="non-scaling-stroke"/>
+    <path class="eau eau--a" d="M30 384C80 379 130 388 190 383" stroke="var(--ligne-forte)" stroke-width="2.200" vector-effect="non-scaling-stroke"/>
+    <path class="eau eau--b" d="M240 382C300 377 360 386 420 381" stroke="var(--ligne-forte)" stroke-width="2.200" vector-effect="non-scaling-stroke"/>
 </svg>

@@ -809,12 +809,31 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     gap: 6px 32px;
     margin-top: clamp(36px, 5vw, 64px);
     padding-top: 22px;
     border-top: 1px solid oklch(0.967 0.021 86 / 0.2);
     font-size: var(--taille-petit);
 }
+/* Bouton « Arrêter les animations » : discret, de la couleur des liens du pied ; js/site.js le montre quand la page a du mouvement d'ambiance. */
+.pied__ambiance {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: var(--papier);
+    text-decoration: underline;
+    text-decoration-color: oklch(0.967 0.021 86 / 0.4);
+    cursor: pointer;
+    transition: color var(--duree) var(--ease-out), text-decoration-color var(--duree) var(--ease-out);
+}
+.pied__ambiance[hidden] { display: none; }
+@media (hover: hover) { .pied__ambiance:hover { color: var(--crema); text-decoration-color: currentColor; } }
+@media (prefers-reduced-motion: reduce) { .pied__ambiance { display: none; } }
 @media (min-width: 640px) { .pied__dans { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1040px) { .pied__dans { grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); } }
 
@@ -1011,7 +1030,8 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
 
 /* ───────────── 16. Mouvement ───────────── */
 /* Règle : on n'anime que transform (translate, scale, rotate), opacity et clip-path ; les couleurs seulement au survol ou au focus.
-   Presque rien ne part seul : le ticket de l'accueil, deux traits qui se remplissent au défilement, et les gestes du visiteur
+   Ce qui part seul : le ticket de l'accueil, deux traits qui se remplissent au défilement, et le mouvement d'ambiance (fumée, téléphérique,
+   coches, feuille ; voir plus bas), le reste répond aux gestes du visiteur
    (questions, menu du téléphone, soulignement du menu, écrans des exemples). Les déplacements au survol vivent sous
    (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference), les couleurs sous (hover: hover) seulement. */
 @media (prefers-reduced-motion: no-preference) {
@@ -1084,6 +1104,98 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
         .etape:nth-child(3)::after { animation-range: cover 32% cover 42%; }
         @keyframes tracer { from { clip-path: inset(0 100% 0 0); } }
     }
+}
+
+/* Mouvement d'ambiance : ce qui bouge sans geste du visiteur. Liste fermée : la fumée des tasses, les bulles du téléphérique et l'eau
+   de l'Isère (Qui sommes-nous), les coches du carnet (Comment ça se passe), la feuille de l'enveloppe (Nous écrire). Lent, en pause
+   hors de l'écran (js/site.js pose .en-vue sur le dessin visible ; sans elle, animation-play-state: paused), arrêté en mouvement
+   réduit, coupé par le bouton du pied de page (html.ambiance-coupee). Les dessins gardent leur état complet sans animation. */
+.picto--tasse .vapeur { transform-box: fill-box; transform-origin: 50% 100%; }   /* pour que la fumée s'étire depuis sa base au survol */
+.bulle:nth-child(1) { translate: 108px 297px; }
+.bulle:nth-child(2) { translate: 129px 285.6px; }
+.bulle:nth-child(3) { translate: 150px 274.2px; }
+.bulle:nth-child(4) { translate: 171px 262.8px; }
+.bulle:nth-child(5) { translate: 192px 251.4px; }
+.bulle:nth-child(6) { translate: 252px 218.8px; }
+.bulle:nth-child(7) { translate: 274px 206.9px; }
+.bulle:nth-child(8) { translate: 296px 195px; }
+.bulle:nth-child(9) { translate: 318px 183px; }
+@media (prefers-reduced-motion: no-preference) {
+    .en-vue { --lecture: running; }
+    :is(.vapeur, .bulle, .eau, .coche, .feuille) { animation-play-state: var(--lecture, paused); }
+
+    /* Fumée des tasses : le trait monte de quelques unités du dessin en s'effaçant, puis revient à sa place en se redessinant.
+       Les unités du dessin (64) deviennent des pixels de l'écran selon sa taille : 5 px au plus dans chaque cas (76 px : 4,2 ; 140 px : 2,2). */
+    .picto--tasse { --montee: -3px; }
+    .fin__dessin .picto--tasse { --montee: -4.2px; }
+    .pas .picto--tasse { --montee: -2.2px; }
+    .vapeur { animation: fumee 4400ms ease-in-out infinite; }
+    .vapeur + .vapeur { animation-duration: 3800ms; animation-delay: -1600ms; }
+    @keyframes fumee {
+        0% { translate: 0 0; opacity: 1; }
+        60% { translate: 0 var(--montee, -3px); opacity: 0; }
+        61% { translate: 0 0; opacity: 0; }
+        100% { translate: 0 0; opacity: 1; }
+    }
+
+    /* Grenoble : les bulles montent le long du câble, de la gare basse à la gare haute, à vitesse constante (274 unités en 34 s,
+       soit 8 px par seconde environ). Le dessin les masque dans les gares (clipPath) ; le départ en retard de chacune garde les deux trains. */
+    .bulle { animation: monter 34s linear infinite; }
+    @keyframes monter {
+        from { translate: 77px 313.8px; }
+        to { translate: 351px 165.1px; }
+    }
+    .bulle:nth-child(1) { animation-delay: -3.85s; }
+    .bulle:nth-child(2) { animation-delay: -6.45s; }
+    .bulle:nth-child(3) { animation-delay: -9.06s; }
+    .bulle:nth-child(4) { animation-delay: -11.66s; }
+    .bulle:nth-child(5) { animation-delay: -14.27s; }
+    .bulle:nth-child(6) { animation-delay: -21.72s; }
+    .bulle:nth-child(7) { animation-delay: -24.45s; }
+    .bulle:nth-child(8) { animation-delay: -27.18s; }
+    .bulle:nth-child(9) { animation-delay: -29.91s; }
+    /* Les deux traits d'eau du bas glissent en sens contraire, de 6 unités et retour. */
+    .eau { --eau: 6px; animation: glisser-eau 10s ease-in-out infinite alternate; }
+    .eau--b { --eau: -6px; }
+    @keyframes glisser-eau { to { translate: var(--eau) 0; } }
+
+    /* Carnet : les trois coches se refont l'une après l'autre (12 s). Chacune se dessine de gauche à droite ; au départ et à l'arrivée
+       de la boucle les trois sont cochées, comme dans le dessin au repos. */
+    .coche { animation: 12s var(--ease-out) infinite; }
+    .coche--1 { animation-name: cocher-1; }
+    .coche--2 { animation-name: cocher-2; }
+    .coche--3 { animation-name: cocher-3; }
+    @keyframes cocher-1 {
+        0%, 50% { clip-path: inset(0); opacity: 1; }
+        54% { clip-path: inset(0); opacity: 0; }
+        54.1% { clip-path: inset(0 100% 0 0); opacity: 0; }
+        58% { clip-path: inset(0 100% 0 0); opacity: 1; }
+        64%, 100% { clip-path: inset(0); opacity: 1; }
+    }
+    @keyframes cocher-2 {
+        0%, 50% { clip-path: inset(0); opacity: 1; }
+        54% { clip-path: inset(0); opacity: 0; }
+        54.1% { clip-path: inset(0 100% 0 0); opacity: 0; }
+        68% { clip-path: inset(0 100% 0 0); opacity: 1; }
+        74%, 100% { clip-path: inset(0); opacity: 1; }
+    }
+    @keyframes cocher-3 {
+        0%, 50% { clip-path: inset(0); opacity: 1; }
+        54% { clip-path: inset(0); opacity: 0; }
+        54.1% { clip-path: inset(0 100% 0 0); opacity: 0; }
+        78% { clip-path: inset(0 100% 0 0); opacity: 1; }
+        84%, 100% { clip-path: inset(0); opacity: 1; }
+    }
+
+    /* Enveloppe : la feuille sort de 5 unités, puis rentre (7 s, aller-retour). */
+    .feuille { animation: sortir 7s ease-in-out infinite alternate; }
+    @keyframes sortir { to { translate: 0 -5px; } }
+
+    /* Bouton « Arrêter les animations » : tout ce qui précède s'éteint, les dessins restent complets. */
+    html.ambiance-coupee :is(.vapeur, .bulle, .eau, .coche, .feuille) { animation: none !important; }
+}
+@media print {
+    :is(.vapeur, .bulle, .eau, .coche, .feuille) { animation: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1425,7 +1537,7 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
 
 /* ───────────── S3. Dessins des étapes : chaque dessin fait son geste quand on survole son étape ───────────── */
 .picto, .picto .vapeur {
-    transition: rotate var(--survol, 200ms) var(--ease-out), translate var(--survol, 200ms) var(--ease-out), opacity var(--survol, 200ms) var(--ease-out);
+    transition: rotate var(--survol, 200ms) var(--ease-out), translate var(--survol, 200ms) var(--ease-out), scale var(--survol, 200ms) var(--ease-out);
 }
 .picto--cle { transform-origin: 34% 66%; }   /* centre de l'anneau : la clé tourne sur elle-même */
 .etape__dessin { transition: background-color var(--duree, 160ms) var(--ease-out); }
@@ -1434,21 +1546,19 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
     .etape:hover .etape__dessin { background-color: var(--papier-blanc); }
 }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-    :is(.etape, .pas):hover .vapeur { translate: 0 -2.2px; opacity: 0.35; }   /* unités du dessin : 4,8 px au plus à 140 px */
+    :is(.etape, .pas):hover .vapeur { scale: 1 1.3; }   /* la fumée s'étire depuis sa base (elle monte seule le reste du temps) : 5 px au plus à 140 px */
     :is(.etape, .pas):hover .picto--calendrier { rotate: -8deg; }
     :is(.etape, .pas):hover .picto--ticket { translate: 0 -3px; }
     :is(.etape, .pas):hover .picto--cle { rotate: 8deg; }
 }
 
-/* ───────────── S5. Bandeau de fin : la tasse fume trois fois quand la souris approche, ou au focus du bouton ───────────── */
+/* ───────────── S5. Bandeau de fin : la fumée de la tasse (elle monte seule) s'étire quand la souris approche, ou au focus du bouton ───────────── */
 @media (prefers-reduced-motion: no-preference) {
-    @keyframes fumer { 50% { translate: 0 -4.2px; opacity: 0.25; } }   /* unités du dessin : 76 px affichés pour 64 unités, donc 4,2 unités = 5 px à l'écran */
-    .fin__dans:has(.bouton:focus-visible) .vapeur { animation: fumer 1400ms ease-in-out 3; }
+    .fin__dans:has(.bouton:focus-visible) .vapeur { scale: 1 1.3; }   /* 1,3 de 8,5 unités = 2,6 unités, soit 3 px à 76 px */
 }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-    .fin__dans:has(.bouton:hover, .fin__dessin:hover) .vapeur { animation: fumer 1400ms ease-in-out 3; }
+    .fin__dans:has(.bouton:hover, .fin__dessin:hover) .vapeur { scale: 1 1.3; }
 }
-.fin__dans .vapeur + .vapeur { animation-delay: 350ms; }
 
 /* ───────────── S6. Carte des formules de l'accueil : la ligne survolée se surligne en crème ───────────── */
 .carte { isolation: isolate; }   /* sans cela, le surlignage passerait derrière le fond blanc de la carte */

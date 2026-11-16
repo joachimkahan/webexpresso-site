@@ -131,7 +131,7 @@ La fusion se fait par `py -3 -B _source/fusionner_ajouts.py` : elle recopie tout
 
 Tous les dessins sont des SVG écrits à la main, au trait : `fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"`, épaisseur 2,6 pour une vignette de 64 (ajouter `vector-effect="non-scaling-stroke"` sur un grand dessin pour garder la même épaisseur à l'écran), remplissages limités à `var(--crema)`, `var(--papier-blanc)`, `var(--papier-lait)`, un détail `var(--caramel)` au plus. Aucun attribut `style`. Un dessin montre un objet du comptoir ou du métier (tasse, ticket, clé, calendrier, ardoise, carnet, enveloppe, montagnes de Grenoble), jamais une forme abstraite ni rien qui évoque l'informatique.
 
-Un picto porte sa classe `picto picto--‹nom›` sur le `<svg>` (c'est elle qui le fait bouger au survol, voir la section 6) ; les traits de vapeur de la tasse portent `vapeur`. Un grand dessin pour un haut de page (`planche-…`) ne porte pas de classe `picto`, il ne bouge pas.
+Un picto porte sa classe `picto picto--‹nom›` sur le `<svg>` (c'est elle qui le fait bouger au survol, voir la section 6) ; les traits de vapeur de la tasse portent `vapeur` (ils montent seuls, voir la section 6). Un grand dessin pour un haut de page (`planche-…`) ne porte pas de classe `picto` ; s'il bouge seul (grenoble, carnet, enveloppe), son `<svg>` porte `planche-anime`.
 
 ## 5. Règles de mise en page
 
@@ -163,7 +163,30 @@ Chaque passage a son usage, et un seul par frontière :
 
 ## 6. Mouvement
 
-**Presque rien ne part seul.** Une seule chose se joue sans geste du visiteur à l'arrivée : le ticket de l'accueil s'imprime (800 ms). Le reste du site répond au visiteur, ou suit son défilement. Aucune animation ne tourne en boucle.
+**Ce qui part seul est une liste fermée** (mouvement d'ambiance, ci-dessous) ; avec le ticket de l'accueil (800 ms, une fois à l'arrivée), c'est tout. Le reste du site répond au visiteur ou suit son défilement.
+
+### Ce qui bouge seul (mouvement d'ambiance)
+
+Liste fermée. N'en ajouter aucune sans l'accord de l'opérateur : il veut du mouvement, pas du mouvement partout.
+
+| Dessin | Ce qui bouge | Durée et amplitude |
+|---|---|---|
+| Tasses (`picto--tasse` : bandeau de fin de toutes les pages, étapes de l'accueil et de Comment ça se passe, marge de Questions) | Les deux traits `vapeur` montent en s'effaçant, puis reviennent en se redessinant ; décalés l'un de l'autre | 4,4 s et 3,8 s ; 5 px à l'écran au plus (`--montee`, en unités du dessin : 4,2 dans le bandeau de 76 px, 2,2 dans les dessins de 140 px, 3 sinon) |
+| Dessin de Grenoble (`planche-grenoble`, Qui sommes-nous) | Les neuf bulles (`bulle`, deux trains de cinq et de quatre) montent le long du câble, de la gare basse à la gare haute, sans jamais redescendre ; elles sortent du mur de la gare basse et entrent dans celui de la gare haute (`clipPath` du dessin) ; les deux traits d'eau du bas (`eau`) glissent en sens contraire | 34 s pour un trajet (8 px/s environ, vitesse constante) ; eau : 6 unités, 10 s, aller-retour |
+| Carnet (`planche-carnet`, Comment ça se passe) | Les trois coches (`coche--1` à `3`) s'effacent ensemble, puis se retracent l'une après l'autre, de gauche à droite | Boucle de 12 s ; au départ et à l'arrivée les trois sont cochées |
+| Enveloppe (`planche-enveloppe`, Nous écrire) | La feuille (`feuille`) sort de 5 unités et rentre | 7 s, aller-retour |
+
+Non animée : l'ardoise (`planche-ardoise`). Rien de naturel à lui faire faire sans faire bouger du texte ; un panneau qui se balance en intérieur n'aurait pas de sens.
+
+**Règles de ce mouvement**
+
+- **Lent et doux** : propriétés `translate`, `opacity`, `clip-path` seulement ; pas de rebond, pas de clignotement. Courbe `linear` pour le câble (vitesse constante), `ease-in-out` pour les allers-retours.
+- **Sous `@media (prefers-reduced-motion: no-preference)`** : en mouvement réduit, rien ne bouge, les dessins sont complets et les bulles sont à leur place d'origine (les positions de départ sont écrites en CSS, hors de la media query : `.bulle:nth-child(n)`).
+- **En pause hors de l'écran** : `js/site.js` pose la classe `en-vue` sur les dessins `.planche-anime` et `.picto--tasse` quand ils sont visibles ; elle fixe `--lecture: running`. Sans elle, `animation-play-state: paused`. Sans JavaScript, les dessins restent complets et immobiles.
+- **Bouton d'arrêt** (WCAG 2.2.2) : dans le pied de page des deux gabarits, `<button class="pied__ambiance" data-ambiance hidden>` (« Arrêter les animations » / « Relancer les animations » ; EN « Stop animations » / « Restart animations », textes dans `data-arreter` et `data-relancer`), `aria-pressed`, hauteur 44 px. Le script retire `hidden` seulement si la page a du mouvement d'ambiance et hors mouvement réduit ; un clic pose `html.ambiance-coupee` (toutes les animations d'ambiance sont coupées, les dessins restent complets) et garde le choix dans `localStorage` (clé `wx-animations-arretees`, lecture et écriture dans un `try/catch`) ; le choix s'applique dès le chargement.
+- **Survol** : la fumée ne se rejoue plus au survol, elle s'étire de 30 % depuis sa base (`scale`, propriété à part de l'animation : aucun conflit) quand la souris est sur son étape, ou sur le bouton ou la tasse du bandeau de fin, ou au focus du bouton.
+- **Impression** : rien n'est animé.
+- Pour ajouter un mouvement d'ambiance : le mettre dans cette liste, l'écrire dans le bloc « Mouvement d'ambiance » de la section 16 de `css/site.css` (avec `animation-play-state: var(--lecture, paused)` et la coupure `html.ambiance-coupee`), et donner la classe `planche-anime` (ou `picto--tasse`) au dessin pour que la pause hors écran le concerne.
 
 ### Ce qui répond à la souris
 
@@ -171,8 +194,8 @@ Chaque passage a son usage, et un seul par frontière :
 |---|---|
 | Fiches des formules (`formule`) | La fiche se soulève de 4 px, son ombre se creuse, le tampon s'incline |
 | Tickets (`ticket-pose`) | Le ticket se redresse et se soulève (5 px au plus) |
-| Dessins des étapes (`etape`, `pas`) | Le dessin fait son geste : le calendrier s'incline, le ticket monte, la clé tourne de 8°, la vapeur de la tasse monte |
-| Tasse du bandeau de fin | Elle fume trois fois quand la souris approche du bouton ou du dessin, ou quand le bouton prend le focus |
+| Dessins des étapes (`etape`, `pas`) | Le dessin fait son geste : le calendrier s'incline, le ticket monte, la clé tourne de 8°, la fumée de la tasse s'étire |
+| Tasse du bandeau de fin | Sa fumée s'étire quand la souris approche du bouton ou du dessin, ou quand le bouton prend le focus |
 | Lignes de la carte de l'accueil (`formule-ligne`) et des tableaux (`tableau`) | La ligne survolée se surligne en crème |
 | Captures de la page Exemples (`a.exemple__vue`) | La capture et le téléphone se soulèvent, seulement quand ce sont de vrais liens |
 | Menu, liens, boutons | La couleur change, le soulignement du menu se déroule |
