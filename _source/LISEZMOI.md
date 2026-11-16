@@ -92,6 +92,7 @@ Page d'accueil construite : `_source/pages/index.html` est le modèle à suivre 
 | Section | `section`, `section--serree` (moins haute), `section--lait` (fond café au lait), `section--bleu` (fond bleu, texte crème) |
 | Haut d'une page intérieure | `<section class="page-haut"><div class="cadre">` : `h1`, puis `p.accroche`, puis `div.actions` facultatif |
 | Haut de page avec un dessin à droite | `<section class="page-haut page-haut--planche"><div class="cadre">` : `div.page-haut__texte` (h1, accroche, actions) puis `figure.page-haut__planche` (`aria-hidden="true"`, un grand dessin SVG inclus par `{{inclure:planche-…}}`) ; la planche ne s'affiche qu'à partir de 900 px ; employé par Formules (`planche-ardoise`), Comment ça se passe (`planche-carnet`), Qui sommes-nous (`planche-grenoble`) ; sur Nous écrire, la même disposition sert à une `section.message.page-haut--planche` (`planche-enveloppe`) |
+| Haut de l'accueil (texte et scène) | `section.accueil-haut > div.cadre.accueil-haut__grille`, deux colonnes : le texte (`h1`, `p.accroche`, `div.actions`, `ul.assurances`), puis `div.scene` (`div.scene__fond`, `img.scene__ecran` avec `fetchpriority="high"`, `div.telephone > img`, `div.ticket-pose > aside.ticket`) suivie de `p.scene__legende`, qui nomme les deux sites de démonstration montrés (à changer si on change les captures) ; dès 1000 px les deux colonnes partent du haut, pour que la scène ne saute pas quand les polices arrivent ; à 390 px la scène se recompose et le ticket reste entier |
 | Bord de comptoir entre deux sections de même fond | `section--zinc` sur la seconde : un trait caramel et un filet, de la largeur du cadre ; sert une fois, sur `#etapes` de l'accueil |
 | Bas de section en dents de ticket | `section--dents`, sur une section de ton suivie d'une section crème ; une fois par page au plus, jamais sur le bandeau de fin ; sert sur `#les-formules` (Formules) et `#questionnaire` (Comment ça se passe) |
 | Ligne de découpe et mot manuscrit | `div.pas.pas--decoupe` : le filet du haut devient un pointillé, et `p.pas__mot` (le mot manuscrit, posé sur le pointillé, en première place dans le bloc) ; une seule fois, sur « Comment ça se passe », entre l'étape 2 et l'étape 3 (« ici, vous décidez ») |
@@ -110,7 +111,7 @@ Page d'accueil construite : `_source/pages/index.html` est le modèle à suivre 
 | Fiches des trois formules | `div.formules > article.formule` (`formule--choix` pour la recommandée, avec `span.tampon`) : `h3.formule__nom`, `p.formule__pour`, `p.formule__prix` (+ `small`), `p.formule__engagement`, `ul.formule__compris > li` (`li.sans` pour ce qui n'est pas compris), `a.bouton` |
 | Frise en trois temps | `div.frise > div.frise__temps` : `p.frise__quand`, `h3`, `p` |
 | Tableau | `div.tableau-zone > table.tableau` : `caption`, `thead th`, `tbody th` (intitulé de ligne), cellules `oui` / `non` / `prix`, colonne mise en avant `col-choix` |
-| Étape détaillée « vous / nous » | `div.pas` : `div.pas__titre` (`div.etape__dessin` + `h2` avec `span.pas__numero`), `div.pas__roles > div.pas__role` (`h3`, `p` ou `ul`) |
+| Étape détaillée « vous / nous » | `div.pas` : `div.pas__titre` (`div.etape__dessin` + `h2` avec `span.pas__numero`), `div.pas__roles > div.pas__role` (`h3`, `p` ou `ul`), toujours dans cet ordre : « Ce que vous faites », « Ce que nous faisons », « Ce que ça coûte » ; sur Comment ça se passe, dès 900 px, le troisième rôle passe sous les deux autres, sur toute la largeur, séparé d'eux par un filet en tirets |
 | Exemples de sites | `div.exemples` (2 colonnes), `exemples--trois` ; `article.exemple` : `a.exemple__vue` ou `div.exemple__vue` avec `img.exemple__grand` + `span.exemple__petit > img`, puis `div.exemple__texte` (`span.etiquette`, `h3`, `p`, `a.lien-suite` facultatif) |
 | Questions et réponses | `div.questions > details.question` : `summary`, `div.question__reponse > p` ; un `id` sur `details` permet un lien direct ; groupes : `div.questions-groupe > h2 + div.questions` |
 | Texte long (pages légales, explications) | `div.prose` : `h2`, `h3`, `p`, `ul`, `ol` |
@@ -123,6 +124,8 @@ Images des exemples, dans `assets/exemples/` : `leana`, `joachim` (sites réels)
 ### Styles en cours de travail
 
 `_source/ajouts-‹nom›.css` : une feuille par chantier, rassemblées par la construction dans `css/ajouts.css` (chargée après `css/site.css`). Elle sert quand plusieurs personnes travaillent en même temps ; un chantier terminé se fusionne dans `css/site.css`, puis son fichier d'ajouts se supprime.
+
+La fusion se fait par `py -3 -B _source/fusionner_ajouts.py` : elle recopie toutes les feuilles d'ajouts à la fin de `css/site.css`, juste avant la section « Impression », puis les supprime. À ne lancer que lorsque plus personne ne travaille dans une feuille d'ajouts ; reconstruire et contrôler ensuite.
 
 ### Les dessins
 

@@ -1035,7 +1035,7 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
 /* Mouvement lié au défilement, en CSS seul : sans prise en charge, ou en mouvement réduit, rien n'est ajouté et la page reste telle quelle. */
 @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
-        /* Frise « et si j'arrête ? » : un trait se remplit d'un moment au suivant. Fini quand la frise est entièrement à l'écran. */
+        /* Frise « et si j'arrête ? » : un trait se remplit d'un moment au suivant. Fini avant que la frise n'atteigne le milieu de l'écran. */
         .frise { view-timeline: --frise block; --frise-trait: var(--caramel); }
         .section--bleu .frise { --frise-trait: var(--crema); }      /* sur fond bleu, le trait caramel ne se verrait pas */
         .frise__temps::before { z-index: 1; }                        /* le point passe devant le trait */
@@ -1069,9 +1069,9 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
                 animation: remplir-gauche linear both;
                 animation-timeline: --frise;
             }
-            .frise__temps:nth-child(1)::after { animation-range: entry 10% entry 40%; }
-            .frise__temps:nth-child(2)::after { animation-range: entry 40% entry 70%; }
-            .frise__temps:nth-child(3)::after { animation-range: entry 70% entry 100%; }
+            .frise__temps:nth-child(1)::after { animation-range: cover 12% cover 22%; }
+            .frise__temps:nth-child(2)::after { animation-range: cover 22% cover 32%; }
+            .frise__temps:nth-child(3)::after { animation-range: cover 32% cover 42%; }
             @keyframes remplir-gauche { from { scale: 0 1; } }
         }
     }
@@ -1079,9 +1079,9 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
     @media (prefers-reduced-motion: no-preference) and (min-width: 1000px) {
         .etapes { view-timeline: --etapes block; }
         .etape:not(:last-child)::after { animation: tracer linear both; animation-timeline: --etapes; }
-        .etape:nth-child(1)::after { animation-range: entry 10% entry 40%; }
-        .etape:nth-child(2)::after { animation-range: entry 40% entry 70%; }
-        .etape:nth-child(3)::after { animation-range: entry 70% entry 100%; }
+        .etape:nth-child(1)::after { animation-range: cover 12% cover 22%; }
+        .etape:nth-child(2)::after { animation-range: cover 22% cover 32%; }
+        .etape:nth-child(3)::after { animation-range: cover 32% cover 42%; }
         @keyframes tracer { from { clip-path: inset(0 100% 0 0); } }
     }
 }
@@ -1442,7 +1442,7 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
 
 /* ───────────── S5. Bandeau de fin : la tasse fume trois fois quand la souris approche, ou au focus du bouton ───────────── */
 @media (prefers-reduced-motion: no-preference) {
-    @keyframes fumer { 50% { translate: 0 -3px; opacity: 0.3; } }
+    @keyframes fumer { 50% { translate: 0 -4.2px; opacity: 0.25; } }   /* unités du dessin : 76 px affichés pour 64 unités, donc 4,2 unités = 5 px à l'écran */
     .fin__dans:has(.bouton:focus-visible) .vapeur { animation: fumer 1400ms ease-in-out 3; }
 }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
