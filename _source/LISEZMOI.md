@@ -182,7 +182,7 @@ S'ajoutent deux gestes du visiteur qui ne sont pas des survols : le menu du tél
 
 ### Ce qui se trace au défilement
 
-Deux traits, en CSS seul (`animation-timeline: view()`), sans rien sur les navigateurs qui ne le savent pas : la frise « Et si j'arrête ? » de la page Formules (`frise`), et le fil pointillé entre les étapes de l'accueil (`etapes`, dès 1000 px).
+Deux traits, en CSS seul (`animation-timeline: view()`), sans rien sur les navigateurs qui ne le savent pas : la frise « Et si j'arrête ? » de la page Formules (`frise`), et le fil pointillé entre les étapes de l'accueil (`etapes`, dès 1000 px). Sur ordinateur, le tracé se fait pendant que le bloc monte du bas de l'écran vers son milieu (plages `cover 12%` à `cover 42%`, trois tronçons de 10 %) : il est fini quand le bloc est au centre. Des plages `entry` le finiraient tout en bas de l'écran, avant qu'on le regarde. En mouvement réduit, ou sans prise en charge, le trait gris entier et le fil entier sont affichés d'emblée.
 
 ### Règles pour tout ajout
 

@@ -61,10 +61,13 @@ def inclure(texte: str, langue: str = "fr", profondeur: int = 0) -> str:
 
 
 def empreinte(*fichiers: Path) -> str:
-    """Empreinte courte des feuilles de style et du script : l'adresse change quand leur contenu change."""
+    """Empreinte courte des feuilles de style et du script : l'adresse change quand leur contenu change.
+
+    Les fins de ligne sont ramenées à LF : Git peut les réécrire en CRLF sur le disque (changement de branche),
+    et l'empreinte ne doit pas changer pour autant."""
     h = hashlib.sha256()
     for f in fichiers:
-        h.update(f.read_bytes())
+        h.update(f.read_bytes().replace(b"\r\n", b"\n"))
     return h.hexdigest()[:8]
 
 

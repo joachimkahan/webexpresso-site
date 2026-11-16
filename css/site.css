@@ -986,7 +986,7 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
     margin-top: 10px;
     padding-block: 10px;   /* zone de toucher d'au moins 44 px */
     font-family: var(--police-titre);
-    font-size: clamp(1.0625rem, 4.6vw, 2.5rem);   /* l'adresse tient sur une ligne, même sur un petit téléphone */
+    font-size: clamp(1.0625rem, 5.6vw, 2.5rem);   /* l'adresse tient sur une ligne, même sur un petit téléphone, et y reste le plus gros texte après le titre */
     font-weight: 600;
     letter-spacing: -0.015em;
     overflow-wrap: anywhere;
