@@ -19,8 +19,12 @@
     // iPhone : un écouteur de toucher (passif) suffit à faire jouer l'enfoncement des boutons (:active).
     document.addEventListener('touchstart', function () {}, { passive: true });
 
-    // Mouvement d'ambiance (fumée des tasses, téléphérique, coches, feuille) : sans ce script, les dessins sont complets et immobiles.
+    // Mouvement d'ambiance (fumée des tasses, téléphérique, coches, feuille, soleil, gestes des étapes ; tampon et trait de craie joués une fois) : sans ce script, les dessins sont complets et immobiles.
     var dessins = document.querySelectorAll('.planche-anime, .picto--tasse');
+    // Gestes des étapes (clé, calendrier, ticket) : un cycle commun, un seul geste à la fois ; ils jouent ou s'arrêtent tous ensemble.
+    var gestes = document.querySelectorAll(':is(.etape, .pas) :is(.picto--cle, .picto--calendrier, .picto--ticket)');
+    // Joués une fois (tampon « Recommandée »), quand l'élément est bien entré dans l'écran.
+    var unefois = document.querySelectorAll('.tampon');
     var bouton = document.querySelector('[data-ambiance]');
     var CLE = 'wx-animations-arretees';
     var reduit = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -50,10 +54,34 @@
             entrees.forEach(function (entree) { entree.target.classList.toggle('en-vue', entree.isIntersecting); });
         });
         Array.prototype.forEach.call(dessins, function (dessin) { observateur.observe(dessin); });
+
+        if (gestes.length) {
+            var vus = new Set();
+            var observateurGestes = new IntersectionObserver(function (entrees) {
+                entrees.forEach(function (entree) {
+                    if (entree.isIntersecting) vus.add(entree.target); else vus.delete(entree.target);
+                });
+                Array.prototype.forEach.call(gestes, function (geste) { geste.classList.toggle('en-vue', vus.size > 0); });
+            });
+            Array.prototype.forEach.call(gestes, function (geste) { observateurGestes.observe(geste); });
+        }
+
+        // Tant que ce drapeau manque (sans script), les mouvements joués une fois ne cachent rien : l'état final est affiché.
+        document.documentElement.classList.add('anime-pret');
+        if (unefois.length) {
+            var observateurUneFois = new IntersectionObserver(function (entrees) {
+                entrees.forEach(function (entree) {
+                    if (!entree.isIntersecting) return;
+                    entree.target.classList.add('en-vue');
+                    observateurUneFois.unobserve(entree.target);
+                });
+            }, { rootMargin: '0px 0px -18% 0px' });
+            Array.prototype.forEach.call(unefois, function (element) { observateurUneFois.observe(element); });
+        }
     }
 
     // Le bouton n'apparaît que s'il y a quelque chose à arrêter.
-    if (bouton && !reduit && dessins.length) {
+    if (bouton && !reduit && (dessins.length || gestes.length)) {
         bouton.hidden = false;
         bouton.addEventListener('click', function () {
             var arretees = !document.documentElement.classList.contains('ambiance-coupee');

@@ -1,0 +1,77 @@
+/* ── ambiance2 ── */
+/* Second lot de petits mouvements (même mécanisme que le premier : section 16 de site.css, section 6 de LISEZMOI).
+   Boucles : gestes des étapes, soleil de Grenoble. Jouées une fois : coches de l'accueil, tampon « Recommandée », trait de craie de l'ardoise.
+   Tout sous prefers-reduced-motion: no-preference ; propriétés : translate, rotate, scale, opacity, clip-path.
+   Les boucles gardent le --lecture du premier lot (pause hors de l'écran) et sont coupées par html.ambiance-coupee.
+   Les mouvements joués une fois ne cachent rien tant que js/site.js n'a pas posé html.anime-pret : sans script, l'état final est affiché. */
+
+@media (prefers-reduced-motion: no-preference) {
+
+    /* ── 2. Coches des assurances de l'accueil : elles se tracent l'une après l'autre, une seule fois (350 ms chacune, 150 ms d'écart),
+       pendant que le ticket s'imprime. L'état final est le dessin au repos ; sans script, cela joue pareil (rien ne reste caché). ── */
+    .assurances .picto--coche path { animation: tracer-trait 350ms var(--ease-out) 300ms backwards; }
+    .assurances li:nth-child(2) .picto--coche path { animation-delay: 450ms; }
+    .assurances li:nth-child(3) .picto--coche path { animation-delay: 600ms; }
+    @keyframes tracer-trait { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }   /* le « to » est écrit : clip-path ne se mélange pas avec none */
+
+    /* ── 3. Dessins des étapes, à tour de rôle : un cycle commun de 16 s, un seul geste à la fois (environ 2 s chacun, immobile le reste).
+       Clé (1 s à 3,1 s) : elle se balance de ±4° sur son anneau, deux oscillations. Calendrier (6,5 s à 8,5 s) : il s'incline de 4°.
+       Ticket (11 s à 13 s) : il sort de 3 unités du dessin et rentre. Le geste est sur un groupe intérieur (g.geste) : le geste du survol,
+       posé sur le <svg>, n'entre jamais en conflit. js/site.js fait jouer ou arrêter tous les dessins d'étape ensemble, pour que le
+       cycle reste commun. La tasse garde sa fumée continue. ── */
+    :is(.etape, .pas) :is(.picto--cle, .picto--calendrier, .picto--ticket) .geste {
+        animation: 16s linear infinite;
+        animation-play-state: var(--lecture, paused);
+        --saut: -3px;
+    }
+    :is(.etape, .pas) .picto--cle .geste { transform-box: view-box; transform-origin: 21.5px 42.5px; animation-name: geste-cle; }
+    :is(.etape, .pas) .picto--calendrier .geste { transform-box: fill-box; transform-origin: 50% 100%; animation-name: geste-calendrier; }
+    :is(.etape, .pas) .picto--ticket .geste { animation-name: geste-ticket; }
+    @media (min-width: 900px) {
+        .pas .picto--ticket .geste { --saut: -2.2px; }   /* dessin de 140 px : 2,2 unités font 4,8 px à l'écran (5 px au plus) */
+    }
+    @keyframes geste-cle {
+        0%, 6.25% { rotate: 0deg; animation-timing-function: ease-in-out; }
+        9% { rotate: 4deg; animation-timing-function: ease-in-out; }
+        12% { rotate: -4deg; animation-timing-function: ease-in-out; }
+        15% { rotate: 4deg; animation-timing-function: ease-in-out; }
+        18% { rotate: -4deg; animation-timing-function: ease-in-out; }
+        19.5%, 100% { rotate: 0deg; }
+    }
+    @keyframes geste-calendrier {
+        0%, 40.5% { rotate: 0deg; animation-timing-function: ease-in-out; }
+        47% { rotate: -4deg; animation-timing-function: ease-in-out; }
+        53%, 100% { rotate: 0deg; }
+    }
+    @keyframes geste-ticket {
+        0%, 68.5% { translate: 0 0; animation-timing-function: ease-in-out; }
+        75% { translate: 0 var(--saut); animation-timing-function: ease-in-out; }
+        81.5%, 100% { translate: 0 0; }
+    }
+
+    /* ── 5. Soleil de Grenoble : le cercle caramel dérive en arc, de 10 unités en 50 s, aller-retour. Presque imperceptible, c'est voulu. ── */
+    .planche-grenoble .soleil { animation: derive-soleil 50s ease-in-out infinite alternate; animation-play-state: var(--lecture, paused); }
+    @keyframes derive-soleil {
+        0% { translate: 0 0; }
+        50% { translate: 5px -4px; }
+        100% { translate: 10px 0; }
+    }
+
+    /* ── 4. Tampon « Recommandée » : il se pose d'un coup, une seule fois, quand sa fiche entre à l'écran (js/site.js pose en-vue
+       sur le tampon, puis ne le retire plus). 220 ms, sans rebond ; l'inclinaison au survol (rotate) reste, elle ne partage aucune propriété. ── */
+    html.anime-pret .tampon { animation: poser-tampon 220ms var(--ease-out) both; animation-play-state: var(--lecture, paused); }
+    @keyframes poser-tampon { from { scale: 1.25; opacity: 0; } }
+
+    /* ── 6. Ardoise de Formules : un trait de craie se trace sous la mention du haut quand l'ardoise est à l'écran, une seule fois (600 ms). ── */
+    html.anime-pret .planche-ardoise .craie { animation: tracer-trait 600ms var(--ease-out) backwards; animation-play-state: var(--lecture, paused); }
+
+    /* Bouton « Arrêter les animations » : les boucles s'arrêtent, les dessins restent complets ; ce qui ne joue qu'une fois s'affiche entier. */
+    html.ambiance-coupee :is(.etape, .pas) .geste,
+    html.ambiance-coupee .planche-grenoble .soleil,
+    html.ambiance-coupee .assurances .picto--coche path,
+    html.ambiance-coupee .tampon,
+    html.ambiance-coupee .planche-ardoise .craie { animation: none !important; }
+}
+@media print {
+    :is(.etape, .pas) .geste, .planche-grenoble .soleil, .assurances .picto--coche path, .tampon, .planche-ardoise .craie { animation: none !important; }
+}

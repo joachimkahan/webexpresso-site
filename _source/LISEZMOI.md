@@ -106,12 +106,13 @@ Page d'accueil construite : `_source/pages/index.html` est le modèle à suivre 
 | Texte | `accroche` (phrase d'introduction), `doux` (texte secondaire), `petit`, `mesure` (65 caractères par ligne) |
 | Boutons | `bouton` (principal), `bouton bouton--clair` (secondaire), groupés dans `div.actions` ; lien vers une autre page : `lien-suite` |
 | Pastilles | `etiquette` (crème dorée), `etiquette etiquette--trait` (contour), `etiquette etiquette--bleu` ; tampon incliné : `tampon` (réservé à « Recommandée ») |
-| Ticket de caisse | `div.ticket-pose > aside.ticket` ; à l'intérieur `p.ticket__tete`, `p.ticket__sous`, `dl.ticket__lignes > div > dt + span.points + dd`, `p.ticket__inter` (sous-titre), `dl.ticket__lignes.ticket__total` (ligne de total), `p.ticket__pied` (mot manuscrit) ; `ticket--grand` pour un ticket plus lisible ; trois tickets côte à côte : `div.tickets` ; le ticket est réservé à l'accueil (`div.scene`), à Formules (`div.tickets`) et à Qui sommes-nous (`.prix`) |
+| Ticket de caisse | `div.ticket-pose > aside.ticket` ; à l'intérieur `p.ticket__tete`, `p.ticket__sous`, `dl.ticket__lignes > div > dt + span.points + dd`, `p.ticket__inter` (sous-titre), `dl.ticket__lignes.ticket__total` (ligne de total), `p.ticket__pied` (mot manuscrit) ; `ticket--grand` pour un ticket plus lisible ; trois tickets côte à côte : `div.tickets` ; le ticket est réservé à l'accueil (`div.scene`), à Formules (`div.tickets`), à Qui sommes-nous (`.prix`) et à la scène de l'étape 3 de Comment ça se passe |
 | Étapes numérotées | `ol.etapes > li.etape` : `div.etape__dessin` (un picto), `h3`, `p`, `span.etiquette` |
 | Fiches des trois formules | `div.formules > article.formule` (`formule--choix` pour la recommandée, avec `span.tampon`) : `h3.formule__nom`, `p.formule__pour`, `p.formule__prix` (+ `small`), `p.formule__engagement`, `ul.formule__compris > li` (`li.sans` pour ce qui n'est pas compris), `a.bouton` |
 | Frise en trois temps | `div.frise > div.frise__temps` : `p.frise__quand`, `h3`, `p` |
 | Tableau | `div.tableau-zone > table.tableau` : `caption`, `thead th`, `tbody th` (intitulé de ligne), cellules `oui` / `non` / `prix`, colonne mise en avant `col-choix` |
 | Étape détaillée « vous / nous » | `div.pas` : `div.pas__titre` (`div.etape__dessin` + `h2` avec `span.pas__numero`), `div.pas__roles > div.pas__role` (`h3`, `p` ou `ul`), toujours dans cet ordre : « Ce que vous faites », « Ce que nous faisons », « Ce que ça coûte » ; sur Comment ça se passe, dès 900 px, le troisième rôle passe sous les deux autres, sur toute la largeur, séparé d'eux par un filet en tirets |
+| Scène d'une étape (Comment ça se passe seulement) | `figure.pas__scene.pas__scene--un` (à `--quatre`), entre `div.pas__titre` et `div.pas__roles` : `div.pas__scene-dans` (les objets, posés droits, sur un fond café au lait) puis `figcaption` (dit ce qu'on voit ; « site de démonstration » dès qu'un site est montré). Objets : `div.vue-tel > img` (téléphone), `div.vue-ecran` (`div.vue-ecran__barre > span`, vide ou portant l'adresse, puis `div.vue-ecran__page > img`), `p.pas__scene-mot` (mot manuscrit, `aria-hidden`), `div.ticket-pose`. Étape 1 : le questionnaire (`assets/deroule/questionnaire-telephone.webp`, `-en` pour l'anglais, à refaire si le questionnaire change). Étape 2 : `vue-ecran--chantier`, le croquis `{{inclure:croquis-site}}` sous la capture à moitié découverte. Étape 3 : l'aperçu et son ticket. Étape 4 : l'adresse dans la barre, et le téléphone. Les quatre scènes suivent le même site de démonstration (`verrier`). Styles : `_source/ajouts-deroule-scenes.css` ; dès 900 px la scène est sous le titre, dans la colonne de gauche, et le petit dessin de l'étape garde sa pastille |
 | Exemples de sites | `div.exemples` (2 colonnes), `exemples--trois` ; `article.exemple` : `a.exemple__vue` ou `div.exemple__vue` avec `img.exemple__grand` + `span.exemple__petit > img`, puis `div.exemple__texte` (`span.etiquette`, `h3`, `p`, `a.lien-suite` facultatif) |
 | Questions et réponses | `div.questions > details.question` : `summary`, `div.question__reponse > p` ; un `id` sur `details` permet un lien direct ; groupes : `div.questions-groupe > h2 + div.questions` |
 | Texte long (pages légales, explications) | `div.prose` : `h2`, `h3`, `p`, `ul`, `ol` |
@@ -126,6 +127,8 @@ Images des exemples, dans `assets/exemples/` : `leana`, `joachim` (sites réels)
 `_source/ajouts-‹nom›.css` : une feuille par chantier, rassemblées par la construction dans `css/ajouts.css` (chargée après `css/site.css`). Elle sert quand plusieurs personnes travaillent en même temps ; un chantier terminé se fusionne dans `css/site.css`, puis son fichier d'ajouts se supprime.
 
 La fusion se fait par `py -3 -B _source/fusionner_ajouts.py` : elle recopie toutes les feuilles d'ajouts à la fin de `css/site.css`, juste avant la section « Impression », puis les supprime. À ne lancer que lorsque plus personne ne travaille dans une feuille d'ajouts ; reconstruire et contrôler ensuite.
+
+Feuille d'ajouts du second lot de mouvement : `_source/ajouts-ambiance2.css` (gestes des étapes, soleil de Grenoble, coches de l'accueil, tampon, trait de craie ; section 6). À fusionner dans `css/site.css` avec les autres, plus tard, par `fusionner_ajouts.py` ; ses règles vont alors à la suite du bloc « Mouvement d'ambiance » de la section 16.
 
 ### Les dessins
 
@@ -148,7 +151,7 @@ Le décor est rare et toujours au même endroit. Ne pas en ajouter ailleurs.
 - **Dessin au trait en haut de page** : seulement sur Formules (ardoise), Comment ça se passe (carnet), Qui sommes-nous (montagnes) et Contact (enveloppe). Les autres pages (Exemples, Questions, Garanties, pages légales) ont un haut de page sans dessin. Un seul grand dessin par page.
 - **Motif du comptoir** : seulement autour du bandeau de fin et sur la page d'erreur. Jamais sous un texte : le centre est dégagé, et le texte, le bouton et le mot manuscrit ne passent pas sur un dessin. Ne pas le poser sur une autre section.
 - **Une section bleue au plus par page** (`section--bleu`). Autour d'elle, les bords sont droits : ni dents, ni bord de comptoir (seul le ticket de Qui sommes-nous déborde sur son bord haut).
-- **Ticket** : réservé à l'accueil, à Formules et à Qui sommes-nous. Pas de ticket ailleurs.
+- **Ticket** : réservé à l'accueil, à Formules, à Qui sommes-nous et à l'étape 3 de Comment ça se passe. Pas de ticket ailleurs.
 
 ### Les passages entre sections
 
@@ -176,7 +179,7 @@ Liste fermée. N'en ajouter aucune sans l'accord de l'opérateur : il veut du mo
 | Carnet (`planche-carnet`, Comment ça se passe) | Les trois coches (`coche--1` à `3`) s'effacent ensemble, puis se retracent l'une après l'autre, de gauche à droite | Boucle de 12 s ; au départ et à l'arrivée les trois sont cochées |
 | Enveloppe (`planche-enveloppe`, Nous écrire) | La feuille (`feuille`) sort de 5 unités et rentre | 7 s, aller-retour |
 
-Non animée : l'ardoise (`planche-ardoise`). Rien de naturel à lui faire faire sans faire bouger du texte ; un panneau qui se balance en intérieur n'aurait pas de sens.
+L'ardoise (`planche-ardoise`) ne bouge pas : seul un trait de craie s'y trace une fois (second lot, ci-dessous). Rien de naturel à lui faire faire de plus sans faire bouger du texte.
 
 **Règles de ce mouvement**
 
@@ -187,6 +190,26 @@ Non animée : l'ardoise (`planche-ardoise`). Rien de naturel à lui faire faire 
 - **Survol** : la fumée ne se rejoue plus au survol, elle s'étire de 30 % depuis sa base (`scale`, propriété à part de l'animation : aucun conflit) quand la souris est sur son étape, ou sur le bouton ou la tasse du bandeau de fin, ou au focus du bouton.
 - **Impression** : rien n'est animé.
 - Pour ajouter un mouvement d'ambiance : le mettre dans cette liste, l'écrire dans le bloc « Mouvement d'ambiance » de la section 16 de `css/site.css` (avec `animation-play-state: var(--lecture, paused)` et la coupure `html.ambiance-coupee`), et donner la classe `planche-anime` (ou `picto--tasse`) au dessin pour que la pause hors écran le concerne.
+
+### Second lot (feuille `_source/ajouts-ambiance2.css`)
+
+Six idées, même mécanisme (`en-vue`, `--lecture`, `ambiance-coupee`, bouton du pied de page, mouvement réduit = état final). Trois boucles et trois mouvements joués une fois.
+
+| Mouvement | Classes et dessins | Durée et amplitude |
+|---|---|---|
+| **Gestes des étapes, à tour de rôle** (boucle) | `g.geste`, dans `picto-cle`, `picto-calendrier`, `picto-ticket` ; seulement quand le picto est dans une `.etape` (accueil) ou un `.pas` (Comment ça se passe, Formules) | Cycle commun de 16 s : la clé se balance de ±4° sur son anneau (1 s à 3,1 s, deux oscillations), le calendrier s'incline de 4° (6,5 s à 8,5 s), le ticket sort de 3 unités du dessin (2,2 dans les dessins de 140 px, soit 4,8 px) et rentre (11 s à 13 s). La tasse garde sa fumée |
+| **Soleil de Grenoble** (boucle) | `circle.soleil` dans `planche-grenoble` | Dérive en arc de 10 unités (4 de haut), 50 s, aller-retour, presque imperceptible |
+| **Coches des assurances** (une fois, au chargement) | `ul.assurances` (`picto-coche`) | 350 ms chacune, 300 ms, 450 ms et 600 ms après le chargement, de gauche à droite (`clip-path`) |
+| **Tampon « Recommandée »** (une fois) | `.tampon` partout (fiche, ligne de la carte de l'accueil, en-tête du tableau) | `scale` 1,25 et `opacity` 0 vers l'état normal, 220 ms, `--ease-out`, sans rebond ; part quand le tampon est entré à 18 % au-dessus du bas de l'écran |
+| **Trait de craie de l'ardoise** (une fois) | `path.craie` dans `planche-ardoise` (FR et EN), sous la mention « à partir de » / « from » ; trait de craie de l'ardoise : `--papier`, 1,5, opacité 0,6 | 600 ms, de gauche à droite (`clip-path`), quand l'ardoise est à l'écran |
+
+Règles propres à ce lot :
+
+- **Un seul dessin d'étape bouge à la fois.** Les trois gestes se partagent un cycle de 16 s, chacun dans sa fenêtre de 2 s et immobile le reste du temps. Pour que le cycle reste commun, `js/site.js` joue ou arrête tous les dessins d'étape ensemble (il pose `en-vue` sur tous dès que l'un d'eux est à l'écran). Pour ajouter un geste, lui donner une fenêtre libre dans les 16 s, jamais chevaucher une autre.
+- Le geste est posé sur un groupe intérieur (`g.geste`), jamais sur le `<svg>` : les gestes du survol (`rotate`, `translate` du `<svg>`) n'entrent donc pas en conflit.
+- Les mouvements joués une fois ne cachent rien sans script : leur état de départ ne s'applique que sous `html.anime-pret`, classe que `js/site.js` pose seulement quand il peut les déclencher (pas en mouvement réduit). Une fois `en-vue` posé sur un tampon, il n'est plus retiré (une seule fois). Les coches, elles, n'ont besoin d'aucun script.
+- Le bouton d'arrêt coupe les boucles ; ce qui ne joue qu'une fois s'affiche alors entier.
+- Pas fait : le défilement de la capture dans le téléphone de l'accueil. Les captures de `assets/exemples/` sont des écrans d'une seule hauteur (390 × 823) : il n'y a rien en dessous à faire défiler, et le cadre n'en rogne que 2 %. Il faudrait une capture de page entière.
 
 ### Ce qui répond à la souris
 
@@ -204,6 +227,8 @@ Non animée : l'ardoise (`planche-ardoise`). Rien de naturel à lui faire faire 
 S'ajoutent deux gestes du visiteur qui ne sont pas des survols : le menu du téléphone qui se déroule, la réponse d'une question qui se déplie.
 
 ### Ce qui se trace au défilement
+
+Sur Comment ça se passe, le site de l'étape 2 se construit de la même façon : la capture découvre le croquis de gauche à droite (`clip-path`, de 6 % à 50 %), et s'arrête à moitié ; à moitié et immobile en mouvement réduit ou sans prise en charge.
 
 Deux traits, en CSS seul (`animation-timeline: view()`), sans rien sur les navigateurs qui ne le savent pas : la frise « Et si j'arrête ? » de la page Formules (`frise`), et le fil pointillé entre les étapes de l'accueil (`etapes`, dès 1000 px). Sur ordinateur, le tracé se fait pendant que le bloc monte du bas de l'écran vers son milieu (plages `cover 12%` à `cover 42%`, trois tronçons de 10 %) : il est fini quand le bloc est au centre. Des plages `entry` le finiraient tout en bas de l'écran, avant qu'on le regarde. En mouvement réduit, ou sans prise en charge, le trait gris entier et le fil entier sont affichés d'emblée.
 
