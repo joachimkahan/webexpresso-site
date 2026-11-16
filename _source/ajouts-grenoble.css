@@ -1,0 +1,23 @@
+/* ajouts-grenoble.css : page Qui sommes-nous (lot « grenoble »). Section bleue « Pourquoi nos prix sont bas ». */
+
+/* Petit écran : le ticket penché est centré dans la largeur, sans déborder. */
+.prix .ticket-pose {
+    width: min(84%, 320px);
+    margin-inline: auto;
+}
+
+/* Moins de blanc sous la section bleue. */
+.page-equipe .section--bleu { padding-bottom: calc(var(--espace-section) * 0.7); }
+
+@media (min-width: 900px) {
+    /* Un tiers pour le ticket, deux tiers pour le titre et le texte ; le ticket s'aligne sur la marge gauche du cadre. */
+    .prix {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        column-gap: clamp(40px, 6vw, 96px);
+    }
+    .prix .ticket-pose {
+        justify-self: start;
+        margin-inline: 0;
+        width: min(100%, 340px);
+    }
+}
