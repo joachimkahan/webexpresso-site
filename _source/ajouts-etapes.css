@@ -15,15 +15,17 @@
 }
 
 /* Ligne de découpe : même espace au-dessus et au-dessous que les autres filets.
-   Au-dessus, c'est le bas de l'étape précédente ; au-dessous, le haut de l'étape qui porte la ligne. */
-.page-deroule .pas:has(+ .pas--decoupe) { padding-bottom: clamp(32px, 5vw, 56px); }
-.page-deroule .pas--decoupe { padding-top: clamp(32px, 5vw, 56px); }
+   Au-dessus, c'est le bas de l'étape précédente ; au-dessous, le haut de l'étape qui porte la ligne.
+   Dès 900 px, le dessin de l'étape 2 (boîte de 140 px, vide en bas) dépasse le texte : on retire cet excédent au-dessus. */
+@media (min-width: 900px) {
+    .page-deroule .pas:has(+ .pas--decoupe) { padding-bottom: 34px; }
+}
 
 /* Petit écran : le mot manuscrit déborde de la ligne d'environ 15 px de chaque côté ; on ajoute cette hauteur
-   au-dessus et au-dessous pour qu'il ne colle ni au texte qui précède ni au titre qui suit. */
+   pour qu'il ne colle ni au texte qui précède ni au titre qui suit. */
 @media (max-width: 899.98px) {
-    .page-deroule .pas:has(+ .pas--decoupe) { padding-bottom: calc(clamp(32px, 5vw, 56px) + 16px); }
-    .page-deroule .pas--decoupe { padding-top: calc(clamp(32px, 5vw, 56px) + 16px); }
+    .page-deroule .pas:has(+ .pas--decoupe) { padding-bottom: calc(clamp(32px, 5vw, 56px) + 14px); }
+    .page-deroule .pas--decoupe { padding-top: calc(clamp(32px, 5vw, 56px) + 8px); }
 }
 
 /* « Et après ? » : les deux liens se calent en bas de leur colonne, donc à la même hauteur. */

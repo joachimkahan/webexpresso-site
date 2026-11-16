@@ -399,7 +399,10 @@ a {
 .assurances svg { flex: none; width: 22px; height: 22px; color: var(--caramel-texte); }
 
 @media (min-width: 1000px) {
-    .accueil-haut__grille { grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr); }
+    /* Les deux colonnes partent du haut : la scène ne dépend plus de la hauteur du texte, qui change quand les polices
+       arrivent. Centrée, elle sautait au chargement (décalage de mise en page mesuré à 0,17). */
+    .accueil-haut__grille { grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr); align-items: start; }
+    .accueil-haut__grille > :first-child { padding-top: clamp(20px, 3.4vw, 52px); }
 }
 
 /* La scène : deux sites montrés dans leurs écrans, et le ticket posé dessus. */
