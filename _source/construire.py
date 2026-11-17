@@ -43,7 +43,7 @@ LANGUES = (("fr", "pages", "gabarit.html", "", ""), ("en", "pages-en", "gabarit-
 LIEN_AJOUTS = '    <link rel="stylesheet" href="{{racine}}css/ajouts.css?v={{version}}">\n'
 AVIS = "<!-- Page produite par _source/construire.py : modifier _source/, puis reconstruire. -->\n"
 # Adresse publique du site, seule source : la changer ici le jour où le site a son propre nom de domaine.
-ADRESSE = "https://joachimkahan.github.io/webexpresso-site/"
+ADRESSE = "https://webexpresso.fr/"
 LOCALES = {"fr": "fr_FR", "en": "en_GB"}
 # Carte d'identité lue par les moteurs de recherche, posée sur les deux accueils (données structurées schema.org).
 IDENTITE = """    <script type="application/ld+json">
