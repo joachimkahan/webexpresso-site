@@ -10,7 +10,7 @@ Ce qui est vérifié, page par page :
   - un seul titre de premier niveau, un titre d'onglet et une description de longueur raisonnable ;
   - chaque lien interne mène à un fichier qui existe, et chaque ancre à un identifiant présent ;
   - chaque image existe, porte largeur, hauteur et texte de remplacement ;
-  - aucun attribut `style`, aucun script écrit dans la page ;
+  - aucun attribut `style`, aucun script écrit dans la page (sauf les données pour les moteurs de recherche, `application/ld+json`) ;
   - aucun mot que le visiteur ne doit pas lire (voir `_source/LISEZMOI.md`), aucune flèche, aucun tiret long ;
   - les montants en euros sont ceux de la fiche des offres ;
   - la phrase « Vous gardez toujours votre site si vous arrêtez. » est sur chaque page.
@@ -86,7 +86,7 @@ class Lecture(HTMLParser):
             self.liens.append(a["href"])
         elif balise == "img":
             self.images.append(a)
-        elif balise == "script" and not a.get("src"):
+        elif balise == "script" and not a.get("src") and a.get("type") != "application/ld+json":
             self._pile[-1] = "script-ecrit"
 
     def handle_endtag(self, balise: str) -> None:
@@ -194,7 +194,8 @@ def main() -> int:
             print(f"ÉCHEC  {nom} : page publiée absente ou plus à jour (relancer _source/construire.py)")
             total += 1
             continue
-        lectures[nom] = lire(page)
+        if nom.endswith(".html"):
+            lectures[nom] = lire(page)
     for nom in lectures:
         erreurs, remarques = controler_page(nom, lectures)
         if strict:
