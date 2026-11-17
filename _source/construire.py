@@ -42,6 +42,54 @@ INCLURE = re.compile(r"\{\{inclure:([a-z0-9-]+)\}\}")
 LANGUES = (("fr", "pages", "gabarit.html", "", ""), ("en", "pages-en", "gabarit-en.html", "en/", "../"))
 LIEN_AJOUTS = '    <link rel="stylesheet" href="{{racine}}css/ajouts.css?v={{version}}">\n'
 AVIS = "<!-- Page produite par _source/construire.py : modifier _source/, puis reconstruire. -->\n"
+# Adresse publique du site, seule source : la changer ici le jour où le site a son propre nom de domaine.
+ADRESSE = "https://joachimkahan.github.io/webexpresso-site/"
+LOCALES = {"fr": "fr_FR", "en": "en_GB"}
+# Carte d'identité lue par les moteurs de recherche, posée sur les deux accueils (données structurées schema.org).
+IDENTITE = """    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@graph": [
+        {"@type": "Organization", "@id": "%(a)s#entreprise", "name": "WebExpresso", "alternateName": ["Web Expresso", "Webexpresso"],
+         "url": "%(a)s", "logo": "%(a)sassets/logo-carre.png", "image": "%(a)sassets/partage.png", "email": "webexpresso.info@gmail.com",
+         "description": "Création de sites internet pour les artisans, commerçants et indépendants : aperçu gratuit avant de payer, dès 200 €.",
+         "address": {"@type": "PostalAddress", "addressLocality": "Grenoble", "postalCode": "38000", "addressRegion": "Isère", "addressCountry": "FR"},
+         "areaServed": {"@type": "Country", "name": "France"}},
+        {"@type": "WebSite", "@id": "%(a)s#site", "name": "WebExpresso", "alternateName": "Web Expresso", "url": "%(a)s",
+         "inLanguage": ["fr", "en"], "publisher": {"@id": "%(a)s#entreprise"}}
+    ]}
+    </script>
+""" % {"a": ADRESSE}
+
+
+def adresse(publie: str, nom: str) -> str:
+    """Adresse complète d'une page publiée (l'accueil d'une langue se nomme par son dossier)."""
+    return ADRESSE + publie + ("" if nom == "index.html" else nom)
+
+
+def referencement(langue: str, publie: str, nom: str, paire: str | None, robots: str) -> str:
+    """Balises pour les moteurs de recherche : adresse officielle, autre langue, image de partage, carte d'identité."""
+    ici = adresse(publie, nom)
+    lignes = [f'    <link rel="canonical" href="{ici}">'] if robots.startswith("index") else []
+    lignes += [f'    <meta property="og:url" content="{ici}">',
+              f'    <meta property="og:locale" content="{LOCALES[langue]}">',
+              f'    <meta property="og:image" content="{ADRESSE}assets/partage.png">',
+              '    <meta property="og:image:width" content="1200">',
+              '    <meta property="og:image:height" content="630">',
+              '    <meta property="og:image:alt" content="WebExpresso">',
+              '    <meta name="twitter:card" content="summary_large_image">']
+    if paire and robots.startswith("index"):
+        fr, en = (ici, paire) if langue == "fr" else (paire, ici)
+        lignes += [f'    <link rel="alternate" hreflang="fr" href="{fr}">',
+                   f'    <link rel="alternate" hreflang="en" href="{en}">',
+                   f'    <link rel="alternate" hreflang="x-default" href="{fr}">']
+    texte = "\n".join(lignes) + "\n"
+    return texte + IDENTITE if nom == "index.html" else texte
+
+
+def plan_du_site(entrees: list[str]) -> str:
+    """sitemap.xml : la liste des pages à faire connaître aux moteurs de recherche."""
+    corps = "".join(f"  <url><loc>{a}</loc></url>\n" for a in entrees)
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + corps + "</urlset>\n")
 
 
 def inclure(texte: str, langue: str = "fr", profondeur: int = 0) -> str:
@@ -92,7 +140,8 @@ def construire() -> dict[str, str]:
     version = empreinte(SITE / "css" / "site.css", SITE / "css" / "fonts.css", SITE / "js" / "site.js", *sorted(SOURCE.glob("ajouts-*.css")))
     noms = {langue: {f.name for f in (SOURCE / dossier).glob("*.html")} for langue, dossier, *_ in LANGUES}
     lien_ajouts = LIEN_AJOUTS if any(SOURCE.glob("ajouts-*.css")) else ""
-    pages = {}
+    pages, plan = {}, []
+    publies = {langue: publie for langue, _, _, publie, _ in LANGUES}
     for langue, dossier, nom_gabarit, publie, racine in LANGUES:
         if not noms[langue]:
             continue
@@ -105,13 +154,19 @@ def construire() -> dict[str, str]:
             autre = vers_autre + (fichier.name if fichier.name in noms[autre_langue] else "index.html")
             html = gabarit.replace("{{ajouts}}", lien_ajouts).replace("{{contenu}}", inclure(contenu, langue))
             html = re.sub(r"\{\{courant:([a-z-]+)\}\}", lambda m: ' aria-current="page"' if m.group(1) == meta.get("menu") else "", html)
-            for cle, valeur in (("titre", titre), ("description", meta["description"]), ("classe", meta.get("classe", "")),
+            robots = "noindex, follow" if meta.get("robots") == "noindex" else "index, follow"
+            paire = adresse(publies[autre_langue], fichier.name) if fichier.name in noms[autre_langue] else None
+            if robots.startswith("index"):
+                plan.append(adresse(publie, fichier.name))
+            html = html.replace("{{referencement}}", referencement(langue, publie, fichier.name, paire, robots))
+            for cle, valeur in (("titre", titre), ("description", meta["description"]), ("classe", meta.get("classe", "")), ("robots", robots),
                                 ("fichier", fichier.name), ("version", version), ("autre", autre), ("racine", racine)):
                 html = html.replace("{{" + cle + "}}", valeur)
             reste = re.findall(r"\{\{[^}]+\}\}", html)
             if reste:
                 raise SystemExit(f"ERREUR : {dossier}/{fichier.name} : écriture non remplacée : {', '.join(sorted(set(reste)))}")
             pages[publie + fichier.name] = html.replace("<!DOCTYPE html>\n", "<!DOCTYPE html>\n" + AVIS, 1)
+    pages["sitemap.xml"] = plan_du_site(plan)
     return pages
 
 
