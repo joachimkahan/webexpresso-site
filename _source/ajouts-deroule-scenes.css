@@ -1,0 +1,124 @@
+/* ── deroule-scenes ── */
+/* Page « Comment ça se passe » : chaque étape montre ce que le visiteur verra à ce moment-là.
+   1 : le questionnaire sur un téléphone. 2 : le site en cours de construction (croquis qui devient le site).
+   3 : l'aperçu terminé et son ticket. 4 : le site en ligne, à son adresse, sur ordinateur et téléphone.
+   Les écrans sont posés droits. Tout est préfixé par .page-deroule ou porté par des classes propres à ces scènes. */
+
+.pas__scene { width: min(100%, 430px); }
+.pas__scene-dans { position: relative; aspect-ratio: 5 / 4.2; }
+.pas__scene-dans::before {
+    content: "";
+    position: absolute;
+    inset: 9% 0 0 9%;
+    border-radius: var(--rayon-grand);
+    background: var(--papier-lait);
+}
+.pas__scene figcaption { margin-top: 12px; color: var(--encre-douce); font-size: var(--taille-petit); }
+
+/* Mot manuscrit posé dans la scène. */
+.pas__scene-mot {
+    position: absolute;
+    margin: 0;
+    color: var(--bleu);
+    font-family: var(--police-main);
+    font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+    line-height: 1.15;
+    rotate: -3deg;
+}
+
+/* Le téléphone. */
+.vue-tel {
+    position: absolute;
+    padding: 6px;
+    border-radius: 24px;
+    background: var(--encre);
+    box-shadow: var(--ombre-objet);
+}
+.vue-tel img { display: block; width: 100%; aspect-ratio: 9 / 18.6; object-fit: cover; object-position: top; border-radius: 18px; }
+
+/* L'écran : une barre d'adresse, puis la page. */
+.vue-ecran {
+    position: absolute;
+    overflow: hidden;
+    border: 1px solid var(--ligne-forte);
+    border-radius: 12px;
+    background: var(--papier-blanc);
+    box-shadow: var(--ombre-objet);
+}
+.vue-ecran__barre { display: flex; align-items: center; height: 36px; padding-inline: 12px; border-bottom: 1px solid var(--ligne); background: var(--papier); }
+.vue-ecran__barre span {
+    display: block;
+    min-width: 42%;
+    height: 24px;
+    padding-inline: 12px;
+    border-radius: 12px;
+    background: var(--papier-lait);
+    color: var(--encre);
+    font-size: 0.9375rem;
+    line-height: 24px;
+    white-space: nowrap;
+}
+.vue-ecran__page { position: relative; aspect-ratio: 1200 / 750; }
+.vue-ecran__page img { position: relative; display: block; width: 100%; height: 100%; }
+
+/* Étape 1 : le téléphone à gauche, le mot à droite. */
+.pas__scene--un .vue-tel { left: 14%; top: 0; width: 40%; }
+.pas__scene--un .pas__scene-mot { left: 61%; top: 42%; width: 36%; }
+
+/* Étape 2 : la semaine au calendrier, jours barrés, et le message qui arrive (l'enveloppe). */
+.pas__scene--deux .pas__scene-dans { aspect-ratio: 440 / 300; }
+.pas__scene--deux .semaine { position: absolute; left: 0; top: 0; width: 94%; height: auto; color: var(--encre); }
+.pas__scene--deux .pas__scene-mot { left: 10%; top: 62%; }
+
+/* Étape 3 : seulement le ticket des trois formules, posé sur le fond café au lait. */
+.pas__scene--trois .pas__scene-dans { aspect-ratio: auto; padding: clamp(20px, 3vw, 32px) 0 clamp(16px, 2vw, 24px) clamp(20px, 4vw, 40px); }
+.pas__scene--trois .ticket-pose { position: relative; width: min(100%, 360px); rotate: -1.5deg; }
+
+/* Étape 4 : le site à son adresse, et le même sur téléphone. */
+.pas__scene--quatre .vue-ecran { left: 0; top: 4%; width: 88%; }
+.pas__scene--quatre .vue-tel { right: 2%; bottom: 0; width: 27%; }
+
+/* Au défilement, les jours de la semaine se barrent l'un après l'autre (de gauche à droite), puis l'enveloppe est là.
+   Sans prise en charge ou en mouvement réduit : les six jours barrés, immobiles. */
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+        .semaine .croix { animation: barrer-jour linear both; animation-timeline: view(); }
+        .semaine .croix--1 { animation-range: cover 16% cover 20%; }
+        .semaine .croix--2 { animation-range: cover 21% cover 25%; }
+        .semaine .croix--3 { animation-range: cover 26% cover 30%; }
+        .semaine .croix--4 { animation-range: cover 31% cover 35%; }
+        .semaine .croix--5 { animation-range: cover 36% cover 40%; }
+        .semaine .croix--6 { animation-range: cover 41% cover 45%; }
+        @keyframes barrer-jour { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+    }
+}
+
+@media (min-width: 900px) {
+    /* Colonne de gauche : le titre, puis la scène ; à droite, les trois rôles sur toute la hauteur. */
+    .page-deroule .pas { grid-template-rows: auto 1fr; }
+    .page-deroule .pas__titre { grid-column: 1; grid-row: 1; grid-template-columns: 68px minmax(0, 1fr); align-items: center; gap: 20px; }
+    .page-deroule .pas__scene { grid-column: 1; grid-row: 2; margin-top: 10px; }
+    .page-deroule .pas__roles { grid-column: 2; grid-row: 1 / span 2; }
+
+    /* Le petit dessin retrouve sa pastille à côté du titre : la scène a pris la place du grand dessin. */
+    .page-deroule .pas__titre .etape__dessin {
+        order: 0;
+        width: 68px;
+        height: 68px;
+        margin-top: 0;
+        border-radius: 50%;
+        background: var(--papier-lait);
+    }
+    .page-deroule .pas__titre .etape__dessin svg { width: 40px; height: 40px; stroke-width: 2.6; }
+    .page-deroule .pas .picto--tasse { --montee: -3px; }
+    .page-deroule .pas .geste { --saut: -3px; }
+    .page-deroule .pas:has(+ .pas--decoupe) { padding-bottom: calc(clamp(32px, 5vw, 56px) + 14px); }
+}
+
+@media (max-width: 899.98px) {
+    .pas__scene { margin-block: 6px 4px; }
+}
+
+@media print {
+    .semaine .croix { animation: none; }
+}

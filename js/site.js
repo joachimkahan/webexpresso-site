@@ -97,4 +97,25 @@
     }
     window.addEventListener('hashchange', ouvrirCible);
     ouvrirCible();
+
+    // Vidéo de présentation (accueil) : une affiche dessinée la couvre ; un clic la retire et lance la lecture.
+    // Sans ce script, l'affiche reste cachée et la vidéo garde ses commandes habituelles.
+    Array.prototype.forEach.call(document.querySelectorAll('[data-film]'), function (affiche) {
+        var video = affiche.parentNode.querySelector('video');
+        if (!video) return;
+        video.controls = false;
+        affiche.hidden = false;
+        affiche.addEventListener('click', function () {
+            affiche.hidden = true;
+            video.controls = true;
+            var lecture = video.play();
+            if (lecture && lecture.catch) lecture.catch(function () { /* lecture refusée : les commandes restent là */ });
+            video.focus();
+        });
+        video.addEventListener('ended', function () {
+            video.controls = false;
+            affiche.hidden = false;
+            affiche.focus();
+        });
+    });
 })();

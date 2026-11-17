@@ -1,6 +1,6 @@
 <!--
-titre: Comment ça se passe
-description: Quatre étapes pour avoir votre site : un questionnaire gratuit, un aperçu gratuit en moins de sept jours, le choix de la formule, puis la mise en ligne.
+titre: Votre site internet en quatre étapes, aperçu gratuit
+description: Comment avoir votre site internet : un questionnaire gratuit, un aperçu gratuit en moins de sept jours, puis le choix de la formule et la mise en ligne.
 menu: deroule
 classe: page-deroule
 -->
@@ -8,7 +8,7 @@ classe: page-deroule
     <div class="cadre">
         <div class="page-haut__texte">
             <h1>Comment ça se passe</h1>
-            <p class="accroche">Quatre étapes, de vos réponses à votre site en ligne. Les deux premières sont gratuites. Vous ne payez qu'à la troisième, et seulement si le site vous plaît.</p>
+            <p class="accroche">Quatre étapes pour créer votre site internet, de vos réponses à la mise en ligne. Les deux premières sont gratuites. Vous ne payez qu'à la troisième, et seulement si le site vous plaît.</p>
         </div>
         <figure class="page-haut__planche" aria-hidden="true">{{inclure:planche-carnet}}</figure>
     </div>
@@ -24,6 +24,13 @@ classe: page-deroule
                     <span class="etiquette">Gratuit</span>
                 </div>
             </div>
+            <figure class="pas__scene pas__scene--un">
+                <div class="pas__scene-dans">
+                    <div class="vue-tel"><img src="{{racine}}assets/deroule/questionnaire-telephone.webp" width="390" height="823" loading="lazy" alt="Le questionnaire sur un téléphone&nbsp;: l'étape 1 sur 6, «&nbsp;Vous et votre activité&nbsp;», avec les cases « Votre nom » et « Votre métier » à remplir."></div>
+                    <p class="pas__scene-mot" aria-hidden="true">une dizaine de minutes</p>
+                </div>
+                <figcaption>Le questionnaire, tel qu'il s'affiche sur un téléphone.</figcaption>
+            </figure>
             <div class="pas__roles">
                 <div class="pas__role">
                     <h3>Ce que vous faites</h3>
@@ -49,6 +56,12 @@ classe: page-deroule
                     <span class="etiquette">Gratuit</span>
                 </div>
             </div>
+            <figure class="pas__scene pas__scene--deux" aria-hidden="true">
+                <div class="pas__scene-dans">
+                    {{inclure:semaine-apercu}}
+                    <p class="pas__scene-mot">moins de sept jours</p>
+                </div>
+            </figure>
             <div class="pas__roles">
                 <div class="pas__role">
                     <h3>Ce que vous faites</h3>
@@ -56,7 +69,7 @@ classe: page-deroule
                 </div>
                 <div class="pas__role">
                     <h3>Ce que nous faisons</h3>
-                    <p>Nous construisons un premier aperçu de votre site, à partir de vos réponses. Vous le recevez en moins de sept jours.</p>
+                    <p>Nous construisons un premier aperçu gratuit de votre site, à partir de vos réponses. Vous le recevez en moins de sept jours.</p>
                 </div>
                 <div class="pas__role">
                     <h3>Ce que ça coûte</h3>
@@ -74,6 +87,36 @@ classe: page-deroule
                     <span class="etiquette etiquette--trait">À partir de 200&nbsp;€</span>
                 </div>
             </div>
+            <figure class="pas__scene pas__scene--trois">
+                <div class="pas__scene-dans">
+                    <div class="ticket-pose">
+                        <aside class="ticket ticket--grand" aria-label="Les trois formules, si l'aperçu vous plaît">
+                            <p class="ticket__tete">Les trois formules</p>
+                            <p class="ticket__sous">si l'aperçu vous plaît</p>
+                            <p class="ticket__inter">Essentiel</p>
+                            <dl class="ticket__lignes">
+                                <div><dt>Une seule fois</dt><span class="points"></span><dd>200&nbsp;€</dd></div>
+                            </dl>
+                            <p class="ticket__inter">Autonome +&nbsp;évolutions</p>
+                            <dl class="ticket__lignes">
+                                <div><dt>Création du site</dt><span class="points"></span><dd>200&nbsp;€</dd></div>
+                                <div><dt>Puis chaque mois</dt><span class="points"></span><dd>30&nbsp;€</dd></div>
+                                <div><dt>Minimum sur 3 mois</dt><span class="points"></span><dd>290&nbsp;€</dd></div>
+                            </dl>
+                            <p class="ticket__inter">Autonome +&nbsp;accompagnement</p>
+                            <dl class="ticket__lignes">
+                                <div><dt>Création du site</dt><span class="points"></span><dd>250&nbsp;€</dd></div>
+                                <div><dt>Puis chaque mois</dt><span class="points"></span><dd>50&nbsp;€</dd></div>
+                                <div><dt>Minimum sur 3 mois</dt><span class="points"></span><dd>400&nbsp;€</dd></div>
+                            </dl>
+                            <dl class="ticket__lignes ticket__total">
+                                <div><dt>L'aperçu ne vous plaît pas</dt><span class="points"></span><dd>0&nbsp;€</dd></div>
+                            </dl>
+                            <p class="ticket__pied">à vous de voir</p>
+                        </aside>
+                    </div>
+                </div>
+            </figure>
             <div class="pas__roles">
                 <div class="pas__role">
                     <h3>Ce que vous faites</h3>
@@ -104,6 +147,16 @@ classe: page-deroule
                     <span class="etiquette etiquette--trait">Clé en main</span>
                 </div>
             </div>
+            <figure class="pas__scene pas__scene--quatre">
+                <div class="pas__scene-dans">
+                    <div class="vue-ecran">
+                        <div class="vue-ecran__barre" aria-hidden="true"><span>www.votre-nom.fr</span></div>
+                        <div class="vue-ecran__page"><img src="{{racine}}assets/exemples/verrier-ordinateur.webp" width="1200" height="750" loading="lazy" alt="Site de démonstration d'un atelier de vitrail&nbsp;: un vitrail à motifs de feuilles dans une arche, le nom de l'atelier en grandes lettres et le bouton « Demander un devis »."></div>
+                    </div>
+                    <div class="vue-tel"><img src="{{racine}}assets/exemples/verrier-telephone.webp" width="390" height="823" loading="lazy" alt=""></div>
+                </div>
+                <figcaption>À l'écran&nbsp;: un site de démonstration (atelier de vitrail).</figcaption>
+            </figure>
             <div class="pas__roles">
                 <div class="pas__role">
                     <h3>Ce que vous faites</h3>

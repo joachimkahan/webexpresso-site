@@ -1,0 +1,327 @@
+/* ajouts.css : produit par _source/construire.py depuis _source/ajouts-*.css. Ne pas modifier à la main. */
+/* ajouts-ambiance2.css */
+/* ── ambiance2 ── */
+/* Second lot de petits mouvements (même mécanisme que le premier : section 16 de site.css, section 6 de LISEZMOI).
+   Boucles : gestes des étapes, soleil de Grenoble. Jouées une fois : coches de l'accueil, tampon « Recommandée », trait de craie de l'ardoise.
+   Tout sous prefers-reduced-motion: no-preference ; propriétés : translate, rotate, scale, opacity, clip-path.
+   Les boucles gardent le --lecture du premier lot (pause hors de l'écran) et sont coupées par html.ambiance-coupee.
+   Les mouvements joués une fois ne cachent rien tant que js/site.js n'a pas posé html.anime-pret : sans script, l'état final est affiché. */
+
+@media (prefers-reduced-motion: no-preference) {
+
+    /* ── 2. Coches des assurances de l'accueil : elles se tracent l'une après l'autre, une seule fois (350 ms chacune, 150 ms d'écart),
+       pendant que le ticket s'imprime. L'état final est le dessin au repos ; sans script, cela joue pareil (rien ne reste caché). ── */
+    .assurances .picto--coche path { animation: tracer-trait 350ms var(--ease-out) 300ms backwards; }
+    .assurances li:nth-child(2) .picto--coche path { animation-delay: 450ms; }
+    .assurances li:nth-child(3) .picto--coche path { animation-delay: 600ms; }
+    @keyframes tracer-trait { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }   /* le « to » est écrit : clip-path ne se mélange pas avec none */
+
+    /* ── 3. Dessins des étapes, à tour de rôle : un cycle commun de 16 s, un seul geste à la fois (environ 2 s chacun, immobile le reste).
+       Clé (1 s à 3,1 s) : elle se balance de ±4° sur son anneau, deux oscillations. Calendrier (6,5 s à 8,5 s) : il s'incline de 4°.
+       Ticket (11 s à 13 s) : il sort de 3 unités du dessin et rentre. Le geste est sur un groupe intérieur (g.geste) : le geste du survol,
+       posé sur le <svg>, n'entre jamais en conflit. js/site.js fait jouer ou arrêter tous les dessins d'étape ensemble, pour que le
+       cycle reste commun. La tasse garde sa fumée continue. ── */
+    :is(.etape, .pas) :is(.picto--cle, .picto--calendrier, .picto--ticket) .geste {
+        animation: 16s linear infinite;
+        animation-play-state: var(--lecture, paused);
+        --saut: -3px;
+    }
+    :is(.etape, .pas) .picto--cle .geste { transform-box: view-box; transform-origin: 21.5px 42.5px; animation-name: geste-cle; }
+    :is(.etape, .pas) .picto--calendrier .geste { transform-box: fill-box; transform-origin: 50% 100%; animation-name: geste-calendrier; }
+    :is(.etape, .pas) .picto--ticket .geste { animation-name: geste-ticket; }
+    @media (min-width: 900px) {
+        .pas .picto--ticket .geste { --saut: -2.2px; }   /* dessin de 140 px : 2,2 unités font 4,8 px à l'écran (5 px au plus) */
+    }
+    @keyframes geste-cle {
+        0%, 6.25% { rotate: 0deg; animation-timing-function: ease-in-out; }
+        9% { rotate: 4deg; animation-timing-function: ease-in-out; }
+        12% { rotate: -4deg; animation-timing-function: ease-in-out; }
+        15% { rotate: 4deg; animation-timing-function: ease-in-out; }
+        18% { rotate: -4deg; animation-timing-function: ease-in-out; }
+        19.5%, 100% { rotate: 0deg; }
+    }
+    @keyframes geste-calendrier {
+        0%, 40.5% { rotate: 0deg; animation-timing-function: ease-in-out; }
+        47% { rotate: -4deg; animation-timing-function: ease-in-out; }
+        53%, 100% { rotate: 0deg; }
+    }
+    @keyframes geste-ticket {
+        0%, 68.5% { translate: 0 0; animation-timing-function: ease-in-out; }
+        75% { translate: 0 var(--saut); animation-timing-function: ease-in-out; }
+        81.5%, 100% { translate: 0 0; }
+    }
+
+    /* ── 5. Soleil de Grenoble : le cercle caramel dérive en arc, de 10 unités en 50 s, aller-retour. Presque imperceptible, c'est voulu. ── */
+    .planche-grenoble .soleil { animation: derive-soleil 50s ease-in-out infinite alternate; animation-play-state: var(--lecture, paused); }
+    @keyframes derive-soleil {
+        0% { translate: 0 0; }
+        50% { translate: 5px -4px; }
+        100% { translate: 10px 0; }
+    }
+
+    /* ── 4. Tampon « Recommandée » : il se pose d'un coup, une seule fois, quand sa fiche entre à l'écran (js/site.js pose en-vue
+       sur le tampon, puis ne le retire plus). 220 ms, sans rebond ; l'inclinaison au survol (rotate) reste, elle ne partage aucune propriété. ── */
+    html.anime-pret .tampon { animation: poser-tampon 220ms var(--ease-out) both; animation-play-state: var(--lecture, paused); }
+    @keyframes poser-tampon { from { scale: 1.25; opacity: 0; } }
+
+    /* ── 6. Ardoise de Formules : un trait de craie se trace sous la mention du haut quand l'ardoise est à l'écran, une seule fois (600 ms). ── */
+    html.anime-pret .planche-ardoise .craie { animation: tracer-trait 600ms var(--ease-out) backwards; animation-play-state: var(--lecture, paused); }
+
+    /* Bouton « Arrêter les animations » : les boucles s'arrêtent, les dessins restent complets ; ce qui ne joue qu'une fois s'affiche entier. */
+    html.ambiance-coupee :is(.etape, .pas) .geste,
+    html.ambiance-coupee .planche-grenoble .soleil,
+    html.ambiance-coupee .assurances .picto--coche path,
+    html.ambiance-coupee .tampon,
+    html.ambiance-coupee .planche-ardoise .craie { animation: none !important; }
+}
+@media print {
+    :is(.etape, .pas) .geste, .planche-grenoble .soleil, .assurances .picto--coche path, .tampon, .planche-ardoise .craie { animation: none !important; }
+}
+
+/* ajouts-deroule-scenes.css */
+/* ── deroule-scenes ── */
+/* Page « Comment ça se passe » : chaque étape montre ce que le visiteur verra à ce moment-là.
+   1 : le questionnaire sur un téléphone. 2 : le site en cours de construction (croquis qui devient le site).
+   3 : l'aperçu terminé et son ticket. 4 : le site en ligne, à son adresse, sur ordinateur et téléphone.
+   Les écrans sont posés droits. Tout est préfixé par .page-deroule ou porté par des classes propres à ces scènes. */
+
+.pas__scene { width: min(100%, 430px); }
+.pas__scene-dans { position: relative; aspect-ratio: 5 / 4.2; }
+.pas__scene-dans::before {
+    content: "";
+    position: absolute;
+    inset: 9% 0 0 9%;
+    border-radius: var(--rayon-grand);
+    background: var(--papier-lait);
+}
+.pas__scene figcaption { margin-top: 12px; color: var(--encre-douce); font-size: var(--taille-petit); }
+
+/* Mot manuscrit posé dans la scène. */
+.pas__scene-mot {
+    position: absolute;
+    margin: 0;
+    color: var(--bleu);
+    font-family: var(--police-main);
+    font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+    line-height: 1.15;
+    rotate: -3deg;
+}
+
+/* Le téléphone. */
+.vue-tel {
+    position: absolute;
+    padding: 6px;
+    border-radius: 24px;
+    background: var(--encre);
+    box-shadow: var(--ombre-objet);
+}
+.vue-tel img { display: block; width: 100%; aspect-ratio: 9 / 18.6; object-fit: cover; object-position: top; border-radius: 18px; }
+
+/* L'écran : une barre d'adresse, puis la page. */
+.vue-ecran {
+    position: absolute;
+    overflow: hidden;
+    border: 1px solid var(--ligne-forte);
+    border-radius: 12px;
+    background: var(--papier-blanc);
+    box-shadow: var(--ombre-objet);
+}
+.vue-ecran__barre { display: flex; align-items: center; height: 36px; padding-inline: 12px; border-bottom: 1px solid var(--ligne); background: var(--papier); }
+.vue-ecran__barre span {
+    display: block;
+    min-width: 42%;
+    height: 24px;
+    padding-inline: 12px;
+    border-radius: 12px;
+    background: var(--papier-lait);
+    color: var(--encre);
+    font-size: 0.9375rem;
+    line-height: 24px;
+    white-space: nowrap;
+}
+.vue-ecran__page { position: relative; aspect-ratio: 1200 / 750; }
+.vue-ecran__page img { position: relative; display: block; width: 100%; height: 100%; }
+
+/* Étape 1 : le téléphone à gauche, le mot à droite. */
+.pas__scene--un .vue-tel { left: 14%; top: 0; width: 40%; }
+.pas__scene--un .pas__scene-mot { left: 61%; top: 42%; width: 36%; }
+
+/* Étape 2 : la semaine au calendrier, jours barrés, et le message qui arrive (l'enveloppe). */
+.pas__scene--deux .pas__scene-dans { aspect-ratio: 440 / 300; }
+.pas__scene--deux .semaine { position: absolute; left: 0; top: 0; width: 94%; height: auto; color: var(--encre); }
+.pas__scene--deux .pas__scene-mot { left: 10%; top: 62%; }
+
+/* Étape 3 : seulement le ticket des trois formules, posé sur le fond café au lait. */
+.pas__scene--trois .pas__scene-dans { aspect-ratio: auto; padding: clamp(20px, 3vw, 32px) 0 clamp(16px, 2vw, 24px) clamp(20px, 4vw, 40px); }
+.pas__scene--trois .ticket-pose { position: relative; width: min(100%, 360px); rotate: -1.5deg; }
+
+/* Étape 4 : le site à son adresse, et le même sur téléphone. */
+.pas__scene--quatre .vue-ecran { left: 0; top: 4%; width: 88%; }
+.pas__scene--quatre .vue-tel { right: 2%; bottom: 0; width: 27%; }
+
+/* Au défilement, les jours de la semaine se barrent l'un après l'autre (de gauche à droite), puis l'enveloppe est là.
+   Sans prise en charge ou en mouvement réduit : les six jours barrés, immobiles. */
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+        .semaine .croix { animation: barrer-jour linear both; animation-timeline: view(); }
+        .semaine .croix--1 { animation-range: cover 16% cover 20%; }
+        .semaine .croix--2 { animation-range: cover 21% cover 25%; }
+        .semaine .croix--3 { animation-range: cover 26% cover 30%; }
+        .semaine .croix--4 { animation-range: cover 31% cover 35%; }
+        .semaine .croix--5 { animation-range: cover 36% cover 40%; }
+        .semaine .croix--6 { animation-range: cover 41% cover 45%; }
+        @keyframes barrer-jour { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+    }
+}
+
+@media (min-width: 900px) {
+    /* Colonne de gauche : le titre, puis la scène ; à droite, les trois rôles sur toute la hauteur. */
+    .page-deroule .pas { grid-template-rows: auto 1fr; }
+    .page-deroule .pas__titre { grid-column: 1; grid-row: 1; grid-template-columns: 68px minmax(0, 1fr); align-items: center; gap: 20px; }
+    .page-deroule .pas__scene { grid-column: 1; grid-row: 2; margin-top: 10px; }
+    .page-deroule .pas__roles { grid-column: 2; grid-row: 1 / span 2; }
+
+    /* Le petit dessin retrouve sa pastille à côté du titre : la scène a pris la place du grand dessin. */
+    .page-deroule .pas__titre .etape__dessin {
+        order: 0;
+        width: 68px;
+        height: 68px;
+        margin-top: 0;
+        border-radius: 50%;
+        background: var(--papier-lait);
+    }
+    .page-deroule .pas__titre .etape__dessin svg { width: 40px; height: 40px; stroke-width: 2.6; }
+    .page-deroule .pas .picto--tasse { --montee: -3px; }
+    .page-deroule .pas .geste { --saut: -3px; }
+    .page-deroule .pas:has(+ .pas--decoupe) { padding-bottom: calc(clamp(32px, 5vw, 56px) + 14px); }
+}
+
+@media (max-width: 899.98px) {
+    .pas__scene { margin-block: 6px 4px; }
+}
+
+@media print {
+    .semaine .croix { animation: none; }
+}
+
+/* ajouts-film.css */
+/* ── film ── */
+/* Accueil : la vidéo de présentation, dans la section « Comment ça se passe », sous les quatre étapes.
+   Elle prolonge la section au lieu d'en ouvrir une : texte et lien à gauche, écran à droite, posé sur un fond café au lait
+   comme la scène du haut de page. Son affiche reprend les quatre dessins des étapes, reliés par le même fil pointillé.
+   L'affiche est un vrai bouton ; js/site.js la montre et lance la lecture ; sans script, la vidéo garde ses commandes. */
+
+.film { display: grid; gap: 28px; margin-top: clamp(44px, 6vw, 80px); }
+/* Tant que le fichier vidéo manque, la section porte l'attribut hidden dans les pages : le retirer quand assets/video/presentation.mp4 existe. */
+.film[hidden] { display: none; }
+.film__texte p { margin-top: 10px; }
+.film__texte p:last-child { margin-top: 18px; }
+
+.film__cadre { position: relative; margin: 0; padding: 0 clamp(12px, 2.4vw, 28px) clamp(12px, 2.4vw, 28px) 0; }
+.film__cadre::before {
+    content: "";
+    position: absolute;
+    inset: clamp(12px, 2.4vw, 28px) 0 0 clamp(12px, 2.4vw, 28px);
+    border-radius: var(--rayon-grand);
+    background: var(--papier-lait);
+}
+.film__ecran {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--ligne-forte);
+    border-radius: var(--rayon);
+    background: var(--encre);
+    box-shadow: var(--ombre-objet);
+}
+.film__video { display: block; width: 100%; height: 100%; object-fit: contain; background: var(--encre); }
+.film__video:focus-visible { outline: 3px solid var(--bleu); outline-offset: -3px; }
+
+/* L'affiche : les quatre dessins sur leur fil, puis le bouton de lecture et son nom. */
+.film__affiche {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: clamp(14px, 3vw, 36px);
+    width: 100%;
+    padding: 7% 9% 8%;
+    border: 0;
+    background: var(--papier-blanc);
+    color: var(--encre);
+    font: inherit;
+    cursor: pointer;
+}
+.film__affiche[hidden] { display: none; }
+.film__affiche:focus-visible { outline: 3px solid var(--bleu); outline-offset: -6px; }
+
+.film__pictos { position: relative; display: flex; justify-content: space-between; width: 100%; }
+.film__pictos::before {
+    content: "";
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    top: 50%;
+    border-top: 2px dashed var(--ligne-forte);
+}
+.film__picto {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: clamp(46px, 7.4vw, 92px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--papier-lait);
+}
+.film__picto svg { width: 60%; height: 60%; }
+
+.film__bas { display: flex; align-items: center; gap: clamp(12px, 1.6vw, 18px); }
+.film__jouer {
+    display: grid;
+    place-items: center;
+    width: clamp(52px, 6vw, 72px);
+    aspect-ratio: 1;
+    border: 2px solid var(--bleu-fonce);
+    border-radius: 50%;
+    background: var(--bleu);
+    color: var(--papier-blanc);
+    box-shadow: 0 4px 0 var(--bleu-fonce);
+    transition: background-color var(--duree) var(--ease-out), scale var(--survol) var(--ease-out);
+}
+.film__jouer svg { width: 44%; height: 44%; translate: 6% 0; }   /* le triangle paraît centré quand il penche vers la droite */
+.film__libelle {
+    font-family: var(--police-titre);
+    font-size: clamp(1.0625rem, 0.95rem + 0.6vw, 1.375rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .film__affiche:hover .film__jouer { background-color: var(--bleu-survol); }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .film__affiche:hover .film__jouer { scale: 1.06; }
+}
+.film__affiche:active .film__jouer { scale: 0.97; }
+
+@media (min-width: 900px) {
+    .film { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(36px, 5vw, 72px); align-items: center; }
+}
+
+@media print {
+    .film__cadre { display: none; }
+}
+
+/* ajouts-scene-droite.css */
+/* ── scene-droite ── */
+/* Haut de l'accueil : la tablette, le téléphone et le ticket sont posés droits (choix de l'opérateur, 16/11/2026) ;
+   penchés chacun dans un sens, ils donnaient une impression de fouillis. Au survol, le ticket se soulève sans pencher. */
+.scene .scene__ecran,
+.scene .telephone,
+.scene .ticket-pose { rotate: 0deg; }
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .scene .ticket-pose:hover { rotate: 0deg; translate: 0 -4px; }
+}

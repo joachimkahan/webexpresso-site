@@ -1,7 +1,7 @@
 <!--
-titre: WebExpresso: your website in one week, from €200
+titre: WebExpresso: websites for freelancers and small businesses, from €200
 titre-seul: oui
-description: WebExpresso builds websites for craftspeople, shopkeepers and the self-employed. Free preview before you pay, three plans from €200, and you always keep your site.
+description: Websites for the self-employed, freelancers, tradespeople and small businesses. Free preview before you pay, three plans from €200, and you always keep your site.
 menu: accueil
 classe: page-accueil
 -->
@@ -9,7 +9,7 @@ classe: page-accueil
     <div class="cadre accueil-haut__grille">
         <div>
             <h1>See your website before you pay for it.</h1>
-            <p class="accroche">You answer a few questions about your business. In under a week, we show you your website, for free. If you like it, it is yours from €200.</p>
+            <p class="accroche">Self-employed, freelancer, tradesperson or small business: you answer a few questions about your business. In under a week, we show you your website, for free. If you like it, it is yours from €200.</p>
             <div class="actions">
                 <a class="bouton" href="{{racine}}questionnaire/en/index.html">Get started for free</a>
                 <a class="bouton bouton--clair" href="formules.html">See the plans and prices</a>
@@ -81,7 +81,27 @@ classe: page-accueil
                 <span class="etiquette etiquette--trait">Ready to use</span>
             </li>
         </ol>
-        <p class="suite"><a class="lien-suite" href="comment-ca-se-passe.html">See the steps in detail</a></p>
+        <div class="film" hidden>
+            <div class="film__texte">
+                <h3>The steps, on video</h3>
+                <p>A short animated presentation of the four steps, from your answers to the questionnaire to your website online.</p>
+                <p><a class="lien-suite" href="comment-ca-se-passe.html">See the steps in detail</a></p>
+            </div>
+            <figure class="film__cadre" data-a-fournir="presentation video (English)">
+                <div class="film__ecran">
+                    <video class="film__video" controls preload="none" playsinline width="1920" height="1080">
+                        <source src="{{racine}}assets/video/presentation-en.mp4" type="video/mp4">
+                    </video>
+                    <button class="film__affiche" type="button" data-film hidden>
+                        <span class="film__pictos" aria-hidden="true"><span class="film__picto">{{inclure:picto-tasse}}</span><span class="film__picto">{{inclure:picto-calendrier}}</span><span class="film__picto">{{inclure:picto-ticket}}</span><span class="film__picto">{{inclure:picto-cle}}</span></span>
+                        <span class="film__bas">
+                            <span class="film__jouer" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.4-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z"/></svg></span>
+                            <span class="film__libelle">Watch the presentation</span>
+                        </span>
+                    </button>
+                </div>
+            </figure>
+        </div>
     </div>
 </section>
 
@@ -90,7 +110,7 @@ classe: page-accueil
         <div class="carte">
             <div class="carte__titre">
                 <h2>The plans</h2>
-                <p>Three ways to have your website.</p>
+                <p>The price of your website, in three plans.</p>
             </div>
             <div class="carte__liste">
                 <div class="formule-ligne">
@@ -197,7 +217,7 @@ classe: page-accueil
     <div class="cadre equipe">
         <div class="equipe__texte">
             <h2>Behind WebExpresso, students.</h2>
-            <p class="accroche">We study at an engineering school, Grenoble INP, and at a business school. WebExpresso is the project we run alongside our studies.</p>
+            <p class="accroche">We study at an engineering school, Grenoble INP, and at a business school. WebExpresso is the project we run alongside our studies. We build websites from Grenoble, for the self-employed, freelancers, tradespeople and small businesses all over France.</p>
             <p>We have no offices and no employees to pay: that is why our prices stay low. This project also helps us learn our future trade, one more reason to take care over every site.</p>
             <div class="actions">
                 <a class="bouton" href="qui-sommes-nous.html">Get to know us</a>

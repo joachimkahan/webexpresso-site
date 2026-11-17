@@ -1,7 +1,7 @@
 <!--
-titre: WebExpresso : votre site internet en une semaine, dès 200 €
+titre: WebExpresso : création de site internet pour indépendants, dès 200 €
 titre-seul: oui
-description: WebExpresso crée le site internet des artisans, commerçants et indépendants. Aperçu gratuit avant de payer, trois formules dès 200 €, et vous gardez toujours votre site.
+description: Création de site internet pour auto-entrepreneurs, freelances, artisans et petites entreprises. Aperçu gratuit avant de payer, formules dès 200 €, et le site reste à vous.
 menu: accueil
 classe: page-accueil
 -->
@@ -9,7 +9,7 @@ classe: page-accueil
     <div class="cadre accueil-haut__grille">
         <div>
             <h1>Voyez votre site avant de le payer.</h1>
-            <p class="accroche">Vous répondez à quelques questions sur votre activité. En moins d'une semaine, nous vous montrons votre site, gratuitement. S'il vous plaît, il est à vous à partir de 200&nbsp;€.</p>
+            <p class="accroche">Auto-entrepreneur, freelance, artisan ou petite entreprise, vous répondez à quelques questions sur votre activité. En moins d'une semaine, nous vous montrons votre site internet, gratuitement. S'il vous plaît, il est à vous à partir de 200&nbsp;€.</p>
             <div class="actions">
                 <a class="bouton" href="{{racine}}questionnaire/index.html">Commencer gratuitement</a>
                 <a class="bouton bouton--clair" href="{{racine}}formules.html">Voir les formules et les prix</a>
@@ -81,7 +81,27 @@ classe: page-accueil
                 <span class="etiquette etiquette--trait">Clé en main</span>
             </li>
         </ol>
-        <p class="suite"><a class="lien-suite" href="{{racine}}comment-ca-se-passe.html">Voir le déroulé en détail</a></p>
+        <div class="film" hidden>
+            <div class="film__texte">
+                <h3>Le déroulé, en vidéo</h3>
+                <p>Une courte présentation animée des quatre étapes, de vos réponses au questionnaire à votre site en ligne.</p>
+                <p><a class="lien-suite" href="{{racine}}comment-ca-se-passe.html">Voir le déroulé en détail</a></p>
+            </div>
+            <figure class="film__cadre" data-a-fournir="vidéo de présentation">
+                <div class="film__ecran">
+                    <video class="film__video" controls preload="none" playsinline width="1920" height="1080">
+                        <source src="{{racine}}assets/video/presentation.mp4" type="video/mp4">
+                    </video>
+                    <button class="film__affiche" type="button" data-film hidden>
+                        <span class="film__pictos" aria-hidden="true"><span class="film__picto">{{inclure:picto-tasse}}</span><span class="film__picto">{{inclure:picto-calendrier}}</span><span class="film__picto">{{inclure:picto-ticket}}</span><span class="film__picto">{{inclure:picto-cle}}</span></span>
+                        <span class="film__bas">
+                            <span class="film__jouer" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.4-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z"/></svg></span>
+                            <span class="film__libelle">Regarder la présentation</span>
+                        </span>
+                    </button>
+                </div>
+            </figure>
+        </div>
     </div>
 </section>
 
@@ -90,7 +110,7 @@ classe: page-accueil
         <div class="carte">
             <div class="carte__titre">
                 <h2>Les formules</h2>
-                <p>Trois façons d'avoir votre site.</p>
+                <p>Le prix de votre site internet, en trois formules.</p>
             </div>
             <div class="carte__liste">
                 <div class="formule-ligne">
@@ -197,7 +217,7 @@ classe: page-accueil
     <div class="cadre equipe">
         <div class="equipe__texte">
             <h2>Derrière WebExpresso, des étudiants.</h2>
-            <p class="accroche">Nous étudions en école d'ingénieurs, à Grenoble INP, et en école de commerce. WebExpresso est le projet que nous menons à côté de nos études.</p>
+            <p class="accroche">Nous étudions en école d'ingénieurs, à Grenoble INP, et en école de commerce. WebExpresso est le projet que nous menons à côté de nos études. Nous créons des sites internet depuis Grenoble, pour des auto-entrepreneurs, des freelances, des artisans et des petites entreprises, partout en France.</p>
             <p>Nous n'avons ni bureaux ni salariés à payer&nbsp;: c'est pour cela que nos prix restent bas. Ce projet nous sert aussi à apprendre notre futur métier, une raison de plus de soigner chaque site.</p>
             <div class="actions">
                 <a class="bouton" href="{{racine}}qui-sommes-nous.html">Faire connaissance</a>

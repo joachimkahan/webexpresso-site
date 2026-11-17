@@ -1,0 +1,108 @@
+/* ── film ── */
+/* Accueil : la vidéo de présentation, dans la section « Comment ça se passe », sous les quatre étapes.
+   Elle prolonge la section au lieu d'en ouvrir une : texte et lien à gauche, écran à droite, posé sur un fond café au lait
+   comme la scène du haut de page. Son affiche reprend les quatre dessins des étapes, reliés par le même fil pointillé.
+   L'affiche est un vrai bouton ; js/site.js la montre et lance la lecture ; sans script, la vidéo garde ses commandes. */
+
+.film { display: grid; gap: 28px; margin-top: clamp(44px, 6vw, 80px); }
+/* Tant que le fichier vidéo manque, la section porte l'attribut hidden dans les pages : le retirer quand assets/video/presentation.mp4 existe. */
+.film[hidden] { display: none; }
+.film__texte p { margin-top: 10px; }
+.film__texte p:last-child { margin-top: 18px; }
+
+.film__cadre { position: relative; margin: 0; padding: 0 clamp(12px, 2.4vw, 28px) clamp(12px, 2.4vw, 28px) 0; }
+.film__cadre::before {
+    content: "";
+    position: absolute;
+    inset: clamp(12px, 2.4vw, 28px) 0 0 clamp(12px, 2.4vw, 28px);
+    border-radius: var(--rayon-grand);
+    background: var(--papier-lait);
+}
+.film__ecran {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--ligne-forte);
+    border-radius: var(--rayon);
+    background: var(--encre);
+    box-shadow: var(--ombre-objet);
+}
+.film__video { display: block; width: 100%; height: 100%; object-fit: contain; background: var(--encre); }
+.film__video:focus-visible { outline: 3px solid var(--bleu); outline-offset: -3px; }
+
+/* L'affiche : les quatre dessins sur leur fil, puis le bouton de lecture et son nom. */
+.film__affiche {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: clamp(14px, 3vw, 36px);
+    width: 100%;
+    padding: 7% 9% 8%;
+    border: 0;
+    background: var(--papier-blanc);
+    color: var(--encre);
+    font: inherit;
+    cursor: pointer;
+}
+.film__affiche[hidden] { display: none; }
+.film__affiche:focus-visible { outline: 3px solid var(--bleu); outline-offset: -6px; }
+
+.film__pictos { position: relative; display: flex; justify-content: space-between; width: 100%; }
+.film__pictos::before {
+    content: "";
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    top: 50%;
+    border-top: 2px dashed var(--ligne-forte);
+}
+.film__picto {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: clamp(46px, 7.4vw, 92px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--papier-lait);
+}
+.film__picto svg { width: 60%; height: 60%; }
+
+.film__bas { display: flex; align-items: center; gap: clamp(12px, 1.6vw, 18px); }
+.film__jouer {
+    display: grid;
+    place-items: center;
+    width: clamp(52px, 6vw, 72px);
+    aspect-ratio: 1;
+    border: 2px solid var(--bleu-fonce);
+    border-radius: 50%;
+    background: var(--bleu);
+    color: var(--papier-blanc);
+    box-shadow: 0 4px 0 var(--bleu-fonce);
+    transition: background-color var(--duree) var(--ease-out), scale var(--survol) var(--ease-out);
+}
+.film__jouer svg { width: 44%; height: 44%; translate: 6% 0; }   /* le triangle paraît centré quand il penche vers la droite */
+.film__libelle {
+    font-family: var(--police-titre);
+    font-size: clamp(1.0625rem, 0.95rem + 0.6vw, 1.375rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .film__affiche:hover .film__jouer { background-color: var(--bleu-survol); }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .film__affiche:hover .film__jouer { scale: 1.06; }
+}
+.film__affiche:active .film__jouer { scale: 0.97; }
+
+@media (min-width: 900px) {
+    .film { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(36px, 5vw, 72px); align-items: center; }
+}
+
+@media print {
+    .film__cadre { display: none; }
+}
