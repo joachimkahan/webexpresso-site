@@ -72,7 +72,7 @@ Morceaux disponibles (`_source/morceaux/`) :
 | `planche-carnet` | Grand dessin d'un carnet | Haut de la page Comment ça se passe |
 | `planche-grenoble` | Grand dessin de montagnes et de télécabines (Grenoble) | Haut de la page Qui sommes-nous |
 | `planche-enveloppe` | Grand dessin d'une enveloppe, classe `planche-enveloppe` | Haut de la page Nous écrire |
-| `portraits` | Les deux portraits des fondateurs | Accueil, Qui sommes-nous |
+| `portraits` | Le portrait du développeur (Joachim) | Accueil, Qui sommes-nous |
 | `bandeau-fin` | Dernière section commune : « On commence ? » | Voir ci-dessous |
 
 `assets/motif-comptoir.svg` n'est pas un morceau : c'est la tuile du papier peint du comptoir (cinq petits dessins, 180 px), employée seulement par `css/site.css` comme masque (voir le motif du comptoir, section 4).
