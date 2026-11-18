@@ -27,7 +27,7 @@
 <main class="contenu" id="contenu">
 <div class="intro">
 <h1 data-t="titre">Démarrer mon projet</h1>
-<p class="intro-texte" data-t="intro">Une vingtaine de questions en six étapes : comptez une vingtaine de minutes. Nous construisons votre site à partir de vos réponses : chaque question y décide de quelque chose. Si vous hésitez, laissez vide ou choisissez « Conseillez-moi » : nous en parlerons ensemble.</p>
+<p class="intro-texte" data-t="intro">Une vingtaine de questions en six étapes : prévoyez une vingtaine de minutes. Nous construisons votre site à partir de vos réponses : chacune compte. Si vous hésitez, laissez vide ou choisissez « Conseillez-moi » : nous en parlerons ensemble.</p>
 <p class="note" data-t="note">Vos réponses restent dans ce navigateur, sur cet appareil, jusqu&#x27;à l&#x27;envoi : vous pouvez fermer la page et reprendre plus tard.</p>
 <div class="brouillon" id="brouillon" role="status" hidden><p id="brouillon-message"></p><button type="button" class="bouton bouton-second" id="effacer"><span data-t="effacer">Effacer mes réponses</span></button></div>
 </div>
@@ -135,7 +135,7 @@
 <p class="erreur" id="site_actuel_a_changer-erreur"></p>
 </div>
 <div class="champ">
-<label for="domaine"><span data-t="domaine.label">Nom de domaine que vous possédez déjà, s&#x27;il y en a un</span></label>
+<label for="domaine"><span data-t="domaine.label">Adresse de site que vous possédez déjà (nom de domaine), s&#x27;il y en a une</span></label>
 <p class="exemple" id="domaine-exemple" data-t="domaine.exemple">Ex. : atelier-dupont.fr</p>
 <input id="domaine" name="domaine" aria-describedby="domaine-exemple domaine-erreur" type="text" data-type="texte">
 <p class="erreur" id="domaine-erreur"></p>
@@ -479,22 +479,22 @@
 </section>
 <section class="question" id="q16" aria-labelledby="q16-titre">
 <h3 id="q16-titre"><span class="question-numero">16</span> <span data-t="q16.titre">Qui fera vivre le site</span></h3>
-<p class="aide" data-t="q16.aide">Vous gardez toujours votre site (copie figée) si vous arrêtez ; aucun frais d&#x27;annulation après 3 mois (mensualités restantes dues si arrêt avant 3 mois ; mois déjà payés cumulables en cas de reprise vers le seuil de 12 mois). Hébergement GitHub Pages et nom de domaine (~10–15 €/an) restent à votre nom et charge. Préférez l&#x27;espace pro dès le départ, sans abonnement ? Sur demande : 500 €.</p>
+<p class="aide" data-t="q16.aide">Vous gardez toujours votre site si vous arrêtez : il reste en ligne, tel qu&#x27;il est. Après les 3 premiers mois, l&#x27;arrêt est sans frais ; si vous arrêtez avant, ce qui reste à payer de ces 3 mois reste dû. Si vous reprenez plus tard, les mois déjà payés comptent : après 12 mois d&#x27;abonnement au total, l&#x27;espace pro est à vous pour toujours. L&#x27;adresse du site (environ 10 à 15 € par an) et son hébergement sont à votre nom et à votre charge. Vous préférez l&#x27;espace pro dès le départ, sans abonnement ? Possible, sur demande : 500 €.</p>
 <fieldset class="champ groupe" id="gestion" data-groupe="gestion" data-type="choix" aria-describedby="gestion-erreur">
-<legend><span data-t="gestion.label">Formule envisagée (grille novembre 2026)</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></legend>
+<legend><span data-t="gestion.label">Formule envisagée</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></legend>
 
 <div class="options">
-<label class="option" for="gestion-webexpresso"><input type="radio" id="gestion-webexpresso" name="gestion" value="webexpresso" required> <span data-t="gestion.webexpresso">Essentiel : 200 €, paiement unique (site fixe, pas d&#x27;espace privé)</span></label>
-<label class="option" for="gestion-moi"><input type="radio" id="gestion-moi" name="gestion" value="moi" required> <span data-t="gestion.moi">Autonome + évolutions : 200 € + 30 €/mois, engagement 3 mois min. (290 € min. ; espace pro + 2 petites demandes/mois &lt; 30 min + 1 évolution/trimestre sous 5 à 10 j ouvrés)</span></label>
-<label class="option" for="gestion-accompagnement"><input type="radio" id="gestion-accompagnement" name="gestion" value="accompagnement" required> <span data-t="gestion.accompagnement">Autonome + accompagnement commercial/marketing : 250 € + 50 €/mois, engagement 3 mois min. (400 € min. ; conseiller dédié : 1 point mensuel + 2 publications/mois + mise à jour du site, zéro promesse de résultat)</span></label>
-<label class="option" for="gestion-autonome_vie"><input type="radio" id="gestion-autonome_vie" name="gestion" value="autonome_vie" required> <span data-t="gestion.autonome_vie">Sur demande (hors vitrine) : Autonome avec espace pro à vie, 500 €, paiement unique (hors hébergement GitHub Pages et domaine à votre charge)</span></label>
+<label class="option" for="gestion-webexpresso"><input type="radio" id="gestion-webexpresso" name="gestion" value="webexpresso" required> <span data-t="gestion.webexpresso">Essentiel : 200 €, paiement unique (votre site, sans espace privé ni abonnement)</span></label>
+<label class="option" for="gestion-moi"><input type="radio" id="gestion-moi" name="gestion" value="moi" required> <span data-t="gestion.moi">Autonome + évolutions : 200 € puis 30 € par mois, engagement de 3 mois minimum (290 € au minimum). Comprend l&#x27;espace pro, 2 petites demandes par mois (moins de 30 minutes chacune) et 1 ajout plus important tous les 3 mois, en 5 à 10 jours ouvrés environ</span></label>
+<label class="option" for="gestion-accompagnement"><input type="radio" id="gestion-accompagnement" name="gestion" value="accompagnement" required> <span data-t="gestion.accompagnement">Autonome + accompagnement : 250 € puis 50 € par mois, engagement de 3 mois minimum (400 € au minimum). Comprend l&#x27;espace pro et un conseiller : 1 point par mois, 2 publications préparées par mois, vos offres et vos actualités mises à jour sur le site. Sans promesse de résultat</span></label>
+<label class="option" for="gestion-autonome_vie"><input type="radio" id="gestion-autonome_vie" name="gestion" value="autonome_vie" required> <span data-t="gestion.autonome_vie">Sur demande : Autonome avec l&#x27;espace pro dès le départ, 500 €, paiement unique (l&#x27;adresse et l&#x27;hébergement du site restent à votre charge)</span></label>
 <label class="option" for="gestion-conseil"><input type="radio" id="gestion-conseil" name="gestion" value="conseil" required> <span data-t="gestion.conseil">Je ne sais pas encore, conseillez-moi</span></label>
 </div>
 <p class="erreur" id="gestion-erreur"></p>
 </fieldset>
 <fieldset class="champ groupe" id="groupe-gestion_quoi" data-si="gestion" data-si-valeurs="moi accompagnement autonome_vie conseil" data-groupe="gestion_quoi" data-type="cases" aria-describedby="groupe-gestion_quoi-aide groupe-gestion_quoi-erreur">
 <legend><span data-t="groupe-gestion_quoi.label">Ce que vous voudriez modifier vous-même</span></legend>
-<p class="aide" id="groupe-gestion_quoi-aide" data-t="groupe-gestion_quoi.aide">Ce sont les listes que vous pourrez changer depuis votre espace. Les horaires et les textes de présentation passent par nous.</p>
+<p class="aide" id="groupe-gestion_quoi-aide" data-t="groupe-gestion_quoi.aide">Ce sont les listes que vous pourrez changer vous-même depuis votre espace privé (l&#x27;espace pro). Les horaires et les textes de présentation passent par nous.</p>
 <div class="options">
 <label class="option" for="gestion_quoi_prestations"><input type="checkbox" id="gestion_quoi_prestations" name="gestion_quoi_prestations" value="oui"> <span data-t="gestion_quoi_prestations.label">Prestations et prix</span></label>
 <label class="option" for="gestion_quoi_realisations"><input type="checkbox" id="gestion_quoi_realisations" name="gestion_quoi_realisations" value="oui"> <span data-t="gestion_quoi_realisations.label">Réalisations : photos et textes</span></label>
@@ -570,7 +570,7 @@
 <h3 id="q19-titre"><span class="question-numero">19</span> <span data-t="q19.titre">Ce qui existe déjà</span></h3>
 <fieldset class="champ groupe" id="groupe-identite" data-groupe="identite" data-type="cases" aria-describedby="groupe-identite-aide groupe-identite-erreur">
 <legend><span data-t="groupe-identite.label">Vous avez déjà</span></legend>
-<p class="aide" id="groupe-identite-aide" data-t="groupe-identite.aide">Les fichiers (logo, charte) se déposent dans le dossier partagé, à l&#x27;étape 6.</p>
+<p class="aide" id="groupe-identite-aide" data-t="groupe-identite.aide">Les fichiers (logo, charte graphique) se déposent dans le dossier partagé, à l&#x27;étape 6.</p>
 <div class="options">
 <label class="option" for="identite_logo"><input type="checkbox" id="identite_logo" name="identite_logo" value="oui"> <span data-t="identite_logo.label">Un logo</span></label>
 <label class="option" for="identite_couleurs"><input type="checkbox" id="identite_couleurs" name="identite_couleurs" value="oui"> <span data-t="identite_couleurs.label">Des couleurs à respecter</span></label>
@@ -774,7 +774,7 @@
 <p data-t="donnees.court">WebExpresso utilise vos réponses pour étudier votre projet et préparer votre site. Elles sont transmises par FormSubmit, prestataire technique qui peut les traiter hors de l&#x27;Union européenne. Vous pouvez y accéder, les faire rectifier ou effacer en écrivant à webexpresso.info@gmail.com.</p>
 <p><a href="#vos-donnees"><span data-t="lien_donnees">Lire « Vos données »</span></a></p>
 </div>
-<p class="aide" data-t="q26.aide">Récapitulatif des totaux minimum : Essentiel 200 € paiement unique ; Autonome + évolutions 290 € minimum (200 € + 3 × 30 €/mois) ; Autonome + accompagnement commercial/marketing 400 € minimum (250 € + 3 × 50 €/mois) ; Sur demande 500 € paiement unique. Questionnaire et aperçu personnalisés gratuits (sans aucun acompte préalable). Vous gardez toujours votre site si vous arrêtez (hébergement GitHub Pages et domaine ~10–15 €/an à votre nom et charge). Clauses d&#x27;engagement et de résiliation à faire valider par un professionnel dans des CGV écrites.</p>
+<p class="aide" data-t="q26.aide">Totaux minimum à payer : Essentiel, 200 € en une seule fois ; Autonome + évolutions, 290 € au minimum (200 € + 3 mois à 30 €) ; Autonome + accompagnement, 400 € au minimum (250 € + 3 mois à 50 €) ; sur demande, 500 € en une seule fois. Le questionnaire et l&#x27;aperçu de votre site sont gratuits : rien à payer avant. Vous gardez toujours votre site si vous arrêtez. L&#x27;adresse du site (environ 10 à 15 € par an) et son hébergement sont à votre nom et à votre charge. Les règles d&#x27;engagement et d&#x27;arrêt seront reprises dans des conditions de vente écrites, validées par un professionnel du droit.</p>
 <div class="champ champ-case">
 <label class="option" for="confirm_exactitude"><input type="checkbox" id="confirm_exactitude" name="confirm_exactitude" value="oui" required aria-describedby="confirm_exactitude-erreur" data-type="case"> <span data-t="confirm_exactitude.label">Les informations données sont exactes, à ma connaissance.</span> <span class="requis">(<span data-t="obligatoire">obligatoire</span>)</span></label>
 <p class="erreur" id="confirm_exactitude-erreur"></p>
