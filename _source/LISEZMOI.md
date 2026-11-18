@@ -33,7 +33,7 @@ Prix, durées d'engagement, ce qui se passe à l'arrêt, petits travaux à la ca
 - le prix et la durée d'engagement se lisent côte à côte ;
 - le total minimum (290 € ou 400 €) est dit là où l'on parle d'abonnement ;
 - la phrase « Vous gardez toujours votre site si vous arrêtez. » est visible sur chaque page (elle est déjà dans le pied de page commun) ;
-- aucune promesse de résultat pour l'accompagnement (ni clients, ni visibilité, ni classement) ;
+- aucune promesse de résultat pour l'accompagnement : ne la dire qu'à deux endroits, la page Conditions de vente (détail de la formule) et « Qui sommes-nous » (engagements). Pas dans les fiches de formules, le tableau, les questions ni le questionnaire ;
 - l'offre à 500 € n'a jamais sa fiche : une seule ligne discrète, mot pour mot « Vous préférez l'espace pro dès le départ, sans abonnement ? Possible, sur demande : 500 €. »
 
 ## 3. Construire
