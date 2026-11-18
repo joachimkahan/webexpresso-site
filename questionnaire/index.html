@@ -27,7 +27,7 @@
 <main class="contenu" id="contenu">
 <div class="intro">
 <h1 data-t="titre">Démarrer mon projet</h1>
-<p class="intro-texte" data-t="intro">Une vingtaine de questions en six étapes, une dizaine de minutes. Nous construisons votre site à partir de vos réponses : chaque question y décide de quelque chose. Si vous hésitez, laissez vide ou choisissez « Conseillez-moi » : nous en parlerons ensemble.</p>
+<p class="intro-texte" data-t="intro">Une vingtaine de questions en six étapes : comptez une vingtaine de minutes. Nous construisons votre site à partir de vos réponses : chaque question y décide de quelque chose. Si vous hésitez, laissez vide ou choisissez « Conseillez-moi » : nous en parlerons ensemble.</p>
 <p class="note" data-t="note">Vos réponses restent dans ce navigateur, sur cet appareil, jusqu&#x27;à l&#x27;envoi : vous pouvez fermer la page et reprendre plus tard.</p>
 <div class="brouillon" id="brouillon" role="status" hidden><p id="brouillon-message"></p><button type="button" class="bouton bouton-second" id="effacer"><span data-t="effacer">Effacer mes réponses</span></button></div>
 </div>
@@ -389,18 +389,18 @@
 </header>
 <section class="question" id="q14" aria-labelledby="q14-titre">
 <h3 id="q14-titre"><span class="question-numero">14</span> <span data-t="q14.titre">Ce que vous pouvez nous fournir</span></h3>
-<fieldset class="champ groupe" id="groupe-contenus" data-groupe="contenus" data-type="cases" aria-describedby="groupe-contenus-erreur">
+<fieldset class="champ groupe" id="groupe-contenus" data-groupe="contenus" data-type="cases" aria-describedby="groupe-contenus-aide groupe-contenus-erreur">
 <legend><span data-t="groupe-contenus.label">Ce que vous avez déjà, ou pouvez réunir</span></legend>
-
+<p class="aide" id="groupe-contenus-aide" data-t="groupe-contenus.aide">Prenez une minute pour relire chaque ligne : c&#x27;est ici que se décide ce que contiendra votre site. Chaque case cochée ajoute une partie à votre site. Une case laissée vide, c&#x27;est une partie en moins.</p>
 <div class="options">
-<label class="option" for="contenu_realisations"><input type="checkbox" id="contenu_realisations" name="contenu_realisations" value="oui"> <span data-t="contenu_realisations.label">Des photos de réalisations</span></label>
-<label class="option" for="contenu_avant_apres"><input type="checkbox" id="contenu_avant_apres" name="contenu_avant_apres" value="oui"> <span data-t="contenu_avant_apres.label">Des photos avant / après</span></label>
-<label class="option" for="contenu_parcours"><input type="checkbox" id="contenu_parcours" name="contenu_parcours" value="oui"> <span data-t="contenu_parcours.label">Les dates clés de votre parcours</span></label>
-<label class="option" for="contenu_avis"><input type="checkbox" id="contenu_avis" name="contenu_avis" value="oui"> <span data-t="contenu_avis.label">Des avis réels de clients</span></label>
-<label class="option" for="contenu_partenaires"><input type="checkbox" id="contenu_partenaires" name="contenu_partenaires" value="oui"> <span data-t="contenu_partenaires.label">Des partenaires ou fournisseurs à citer</span></label>
-<label class="option" for="contenu_faq"><input type="checkbox" id="contenu_faq" name="contenu_faq" value="oui"> <span data-t="contenu_faq.label">Les questions qu&#x27;on vous pose souvent</span></label>
-<label class="option" for="contenu_etapes"><input type="checkbox" id="contenu_etapes" name="contenu_etapes" value="oui"> <span data-t="contenu_etapes.label">Les étapes de votre façon de travailler</span></label>
-<label class="option" for="contenu_horaires"><input type="checkbox" id="contenu_horaires" name="contenu_horaires" value="oui"> <span data-t="contenu_horaires.label">Des horaires d&#x27;ouverture</span></label>
+<label class="option" for="contenu_realisations"><input type="checkbox" id="contenu_realisations" name="contenu_realisations" value="oui"> <span data-t="contenu_realisations.label">Des photos de réalisations : une galerie de vos travaux</span></label>
+<label class="option" for="contenu_avant_apres"><input type="checkbox" id="contenu_avant_apres" name="contenu_avant_apres" value="oui"> <span data-t="contenu_avant_apres.label">Des photos avant / après : une partie qui compare avant et après</span></label>
+<label class="option" for="contenu_parcours"><input type="checkbox" id="contenu_parcours" name="contenu_parcours" value="oui"> <span data-t="contenu_parcours.label">Les dates clés de votre parcours : une frise de votre histoire</span></label>
+<label class="option" for="contenu_avis"><input type="checkbox" id="contenu_avis" name="contenu_avis" value="oui"> <span data-t="contenu_avis.label">Des avis réels de clients : une partie « Avis »</span></label>
+<label class="option" for="contenu_partenaires"><input type="checkbox" id="contenu_partenaires" name="contenu_partenaires" value="oui"> <span data-t="contenu_partenaires.label">Des partenaires ou fournisseurs à citer : leurs noms sur votre site</span></label>
+<label class="option" for="contenu_faq"><input type="checkbox" id="contenu_faq" name="contenu_faq" value="oui"> <span data-t="contenu_faq.label">Les questions qu&#x27;on vous pose souvent : une partie questions-réponses</span></label>
+<label class="option" for="contenu_etapes"><input type="checkbox" id="contenu_etapes" name="contenu_etapes" value="oui"> <span data-t="contenu_etapes.label">Les étapes de votre façon de travailler : votre méthode pas à pas</span></label>
+<label class="option" for="contenu_horaires"><input type="checkbox" id="contenu_horaires" name="contenu_horaires" value="oui"> <span data-t="contenu_horaires.label">Des horaires d&#x27;ouverture : vos horaires et infos pratiques</span></label>
 </div>
 <p class="erreur" id="groupe-contenus-erreur"></p>
 </fieldset>
