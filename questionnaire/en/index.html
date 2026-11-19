@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;self&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; form-action &#x27;self&#x27; https://submit-form.com; base-uri &#x27;none&#x27;">
+<meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;self&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src https://firebasestorage.googleapis.com; form-action &#x27;self&#x27; https://submit-form.com; base-uri &#x27;none&#x27;">
 <meta name="robots" content="noindex">
 <title>Start my project | WebExpresso</title>
 <link rel="alternate" hreflang="fr" href="../">
@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../css/questionnaire.css">
 <script src="../js/active.js"></script>
 <script type="module" src="../js/questionnaire.js"></script>
+<script type="module" src="../js/depot.js"></script>
 </head>
 <body>
 <header class="bandeau">
@@ -642,14 +643,26 @@
 </header>
 <section class="question" id="q22" aria-labelledby="q22-titre">
 <h3 id="q22-titre"><span class="question-numero">22</span> <span data-t="q22.titre">Your photos and documents</span></h3>
+<div class="champ champ-depot" id="fichiers_depot-zone" data-depot data-bucket="webexpresso-depots.firebasestorage.app" data-max-fichiers="60" data-max-mo="2048">
+<p class="depot-titre" data-t="fichiers_depot.label">Your photos and videos</p>
+<p class="aide" id="fichiers_depot-aide" data-t="fichiers_depot.aide">Choose them from your phone or computer: they are sent while you finish the questionnaire. Photos, videos or PDF, up to 60 files of 2 GB each at most.</p>
+<p class="depot-sans-js" data-t="depot_sans_js">Sending files directly does not work in this browser: please give the link to a shared folder below instead.</p>
+<div class="depot-js">
+<input type="file" id="fichiers_depot-choix" class="depot-choix" multiple accept="image/*,video/*,.heic,.heif,.mov,application/pdf" aria-describedby="fichiers_depot-aide fichiers_depot-etat">
+<label for="fichiers_depot-choix" class="bouton bouton-second depot-bouton"><span data-t="depot_bouton">Add photos or videos</span></label>
+<p class="depot-etat" id="fichiers_depot-etat" role="status" aria-live="polite"></p>
+<ul class="depot-liste" id="fichiers_depot-liste"></ul>
+</div>
+<input type="hidden" id="fichiers_depot" name="fichiers_depot" value="">
+</div>
 <div class="champ">
-<label for="fichiers_lien"><span data-t="fichiers_lien.label">Link to the shared folder</span></label>
-<p class="aide" id="fichiers_lien-aide" data-t="fichiers_lien.aide">Easiest: a Google Drive folder shared with “Anyone with the link”. WeTransfer works too, but its link expires after a few days: only send it once the folder is complete.</p>
+<label for="fichiers_lien"><span data-t="fichiers_lien.label">Or the link to a shared folder</span></label>
+<p class="aide" id="fichiers_lien-aide" data-t="fichiers_lien.aide">If you prefer, or if your files are already stored online: a Google Drive folder shared with “Anyone with the link”. WeTransfer works too, but its link expires after a few days: only send it once the folder is complete.</p>
 <input id="fichiers_lien" name="fichiers_lien" aria-describedby="fichiers_lien-aide fichiers_lien-erreur" type="url" data-type="url">
 <p class="erreur" id="fichiers_lien-erreur"></p>
 </div>
 <fieldset class="champ groupe" id="groupe-fichiers_contenu" data-groupe="fichiers_contenu" data-type="cases" aria-describedby="groupe-fichiers_contenu-erreur">
-<legend><span data-t="groupe-fichiers_contenu.label">The folder contains</span></legend>
+<legend><span data-t="groupe-fichiers_contenu.label">Your files include</span></legend>
 
 <div class="options options-courtes">
 <label class="option" for="fichiers_contenu_realisations"><input type="checkbox" id="fichiers_contenu_realisations" name="fichiers_contenu_realisations" value="oui"> <span data-t="fichiers_contenu_realisations.label">Photos of your work</span></label>
@@ -770,7 +783,7 @@
 <section class="question" id="q26" aria-labelledby="q26-titre">
 <h3 id="q26-titre"><span class="question-numero">26</span> <span data-t="q26.titre">Before you send</span></h3>
 <div class="donnees-court">
-<p data-t="donnees.court">WebExpresso uses your answers to study your project and prepare your website. They are passed on by Formspark (a Belgian company storing data in the European Union, with two technical sub-processors in the United States). You can access, correct or delete them by writing to webexpresso.info@gmail.com.</p>
+<p data-t="donnees.court">WebExpresso uses your answers to study your project and prepare your website. They are passed on by Formspark (a Belgian company storing data in the European Union, with two technical sub-processors in the United States). The photos and videos you add are stored by Google Cloud, in Paris, for 30 days at most. You can access, correct or delete them by writing to webexpresso.info@gmail.com.</p>
 <p><a href="#vos-donnees"><span data-t="lien_donnees">Read “Your data”</span></a></p>
 </div>
 <p class="aide" data-t="q26.aide">Minimum commitment totals: Essential €200 one-time; Autonomous + updates €290 minimum (€200 + 3 × €30/month); Autonomous + business/marketing support €400 minimum (€250 + 3 × €50/month); On request €500 one-time. Free questionnaire and custom preview (no upfront deposit required). You always keep your website if you stop (GitHub Pages hosting &amp; domain ~€10–15/yr in your name and expense). Commitment and termination clauses to be validated by a legal professional in written T&amp;Cs.</p>
@@ -802,9 +815,9 @@
 <p data-t="donnees.p4">This page is hosted by GitHub Pages (GitHub, Inc., United States), which records visitors&#x27; IP addresses in its technical logs for the security of the service.</p>
 <p data-t="donnees.p5">How long: if no project follows, your answers are deleted no later than 3 years after your last message. If we work together, they are kept for the duration of the project, then archived for the periods required by law.</p>
 <p data-t="donnees.p6">Your rights: access, rectification, erasure, restriction, objection and portability, by writing to webexpresso.info@gmail.com. You can also give instructions on what happens to your data after your death, and lodge a complaint with the CNIL, the French data protection authority (cnil.fr).</p>
-<p data-t="donnees.p7">In your browser: until you send the questionnaire, your answers are kept only in this browser, on this device, so that you can come back later. Nothing reaches us before you send it. The “Clear my answers” button deletes them; they are cleared automatically once sent or after 30 days.</p>
+<p data-t="donnees.p7">In your browser: until you send the questionnaire, your answers are kept only in this browser, on this device, so that you can come back later. Nothing reaches us before you send it, except the photos and videos you add: they are sent as soon as you choose them. The “Clear my answers” button deletes them; they are cleared automatically once sent or after 30 days.</p>
 <p data-t="donnees.p8">Cookies: this page sets no cookies and loads no audience measurement service. When you send the questionnaire, the step through Formspark may set its own functional cookies.</p>
-<p data-t="donnees.p9">Your photos and documents stay with the sharing service you choose; we download them to prepare your website.</p>
+<p data-t="donnees.p9">Your photos and videos: the ones you add on this page are sent directly to a Google Cloud storage space (Google Cloud EMEA Limited, Ireland) located in Paris, which only WebExpresso can open; nobody else can see or list them. We copy them into your project folder, and they are deleted from Google Cloud no later than 30 days after they were sent. As Google is an American company, a request for access by United States authorities cannot be ruled out; any such transfer is covered by the EU-US Data Privacy Framework. If you give a sharing link instead, your files stay with the service you chose, and we download them to prepare your website.</p>
 </section>
 </main>
 </div>

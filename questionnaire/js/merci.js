@@ -46,6 +46,7 @@ try {
     window.localStorage.removeItem(CLE);
     if (note) note.hidden = false;
   }
+  window.localStorage.removeItem(`${CLE}:depot`); // liste des photos et vidéos envoyées (js/depot.js)
 } catch {
   // stockage indisponible : il n'y a pas de brouillon à effacer
 }

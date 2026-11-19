@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;self&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src &#x27;none&#x27;; form-action &#x27;self&#x27; https://submit-form.com; base-uri &#x27;none&#x27;">
+<meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;self&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; img-src &#x27;self&#x27;; connect-src https://firebasestorage.googleapis.com; form-action &#x27;self&#x27; https://submit-form.com; base-uri &#x27;none&#x27;">
 <meta name="robots" content="noindex">
 <title>Démarrer mon projet | WebExpresso</title>
 <link rel="alternate" hreflang="en" href="en/">
@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="css/questionnaire.css">
 <script src="js/active.js"></script>
 <script type="module" src="js/questionnaire.js"></script>
+<script type="module" src="js/depot.js"></script>
 </head>
 <body>
 <header class="bandeau">
@@ -642,14 +643,26 @@
 </header>
 <section class="question" id="q22" aria-labelledby="q22-titre">
 <h3 id="q22-titre"><span class="question-numero">22</span> <span data-t="q22.titre">Vos photos et documents</span></h3>
+<div class="champ champ-depot" id="fichiers_depot-zone" data-depot data-bucket="webexpresso-depots.firebasestorage.app" data-max-fichiers="60" data-max-mo="2048">
+<p class="depot-titre" data-t="fichiers_depot.label">Vos photos et vidéos</p>
+<p class="aide" id="fichiers_depot-aide" data-t="fichiers_depot.aide">Choisissez-les depuis votre téléphone ou votre ordinateur : elles partent pendant que vous finissez le questionnaire. Photos, vidéos ou PDF, jusqu&#x27;à 60 fichiers de 2 Go chacun au plus.</p>
+<p class="depot-sans-js" data-t="depot_sans_js">L&#x27;envoi direct de fichiers ne fonctionne pas dans ce navigateur : donnez plutôt le lien d&#x27;un dossier partagé ci-dessous.</p>
+<div class="depot-js">
+<input type="file" id="fichiers_depot-choix" class="depot-choix" multiple accept="image/*,video/*,.heic,.heif,.mov,application/pdf" aria-describedby="fichiers_depot-aide fichiers_depot-etat">
+<label for="fichiers_depot-choix" class="bouton bouton-second depot-bouton"><span data-t="depot_bouton">Ajouter des photos ou des vidéos</span></label>
+<p class="depot-etat" id="fichiers_depot-etat" role="status" aria-live="polite"></p>
+<ul class="depot-liste" id="fichiers_depot-liste"></ul>
+</div>
+<input type="hidden" id="fichiers_depot" name="fichiers_depot" value="">
+</div>
 <div class="champ">
-<label for="fichiers_lien"><span data-t="fichiers_lien.label">Lien du dossier partagé</span></label>
-<p class="aide" id="fichiers_lien-aide" data-t="fichiers_lien.aide">Le plus simple : un dossier Google Drive partagé avec « Tous les utilisateurs disposant du lien ». WeTransfer marche aussi, mais son lien expire au bout de quelques jours : envoyez-le seulement quand le dossier est complet.</p>
+<label for="fichiers_lien"><span data-t="fichiers_lien.label">Ou le lien d&#x27;un dossier partagé</span></label>
+<p class="aide" id="fichiers_lien-aide" data-t="fichiers_lien.aide">Si vous préférez, ou si vos fichiers sont déjà rangés en ligne : un dossier Google Drive partagé avec « Tous les utilisateurs disposant du lien ». WeTransfer marche aussi, mais son lien expire au bout de quelques jours : envoyez-le seulement quand le dossier est complet.</p>
 <input id="fichiers_lien" name="fichiers_lien" aria-describedby="fichiers_lien-aide fichiers_lien-erreur" type="url" data-type="url">
 <p class="erreur" id="fichiers_lien-erreur"></p>
 </div>
 <fieldset class="champ groupe" id="groupe-fichiers_contenu" data-groupe="fichiers_contenu" data-type="cases" aria-describedby="groupe-fichiers_contenu-erreur">
-<legend><span data-t="groupe-fichiers_contenu.label">Le dossier contient</span></legend>
+<legend><span data-t="groupe-fichiers_contenu.label">Vos fichiers contiennent</span></legend>
 
 <div class="options options-courtes">
 <label class="option" for="fichiers_contenu_realisations"><input type="checkbox" id="fichiers_contenu_realisations" name="fichiers_contenu_realisations" value="oui"> <span data-t="fichiers_contenu_realisations.label">Des photos de réalisations</span></label>
@@ -770,7 +783,7 @@
 <section class="question" id="q26" aria-labelledby="q26-titre">
 <h3 id="q26-titre"><span class="question-numero">26</span> <span data-t="q26.titre">Avant d&#x27;envoyer</span></h3>
 <div class="donnees-court">
-<p data-t="donnees.court">WebExpresso utilise vos réponses pour étudier votre projet et préparer votre site. Elles sont transmises par Formspark (société belge, stockage dans l&#x27;Union européenne, avec deux sous-traitants techniques aux États-Unis). Vous pouvez y accéder, les faire rectifier ou effacer en écrivant à webexpresso.info@gmail.com.</p>
+<p data-t="donnees.court">WebExpresso utilise vos réponses pour étudier votre projet et préparer votre site. Elles sont transmises par Formspark (société belge, stockage dans l&#x27;Union européenne, avec deux sous-traitants techniques aux États-Unis). Les photos et vidéos que vous ajoutez sont stockées chez Google Cloud, à Paris, 30 jours au plus. Vous pouvez y accéder, les faire rectifier ou effacer en écrivant à webexpresso.info@gmail.com.</p>
 <p><a href="#vos-donnees"><span data-t="lien_donnees">Lire « Vos données »</span></a></p>
 </div>
 <p class="aide" data-t="q26.aide">Totaux minimum à payer : Essentiel, 200 € en une seule fois ; Autonome + évolutions, 290 € au minimum (200 € + 3 mois à 30 €) ; Autonome + accompagnement, 400 € au minimum (250 € + 3 mois à 50 €) ; sur demande, 500 € en une seule fois. Le questionnaire et l&#x27;aperçu de votre site sont gratuits : rien à payer avant. Vous gardez toujours votre site si vous arrêtez. L&#x27;adresse du site (environ 10 à 15 € par an) et son hébergement sont à votre nom et à votre charge. Les règles d&#x27;engagement et d&#x27;arrêt seront reprises dans des conditions de vente écrites, validées par un professionnel du droit.</p>
@@ -802,9 +815,9 @@
 <p data-t="donnees.p4">Cette page est hébergée par GitHub Pages (GitHub, Inc., États-Unis), qui enregistre l&#x27;adresse IP des visiteurs dans ses journaux techniques, pour la sécurité du service.</p>
 <p data-t="donnees.p5">Combien de temps : si aucun projet ne suit, vos réponses sont supprimées au plus tard 3 ans après votre dernier message. Si nous travaillons ensemble, elles sont gardées le temps du projet, puis archivées pendant les délais légaux.</p>
 <p data-t="donnees.p6">Vos droits : accès, rectification, effacement, limitation, opposition et portabilité, en écrivant à webexpresso.info@gmail.com. Vous pouvez aussi donner des directives sur le sort de vos données après votre décès, et adresser une réclamation à la CNIL (cnil.fr).</p>
-<p data-t="donnees.p7">Dans votre navigateur : tant que vous n&#x27;avez pas envoyé le questionnaire, vos réponses sont gardées seulement dans ce navigateur, sur cet appareil, pour que vous puissiez reprendre plus tard. Rien ne nous parvient avant l&#x27;envoi. Le bouton « Effacer mes réponses » les supprime ; elles s&#x27;effacent d&#x27;elles-mêmes après l&#x27;envoi ou au bout de 30 jours.</p>
+<p data-t="donnees.p7">Dans votre navigateur : tant que vous n&#x27;avez pas envoyé le questionnaire, vos réponses sont gardées seulement dans ce navigateur, sur cet appareil, pour que vous puissiez reprendre plus tard. Rien ne nous parvient avant l&#x27;envoi, sauf les photos et vidéos que vous ajoutez : elles partent dès que vous les choisissez. Le bouton « Effacer mes réponses » les supprime ; elles s&#x27;effacent d&#x27;elles-mêmes après l&#x27;envoi ou au bout de 30 jours.</p>
 <p data-t="donnees.p8">Cookies : cette page ne dépose aucun cookie et ne charge aucun service de mesure d&#x27;audience. À l&#x27;envoi, le passage par Formspark peut déposer ses propres cookies de fonctionnement.</p>
-<p data-t="donnees.p9">Vos photos et documents restent chez le service de partage que vous choisissez ; nous les téléchargeons pour préparer votre site.</p>
+<p data-t="donnees.p9">Vos photos et vidéos : celles que vous ajoutez sur cette page sont envoyées directement dans un espace de stockage Google Cloud (Google Cloud EMEA Limited, Irlande) situé à Paris, que seul WebExpresso peut ouvrir ; personne d&#x27;autre ne peut les voir ni les lister. Nous les copions dans le dossier de votre projet, et elles sont effacées de Google Cloud au plus tard 30 jours après leur envoi. Google étant une société américaine, une demande d&#x27;accès des autorités des États-Unis ne peut pas être exclue ; un tel transfert est encadré par le cadre de protection des données UE-États-Unis. Si vous donnez plutôt un lien de partage, vos fichiers restent chez le service que vous avez choisi, et nous les téléchargeons pour préparer votre site.</p>
 </section>
 </main>
 </div>
