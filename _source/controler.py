@@ -140,6 +140,8 @@ def controler_page(nom: str, lectures: dict[str, Lecture]) -> tuple[list[str], l
         if re.match(r"(https?:|mailto:|tel:)", lien):
             continue
         chemin, _, ancre = lien.partition("#")
+        if chemin.endswith("/") or chemin in (".", ".."):  # lien vers un dossier : sa page index.html
+            chemin = chemin.rstrip("/") + "/index.html"
         fichier = (dossier / chemin).resolve() if chemin else (SITE / nom).resolve()
         cible = fichier.relative_to(racine).as_posix() if fichier.is_relative_to(racine) else ""
         if not fichier.is_file():

@@ -151,7 +151,7 @@ def construire() -> dict[str, str]:
         for fichier in sorted((SOURCE / dossier).glob("*.html")):
             meta, contenu = lire_page(fichier)
             titre = meta["titre"] if meta.get("titre-seul") == "oui" else f"{meta['titre']} | WebExpresso"
-            autre = vers_autre + (fichier.name if fichier.name in noms[autre_langue] else "index.html")
+            autre = vers_autre + (fichier.name if fichier.name in noms[autre_langue] and fichier.name != "index.html" else "")
             html = gabarit.replace("{{ajouts}}", lien_ajouts).replace("{{contenu}}", inclure(contenu, langue))
             html = re.sub(r"\{\{courant:([a-z-]+)\}\}", lambda m: ' aria-current="page"' if m.group(1) == meta.get("menu") else "", html)
             robots = "noindex, follow" if meta.get("robots") == "noindex" else "index, follow"
