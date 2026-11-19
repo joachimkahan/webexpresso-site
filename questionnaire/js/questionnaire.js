@@ -12,7 +12,7 @@ const messageBrouillon = document.getElementById('brouillon-message');
 const boutonEffacer = document.getElementById('effacer');
 const boutonLangue = document.querySelector('.langue-bouton');
 const conditionnels = [...form.querySelectorAll('[data-si]')];
-const SUJET = form.elements._subject.value;
+const SUJET = form.elements['_email.subject'].value;
 // Une seule clé : les noms des champs ne changent jamais d'une version à l'autre, un ancien brouillon reste lisible.
 const CLE = 'webexpresso-questionnaire';
 const DUREE_MAX = 30 * 24 * 3600 * 1000;
@@ -215,7 +215,7 @@ function appliquerLangue(l) {
   }
   if (boutonLangue) boutonLangue.lang = l === 'fr' ? 'en' : 'fr';
   form.elements.langue_formulaire.value = l;
-  form.elements._next.value = `${form.dataset.base}${l === 'en' ? 'en/' : ''}merci.html`;
+  form.elements._redirect.value = `${form.dataset.base}${l === 'en' ? 'en/' : ''}merci.html`;
   if (messageBrouillon.dataset.message) messageBrouillon.textContent = t(messageBrouillon.dataset.message);
   if (erreursAffichees.length) montrerErreurs(erreursAffichees, false);
 }
@@ -367,7 +367,7 @@ function demarrer() {
       }
     }
     const nom = form.elements.activite_nom.value.trim();
-    form.elements._subject.value = nom ? `${SUJET} : ${nom}` : SUJET;
+    form.elements['_email.subject'].value = nom ? `${SUJET} : ${nom}` : SUJET;
     // le brouillon n'est pas effacé ici : la page de confirmation s'en charge, un envoi refusé ne perd donc rien
   });
   document.querySelector('.sommaire').addEventListener('click', (ev) => {
