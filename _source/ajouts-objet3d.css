@@ -1,6 +1,6 @@
 /* ── objet3d : mise en page de la section « objet en 3D » de la page Exemples (l'intérieur de la figure est dans ajouts-objet3d-scene.css) ──
    Ordre à l'écran : titre et accroche, la tasse (avec son mot manuscrit), les deux premiers points, la bande « votre objet à partir de vos photos », la note et le lien. */
-.objet3d { display: grid; gap: clamp(28px, 5vw, 48px); grid-template-columns: minmax(0, 1fr); grid-template-areas: "tete" "planche" "bande" "fin"; }
+.objet3d { display: grid; gap: clamp(28px, 5vw, 48px); grid-template-columns: minmax(0, 1fr); grid-template-areas: "tete" "planche"; }
 .objet3d__tete { grid-area: tete; }
 .objet3d__tete h2 {
     font-size: clamp(2.25rem, 1.25rem + 3.7vw, 3.375rem);
@@ -41,7 +41,6 @@
 .objet3d__points { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(20px, 3vw, 28px); }
 .objet3d__points h3 { margin-bottom: 8px; }
 .objet3d__points p { max-width: 30em; text-wrap: pretty; }
-.objet3d__bande-texte p, .objet3d__fin > .petit { text-wrap: pretty; }
 .objet3d__traits { display: none; }
 
 @media (min-width: 700px) and (max-width: 999px) {
@@ -62,18 +61,6 @@
     .objet3d__traits .trait { stroke-width: 2.4; stroke-dasharray: 0.1 8; }
     .objet3d__traits .point { stroke-width: 7; }
 }
-
-/* La bande : un filet fin crème sur toute la largeur du cadre ; le texte à gauche, trois tirages à droite. */
-.objet3d__bande {
-    grid-area: bande;
-    display: grid;
-    gap: clamp(24px, 5vw, 40px);
-    padding-top: clamp(32px, 5vw, 56px);
-    border-top: 1px solid oklch(0.967 0.021 86 / 0.3);
-    min-width: 0;
-}
-.objet3d__bande-texte h3 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.15; margin-bottom: 12px; text-wrap: balance; }
-.objet3d__bande-texte p { max-width: 34em; }
 
 /* Les tirages : de petits papiers blancs posés de travers, leur mot écrit dans la marge du bas. Ce sont des dessins, pas des photos. */
 .objet3d__tirages {
@@ -107,34 +94,95 @@
     line-height: 1.2;
 }
 
-/* Le fil pointillé : il passe derrière les tirages et file vers le haut, du côté de la tasse. */
-.objet3d__fil {
+/* La section crème « votre propre objet » : un parcours en trois temps. Les tirages, l'image et les bulles sont frères, jamais imbriqués. */
+.parcours { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(16px, 3vw, 24px); margin-top: clamp(8px, 1.5vw, 16px); counter-reset: temps; max-width: 40rem; }
+.parcours__tirages { order: 1; }
+.parcours__fil { display: none; }
+.parcours__paroles { display: contents; }
+.parcours__resultat { order: 3; position: relative; display: grid; justify-items: center; margin: clamp(12px, 3vw, 24px) 0 0; }
+.parcours__resultat img { display: block; width: min(100%, 340px); height: auto; filter: drop-shadow(0 18px 16px oklch(0.245 0.022 58 / 0.22)); }
+.parcours__mot {
     position: absolute;
-    inset: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    color: var(--crema);
-    opacity: 0.9;
-}
-.objet3d__fil path { stroke-width: 3.2; stroke-dasharray: 0.1 10; }
-@media (min-width: 1000px) {
-    .objet3d__fil { left: calc(clamp(40px, 5vw, 80px) * -1 + 8px); width: calc(100% + clamp(40px, 5vw, 80px) - 8px); }
+    top: 16%;
+    right: 16%;
+    rotate: 4deg;
+    font-family: var(--police-main);
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+    line-height: 1.1;
+    color: var(--bleu);
 }
 
-.objet3d__fin { grid-area: fin; }
-.objet3d__fin > .petit { max-width: 34em; }
-.objet3d__fin > .lien-suite { margin-top: 10px; text-decoration-color: var(--crema); }
-.objet3d__fin > .lien-suite:focus-visible { outline-color: var(--crema); }
+/* Les bulles : de petits papiers de dialogue, une pointe tournée vers ce qu'elles commentent, un numéro discret. */
+.parole {
+    position: relative;
+    margin-top: 12px;
+    padding: 24px 20px 18px;
+    background: var(--papier-blanc);
+    color: var(--encre);
+    border-radius: var(--rayon);
+    box-shadow: var(--ombre-feuille);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-wrap: pretty;
+    counter-increment: temps;
+}
+.parole::before {
+    content: counter(temps) / "";
+    position: absolute;
+    top: -14px;
+    left: 18px;
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--crema);
+    color: var(--encre);
+    font-family: var(--police-titre);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1;
+}
+.parole::after {
+    content: "";
+    position: absolute;
+    top: -7px;
+    right: 34px;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    background: var(--papier-blanc);
+    rotate: 45deg;
+}
+.parole--1 { order: 2; }
+.parole--2 { order: 4; }
+.parole--3 { order: 5; }
+
+.photos3d__fin { display: flex; flex-wrap: wrap; align-items: center; gap: 20px clamp(24px, 4vw, 48px); margin-top: clamp(36px, 5vw, 56px); }
+.photos3d__fin .encadre { padding: 16px 20px; max-width: 34em; }
+.photos3d__fin .petit { text-wrap: pretty; }
 
 @media (min-width: 1000px) {
-    .objet3d__bande {
-        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-        column-gap: clamp(40px, 5vw, 80px);
-        align-items: center;
-        margin-top: clamp(8px, 2vw, 24px);
+    .photos3d__fin { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: center; }
+    .photos3d__fin .encadre { grid-column: 1 / 7; max-width: none; }
+    .photos3d__fin .lien-suite { grid-column: 7 / 13; justify-self: start; }
+    .parcours {
+        max-width: none;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        column-gap: 24px;
+        row-gap: 0;
+        align-items: start;
     }
+    .parcours__tirages { grid-area: 1 / 1 / 2 / 7; align-self: center; order: 0; position: relative; z-index: 1; }
+    .parcours__fil { display: block; grid-area: 1 / 1 / 2 / 13; align-self: stretch; width: 100%; height: 0; min-height: 100%; z-index: 0; overflow: visible; color: var(--caramel); pointer-events: none; }
+    .parcours__fil .trait { stroke-width: 3.2; stroke-dasharray: 0.1 10; }
+    .parcours__fil .point { stroke-width: 8; }
+    .parcours__resultat { grid-area: 1 / 7 / 2 / 13; order: 0; margin: 0; z-index: 1; }
+    .parole { margin-top: 32px; order: 0; }
+    .parole--1 { grid-area: 2 / 1 / 3 / 7; }
+    .parole--2 { grid-area: 2 / 7 / 3 / 10; }
+    .parole--3 { grid-area: 2 / 10 / 3 / 13; }
+    .parole::after { right: auto; left: 50%; margin-left: -8px; }
 }
 
 /* Un tirage se redresse et se soulève : seulement avec une souris, comme les tickets. */

@@ -128,13 +128,17 @@ classe: page-exemples
                 <path class="point" d="M64.6 91.5h0.01" vector-effect="non-scaling-stroke"/>
             </svg>
         </div>
-        <div class="objet3d__bande">
-            <div class="objet3d__bande-texte">
-                <h3>Your own object, from your photos</h3>
-                <p>Do you make or sell a piece of your own? Send us at least 3 photos taken from different angles: front, side and top. We recreate it in 3D using artificial intelligence, and you approve it before it goes online.</p>
-            </div>
-            <div class="objet3d__tirages" aria-hidden="true">
-                <svg class="objet3d__fil" viewBox="0 0 600 200" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" focusable="false"><path d="M-10 118C70 70 150 150 290 104C420 60 500 80 560 40C580 28 592 14 606 4" vector-effect="non-scaling-stroke"/></svg>
+    </div>
+</section>
+
+<section class="section photos3d">
+    <div class="cadre">
+        <div class="ouverture">
+            <h2>Your own object, from your photos</h2>
+            <p>Do you make or sell a piece of your own?</p>
+        </div>
+        <div class="parcours">
+            <div class="objet3d__tirages parcours__tirages" aria-hidden="true">
                 <figure class="tirage">
                     <div class="tirage__photo">{{inclure:dessin-tasse-face}}</div>
                     <figcaption class="tirage__mot">front</figcaption>
@@ -148,9 +152,24 @@ classe: page-exemples
                     <figcaption class="tirage__mot">top</figcaption>
                 </figure>
             </div>
+            <svg class="parcours__fil" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true" focusable="false">
+                <path class="trait" d="M2 72C8 94 20 98 32 91C44 84 52 98 55 80C57 68 59 60 61 56" vector-effect="non-scaling-stroke"/>
+                <path class="point" d="M61 56h0.01" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <figure class="parcours__resultat">
+                <img src="{{racine}}assets/objets-3d/tasse-repli.webp" width="1200" height="1200" loading="lazy" alt="The same cup, recreated in 3D">
+                <p class="parcours__mot" aria-hidden="true">and there it is</p>
+            </figure>
+            <ol class="parcours__paroles" role="list" aria-label="The three steps to get your object in 3D">
+                <li class="parole parole--1" role="listitem">You send us at least 3&nbsp;photos of your piece, taken from different angles: front, side and top.</li>
+                <li class="parole parole--2" role="listitem">We recreate it in 3D, using artificial intelligence.</li>
+                <li class="parole parole--3" role="listitem">You approve it before it goes online.</li>
+            </ol>
         </div>
-        <div class="objet3d__fin">
-            <p class="petit">Glass and very shiny or very thin objects do not work well: we will tell you frankly.</p>
+        <div class="photos3d__fin">
+            <div class="encadre encadre--blanc">
+                <p class="petit">Glass and very shiny or very thin objects do not work well: we will tell you frankly.</p>
+            </div>
             <a class="lien-suite" href="{{racine}}questionnaire/en/index.html">Ask for it in the questionnaire</a>
         </div>
     </div>
