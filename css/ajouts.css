@@ -503,9 +503,11 @@
     .objet3d__planche > .objet3d__scene .objet3d__scene-dans { max-width: none; }
     .objet3d__mot { grid-area: 1 / 2 / 2 / 4; margin: clamp(12px, 3vw, 44px) 0 0 40%; justify-self: start; rotate: 3deg; align-self: start; }
     .objet3d__points { grid-area: 1 / 1 / 2 / 4; grid-template-columns: 26fr 48fr 26fr; gap: 0; align-self: stretch; pointer-events: none; z-index: 1; }
-    .objet3d__points li { max-width: 17em; }
-    .objet3d__points li:first-child { grid-column: 1; align-self: center; padding-right: clamp(20px, 3vw, 44px); }
-    .objet3d__points li:last-child { grid-column: 3; align-self: end; margin-bottom: 1%; padding-left: clamp(20px, 3vw, 44px); justify-self: end; }
+        .objet3d__points .parole--note { margin-top: 0; pointer-events: auto; }
+    .objet3d__points .parole--gauche { grid-column: 1; align-self: center; margin-right: 24px; }
+    .objet3d__points .parole--droite { grid-column: 3; align-self: end; margin: 0 0 1% 24px; }
+    .parole.parole--gauche::after { top: 50%; right: -7px; left: auto; margin: -8px 0 0; }
+    .parole.parole--droite::after { top: 50%; left: -7px; right: auto; margin: -8px 0 0; }
     .objet3d__traits { display: block; position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; color: var(--crema); overflow: visible; }
     .objet3d__traits .trait { stroke-width: 2.4; stroke-dasharray: 0.1 8; }
     .objet3d__traits .point { stroke-width: 7; }
@@ -603,6 +605,7 @@
     background: var(--papier-blanc);
     rotate: 45deg;
 }
+.parole--note::before { display: none; }
 .parole--1 { order: 2; }
 .parole--2 { order: 4; }
 .parole--3 { order: 5; }
