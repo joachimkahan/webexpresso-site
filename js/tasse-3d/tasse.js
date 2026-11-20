@@ -120,12 +120,6 @@ export function demarrer(figure, options) {
     contact.scale.set(1, 1.08, 1);
     contact.rotation.z = 0.75;
     contact.position.set(0.04, 0.001, -0.04);
-    // Sous la tasse, sur la soucoupe : un peu d'ombre là où le pied se pose.
-    const dessous = new THREE.Mesh(new THREE.PlaneGeometry(0.78, 0.78), ombre.clone());
-    dessous.material.opacity = 0.7;
-    dessous.rotation.x = -Math.PI / 2;
-    dessous.position.y = f.posePlateau + 0.0015;
-    pivot.add(dessous);
 
     // La vapeur : deux voiles qui montent du café, toujours de face.
     const vapeurs = [[0.42, 0.24, -0.04], [3.7, 0.17, 0.05]].map(([graine, opacite, dx]) => {

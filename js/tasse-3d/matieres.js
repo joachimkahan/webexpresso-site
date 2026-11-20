@@ -103,10 +103,10 @@ function texturePiqures(argile) {
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, 1024, 512);
     const alea = hasard(23);
-    const fonce = melange(argile, [40, 26, 16], 0.55);
-    for (let k = 0; k < 520; k++) {
+    const fonce = melange(argile, [40, 26, 16], 0.38);
+    for (let k = 0; k < 310; k++) {
         const x = alea() * 1024, y = alea() * 512, r = 0.6 + Math.pow(alea(), 3) * 1.8;
-        ctx.fillStyle = rgba(fonce, 0.22 + alea() * 0.4);
+        ctx.fillStyle = rgba(fonce, 0.14 + alea() * 0.26);
         ctx.beginPath();
         ctx.ellipse(x, y, r * 1.1, r, 0, 0, Math.PI * 2);
         ctx.fill();
@@ -165,34 +165,63 @@ export function materiauxCeramique(element) {
             .replace('#include <begin_vertex>', '#include <begin_vertex>\nvBord = bord;\nvOccl = occl;');
         shader.fragmentShader = shader.fragmentShader
             .replace('#include <common>', '#include <common>\nuniform vec3 uArgile;\nuniform float uCasse;\nvarying float vBord;\nvarying float vOccl;')
-            .replace('#include <color_fragment>', '#include <color_fragment>\ndiffuseColor.rgb = mix(diffuseColor.rgb, uArgile, vBord * uCasse) * (1.0 - vOccl);');
+            .replace('#include <color_fragment>', '#include <color_fragment>\ndiffuseColor.rgb = mix(diffuseColor.rgb, uArgile, vBord * uCasse) * (1.0 - 0.45 * vOccl);')
+            // l'occlusion éteint aussi les reflets : un creux ombré reste de la couleur de l'émail, jamais un gris de verre
+            .replace('#include <aomap_fragment>', '#include <aomap_fragment>\n{ float ao = 1.0 - vOccl; reflectedLight.indirectDiffuse *= ao; reflectedLight.indirectSpecular *= ao * ao;\n#if defined( USE_CLEARCOAT )\nclearcoatSpecularIndirect *= ao * ao;\n#endif\n}');
     };
     email.customProgramCacheKey = () => 'email-bord';
 
+    // La terre brute du pied : mate, chaude, assombrie là où elle touche la soucoupe (couleurs des sommets).
     const terre = new THREE.MeshStandardMaterial({
         map: textureArgile(argileOctets),
-        roughness: 0.92,
+        roughness: 1,
         metalness: 0,
+        envMapIntensity: 0.55,
+        vertexColors: true,
         normalMap: relief,
-        normalScale: new THREE.Vector2(0.25, 0.25),
+        normalScale: new THREE.Vector2(0.35, 0.35),
     });
     return { email, terre, uniformes, textures: [relief, piqures, terre.map] };
 }
 
 /* ── Le café ── */
 // Le cœur de lait : la courbe classique du cœur, couchée (pointe vers +x), un peu plus large que longue.
-function tracerCoeur(ctx, cx, cy, s) {
+function pointCoeur(cx, cy, s, t) {
     const k = s / 16.5;
+    const x = 16 * Math.pow(Math.sin(t), 3);
+    const y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+    const w = 1 + 0.03 * Math.sin(3 * t + 1.3) + 0.018 * Math.sin(5 * t + 0.4);   // le lait n'est jamais tout à fait régulier
+    return [cx - (y - 2.5) * k * 0.9 * w, cy + x * k * 1.04 * w];
+}
+function tracerCoeur(ctx, cx, cy, s) {
     ctx.beginPath();
     for (let i = 0; i <= 160; i++) {
-        const t = (i / 160) * Math.PI * 2;
-        const x = 16 * Math.pow(Math.sin(t), 3);
-        const y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
-        const w = 1 + 0.03 * Math.sin(3 * t + 1.3) + 0.018 * Math.sin(5 * t + 0.4);   // le lait n'est jamais tout à fait régulier
-        const px = cx - (y - 2.5) * k * 0.9 * w, py = cy + x * k * 1.04 * w;
+        const [px, py] = pointCoeur(cx, cy, s, (i / 160) * Math.PI * 2);
         if (i) ctx.lineTo(px, py); else ctx.moveTo(px, py);
     }
     ctx.closePath();
+}
+
+// Une forme aux bords fondus : on ne peint que son ombre, la forme elle-même est tracée hors du canevas
+// (le flou de l'ombre marche dans tous les navigateurs, contrairement à ctx.filter).
+function flou(ctx, tracer, couleur, rayon, trait) {
+    ctx.save();
+    ctx.shadowColor = couleur;
+    ctx.shadowBlur = rayon;
+    ctx.shadowOffsetX = 8192;
+    ctx.translate(-8192, 0);
+    tracer();
+    if (trait) {
+        ctx.lineWidth = trait;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = 'rgb(0,0,0)';
+        ctx.stroke();
+    } else {
+        ctx.fillStyle = 'rgb(0,0,0)';
+        ctx.fill();
+    }
+    ctx.restore();
 }
 
 export function materiauCafe(element) {
@@ -201,110 +230,139 @@ export function materiauCafe(element) {
     const caramel = octets(jeton(element, '--caramel'));
     const crema = octets(jeton(element, '--crema'));
     const lait = octets(jeton(element, '--papier-blanc'));
-    const noisette = melange(caramel, encre, 0.3);
-    const mousse = melange(lait, crema, 0.18);
+    const ivoire = melange(lait, crema, 0.32);              // le lait monté : ivoire, jamais blanc pur
     const alea = hasard(11);
 
     const c = toile(T, T);
     const ctx = c.getContext('2d');
-    // Fond : la crème du café, noisette, plus sombre vers la paroi où l'espresso affleure.
+    // Fond : la crème du café, caramel au centre, noisette puis presque espresso contre la paroi.
     const fond = ctx.createRadialGradient(m, m, 0, m, m, m);
-    fond.addColorStop(0, rgba(melange(caramel, encre, 0.1), 1));
-    fond.addColorStop(0.55, rgba(noisette, 1));
-    fond.addColorStop(0.86, rgba(melange(caramel, encre, 0.52), 1));
-    fond.addColorStop(0.965, rgba(melange(caramel, encre, 0.72), 1));
-    fond.addColorStop(1, rgba(encre, 1));
+    fond.addColorStop(0, rgba(melange(caramel, crema, 0.12), 1));
+    fond.addColorStop(0.5, rgba(caramel, 1));
+    fond.addColorStop(0.78, rgba(melange(caramel, encre, 0.3), 1));
+    fond.addColorStop(0.93, rgba(melange(caramel, encre, 0.58), 1));
+    fond.addColorStop(1, rgba(melange(caramel, encre, 0.82), 1));
     ctx.fillStyle = fond;
     ctx.fillRect(0, 0, T, T);
-    // Marbrure de la crème (« peau de tigre ») : taches douces, claires et sombres.
-    for (let k = 0; k < 700; k++) {
-        const a = alea() * Math.PI * 2, r = Math.sqrt(alea()) * m * 0.93;
-        const x = m + Math.cos(a) * r, y = m + Math.sin(a) * r, t = 4 + alea() * 16;
-        const g = ctx.createRadialGradient(x, y, 0, x, y, t);
-        const teinte = alea() < 0.55 ? melange(caramel, crema, 0.35) : melange(noisette, encre, 0.4);
-        g.addColorStop(0, rgba(teinte, 0.13));
+    // Marbrure « peau de tigre » : taches étirées dans le sens où tourne la crème, chaudes, claires et sombres.
+    for (let k = 0; k < 1100; k++) {
+        const a = alea() * Math.PI * 2, r = Math.sqrt(alea()) * m * 0.95;
+        const x = m + Math.cos(a) * r, y = m + Math.sin(a) * r, t = 3 + alea() * 11;
+        const fonce = alea() < 0.5;
+        const teinte = fonce ? melange(caramel, encre, 0.45 + 0.2 * (r / m)) : melange(caramel, crema, 0.35);
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(a + Math.PI / 2);
+        ctx.scale(2.6, 1);
+        const g = ctx.createRadialGradient(0, 0, 0, 0, 0, t);
+        g.addColorStop(0, rgba(teinte, fonce ? 0.2 : 0.16));
         g.addColorStop(1, rgba(teinte, 0));
         ctx.fillStyle = g;
-        ctx.fillRect(x - t, y - t, t * 2, t * 2);
+        ctx.fillRect(-t, -t, t * 2, t * 2);
+        ctx.restore();
     }
-    // Liseré de mousse claire contre la paroi.
-    ctx.lineWidth = 6;
-    ctx.strokeStyle = rgba(melange(crema, caramel, 0.4), 0.4);
+    // Fin liseré de mousse claire contre la paroi.
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = rgba(melange(caramel, crema, 0.5), 0.45);
     ctx.beginPath();
-    ctx.arc(m, m, m * 0.985, 0, Math.PI * 2);
+    ctx.arc(m, m, m * 0.988, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Le cœur : le lait monté, plus blanc au centre, bordé d'un halo de crème claire.
+    // Le cœur, en couches de lait.
     const s = m * 0.6, cx = m - s * 0.27, cy = m + 4;
+    const coeur = (e, d) => () => tracerCoeur(ctx, cx - s * d, cy, s * e);
+    // 1. la crème s'éclaircit autour du lait, puis le lait lui-même, aux bords fondus sur quelques pixels
+    flou(ctx, coeur(1.05, 0), rgba(melange(caramel, crema, 0.55), 0.55), 26);
+    flou(ctx, coeur(1, 0), rgba(ivoire, 0.94), 7);
+    // 2. le bord du lait laisse transparaître la crème
     ctx.save();
-    ctx.shadowColor = rgba(melange(caramel, crema, 0.45), 0.6);
-    ctx.shadowBlur = 12;
-    const blanc = ctx.createRadialGradient(cx - s * 0.2, cy, s * 0.1, cx, cy, s * 1.05);
-    blanc.addColorStop(0, rgba(lait, 1));
-    blanc.addColorStop(0.7, rgba(mousse, 1));
-    blanc.addColorStop(1, rgba(melange(mousse, crema, 0.4), 1));
-    ctx.fillStyle = blanc;
     tracerCoeur(ctx, cx, cy, s);
-    ctx.fill();
-    ctx.restore();
-    // Les couches du lait versé : deux cœurs emboîtés, en fin trait de crème, vers les lobes.
-    ctx.lineJoin = 'round';
-    [[0.74, 0.18, 4, 0.34], [0.5, 0.32, 3, 0.24]].forEach(([e, d, l, a]) => {
-        ctx.lineWidth = l;
-        ctx.strokeStyle = rgba(melange(caramel, crema, 0.45), a);
-        tracerCoeur(ctx, cx - s * d, cy, s * e);
-        ctx.stroke();
+    ctx.clip();
+    flou(ctx, coeur(1, 0), rgba(melange(caramel, crema, 0.5), 0.32), 10, 10);
+    // 3. les vaguelettes du lait versé en plusieurs fois : des cœurs emboîtés, tirés vers les lobes
+    //    (bandes de crème larges et floues, qui s'effacent vers la pointe : une bande, pas un trait)
+    const bandes = toile(T, T);
+    const bc = bandes.getContext('2d');
+    [[0.8, 0.14, 9, 0.3], [0.6, 0.25, 7, 0.24], [0.42, 0.34, 5, 0.18]].forEach(([e, d, l, a]) => {
+        flou(bc, () => tracerCoeur(bc, cx - s * d, cy, s * e), rgba(melange(caramel, crema, 0.42), a), 7, l);
     });
-    ctx.lineWidth = 2.5;
-    ctx.strokeStyle = rgba(noisette, 0.4);
-    tracerCoeur(ctx, cx, cy, s);
-    ctx.stroke();
-    // Le tiré : le filet de lait qui fend le cœur et l'étire en pointe.
-    const tire = ctx.createLinearGradient(cx - s * 0.65, cy, cx + s * 1.0, cy);
-    tire.addColorStop(0, rgba(noisette, 0));
-    tire.addColorStop(0.2, rgba(melange(caramel, crema, 0.3), 0.7));
-    tire.addColorStop(1, rgba(noisette, 0.6));
-    ctx.fillStyle = tire;
-    ctx.beginPath();
-    ctx.moveTo(cx - s * 0.62, cy - 4);
-    ctx.bezierCurveTo(cx - s * 0.1, cy - 3, cx + s * 0.5, cy + 1, cx + s * 1.0, cy + 2);
-    ctx.bezierCurveTo(cx + s * 0.5, cy + 3.5, cx - s * 0.1, cy + 4, cx - s * 0.62, cy + 4);
-    ctx.closePath();
-    ctx.fill();
-    // Micro-mousse : de fines bulles partout.
-    for (let k = 0; k < 2400; k++) {
-        const a = alea() * Math.PI * 2, r = Math.sqrt(alea()) * m * 0.97;
-        ctx.fillStyle = alea() < 0.5 ? 'rgba(255,250,240,0.10)' : 'rgba(40,24,12,0.08)';
+    bc.globalCompositeOperation = 'destination-in';
+    const fondu = bc.createLinearGradient(cx - s * 0.6, 0, cx + s * 0.95, 0);
+    fondu.addColorStop(0, 'rgba(0,0,0,1)');
+    fondu.addColorStop(0.5, 'rgba(0,0,0,0.65)');
+    fondu.addColorStop(1, 'rgba(0,0,0,0)');
+    bc.fillStyle = fondu;
+    bc.fillRect(0, 0, T, T);
+    ctx.drawImage(bandes, 0, 0);
+    // 4. grain de la mousse et microbulles sur le lait
+    for (let k = 0; k < 2600; k++) {
+        const x = cx - s * 0.7 + alea() * s * 1.9, y = cy - s * 1.05 + alea() * s * 2.1;
+        ctx.fillStyle = alea() < 0.55 ? rgba(melange(ivoire, caramel, 0.35), 0.16) : 'rgba(255,253,248,0.22)';
         ctx.beginPath();
-        ctx.arc(m + Math.cos(a) * r, m + Math.sin(a) * r, 0.7 + alea() * 1.3, 0, Math.PI * 2);
+        ctx.arc(x, y, 0.5 + Math.pow(alea(), 2) * 1.6, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.restore();
+    // 5. fines traînées où le lait se mêle à la crème
+    for (let k = 0; k < 22; k++) {
+        const t = alea() * Math.PI * 2;
+        const [x, y] = pointCoeur(cx, cy, s, t);
+        const [x2, y2] = pointCoeur(cx, cy, s, t + 0.02);
+        const nx = y2 - y, ny = -(x2 - x), n = Math.hypot(nx, ny) || 1;   // normale sortante
+        const long = 5 + alea() * 12, sens = 1;                            // elles filent dans le sens du versement, vers la pointe
+        ctx.strokeStyle = rgba(ivoire, 0.12 + alea() * 0.14);
+        ctx.lineWidth = 0.8 + alea() * 1.2;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(x - (nx / n) * 2, y - (ny / n) * 2);
+        ctx.quadraticCurveTo(x + (nx / n) * long * 0.5 + sens * (x2 - x) * 4, y + (ny / n) * long * 0.5 + sens * (y2 - y) * 4,
+            x + (nx / n) * long + sens * (x2 - x) * 8, y + (ny / n) * long + sens * (y2 - y) * 8);
+        ctx.stroke();
+    }
+    // 6. le tiré : une traînée de crème qui fend le cœur, s'amenuise et file un peu au-delà de la pointe
+    flou(ctx, () => {
+        const debut = cx - s * 0.34, fin = cx + s * 1.2, n = 40;
+        ctx.beginPath();
+        for (let i = 0; i <= n; i++) {
+            const u = i / n;
+            ctx.lineTo(debut + (fin - debut) * u, cy - (3.6 * Math.pow(1 - u, 0.9) + 0.35) + Math.sin(u * 5) * 1.2);
+        }
+        for (let i = n; i >= 0; i--) {
+            const u = i / n;
+            ctx.lineTo(debut + (fin - debut) * u, cy + (3.6 * Math.pow(1 - u, 0.9) + 0.35) + Math.sin(u * 5) * 1.2);
+        }
+        ctx.closePath();
+    }, rgba(melange(caramel, encre, 0.12), 0.78), 2.2);
+    // Micro-mousse : de fines bulles sur toute la crème.
+    for (let k = 0; k < 2600; k++) {
+        const a = alea() * Math.PI * 2, r = Math.sqrt(alea()) * m * 0.97;
+        ctx.fillStyle = alea() < 0.5 ? rgba(melange(caramel, crema, 0.6), 0.14) : rgba(melange(caramel, encre, 0.6), 0.1);
+        ctx.beginPath();
+        ctx.arc(m + Math.cos(a) * r, m + Math.sin(a) * r, 0.6 + alea() * 1.2, 0, Math.PI * 2);
         ctx.fill();
     }
     const carte = new THREE.CanvasTexture(c);
     carte.colorSpace = THREE.SRGBColorSpace;
     carte.anisotropy = 8;
 
-    // Relief : le lait est un rien plus haut que la crème.
+    // Relief : le lait est un rien plus haut que la crème, les vaguelettes un rien plus hautes encore.
     const r = toile(512, 512);
     const rc = r.getContext('2d');
     rc.fillStyle = 'rgb(90,90,90)';
     rc.fillRect(0, 0, 512, 512);
-    rc.save();
-    rc.shadowColor = 'rgba(255,255,255,0.9)';
-    rc.shadowBlur = 14;
-    rc.fillStyle = 'rgb(208,208,208)';
-    tracerCoeur(rc, (cx) / 2, cy / 2, s / 2);
-    rc.fill();
-    rc.restore();
+    flou(rc, () => tracerCoeur(rc, cx / 2, cy / 2, s / 2), 'rgba(205,205,205,1)', 8);
+    [[0.8, 0.15], [0.6, 0.27]].forEach(([e, d]) => flou(rc, () => tracerCoeur(rc, (cx - s * d) / 2, cy / 2, (s * e) / 2), 'rgba(235,235,235,0.6)', 2, 2));
     const relief = new THREE.CanvasTexture(r);
 
     return new THREE.MeshPhysicalMaterial({
         map: carte,
-        roughness: 0.58,
+        roughness: 0.64,
         metalness: 0,
+        specularIntensity: 0.6,
         bumpMap: relief,
         bumpScale: 0.5,
-        clearcoat: 0.22,
-        clearcoatRoughness: 0.32,
+        clearcoat: 0.12,
+        clearcoatRoughness: 0.4,
     });
 }
 

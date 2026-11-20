@@ -31,6 +31,14 @@ function sansBord(geometrie) {
 
 // Occlusion peinte dans les sommets (attribut « occl ») : le bas de la panse près de la soucoupe, le creux sous la tasse.
 const lisse = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+// Teinte de la terre brute, sommet par sommet : plus sombre là où le pied touche (matière lue par « vertexColors »).
+function teinterTerre(geometrie, profil, regle) {
+    const nb = geometrie.attributes.position.count;
+    const couleurs = new Float32Array(nb * 3);
+    for (let k = 0; k < nb; k++) couleurs.fill(regle(profil[k % profil.length]), k * 3, k * 3 + 3);
+    geometrie.setAttribute('color', new THREE.BufferAttribute(couleurs, 3));
+}
+
 function marquerOcclusion(geometrie, profil, regle) {
     const i0 = sommet(profil);
     const valeurs = profil.map((p, i) => regle(p, i < i0));
@@ -57,16 +65,16 @@ function profilPiedTasse() {
     c.quadraticCurveTo(0.196, 0.0, 0.212, 0.0);
     c.lineTo(0.236, 0.0);                                      // l'anneau qui touche la soucoupe
     c.quadraticCurveTo(0.254, 0.0, 0.256, 0.018);
-    c.lineTo(0.259, 0.05);                                     // le flanc du pied, jusqu'à la ligne d'émail
+    c.lineTo(0.262, 0.068);                                    // le flanc du pied, jusqu'à la ligne d'émail
     return echantillonner(c, 56);
 }
 
 // Partie émaillée : un petit ressaut (l'épaisseur de l'émail), la panse, la lèvre arrondie, l'intérieur.
 function profilCorpsTasse() {
     const c = new THREE.Path();
-    c.moveTo(0.259, 0.05);
-    c.quadraticCurveTo(0.259, 0.056, 0.266, 0.058);           // le bord de l'émail, un rien en saillie
-    c.bezierCurveTo(0.43, 0.056, 0.512, 0.27, 0.502, 0.665);  // la panse : un bol, rond en bas, presque droit en haut
+    c.moveTo(0.262, 0.068);
+    c.quadraticCurveTo(0.262, 0.074, 0.27, 0.076);            // le bord de l'émail, un rien en saillie
+    c.bezierCurveTo(0.43, 0.074, 0.512, 0.28, 0.502, 0.665);  // la panse : un bol, rond en bas, presque droit en haut
     c.absarc(0.4865, 0.665, 0.0155, 0, Math.PI, false);       // la lèvre
     c.bezierCurveTo(0.478, 0.33, 0.42, 0.106, 0.13, 0.1);     // la paroi intérieure, plus épaisse vers le fond
     c.lineTo(0, 0.1);
@@ -148,9 +156,9 @@ function profilCorpsSoucoupe() {
     c.moveTo(0.356, 0.018);
     c.bezierCurveTo(0.5, 0.028, 0.72, 0.05, 0.8, 0.104);        // le dessous remonte vers le bord
     c.absarc(0.787, 0.108, 0.0135, -0.3, Math.PI, false);       // le bord roulé
-    c.bezierCurveTo(0.762, 0.1, 0.62, 0.074, 0.36, 0.07);       // le dessus redescend vers le creux
-    c.quadraticCurveTo(0.318, 0.069, 0.31, 0.058);              // la marche du creux, où la tasse se pose
-    c.quadraticCurveTo(0.302, 0.052, 0.27, 0.052);
+    c.bezierCurveTo(0.762, 0.1, 0.62, 0.072, 0.38, 0.064);      // le dessus redescend vers le creux
+    c.quadraticCurveTo(0.31, 0.062, 0.29, 0.054);               // le creux, en pente douce, où la tasse se pose
+    c.quadraticCurveTo(0.282, 0.052, 0.26, 0.052);
     c.lineTo(0, 0.052);
     return echantillonner(c, 200);
 }
@@ -169,7 +177,11 @@ export function construireFormes() {
     marquerBord(gCorpsTasse, corpsTasse, sommet(corpsTasse), 0.022);
     marquerBord(gCorpsSoucoupe, corpsSoucoupe, sommet(corpsSoucoupe), 0.02);
     marquerOcclusion(gCorpsTasse, corpsTasse, (p, dehors) => (dehors ? 0.3 * (1 - lisse(0.06, 0.24, p.y)) : 0.12 * lisse(0.5, 0.6, p.y) * (1 - lisse(0.6, 0.66, p.y))));
-    marquerOcclusion(gCorpsSoucoupe, corpsSoucoupe, (p, dehors) => (dehors ? 0 : 0.24 * (1 - lisse(0.3, 0.5, p.x))));
+    // Le creux de la soucoupe s'assombrit doucement autour du pied de la tasse : elle y est vraiment posée.
+    marquerOcclusion(gCorpsSoucoupe, corpsSoucoupe, (p, dehors) => (dehors ? 0 : Math.min(0.62,
+        0.55 * Math.exp(-Math.pow((p.x - 0.262) / 0.045, 2)) + 0.25 * (1 - lisse(0.28, 0.5, p.x)))));
+    teinterTerre(gPiedTasse, piedTasse, (p) => 0.5 + 0.34 * lisse(0, 0.05, p.y));
+    teinterTerre(gPiedSoucoupe, piedSoucoupe, () => 0.85);
     sansBord(gPiedTasse);
     sansBord(gPiedSoucoupe);
 

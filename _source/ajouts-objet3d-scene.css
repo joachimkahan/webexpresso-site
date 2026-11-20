@@ -7,11 +7,11 @@
     --email-faience: oklch(0.77 0.045 226);
     --email-terre: oklch(0.6 0.13 42);
     --email-espresso: oklch(0.235 0.03 45);
-    --argile: oklch(0.7 0.045 66);
+    --argile: oklch(0.64 0.05 60);
 
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 10px 24px;
+    gap: 6px;
     color: var(--papier);
 }
 
@@ -48,8 +48,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
     gap: 2px;
+    margin-left: -9px;                 /* la première pastille s'aligne sur le bord du texte (44 px de cible, 26 px de disque) */
 }
 .objet3d__scene:not(.est-3d) .objet3d__teintes { visibility: hidden; opacity: 0; }
 .objet3d__teinte {
@@ -100,23 +100,19 @@
     color: var(--crema);
 }
 
-/* La légende : l'étiquette « Démonstration », lisible sur le bleu. */
+/* La légende, sous les pastilles, alignée à gauche : l'étiquette « Démonstration », lisible sur le bleu. */
 .objet3d__legende {
-    justify-self: center;
     font-size: var(--taille-petit);
-    text-align: center;
+    text-wrap: pretty;
 }
 .objet3d__legende .etiquette {
     margin: 0 6px 0 0;
     color: var(--papier);
     border-color: color-mix(in oklch, var(--papier) 55%, transparent);
 }
-
-@media (min-width: 600px) {
-    .objet3d__scene { grid-template-columns: auto minmax(0, 1fr); align-items: center; }
-    .objet3d__scene-dans { grid-column: 1 / -1; }
-    .objet3d__teintes { justify-content: start; }
-    .objet3d__legende { justify-self: end; text-align: right; }
+/* Sur un écran étroit, l'étiquette passe seule au-dessus : la phrase tient alors sur une ligne, sans mot orphelin. */
+@media (max-width: 479px) {
+    .objet3d__legende .etiquette { display: block; width: fit-content; margin-bottom: 6px; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
