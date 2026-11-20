@@ -109,6 +109,7 @@ classe: page-exemples
             <p class="accroche">Sur votre site, un objet peut se tourner du bout du doigt, comme si on l'avait en main. Cette tasse en est un exemple&nbsp;: on peut la faire tourner et changer sa couleur.</p>
         </div>
         {{inclure:scene-tasse}}
+        <p class="objet3d__mot" aria-hidden="true">faite par le code, pas en photo</p>
         <div class="objet3d__suite">
             <ul class="objet3d__points">
                 <li>
@@ -119,11 +120,30 @@ classe: page-exemples
                     <h3>Aux couleurs de votre site</h3>
                     <p>Sa couleur, sa matière et sa lumière s'accordent au reste de votre site.</p>
                 </li>
-                <li>
-                    <h3>Votre propre objet, à partir de vos photos</h3>
-                    <p>Vous avez une pièce que vous fabriquez ou que vous vendez&nbsp;? Envoyez-nous au moins 3&nbsp;photos, prises sous des angles différents&nbsp;: de face, de côté et de dessus. Nous la recréons en 3D par intelligence artificielle, et vous la validez avant sa mise en ligne.</p>
-                </li>
             </ul>
+        </div>
+        <div class="objet3d__bande">
+            <div class="objet3d__bande-texte">
+                <h3>Votre propre objet, à partir de vos photos</h3>
+                <p>Vous avez une pièce que vous fabriquez ou que vous vendez&nbsp;? Envoyez-nous au moins 3&nbsp;photos, prises sous des angles différents&nbsp;: de face, de côté et de dessus. Nous la recréons en 3D par intelligence artificielle, et vous la validez avant sa mise en ligne.</p>
+            </div>
+            <div class="objet3d__tirages" aria-hidden="true">
+                <svg class="objet3d__fil" viewBox="0 0 600 200" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" focusable="false"><path d="M-10 118C70 70 150 150 290 104C420 60 500 80 560 40C580 28 592 14 606 4" vector-effect="non-scaling-stroke"/></svg>
+                <figure class="tirage">
+                    <div class="tirage__photo">{{inclure:dessin-tasse-face}}</div>
+                    <figcaption class="tirage__mot">de face</figcaption>
+                </figure>
+                <figure class="tirage">
+                    <div class="tirage__photo">{{inclure:dessin-tasse-cote}}</div>
+                    <figcaption class="tirage__mot">de côté</figcaption>
+                </figure>
+                <figure class="tirage">
+                    <div class="tirage__photo">{{inclure:dessin-tasse-dessus}}</div>
+                    <figcaption class="tirage__mot">de dessus</figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="objet3d__fin">
             <p class="petit">Le verre et les objets très brillants ou très fins s'y prêtent mal&nbsp;: nous vous le dirons franchement.</p>
             <a class="lien-suite" href="{{racine}}questionnaire/index.html">Le demander dans le questionnaire</a>
         </div>

@@ -109,6 +109,7 @@ classe: page-exemples
             <p class="accroche">On your website, an object can be turned with a fingertip, as if you were holding it. This cup is an example: you can spin it and change its colour.</p>
         </div>
         {{inclure:scene-tasse}}
+        <p class="objet3d__mot" aria-hidden="true">made with code, not a photo</p>
         <div class="objet3d__suite">
             <ul class="objet3d__points">
                 <li>
@@ -119,11 +120,30 @@ classe: page-exemples
                     <h3>In your website's colours</h3>
                     <p>Its colour, material and lighting match the rest of your website.</p>
                 </li>
-                <li>
-                    <h3>Your own object, from your photos</h3>
-                    <p>Do you make or sell a piece of your own? Send us at least 3 photos taken from different angles: front, side and top. We recreate it in 3D using artificial intelligence, and you approve it before it goes online.</p>
-                </li>
             </ul>
+        </div>
+        <div class="objet3d__bande">
+            <div class="objet3d__bande-texte">
+                <h3>Your own object, from your photos</h3>
+                <p>Do you make or sell a piece of your own? Send us at least 3 photos taken from different angles: front, side and top. We recreate it in 3D using artificial intelligence, and you approve it before it goes online.</p>
+            </div>
+            <div class="objet3d__tirages" aria-hidden="true">
+                <svg class="objet3d__fil" viewBox="0 0 600 200" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" focusable="false"><path d="M-10 118C70 70 150 150 290 104C420 60 500 80 560 40C580 28 592 14 606 4" vector-effect="non-scaling-stroke"/></svg>
+                <figure class="tirage">
+                    <div class="tirage__photo">{{inclure:dessin-tasse-face}}</div>
+                    <figcaption class="tirage__mot">front</figcaption>
+                </figure>
+                <figure class="tirage">
+                    <div class="tirage__photo">{{inclure:dessin-tasse-cote}}</div>
+                    <figcaption class="tirage__mot">side</figcaption>
+                </figure>
+                <figure class="tirage">
+                    <div class="tirage__photo">{{inclure:dessin-tasse-dessus}}</div>
+                    <figcaption class="tirage__mot">top</figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="objet3d__fin">
             <p class="petit">Glass and very shiny or very thin objects do not work well: we will tell you frankly.</p>
             <a class="lien-suite" href="{{racine}}questionnaire/en/index.html">Ask for it in the questionnaire</a>
         </div>

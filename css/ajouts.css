@@ -447,37 +447,137 @@
 }
 
 /* ajouts-objet3d.css */
-/* ── objet3d : mise en page de la section « objet en 3D » de la page Exemples (l'intérieur de la figure est dans ajouts-objet3d-scene.css) ── */
+/* ── objet3d : mise en page de la section « objet en 3D » de la page Exemples (l'intérieur de la figure est dans ajouts-objet3d-scene.css) ──
+   Ordre à l'écran : titre et accroche, la tasse (avec son mot manuscrit), les deux premiers points, la bande « votre objet à partir de vos photos », la note et le lien. */
 .objet3d { display: grid; gap: clamp(28px, 5vw, 48px); }
 .objet3d__tete { grid-area: tete; }
-.objet3d__tete .accroche { margin-top: clamp(16px, 2.2vw, 22px); }
+.objet3d__tete h2 {
+    font-size: clamp(2.25rem, 1.25rem + 3.7vw, 3.875rem);
+    line-height: 1.04;
+    letter-spacing: -0.022em;
+    max-width: 11em;
+}
+.objet3d__tete .accroche { margin-top: clamp(18px, 2.4vw, 26px); max-width: 28em; }
 .objet3d > .objet3d__scene { grid-area: figure; min-width: 0; }
+.objet3d > .objet3d__scene .objet3d__scene-dans { max-width: 780px; }
 .objet3d__suite { grid-area: suite; }
+
+/* Le mot manuscrit : posé sur le coin haut gauche de la tasse, dans la même case de la grille ; il ne capte jamais le geste. */
+.objet3d__mot {
+    grid-area: figure;
+    align-self: start;
+    justify-self: start;
+    z-index: 1;
+    margin: clamp(6px, 2vw, 22px) 0 0 clamp(0px, 2vw, 14px);
+    max-width: 7.5em;
+    rotate: -5deg;
+    font-family: var(--police-main);
+    font-size: clamp(1.5rem, 1.1rem + 1.3vw, 2.25rem);
+    line-height: 1.12;
+    color: var(--crema);
+    pointer-events: none;
+    text-wrap: balance;
+}
 
 .objet3d__points { list-style: none; margin: 0; padding: 0; }
 .objet3d__points li { padding-block: clamp(18px, 2.4vw, 24px); border-top: 1px solid oklch(0.967 0.021 86 / 0.3); }
-.objet3d__points li:last-child { border-bottom: 1px solid oklch(0.967 0.021 86 / 0.3); }
 .objet3d__points h3 { margin-bottom: 8px; }
 .objet3d__points p { max-width: 34em; }
-.objet3d__suite > .petit { margin-top: clamp(20px, 2.6vw, 28px); max-width: 34em; }
-.objet3d__suite > .lien-suite { margin-top: 10px; text-decoration-color: var(--crema); }
-.objet3d__suite > .lien-suite:focus-visible { outline-color: var(--crema); }
+.objet3d__points p, .objet3d__bande-texte p, .objet3d__fin > .petit { text-wrap: pretty; }
 .objet3d__tete .accroche, .objet3d__tete h2 { text-wrap: balance; }
-.objet3d__points p, .objet3d__suite > .petit { text-wrap: pretty; }
+
+/* La bande : un filet fin crème sur toute la largeur du cadre ; le texte à gauche, trois tirages à droite. */
+.objet3d__bande {
+    grid-area: bande;
+    display: grid;
+    gap: clamp(24px, 5vw, 40px);
+    padding-top: clamp(32px, 5vw, 56px);
+    border-top: 1px solid oklch(0.967 0.021 86 / 0.3);
+    min-width: 0;
+}
+.objet3d__bande-texte h3 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.15; margin-bottom: 12px; text-wrap: balance; }
+.objet3d__bande-texte p { max-width: 34em; }
+
+/* Les tirages : de petits papiers blancs posés de travers, leur mot écrit dans la marge du bas. Ce sont des dessins, pas des photos. */
+.objet3d__tirages {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(10px, 2.2vw, 24px);
+    align-items: start;
+    padding-block: 12px;
+    min-width: 0;
+}
+.tirage {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: clamp(5px, 1vw, 9px) clamp(5px, 1vw, 9px) 0;
+    background: var(--papier-blanc);
+    color: var(--encre);
+    box-shadow: var(--ombre-feuille);
+    rotate: -2.5deg;
+}
+.tirage:nth-of-type(2) { rotate: 2deg; margin-top: clamp(8px, 2vw, 22px); }
+.tirage:nth-of-type(3) { rotate: -1.5deg; margin-top: 2px; }
+.tirage__photo { display: grid; place-items: center; aspect-ratio: 1; padding: 3%; background: var(--papier-lait); }
+.tirage__dessin { display: block; width: 100%; height: auto; }
+.tirage__mot {
+    padding-block: 4px 6px;
+    text-align: center;
+    font-family: var(--police-main);
+    font-size: clamp(1.0625rem, 0.85rem + 0.8vw, 1.5rem);
+    line-height: 1.2;
+}
+
+/* Le fil pointillé : il passe derrière les tirages et file vers le haut, du côté de la tasse. */
+.objet3d__fil {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    color: var(--crema);
+    opacity: 0.9;
+}
+.objet3d__fil path { stroke-width: 3.2; stroke-dasharray: 0.1 10; }
+@media (min-width: 1000px) {
+    .objet3d__fil { left: calc(clamp(40px, 5vw, 80px) * -1 + 8px); width: calc(100% + clamp(40px, 5vw, 80px) - 8px); }
+}
+
+.objet3d__fin { grid-area: fin; }
+.objet3d__fin > .petit { max-width: 34em; }
+.objet3d__fin > .lien-suite { margin-top: 10px; text-decoration-color: var(--crema); }
+.objet3d__fin > .lien-suite:focus-visible { outline-color: var(--crema); }
 
 .objet3d {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "tete" "figure" "suite";
+    grid-template-areas: "tete" "figure" "suite" "bande" "fin";
 }
 @media (min-width: 1000px) {
     .objet3d {
         grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-        grid-template-areas: "tete figure" "suite figure";
-        grid-template-rows: auto 1fr;
-        column-gap: clamp(48px, 6vw, 96px);
+        grid-template-areas: "tete figure" "suite figure" "bande bande" "fin fin";
+        grid-template-rows: auto 1fr auto auto;
+        column-gap: clamp(40px, 5vw, 80px);
+        row-gap: clamp(28px, 4vw, 48px);
         align-items: start;
     }
-    .objet3d > .objet3d__scene { align-self: center; }
+    .objet3d > .objet3d__scene { align-self: center; margin-right: calc(var(--gouttiere) * -1); }
+    .objet3d__mot { margin-top: clamp(24px, 4vw, 56px); margin-left: clamp(16px, 4vw, 64px); }
+    .objet3d__bande {
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        column-gap: clamp(40px, 5vw, 80px);
+        align-items: center;
+        margin-top: clamp(8px, 2vw, 24px);
+    }
+}
+
+/* Un tirage se redresse et se soulève : seulement avec une souris, comme les tickets. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .tirage { transition: rotate var(--survol) var(--ease-out), translate var(--survol) var(--ease-out); }
+    .tirage:hover { rotate: 0deg; translate: 0 -5px; }
 }
 
 /* ajouts-scene-droite.css */
