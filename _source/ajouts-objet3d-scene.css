@@ -1,0 +1,134 @@
+/* ── objet3d-scene : l'intérieur de la figure « tasse en 3D » de la page Exemples (cadre, canevas, image de secours,
+   pastilles de couleur, légende). La mise en page de la section est dans ajouts-objet3d.css. Le module : js/tasse-3d/. ── */
+
+/* Les quatre émaux et la terre brute : seule source de ces couleurs, lue aussi par la scène 3D (jetons --email-‹teinte›). */
+.objet3d__scene {
+    --email-creme: oklch(0.93 0.026 84);
+    --email-faience: oklch(0.77 0.045 226);
+    --email-terre: oklch(0.6 0.13 42);
+    --email-espresso: oklch(0.235 0.03 45);
+    --argile: oklch(0.7 0.045 66);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px 24px;
+    color: var(--papier);
+}
+
+/* Le cadre : carré, sans bordure ni fond ; l'objet est posé sur le bleu de la section. */
+.objet3d__scene-dans {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 1;
+    margin-inline: auto;
+    border-radius: var(--rayon-grand);
+    touch-action: pan-y;               /* au doigt, la page défile toujours ; seul le glisser horizontal tourne la tasse */
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.objet3d__repli,
+.objet3d__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-user-drag: none;
+}
+.objet3d__canvas { display: block; opacity: 0; }
+.objet3d__scene.est-3d .objet3d__canvas { opacity: 1; }
+.objet3d__scene.est-3d .objet3d__repli { visibility: hidden; }
+.objet3d__scene.est-3d .objet3d__scene-dans { cursor: grab; }
+.objet3d__scene.est-3d .objet3d__scene-dans.est-saisie { cursor: grabbing; }
+.objet3d__scene-dans:focus-visible { outline: 3px solid var(--crema); outline-offset: 2px; }
+
+/* Les pastilles : elles n'apparaissent qu'avec la 3D (la place est gardée : rien ne saute). */
+.objet3d__teintes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+.objet3d__scene:not(.est-3d) .objet3d__teintes { visibility: hidden; opacity: 0; }
+.objet3d__teinte {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.objet3d__teinte::before {
+    content: "";
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--teinte);
+    box-shadow: inset 0 0 0 1px oklch(1 0 0 / 0.22), inset 0 -5px 8px -4px oklch(0 0 0 / 0.28), 0 2px 5px oklch(0.2 0.04 254 / 0.35);
+    outline: 2px solid transparent;
+    outline-offset: 3px;
+}
+.objet3d__teinte--creme { --teinte: var(--email-creme); }
+.objet3d__teinte--faience { --teinte: var(--email-faience); }
+.objet3d__teinte--terre { --teinte: var(--email-terre); }
+.objet3d__teinte--espresso { --teinte: var(--email-espresso); }
+.objet3d__teinte[aria-pressed="true"]::before { outline-color: var(--crema); }
+.objet3d__teinte:focus-visible { outline: 3px solid var(--crema); outline-offset: 0; }
+.objet3d__teinte-nom {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+/* Le nom de la teinte choisie, écrit à la main à côté des pastilles. */
+.objet3d__teinte-active {
+    min-width: 7.5em;
+    margin-left: 10px;
+    font-family: var(--police-main);
+    font-size: 1.1875rem;
+    line-height: 1;
+    color: var(--crema);
+}
+
+/* La légende : l'étiquette « Démonstration », lisible sur le bleu. */
+.objet3d__legende {
+    justify-self: center;
+    font-size: var(--taille-petit);
+    text-align: center;
+}
+.objet3d__legende .etiquette {
+    margin: 0 6px 0 0;
+    color: var(--papier);
+    border-color: color-mix(in oklch, var(--papier) 55%, transparent);
+}
+
+@media (min-width: 600px) {
+    .objet3d__scene { grid-template-columns: auto minmax(0, 1fr); align-items: center; }
+    .objet3d__scene-dans { grid-column: 1 / -1; }
+    .objet3d__teintes { justify-content: start; }
+    .objet3d__legende { justify-self: end; text-align: right; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .objet3d__teintes { transition: opacity 300ms var(--ease-out), visibility 0s; }
+    .objet3d__teinte::before { transition: scale var(--survol) var(--ease-out), outline-color var(--duree) var(--ease-out); }
+    .objet3d__teinte:active::before { scale: 0.95; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .objet3d__teinte:hover::before { scale: 1.1; }
+}
+
+@media print {
+    .objet3d__canvas, .objet3d__teintes { display: none; }
+    .objet3d__scene .objet3d__repli { visibility: visible; }
+}

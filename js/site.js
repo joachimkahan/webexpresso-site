@@ -80,8 +80,42 @@
         }
     }
 
-    // Le bouton n'apparaît que s'il y a quelque chose à arrêter.
-    if (bouton && !reduit && (dessins.length || gestes.length)) {
+    // Objet en 3D (page Exemples) : son module se charge quand la scène approche de l'écran (400 px avant).
+    // Sans ce script, sans module, sans WebGL ou sur un appareil modeste, l'image de secours reste, sans erreur.
+    var scenes3d = document.querySelectorAll('[data-scene-3d]');
+    var scriptSite = document.currentScript;
+    var captureTasse = /[?&]capture-tasse\b/.test(location.search);   // mode d'atelier : produit l'image de secours
+    var connexion = navigator.connection || {};
+    var modeste = connexion.saveData || (navigator.deviceMemory && navigator.deviceMemory < 4)
+        || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2);
+    if (scenes3d.length && scriptSite && 'IntersectionObserver' in window && (captureTasse || !modeste)) {
+        var moduleCharge = false;
+        var approcher = function (figure) {
+            figure.setAttribute('data-scene-3d-proche', '');
+            if (moduleCharge) { document.dispatchEvent(new Event('scene3d:proche')); return; }
+            moduleCharge = true;
+            // Un script de type module, posé à la demande : un vieux navigateur l'ignore, et ce script-ci reste lisible partout.
+            var adresse = scriptSite.src.replace(/site\.js(\?.*)?$/, 'tasse-3d/tasse.js$1');
+            var module = document.createElement('script');
+            module.type = 'module';
+            module.src = adresse;
+            document.head.appendChild(module);
+        };
+        if (captureTasse) Array.prototype.forEach.call(scenes3d, approcher);
+        else {
+            var observateur3d = new IntersectionObserver(function (entrees) {
+                entrees.forEach(function (entree) {
+                    if (!entree.isIntersecting) return;
+                    observateur3d.unobserve(entree.target);
+                    approcher(entree.target);
+                });
+            }, { rootMargin: '400px 0px' });
+            Array.prototype.forEach.call(scenes3d, function (figure) { observateur3d.observe(figure); });
+        }
+    }
+
+    // Le bouton n'apparaît que s'il y a quelque chose à arrêter (la vapeur de la tasse en 3D compte).
+    if (bouton && !reduit && (dessins.length || gestes.length || scenes3d.length)) {
         bouton.hidden = false;
         bouton.addEventListener('click', function () {
             var arretees = !document.documentElement.classList.contains('ambiance-coupee');
