@@ -604,7 +604,27 @@
 </div>
 </section>
 <section class="question" id="q21" aria-labelledby="q21-titre">
-<h3 id="q21-titre"><span class="question-numero">21</span> <span data-t="q21.titre">What you like, what you want to avoid</span></h3>
+<h3 id="q21-titre"><span class="question-numero">21</span> <span data-t="q21.titre">One of your pieces in 3D</span></h3>
+<fieldset class="champ groupe" id="objet_3d" data-groupe="objet_3d" data-type="choix" aria-describedby="objet_3d-aide objet_3d-erreur">
+<legend><span data-t="objet_3d.label">We can reproduce one of your pieces in 3D on your website: visitors turn it around to see it from every side. Would you like that?</span></legend>
+<p class="aide" id="objet_3d-aide" data-t="objet_3d.aide">Ideal for a piece you make or sell: a vase, a loaf, an armchair, a tool. Glass, very shiny or very thin objects do not work well: we will tell you honestly whether yours is suitable.</p>
+<div class="options">
+<label class="option" for="objet_3d-oui"><input type="radio" id="objet_3d-oui" name="objet_3d" value="oui"> <span data-t="objet_3d.oui">Yes, I&#x27;m interested</span></label>
+<label class="option" for="objet_3d-non"><input type="radio" id="objet_3d-non" name="objet_3d" value="non"> <span data-t="objet_3d.non">No thank you</span></label>
+<label class="option" for="objet_3d-conseil"><input type="radio" id="objet_3d-conseil" name="objet_3d" value="conseil"> <span data-t="objet_3d.conseil">I&#x27;m not sure, advise me</span></label>
+</div>
+<p class="erreur" id="objet_3d-erreur"></p>
+</fieldset>
+<div class="champ" data-si="objet_3d" data-si-valeurs="oui conseil">
+<label for="objet_3d_quoi"><span data-t="objet_3d_quoi.label">Which piece?</span></label>
+<p class="aide" id="objet_3d_quoi-aide" data-t="objet_3d_quoi.aide">So that we can reproduce it, add at least 3 photos of this piece in the last step, taken from different angles: front, side and top. Plain background, good light, the whole piece in the picture, and nobody in the photo.</p>
+<p class="exemple" id="objet_3d_quoi-exemple" data-t="objet_3d_quoi.exemple">E.g. my narrow-necked stoneware vase, my sourdough loaf</p>
+<input id="objet_3d_quoi" name="objet_3d_quoi" aria-describedby="objet_3d_quoi-aide objet_3d_quoi-exemple objet_3d_quoi-erreur" type="text" data-type="texte">
+<p class="erreur" id="objet_3d_quoi-erreur"></p>
+</div>
+</section>
+<section class="question" id="q22" aria-labelledby="q22-titre">
+<h3 id="q22-titre"><span class="question-numero">22</span> <span data-t="q22.titre">What you like, what you want to avoid</span></h3>
 <fieldset class="champ groupe" id="groupe-eviter" data-groupe="eviter" data-type="cases" aria-describedby="groupe-eviter-erreur">
 <legend><span data-t="groupe-eviter.label">Must avoid</span></legend>
 
@@ -641,8 +661,8 @@
 <h2 id="etape-envoi-titre" tabindex="-1"><span data-t="etape-envoi.titre">Files, contact details, legal notice</span></h2>
 <p class="etape-intro" data-t="etape-envoi.intro">Last step: what French law requires on any business website, and your files.</p>
 </header>
-<section class="question" id="q22" aria-labelledby="q22-titre">
-<h3 id="q22-titre"><span class="question-numero">22</span> <span data-t="q22.titre">Your photos and documents</span></h3>
+<section class="question" id="q23" aria-labelledby="q23-titre">
+<h3 id="q23-titre"><span class="question-numero">23</span> <span data-t="q23.titre">Your photos and documents</span></h3>
 <div class="champ champ-depot" id="fichiers_depot-zone" data-depot data-bucket="webexpresso-depots.firebasestorage.app" data-max-fichiers="60" data-max-mo="2048">
 <p class="depot-titre" data-t="fichiers_depot.label">Your photos and videos</p>
 <p class="aide" id="fichiers_depot-aide" data-t="fichiers_depot.aide">Choose them from your phone or computer: they are sent while you finish the questionnaire. Photos, videos or PDF, up to 60 files of 2 GB each at most.</p>
@@ -673,6 +693,10 @@
 </div>
 <p class="erreur" id="groupe-fichiers_contenu-erreur"></p>
 </fieldset>
+<div class="champ champ-case" data-si="objet_3d" data-si-valeurs="oui conseil">
+<label class="option" for="fichiers_objet_3d"><input type="checkbox" id="fichiers_objet_3d" name="fichiers_objet_3d" value="oui" aria-describedby="fichiers_objet_3d-erreur" data-type="case"> <span data-t="fichiers_objet_3d.label">I have added at least 3 photos of the piece to reproduce in 3D, taken from different angles (front, side, top)</span></label>
+<p class="erreur" id="fichiers_objet_3d-erreur"></p>
+</div>
 <div class="champ">
 <label for="fichiers_a_ne_pas_publier"><span data-t="fichiers_a_ne_pas_publier.label">A file not to publish? Say which one</span></label>
 
@@ -680,9 +704,9 @@
 <p class="erreur" id="fichiers_a_ne_pas_publier-erreur"></p>
 </div>
 </section>
-<section class="question" id="q23" aria-labelledby="q23-titre">
-<h3 id="q23-titre"><span class="question-numero">23</span> <span data-t="q23.titre">Your contact details</span></h3>
-<p class="aide" data-t="q23.aide">They will be visible to everyone on the website, except your email for replying to you.</p>
+<section class="question" id="q24" aria-labelledby="q24-titre">
+<h3 id="q24-titre"><span class="question-numero">24</span> <span data-t="q24.titre">Your contact details</span></h3>
+<p class="aide" data-t="q24.aide">They will be visible to everyone on the website, except your email for replying to you.</p>
 <div class="champ">
 <label for="public_telephone"><span data-t="public_telephone.label">Phone</span> <span class="requis">(<span data-t="obligatoire">required</span>)</span></label>
 <p class="aide" id="public_telephone-aide" data-t="public_telephone.aide">French law requires a phone number in the legal notice.</p>
@@ -720,8 +744,8 @@
 <p class="erreur" id="public_reseaux-erreur"></p>
 </div>
 </section>
-<section class="question" id="q24" aria-labelledby="q24-titre">
-<h3 id="q24-titre"><span class="question-numero">24</span> <span data-t="q24.titre">Where your customers&#x27; requests arrive</span></h3>
+<section class="question" id="q25" aria-labelledby="q25-titre">
+<h3 id="q25-titre"><span class="question-numero">25</span> <span data-t="q25.titre">Where your customers&#x27; requests arrive</span></h3>
 <div class="champ">
 <label for="email_reception"><span data-t="email_reception.label">Address that will receive messages sent from the website</span></label>
 <p class="aide" id="email_reception-aide" data-t="email_reception.aide">Only if it differs from your email above. It is not shown on the website.</p>
@@ -729,9 +753,9 @@
 <p class="erreur" id="email_reception-erreur"></p>
 </div>
 </section>
-<section class="question" id="q25" aria-labelledby="q25-titre">
-<h3 id="q25-titre"><span class="question-numero">25</span> <span data-t="q25.titre">Legal information</span></h3>
-<p class="aide" data-t="q25.aide">They appear in the legal notice that every business website must have. You will find them on your registration certificate or at annuaire-entreprises.data.gouv.fr.</p>
+<section class="question" id="q26" aria-labelledby="q26-titre">
+<h3 id="q26-titre"><span class="question-numero">26</span> <span data-t="q26.titre">Legal information</span></h3>
+<p class="aide" data-t="q26.aide">They appear in the legal notice that every business website must have. You will find them on your registration certificate or at annuaire-entreprises.data.gouv.fr.</p>
 <fieldset class="champ groupe" id="legal_forme" data-groupe="legal_forme" data-type="choix" aria-describedby="legal_forme-aide legal_forme-erreur">
 <legend><span data-t="legal_forme.label">Type of business</span> <span class="requis">(<span data-t="obligatoire">required</span>)</span></legend>
 <p class="aide" id="legal_forme-aide" data-t="legal_forme.aide">If you are unsure, we will check it with you from your SIRET number.</p>
@@ -780,13 +804,13 @@
 <p class="erreur" id="legal_mediateur_inconnu-erreur"></p>
 </div>
 </section>
-<section class="question" id="q26" aria-labelledby="q26-titre">
-<h3 id="q26-titre"><span class="question-numero">26</span> <span data-t="q26.titre">Before you send</span></h3>
+<section class="question" id="q27" aria-labelledby="q27-titre">
+<h3 id="q27-titre"><span class="question-numero">27</span> <span data-t="q27.titre">Before you send</span></h3>
 <div class="donnees-court">
-<p data-t="donnees.court">WebExpresso uses your answers to study your project and prepare your website. They are passed on by Formspark (a Belgian company storing data in the European Union, with two technical sub-processors in the United States). The photos and videos you add are stored by Google Cloud, in Paris, for 30 days at most. You can access, correct or delete them by writing to webexpresso.info@gmail.com.</p>
+<p data-t="donnees.court">WebExpresso uses your answers to study your project and prepare your website. They are passed on by Formspark (a Belgian company storing data in the European Union, with two technical sub-processors in the United States). The photos and videos you add are stored by Google Cloud, in Paris, for 30 days at most. If you ask for a 3D object, its photos alone are also passed, with your consent, to an American service. You can access, correct or delete them by writing to webexpresso.info@gmail.com.</p>
 <p><a href="#vos-donnees"><span data-t="lien_donnees">Read “Your data”</span></a></p>
 </div>
-<p class="aide" data-t="q26.aide">Minimum commitment totals: Essential €200 one-time; Autonomous + updates €290 minimum (€200 + 3 × €30/month); Autonomous + business/marketing support €400 minimum (€250 + 3 × €50/month); On request €500 one-time. Free questionnaire and custom preview (no upfront deposit required). You always keep your website if you stop (GitHub Pages hosting &amp; domain ~€10–15/yr in your name and expense). Commitment and termination clauses to be validated by a legal professional in written T&amp;Cs.</p>
+<p class="aide" data-t="q27.aide">Minimum commitment totals: Essential €200 one-time; Autonomous + updates €290 minimum (€200 + 3 × €30/month); Autonomous + business/marketing support €400 minimum (€250 + 3 × €50/month); On request €500 one-time. Free questionnaire and custom preview (no upfront deposit required). You always keep your website if you stop (GitHub Pages hosting &amp; domain ~€10–15/yr in your name and expense). Commitment and termination clauses to be validated by a legal professional in written T&amp;Cs.</p>
 <div class="champ champ-case">
 <label class="option" for="confirm_exactitude"><input type="checkbox" id="confirm_exactitude" name="confirm_exactitude" value="oui" required aria-describedby="confirm_exactitude-erreur" data-type="case"> <span data-t="confirm_exactitude.label">The information given is accurate to the best of my knowledge.</span> <span class="requis">(<span data-t="obligatoire">required</span>)</span></label>
 <p class="erreur" id="confirm_exactitude-erreur"></p>
@@ -799,8 +823,12 @@
 <label class="option" for="confirm_donnees"><input type="checkbox" id="confirm_donnees" name="confirm_donnees" value="oui" required aria-describedby="confirm_donnees-erreur" data-type="case"> <span data-t="confirm_donnees.label">I have read how my data is used.</span> <span class="requis">(<span data-t="obligatoire">required</span>)</span></label>
 <p class="erreur" id="confirm_donnees-erreur"></p>
 </div>
-<div class="champ champ-case">
-<label class="option" for="confirm_3d_ia"><input type="checkbox" id="confirm_3d_ia" name="confirm_3d_ia" value="oui" aria-describedby="confirm_3d_ia-erreur" data-type="case"> <span data-t="confirm_3d_ia.label">I agree that photos of my object may be used to create a 3D version of it, prepared by a specialist service located outside Europe.</span></label>
+<div class="champ champ-case" data-si="objet_3d" data-si-valeurs="oui">
+<label class="option" for="confirm_3d_objet"><input type="checkbox" id="confirm_3d_objet" name="confirm_3d_objet" value="oui" data-requis aria-describedby="confirm_3d_objet-erreur" data-type="case"> <span data-t="confirm_3d_objet.label">The object to reproduce in 3D is my own creation or product, or I have the right to reproduce it and show it on my website.</span> <span class="requis">(<span data-t="obligatoire">required</span>)</span></label>
+<p class="erreur" id="confirm_3d_objet-erreur"></p>
+</div>
+<div class="champ champ-case" data-si="objet_3d" data-si-valeurs="oui">
+<label class="option" for="confirm_3d_ia"><input type="checkbox" id="confirm_3d_ia" name="confirm_3d_ia" value="oui" data-requis aria-describedby="confirm_3d_ia-erreur" data-type="case"> <span data-t="confirm_3d_ia.label">I agree that photos of this object may be used to create a 3D version of it with artificial intelligence, by a specialist service based in the United States (fal.ai), and that a short note will say so on my website. I will approve the 3D object before it goes online.</span> <span class="requis">(<span data-t="obligatoire">required</span>)</span></label>
 <p class="erreur" id="confirm_3d_ia-erreur"></p>
 </div>
 </section>
@@ -822,6 +850,7 @@
 <p data-t="donnees.p7">In your browser: until you send the questionnaire, your answers are kept only in this browser, on this device, so that you can come back later. Nothing reaches us before you send it, except the photos and videos you add: they are sent as soon as you choose them. The “Clear my answers” button deletes them; they are cleared automatically once sent or after 30 days.</p>
 <p data-t="donnees.p8">Cookies: this page sets no cookies and loads no audience measurement service. When you send the questionnaire, the step through Formspark may set its own functional cookies.</p>
 <p data-t="donnees.p9">Your photos and videos: the ones you add on this page are sent directly to a Google Cloud storage space (Google Cloud EMEA Limited, Ireland) located in Paris, which only WebExpresso can open; nobody else can see or list them. We copy them into your project folder, and they are deleted from Google Cloud no later than 30 days after they were sent. As Google is an American company, a request for access by United States authorities cannot be ruled out; any such transfer is covered by the EU-US Data Privacy Framework. If you give a sharing link instead, your files stay with the service you chose, and we download them to prepare your website.</p>
+<p data-t="donnees.p10">Your 3D object: only if you asked for it and agreed, the photos of that object, and no others, are sent to fal.ai, an American service that creates a 3D version of it with artificial intelligence. Before sending, we remove the hidden information from the photos (where they were taken, which device) and set aside any photo showing a person. We ask fal.ai to keep neither the photos nor the object created, and according to its published terms, these files are not used to train its models. We retrieve the 3D object straight away, you approve it before it goes online, and a short note on your website says it was created with artificial intelligence from your photos.</p>
 </section>
 </main>
 </div>
