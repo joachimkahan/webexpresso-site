@@ -1,21 +1,28 @@
 /* ── objet3d : mise en page de la section « objet en 3D » de la page Exemples (l'intérieur de la figure est dans ajouts-objet3d-scene.css) ──
    Ordre à l'écran : titre et accroche, la tasse (avec son mot manuscrit), les deux premiers points, la bande « votre objet à partir de vos photos », la note et le lien. */
-.objet3d { display: grid; gap: clamp(28px, 5vw, 48px); }
+.objet3d { display: grid; gap: clamp(28px, 5vw, 48px); grid-template-columns: minmax(0, 1fr); grid-template-areas: "tete" "planche" "bande" "fin"; }
 .objet3d__tete { grid-area: tete; }
 .objet3d__tete h2 {
-    font-size: clamp(2.25rem, 1.25rem + 3.7vw, 3.875rem);
+    font-size: clamp(2.25rem, 1.25rem + 3.7vw, 3.375rem);
     line-height: 1.04;
     letter-spacing: -0.022em;
-    max-width: 11em;
+    max-width: 14em;
 }
-.objet3d__tete .accroche { margin-top: clamp(18px, 2.4vw, 26px); max-width: 28em; }
-.objet3d > .objet3d__scene { grid-area: figure; min-width: 0; }
-.objet3d > .objet3d__scene .objet3d__scene-dans { max-width: 780px; }
-.objet3d__suite { grid-area: suite; }
+.objet3d__tete .accroche { margin-top: clamp(18px, 2.4vw, 26px); max-width: 30em; }
+.objet3d__tete h2, .objet3d__tete .accroche { text-wrap: balance; }
 
-/* Le mot manuscrit : posé sur le coin haut gauche de la tasse, dans la même case de la grille ; il ne capte jamais le geste. */
+/* La planche : la tasse au centre, ses deux notes de part et d'autre, comme une fiche dessinée. Sous 1000 px, pas de traits : tasse, puis les notes. */
+.objet3d__planche { grid-area: planche; position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(20px, 4vw, 32px); min-width: 0; }
+.objet3d__planche > .objet3d__scene { min-width: 0; }
+.objet3d__planche > .objet3d__scene .objet3d__scene-dans { max-width: 640px; }
+.objet3d__planche .objet3d__teintes { justify-content: center; margin-left: 0; position: relative; }
+.objet3d__planche .objet3d__teinte-active { position: absolute; left: calc(50% + 101px); top: 50%; translate: 0 -50%; margin: 0; min-width: 0; white-space: nowrap; }
+@media (max-width: 479px) { .objet3d__planche .objet3d__legende .etiquette { margin: 0 auto 6px; } }
+.objet3d__planche .objet3d__legende { text-align: center; }
+
+/* Le mot manuscrit : posé près de la vapeur, dans la même case que la tasse ; il ne capte jamais le geste. */
 .objet3d__mot {
-    grid-area: figure;
+    grid-area: 1 / 1;
     align-self: start;
     justify-self: start;
     z-index: 1;
@@ -30,12 +37,31 @@
     text-wrap: balance;
 }
 
-.objet3d__points { list-style: none; margin: 0; padding: 0; }
-.objet3d__points li { padding-block: clamp(18px, 2.4vw, 24px); border-top: 1px solid oklch(0.967 0.021 86 / 0.3); }
+/* Les deux notes : un titre court et son texte, sans boîte ni filet. */
+.objet3d__points { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(20px, 3vw, 28px); }
 .objet3d__points h3 { margin-bottom: 8px; }
-.objet3d__points p { max-width: 34em; }
-.objet3d__points p, .objet3d__bande-texte p, .objet3d__fin > .petit { text-wrap: pretty; }
-.objet3d__tete .accroche, .objet3d__tete h2 { text-wrap: balance; }
+.objet3d__points p { max-width: 30em; text-wrap: pretty; }
+.objet3d__bande-texte p, .objet3d__fin > .petit { text-wrap: pretty; }
+.objet3d__traits { display: none; }
+
+@media (min-width: 700px) and (max-width: 999px) {
+    .objet3d__points { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(28px, 5vw, 48px); }
+}
+@media (min-width: 1000px) {
+    .objet3d__tete { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); column-gap: clamp(40px, 5vw, 72px); align-items: end; }
+    .objet3d__tete .accroche { margin-top: 0; }
+    .objet3d__planche { grid-template-columns: 26fr 48fr 26fr; grid-template-rows: auto; gap: 0; align-items: center; }
+    .objet3d__planche > .objet3d__scene { grid-area: 1 / 2; margin: -6% -9% 0; z-index: 0; }
+    .objet3d__planche > .objet3d__scene .objet3d__scene-dans { max-width: none; }
+    .objet3d__mot { grid-area: 1 / 2 / 2 / 4; margin: clamp(12px, 3vw, 44px) 0 0 40%; justify-self: start; rotate: 3deg; align-self: start; }
+    .objet3d__points { grid-area: 1 / 1 / 2 / 4; grid-template-columns: 26fr 48fr 26fr; gap: 0; align-self: stretch; pointer-events: none; z-index: 1; }
+    .objet3d__points li { max-width: 17em; }
+    .objet3d__points li:first-child { grid-column: 1; align-self: center; padding-right: clamp(20px, 3vw, 44px); }
+    .objet3d__points li:last-child { grid-column: 3; align-self: end; margin-bottom: 1%; padding-left: clamp(20px, 3vw, 44px); justify-self: end; }
+    .objet3d__traits { display: block; position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; color: var(--crema); overflow: visible; }
+    .objet3d__traits .trait { stroke-width: 2.4; stroke-dasharray: 0.1 8; }
+    .objet3d__traits .point { stroke-width: 7; }
+}
 
 /* La bande : un filet fin crème sur toute la largeur du cadre ; le texte à gauche, trois tirages à droite. */
 .objet3d__bande {
@@ -102,21 +128,7 @@
 .objet3d__fin > .lien-suite { margin-top: 10px; text-decoration-color: var(--crema); }
 .objet3d__fin > .lien-suite:focus-visible { outline-color: var(--crema); }
 
-.objet3d {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "tete" "figure" "suite" "bande" "fin";
-}
 @media (min-width: 1000px) {
-    .objet3d {
-        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-        grid-template-areas: "tete figure" "suite figure" "bande bande" "fin fin";
-        grid-template-rows: auto 1fr auto auto;
-        column-gap: clamp(40px, 5vw, 80px);
-        row-gap: clamp(28px, 4vw, 48px);
-        align-items: start;
-    }
-    .objet3d > .objet3d__scene { align-self: center; margin-right: calc(var(--gouttiere) * -1); }
-    .objet3d__mot { margin-top: clamp(24px, 4vw, 56px); margin-left: clamp(16px, 4vw, 64px); }
     .objet3d__bande {
         grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
         column-gap: clamp(40px, 5vw, 80px);
