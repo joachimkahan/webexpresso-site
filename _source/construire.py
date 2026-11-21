@@ -92,6 +92,11 @@ def plan_du_site(entrees: list[str]) -> str:
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + corps + "</urlset>\n")
 
 
+def robots_txt() -> str:
+    """robots.txt : autorise l'exploration et indique l'adresse du plan du site."""
+    return f"User-agent: *\nAllow: /\n\nSitemap: {ADRESSE}sitemap.xml\n"
+
+
 def inclure(texte: str, langue: str = "fr", profondeur: int = 0) -> str:
     """Remplace chaque {{inclure:nom}} par le morceau du même nom (un morceau peut en inclure un autre)."""
     if profondeur > 5:
@@ -167,6 +172,7 @@ def construire() -> dict[str, str]:
                 raise SystemExit(f"ERREUR : {dossier}/{fichier.name} : écriture non remplacée : {', '.join(sorted(set(reste)))}")
             pages[publie + fichier.name] = html.replace("<!DOCTYPE html>\n", "<!DOCTYPE html>\n" + AVIS, 1)
     pages["sitemap.xml"] = plan_du_site(plan)
+    pages["robots.txt"] = robots_txt()
     return pages
 
 
