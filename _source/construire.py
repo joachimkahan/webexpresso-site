@@ -49,7 +49,7 @@ LOCALES = {"fr": "fr_FR", "en": "en_GB"}
 IDENTITE = """    <script type="application/ld+json">
     {"@context": "https://schema.org", "@graph": [
         {"@type": "Organization", "@id": "%(a)s#entreprise", "name": "WebExpresso", "alternateName": ["Web Expresso", "Webexpresso"],
-         "url": "%(a)s", "logo": "%(a)sassets/logo-carre.png", "image": "%(a)sassets/partage.png", "email": "webexpresso.info@gmail.com",
+         "url": "%(a)s", "logo": "%(a)sassets/logo-carre.png", "image": "%(a)sassets/partage.png", "email": "contact@webexpresso.fr",
          "description": "Création de sites internet pour les artisans, commerçants et indépendants : aperçu gratuit avant de payer, dès 200 €.",
          "address": {"@type": "PostalAddress", "addressLocality": "Grenoble", "postalCode": "38000", "addressRegion": "Isère", "addressCountry": "FR"},
          "areaServed": {"@type": "Country", "name": "France"}},
