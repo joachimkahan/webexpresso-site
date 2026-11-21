@@ -1290,8 +1290,9 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
 .page-contact .message { padding-block: clamp(48px, 7vw, 96px) clamp(32px, 4vw, 56px); }
 .page-contact .message + .section { padding-top: clamp(36px, 4vw, 56px); }
 
-/* Bouton direct vers la messagerie et note sous l'adresse. */
-.page-contact .contact-actions { margin-top: 22px; }
+/* Boutons d'action directe (Gmail, messagerie, copie) et note sous l'adresse. */
+.page-contact .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.page-contact .contact-actions [hidden] { display: none; }
 .page-contact .message .petit { margin-top: 20px; font-size: 1rem; max-width: 46ch; }
 
 @media (min-width: 900px) {

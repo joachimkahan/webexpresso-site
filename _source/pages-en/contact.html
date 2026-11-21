@@ -10,8 +10,12 @@ classe: page-contact
             <h1>Write to us</h1>
             <p class="accroche">A question about creating your website, a doubt about the price, a problem with your site? One message is enough, in your own words. Here is our address:</p>
             <a class="adresse-ecrire" href="mailto:contact@webexpresso.fr">contact@webexpresso.fr</a>
-            <p class="contact-actions"><a class="bouton" href="mailto:contact@webexpresso.fr?subject=Question%20about%20my%20website">Open my email app</a></p>
-            <p class="petit doux">If nothing opens when you click the button or address, copy it into your usual email program.</p>
+            <div class="contact-actions">
+                <a class="bouton" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=contact@webexpresso.fr&amp;su=Question%20about%20my%20website" target="_blank" rel="noopener">Write in Gmail</a>
+                <a class="bouton bouton--clair" href="mailto:contact@webexpresso.fr?subject=Question%20about%20my%20website">Open my email app</a>
+                <button type="button" class="bouton bouton--clair" data-copier="contact@webexpresso.fr" data-copie="Address copied" hidden>Copy address</button>
+            </div>
+            <p class="petit doux">On Gmail, a new message opens with our address already filled in. If you use another email service, open your mail app or copy the address in one click.</p>
         </div>
         <figure class="page-haut__planche" aria-hidden="true">
             {{inclure:planche-enveloppe}}

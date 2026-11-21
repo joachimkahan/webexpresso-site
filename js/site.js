@@ -152,4 +152,26 @@
             affiche.focus();
         });
     });
+
+    // Boutons de copie en un clic (page contact) : actifs uniquement quand le presse-papiers du navigateur est disponible.
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        Array.prototype.forEach.call(document.querySelectorAll('[data-copier]'), function (bouton) {
+            var texteOriginal = bouton.textContent;
+            var texteCopie = bouton.getAttribute('data-copie') || 'Copié';
+            var minuteur = null;
+
+            bouton.hidden = false;
+            bouton.addEventListener('click', function () {
+                var valeur = bouton.getAttribute('data-copier');
+                if (!valeur) return;
+                navigator.clipboard.writeText(valeur).then(function () {
+                    bouton.textContent = texteCopie;
+                    if (minuteur) clearTimeout(minuteur);
+                    minuteur = setTimeout(function () {
+                        bouton.textContent = texteOriginal;
+                    }, 2500);
+                }).catch(function () {});
+            });
+        });
+    }
 })();
