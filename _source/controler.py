@@ -35,7 +35,7 @@ PROMESSE = "Vous gardez toujours votre site si vous arrêtez."
 LIGNE_500 = "Vous préférez l'espace pro dès le départ, sans abonnement ? Possible, sur demande : 500 €."
 # Version anglaise (pages de `en/`) : mêmes règles, phrases obligatoires traduites.
 PROMESSE_EN = "You always keep your website if you stop."
-LIGNE_500_EN = "Prefer the pro area from the start, with no subscription? Available on request: €500."
+LIGNE_500_EN = "Prefer the pro space from the start, with no subscription? Available on request: €500."
 # Montants de la fiche des offres (.agents/rules/offres-et-tarifs.md) et leurs calculs : 3 × 30 = 90, 3 × 50 = 150.
 MONTANTS = {0, 10, 15, 20, 30, 35, 50, 90, 150, 200, 250, 290, 400, 500}
 # Mots que le visiteur ne doit lire nulle part, puis mots réservés à certaines pages.
