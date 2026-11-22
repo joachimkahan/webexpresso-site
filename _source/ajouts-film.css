@@ -1,5 +1,5 @@
 /* ── film ── */
-/* Accueil : la vidéo de présentation, dans la section « Comment ça se passe », sous les quatre étapes.
+/* Accueil : la vidéo de présentation, dans la section « Notre démarche », sous les quatre étapes.
    Elle prolonge la section au lieu d'en ouvrir une : texte et lien à gauche, écran à droite, posé sur un fond café au lait
    comme la scène du haut de page. Son affiche reprend les quatre dessins des étapes, reliés par le même fil pointillé.
    L'affiche est un vrai bouton ; js/site.js la montre et lance la lecture ; sans script, la vidéo garde ses commandes. */

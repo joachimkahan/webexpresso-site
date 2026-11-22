@@ -80,7 +80,7 @@
 
 /* ajouts-deroule-scenes.css */
 /* ── deroule-scenes ── */
-/* Page « Comment ça se passe » : chaque étape montre ce que le visiteur verra à ce moment-là.
+/* Page « Notre démarche » : chaque étape montre ce que le visiteur verra à ce moment-là.
    1 : le questionnaire sur un téléphone. 2 : le site en cours de construction (croquis qui devient le site).
    3 : l'aperçu terminé et son ticket. 4 : le site en ligne, à son adresse, sur ordinateur et téléphone.
    Les écrans sont posés droits. Tout est préfixé par .page-deroule ou porté par des classes propres à ces scènes. */
@@ -206,7 +206,7 @@
 
 /* ajouts-film.css */
 /* ── film ── */
-/* Accueil : la vidéo de présentation, dans la section « Comment ça se passe », sous les quatre étapes.
+/* Accueil : la vidéo de présentation, dans la section « Notre démarche », sous les quatre étapes.
    Elle prolonge la section au lieu d'en ouvrir une : texte et lien à gauche, écran à droite, posé sur un fond café au lait
    comme la scène du haut de page. Son affiche reprend les quatre dessins des étapes, reliés par le même fil pointillé.
    L'affiche est un vrai bouton ; js/site.js la montre et lance la lecture ; sans script, la vidéo garde ses commandes. */
