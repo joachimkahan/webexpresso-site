@@ -13,14 +13,14 @@ const RESUMES = {
     webexpresso: 'Formule retenue : Essentiel — Total minimum à régler : 200 € (paiement unique).',
     moi: 'Formule retenue : Autonome — Total de l\'engagement minimum (3 mois) : 290 € (200 € + 3 × 30 €/mois).',
     accompagnement: 'Formule retenue : Autonome + accompagnement commercial/marketing — Total de l\'engagement minimum (3 mois) : 400 € (250 € + 3 × 50 €/mois).',
-    autonome_vie: 'Formule retenue (sur demande) : Autonome avec espace pro à vie — Total : 500 € (paiement unique ; hébergement GitHub Pages et domaine à la charge du client).',
+    autonome_vie: 'Formule retenue (sur demande) : Autonome avec espace pro dès le départ, sans abonnement — Total : 500 € (paiement unique ; hébergement GitHub Pages et domaine à la charge du client).',
     conseil: 'Formule à confirmer ensemble — Voir les totaux minimum de chaque formule ci-dessous :',
   },
   en: {
     webexpresso: 'Selected plan: Essential — Total minimum due: €200 (one-time payment).',
     moi: 'Selected plan: Autonomous — Minimum 3-month commitment total: €290 (€200 + 3 × €30/month).',
     accompagnement: 'Selected plan: Autonomous + business/marketing support — Minimum 3-month commitment total: €400 (€250 + 3 × €50/month).',
-    autonome_vie: 'Selected plan (on request): Autonomous with lifetime pro dashboard — Total: €500 (one-time; GitHub Pages hosting and domain at client\'s expense).',
+    autonome_vie: 'Selected plan (on request): Autonomous with the pro dashboard from the start, no subscription — Total: €500 (one-time; GitHub Pages hosting and domain at client\'s expense).',
     conseil: 'Plan to be advised together — Review each plan\'s minimum commitment total below:',
   },
 };

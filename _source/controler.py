@@ -30,7 +30,7 @@ SITE = SOURCE.parent
 sys.path.insert(0, str(SOURCE))
 import construire  # noqa: E402  (même dossier)
 
-PAGES_LEGALES = {"mentions-legales.html", "confidentialite.html", "conditions.html", "garanties.html", "accessibilite.html"}
+PAGES_LEGALES = {"mentions-legales.html", "confidentialite.html", "conditions.html", "garanties.html", "accessibilite.html", "resilier.html"}
 PROMESSE = "Vous gardez toujours votre site si vous arrêtez."
 LIGNE_500 = "Vous préférez l'espace pro dès le départ, sans abonnement ? Possible, sur demande : 500 €."
 # Version anglaise (pages de `en/`) : mêmes règles, phrases obligatoires traduites.
