@@ -693,8 +693,7 @@ a.exemple__vue .exemple__grand, a.exemple__vue .exemple__petit { transition: tra
     color: var(--encre);
     box-shadow: var(--ombre-objet);
 }
-.portrait:nth-child(odd) { rotate: -2.5deg; }
-.portrait:nth-child(even) { rotate: 2deg; margin-top: 34px; }
+.portrait:nth-child(even) { margin-top: 34px; }
 .portrait img, .portrait__attente {
     width: 100%;
     aspect-ratio: 4 / 5;
