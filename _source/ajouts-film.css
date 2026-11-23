@@ -91,6 +91,13 @@
     text-align: left;
 }
 
+.film__duree { display: block; font-family: var(--police-texte); font-size: var(--taille-petit); font-weight: 400; letter-spacing: 0; color: var(--encre-douce); }
+
+/* Formules et prix : la vidéo de la formule Autonome tient lieu de section entière (titre, texte et écran). */
+.film--seul { margin-top: 0; }
+.film--seul .film__texte p { margin-top: 16px; }
+.film--seul .film__texte .doux { color: var(--encre-douce); }
+
 @media (hover: hover) and (pointer: fine) {
     .film__affiche:hover .film__jouer { background-color: var(--bleu-survol); }
 }
